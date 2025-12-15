@@ -1,0 +1,86 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20251215094035
+Username: DESKTOP-K0B5USA\Anju
+RunAs User: DESKTOP-K0B5USA\Anju
+Configuration Name: 
+Machine: DESKTOP-K0B5USA (Microsoft Windows NT 10.0.19044.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 27336
+PSVersion: 5.1.19041.3031
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.3031
+BuildVersion: 10.0.19041.3031
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is anju_playwright.text
+PS C:\Users\Anju> New-Item -Path C:\Playwright Projects -Name 'QA-Training' -ItemType Directory
+PS C:\Users\Anju> TerminatingError(New-Item): "A positional parameter cannot be found that accepts argument 'Projects'."
+New-Item : A positional parameter cannot be found that accepts argument 'Projects'.
+At line:1 char:1
++ New-Item -Path C:\Playwright Projects -Name 'QA-Training' -ItemType D ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [New-Item], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.NewItemCommand
+New-Item : A positional parameter cannot be found that accepts argument 'Projects'.
+At line:1 char:1
++ New-Item -Path C:\Playwright Projects -Name 'QA-Training' -ItemType D ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [New-Item], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.NewItemCommand
+
+PS C:\Users\Anju> New-Item -Path C:\Users\Anju -Name ‘QA-Training’ -ItemType Directory 
+
+
+    Directory: C:\Users\Anju
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        15-12-2025     09:51                QA-Training
+
+
+PS C:\Users\Anju> Set-Location C:\Users\Anju -Name\QA-Training
+>> TerminatingError(Set-Location): "A parameter cannot be found that matches parameter name 'Name\QA-Training'."
+Set-Location : A parameter cannot be found that matches parameter name 'Name\QA-Training'.
+At line:1 char:28
++ Set-Location C:\Users\Anju -Name\QA-Training
++                            ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+Set-Location : A parameter cannot be found that matches parameter name 'Name\QA-Training'.
+At line:1 char:28
++ Set-Location C:\Users\Anju -Name\QA-Training
++                            ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\Anju> Set-Location C:\Users\Anju\QA-Training
+PS C:\Users\Anju\QA-Training> git --version
+git version 2.40.1.windows.1
+PS C:\Users\Anju\QA-Training> git clone https://github.com/sureshnanjan/automation-infogain.git 
+Cloning into 'automation-infogain'...
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 7 (delta 0), reused 3 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (7/7), done.
+PS C:\Users\Anju\QA-Training> Set-Location automation-infogain
+PS C:\Users\Anju\QA-Training\automation-infogain> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS C:\Users\Anju\QA-Training\automation-infogain> git checkout -b anju-branch 
+Switched to a new branch 'anju-branch'
+PS C:\Users\Anju\QA-Training\automation-infogain> git status
+On branch anju-branch
+nothing to commit, working tree clean
+PS C:\Users\Anju\QA-Training\automation-infogain> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20251215095907
+**********************
