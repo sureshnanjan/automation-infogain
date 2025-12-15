@@ -1,0 +1,55 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20251215095846
+Username: IGGLOBAL\Manjunatha.BL
+RunAs User: IGGLOBAL\Manjunatha.BL
+Configuration Name: 
+Machine: LPBL2S99RG3 (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 1524
+PSVersion: 5.1.26100.7462
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7462
+BuildVersion: 10.0.26100.7462
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is Manjunathanaikbl.txt
+PS C:\Users\manjunatha.bl> New-Item -Path D:/Training -Name ‘QA-Training’ -ItemType Directory
+
+
+    Directory: D:\Training
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        15-12-2025     10:02                QA-Training
+
+
+PS C:\Users\manjunatha.bl> Set-Location D:\Training\QA-Training
+PS D:\Training\QA-Training> git --version
+git version 2.50.0.windows.1
+PS D:\Training\QA-Training> git clone https://github.com/sureshnanjan/automation-infogain.git
+Cloning into 'automation-infogain'...
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 7 (delta 0), reused 3 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (7/7), done.
+PS D:\Training\QA-Training> Set-Location automation-infogain
+PS D:\Training\QA-Training\automation-infogain> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS D:\Training\QA-Training\automation-infogain> git checkout -b manjunathanaikbl-branch
+
+PS D:\Training\QA-Training\automation-infogain> git status
+
+PS D:\Training\QA-Training\automation-infogain> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20251215100930
+**********************
