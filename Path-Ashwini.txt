@@ -1,0 +1,52 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20251215131230
+Username: LAPTOP-LQ31VL25\Ashwini
+RunAs User: LAPTOP-LQ31VL25\Ashwini
+Configuration Name: 
+Machine: LAPTOP-LQ31VL25 (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 25248
+PSVersion: 5.1.26100.7019
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7019
+BuildVersion: 10.0.26100.7019
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is Path-Ashwini.txt
+PS C:\users\Ashwini> git --version
+git version 2.52.0.windows.1
+PS C:\users\Ashwini> git clone https://github.com/sureshnanjan/automation-infogain.git
+Cloning into 'automation-infogain'...
+remote: Enumerating objects: 26, done.
+remote: Counting objects: 100% (26/26), done.
+remote: Compressing objects: 100% (26/26), done.
+remote: Total 26 (delta 4), reused 18 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (26/26), 9.06 KiB | 618.00 KiB/s, done.
+Resolving deltas: 100% (4/4), done.
+PS C:\users\Ashwini> git status
+
+PS C:\users\Ashwini> git checkout -b Ashwini-branch
+
+PS C:\users\Ashwini> git checkout -bAshwini-branch
+
+PS C:\users\Ashwini> git clone https://github.com/sureshnanjan/automation-infogain.git
+fatal: destination path 'automation-infogain' already exists and is not an empty directory.
+PS C:\users\Ashwini> Set-Location automation-infogain
+PS C:\users\Ashwini\automation-infogain> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS C:\users\Ashwini\automation-infogain> git checkout -b Ashwini-branch
+Switched to a new branch 'Ashwini-branch'
+PS C:\users\Ashwini\automation-infogain> git status
+
+PS C:\users\Ashwini\automation-infogain> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20251215160027
+**********************
