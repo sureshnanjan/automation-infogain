@@ -1,38 +1,15 @@
 {
   "name": "automation-infogain",
   "version": "1.0.0",
-  "description": "Comprehensive TypeScript automation framework with Playwright support",
+  "description": "Automation Training for Playwright with TypeScript",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch",
-    "test": "playwright test",
-    "test:headed": "playwright test --headed",
-    "test:debug": "playwright test --debug",
-    "clean": "rm -rf dist",
-    "lint": "eslint src/**/*.ts",
-    "format": "prettier --write \"src/**/*.ts\""
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "typescript",
-    "automation",
-    "playwright",
-    "testing",
-    "framework"
-  ],
-  "author": "Suresh - Software Trainer",
-  "license": "MIT",
-  "devDependencies": {
-    "@playwright/test": "^1.40.0",
-    "@types/node": "^20.10.0",
-    "@typescript-eslint/eslint-plugin": "^6.13.0",
-    "@typescript-eslint/parser": "^6.13.0",
-    "eslint": "^8.54.0",
-    "prettier": "^3.1.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.3.1"
+    "chalk": "^5.6.2"
   }
 }
