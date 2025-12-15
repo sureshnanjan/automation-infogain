@@ -1,0 +1,53 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20251215101323
+Username: IGGLOBAL\Saravan.muthusamy
+RunAs User: IGGLOBAL\Saravan.muthusamy
+Configuration Name: 
+Machine: LPBLJBLQW93 (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 23244
+PSVersion: 5.1.26100.7462
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7462
+BuildVersion: 10.0.26100.7462
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is saravan.txt
+PS C:\Users\Saravan.Muthusamy> New-Item -Path C:\Working\Automation -Name ‘QA-Training’ -ItemType Directory
+
+
+    Directory: C:\Working\Automation
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        15-12-2025     10:13                QA-Training
+
+
+PS C:\Users\Saravan.Muthusamy> Set-Location C:\Working\Automation\QA-Training
+PS C:\Working\Automation\QA-Training> git clone https://github.com/sureshnanjan/automation-infogain.git
+Cloning into 'automation-infogain'...
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 10 (delta 2), reused 5 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (10/10), done.
+Resolving deltas: 100% (2/2), done.
+PS C:\Working\Automation\QA-Training> Set-Location automation-infogain
+PS C:\Working\Automation\QA-Training\automation-infogain> git status
+
+PS C:\Working\Automation\QA-Training\automation-infogain> git checkout -b 
+
+PS C:\Working\Automation\QA-Training\automation-infogain> git checkout -b Saravan-branch
+
+PS C:\Working\Automation\QA-Training\automation-infogain> git status
+
+PS C:\Working\Automation\QA-Training\automation-infogain> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20251215101819
+**********************
