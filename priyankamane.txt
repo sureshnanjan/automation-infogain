@@ -1,0 +1,49 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20251215153434
+Username: IGGLOBAL\Priyanka.Mane
+RunAs User: IGGLOBAL\Priyanka.Mane
+Configuration Name: 
+Machine: LPPU91W1JG3 (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 22108
+PSVersion: 5.1.26100.7462
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7462
+BuildVersion: 10.0.26100.7462
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is priyankamane.txt
+PS C:\Users\Priyanka.Mane> git --version
+git version 2.52.0.windows.1
+PS C:\Users\Priyanka.Mane> New-Item -Path D:\Playwright_Project -Name 'QA-Training' -ItemType Directory
+
+
+    Directory: D:\Playwright_Project
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        12/15/2025   3:39 PM                QA-Training
+
+
+PS C:\Users\Priyanka.Mane> Set-Location D:\Playwright_Project\QA-Training
+PS D:\Playwright_Project\QA-Training> git --version
+
+PS D:\Playwright_Project\QA-Training> git clone https://github.com/sureshnanjan/automation-infogain.git
+
+PS D:\Playwright_Project\QA-Training> Set-Location automation-infogain
+PS D:\Playwright_Project\QA-Training\automation-infogain> git status
+
+PS D:\Playwright_Project\QA-Training\automation-infogain> git checkout -b priyankamane-branch
+
+PS D:\Playwright_Project\QA-Training\automation-infogain> git status
+
+PS D:\Playwright_Project\QA-Training\automation-infogain> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20251215154658
+**********************
