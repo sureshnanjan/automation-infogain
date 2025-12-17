@@ -29,6 +29,9 @@
 /*function addNumbersJS(a, b) {
     return a + b;
 }
+
+addNumbersJS("suresh", 20);
+
 // This will fail at runtime with unexpected results
 // console.log(addNumbersJS("10", 20)); // Output: "1020" (string concatenation)
 
@@ -387,3 +390,15 @@ const frameworkConfig: CompleteTestConfig = {
  * - Easier framework maintenance
  */
 
+export type {
+    User,
+    LocatorStrategy,
+    ElementLocator,
+    TestConfig,
+    TestResult,
+    Calculator,
+    CompleteTestConfig,
+};
+export {
+    AutomationFramework
+};
