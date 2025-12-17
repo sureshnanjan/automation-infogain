@@ -29,12 +29,9 @@
 function addNumbersJS(a, b) {
     return a + b;
 }
-<<<<<<< HEAD
 
 addNumbersJS("suresh", 20);
 
-=======
->>>>>>> 63f6939 (first example)
 // This will fail at runtime with unexpected results
 // console.log(addNumbersJS("10", 20)); // Output: "1020" (string concatenation)
 
@@ -49,11 +46,8 @@ function addNumbers(a: number, b: number): number {
     return a + b;
 }
 
-<<<<<<< HEAD
 //addNumbers("10", 20);
 
-=======
->>>>>>> 63f6939 (first example)
 // TypeScript will show error before running: Argument of type 'string' is not assignable to parameter of type 'number'
 // console.log(addNumbers("10", 20)); // ❌ Compile-time error
 console.log(addNumbers(10, 20)); // ✅ Output: 30
@@ -396,11 +390,7 @@ const frameworkConfig: CompleteTestConfig = {
  * - Easier framework maintenance
  */
 
-<<<<<<< HEAD
 export type {
-=======
-export {
->>>>>>> 63f6939 (first example)
     User,
     LocatorStrategy,
     ElementLocator,
@@ -408,5 +398,7 @@ export {
     TestResult,
     Calculator,
     CompleteTestConfig,
+};
+export {
     AutomationFramework
 };
