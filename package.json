@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "automation-infogain",
-=======
   "name": "typescript-automation-framework",
->>>>>>> d9ebeca (Initial config files for framework and examples)
   "version": "1.0.0",
   "description": "Comprehensive TypeScript automation framework with Playwright support",
   "main": "index.js",
