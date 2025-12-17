@@ -5,41 +5,6 @@
  * and provides practical examples of its benefits over plain JavaScript.
  */
 
-import test from "node:test";
-import { userInfo } from "os";
-
-/**
- * 
- */
-enum PetCategory{
-    Dog,
-    Cat,
-    Bird,
-    Fish,
-    Reptile
-}
-
-//const mypets:PetCategory = PetCategory.Dog;
-
-enum DayofWeek{
-    Sunday=1,
-    Monday,
-    Tuesday,
-    Wednesday,
-    Thursday,
-    Friday,
-    Saturday
-}
-
-
-
-//mypets = [d]
-
-function displayPetCategory(categoryname:PetCategory):void{} 
-
-displayPetCategory(PetCategory.Dog);
-
-
 /**
  * WHAT IS TYPESCRIPT?
  * ====================
@@ -64,21 +29,10 @@ displayPetCategory(PetCategory.Dog);
 function addNumbersJS(a, b) {
     return a + b;
 }
-
-addNumbersJS("suresh", 20);
-
 // This will fail at runtime with unexpected results
 // console.log(addNumbersJS("10", 20)); // Output: "1020" (string concatenation)
 
 // ✅ TypeScript - Error caught during development
-/*
-TypeScript will show error before running: Argument of type 'string' is not assignable to parameter of type 'number'    
-kfsglsgj
-fkasgkl;
-fsklgl;sjg
-asdljgljasgl
-*/
-// JSDOC commenting
 /**
  * Adds two numbers together
  * @param {number} a - First number
@@ -88,10 +42,6 @@ asdljgljasgl
 function addNumbers(a: number, b: number): number {
     return a + b;
 }
-
-// numbers, string , boolean, Pet
-
-//addNumbers("10", 20);
 
 // TypeScript will show error before running: Argument of type 'string' is not assignable to parameter of type 'number'
 // console.log(addNumbers("10", 20)); // ❌ Compile-time error
@@ -112,21 +62,7 @@ interface User {
     name: string;
     email: string;
     isActive: boolean;
-    //gosometing():void;
 }
-
-interface Pet{
-    name:string;
-    age:number;
-    price?:number; 
-}
-
-const pet1:Pet = {name:"Tommy", age:5};
-const pet2 = {name:"Rocky", age:3, price:2000, breed:"Bulldog"};
-
-//petconst myobj = {is:true, name:"Suresh"};
-//myobj.newparam = 100;
-//myobj
 
 /**
  * Example function showing autocomplete benefits
@@ -137,33 +73,6 @@ function displayUserInfo(user: User): void {
     console.log(`User: ${user.name}, Email: ${user.email}`);
     // Typo protection: user.nmae would show an error immediately
 }
-
-displayUserInfo({
-    id: 1,
-    name: "Suresh",
-    email: "suresh@example.com",
-    isActive: true
-});
-
-
-
-
-function testDisplayUserInfo(user: {age?: number,name:string}) {}
-
-testDisplayUserInfo({age: 30, name: "Suresh"});
-
-
-
-
-displayUserInfo({
-    id: 1,
-    name: "Suresh",
-    email: "suresh@example.com",
-    isActive: true
-});
-
-const user = {}
-//console.log(user.name); // No autocomplete, prone to typos
 
 
 /**
@@ -219,7 +128,7 @@ const loginButton: ElementLocator = {
  * Test configuration interface
  */
 interface TestConfig {
-    browser_name: string;
+    browser: string;
     headless: boolean;
     timeout: number;
 }
@@ -239,63 +148,9 @@ class TestRunner {
      * TypeScript will immediately show all places that need updating
      */
     getBrowserName(): string {
-        return this.config.browser_name; // TypeScript tracks all usages
+        return this.config.browser; // TypeScript tracks all usages
     }
 }
-
-interface HomePageOperations{
-    logoDetails:{width:number; height:number;};
-    login():void;
-    logout():void;
-    accessCart():void;
-} 
-
-
-// Automation for WebPage
-class HomePageWeb implements HomePageOperations{
-    logoDetails = {width:100, height:50};
-    login(): void {
-        // Plwright 
-        console.log("Login functionality");
-    }
-    logout(): void {
-        console.log("Logout functionality");
-    }
-    accessCart(): void {
-        console.log("Access Cart functionality");
-    }
-}
-
-class HomePageMobile implements HomePageOperations{
-    logoDetails:{width:50, height:25};
-    login(): void {
-        // Appium WDIO
-        console.log("Mobile Login functionality");
-    }
-    logout(): void {
-        console.log("Mobile Logout functionality");
-    }
-    accessCart(): void {
-        console.log("Mobile Access Cart functionality");
-    }
-}
-
-// API 
-
-//int mynum
-
-var anddroid = new HomePageMobile();
-const webapp = new HomePageWeb();
-let start = 0; var end = 5;
-while(start < 5){
-    webapp.accessCart();
-    anddroid.accessCart();
-    start++;
-}
-
-
-
-
 
 
 /**
@@ -360,17 +215,6 @@ class LoginPage {
  * Test result can be multiple types
  */
 type TestResult = 'passed' | 'failed' | 'skipped';
-
-type Browser = 'chrome' | 'firefox' | 'safari' | 'edge';
-
-interface Women{}
-interface Men{}
-type humar = Women | Men
-
-
-
-const result1: TestResult = 'passed'; // ✅ Valid
-//const result2: TestResult = { email:'john@example.com',id:1,isActive:true,name:'John Doe'}; // ✅ Valid
 
 /**
  * Base test interface
@@ -541,7 +385,7 @@ const frameworkConfig: CompleteTestConfig = {
  * - Easier framework maintenance
  */
 
-export type {
+export {
     User,
     LocatorStrategy,
     ElementLocator,
@@ -549,7 +393,5 @@ export type {
     TestResult,
     Calculator,
     CompleteTestConfig,
-};
-export {
     AutomationFramework
 };
