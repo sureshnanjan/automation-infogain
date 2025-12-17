@@ -29,9 +29,6 @@
 function addNumbersJS(a, b) {
     return a + b;
 }
-
-addNumbersJS("suresh", 20);
-
 // This will fail at runtime with unexpected results
 // console.log(addNumbersJS("10", 20)); // Output: "1020" (string concatenation)
 
@@ -45,8 +42,6 @@ addNumbersJS("suresh", 20);
 function addNumbers(a: number, b: number): number {
     return a + b;
 }
-
-//addNumbers("10", 20);
 
 // TypeScript will show error before running: Argument of type 'string' is not assignable to parameter of type 'number'
 // console.log(addNumbers("10", 20)); // ❌ Compile-time error
@@ -67,7 +62,6 @@ interface User {
     name: string;
     email: string;
     isActive: boolean;
-}
 }
 
 /**
@@ -135,7 +129,6 @@ const loginButton: ElementLocator = {
  */
 interface TestConfig {
     browser: string;
-    browser: string;
     headless: boolean;
     timeout: number;
 }
@@ -155,7 +148,6 @@ class TestRunner {
      * TypeScript will immediately show all places that need updating
      */
     getBrowserName(): string {
-        return this.config.browser; // TypeScript tracks all usages
         return this.config.browser; // TypeScript tracks all usages
     }
 }
@@ -393,7 +385,7 @@ const frameworkConfig: CompleteTestConfig = {
  * - Easier framework maintenance
  */
 
-export type {
+export {
     User,
     LocatorStrategy,
     ElementLocator,
@@ -401,7 +393,5 @@ export type {
     TestResult,
     Calculator,
     CompleteTestConfig,
-};
-export {
     AutomationFramework
 };
