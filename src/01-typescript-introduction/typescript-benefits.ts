@@ -201,7 +201,10 @@ function findElement(locator: ElementLocator): string {
     return `Finding element by ${locator.strategy}: ${locator.value}`;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6ed8767 (first example)
 // Usage is clear and self-documenting
 const loginButton: ElementLocator = {
     strategy: LocatorStrategy.CSS,
