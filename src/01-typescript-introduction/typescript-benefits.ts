@@ -46,6 +46,14 @@ function addNumbers(a: number, b: number): number {
     return a + b;
 }
 
+//new function created by Anju
+function multiplyNumbers(a:number,b:number):number
+{
+    return a*b;
+}
+
+console.log(multiplyNumbers(22,43));
+
 //addNumbers("10", 20);
 
 // TypeScript will show error before running: Argument of type 'string' is not assignable to parameter of type 'number'
@@ -67,6 +75,18 @@ interface User {
     name: string;
     email: string;
     isActive: boolean;
+}
+//new interface created by Anju
+interface Employee
+{
+    employeeId:number;
+    employeeName:string;
+    employeeEmail:string;
+}
+
+function displayEmployeeInfo(emp:Employee):void
+{
+    console.log("Employee details:"+emp.employeeId+","+emp.employeeName+","+emp.employeeEmail);
 }
 
 /**
@@ -122,6 +142,20 @@ const loginButton: ElementLocator = {
     timeout: 5000
 };
 
+//enum created by Anju
+enum Shapes
+{
+    Circle,
+    Square,
+    Rectangle,
+    Triangle
+}
+
+function getShapeName(shape:Shapes):void
+{
+    console.log("Selected shape is:"+Shapes[shape]);
+}
+console.log(getShapeName(Shapes.Rectangle));
 
 /**
  * BENEFIT 4: REFACTORING CONFIDENCE
@@ -221,6 +255,15 @@ class LoginPage {
  */
 type TestResult = 'passed' | 'failed' | 'skipped';
 
+//Union type created by Anju
+type status = 'Success' | 'Error' | 'Loading';
+
+function printStatus(status:status):void
+{
+    console.log("Current print status is:"+status);
+}
+
+printStatus('Loading');
 /**
  * Base test interface
  */
