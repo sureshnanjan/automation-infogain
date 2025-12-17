@@ -43,6 +43,8 @@ function addNumbers(a: number, b: number): number {
     return a + b;
 }
 
+//addNumbers("10", 20);
+
 // TypeScript will show error before running: Argument of type 'string' is not assignable to parameter of type 'number'
 // console.log(addNumbers("10", 20)); // ❌ Compile-time error
 console.log(addNumbers(10, 20)); // ✅ Output: 30
