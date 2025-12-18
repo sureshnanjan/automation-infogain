@@ -20,10 +20,10 @@
     "resolveJsonModule": true,                    // Enable importing .json files
     
     /* Emit */
-    "declaration": true,                          // Generate .d.ts files from TypeScript and JavaScript files
+    "declaration": false,                          // Generate .d.ts files from TypeScript and JavaScript files
     "declarationMap": false,                       // Create sourcemaps for d.ts files
     "sourceMap": false,                            // Create source map files for emitted JavaScript files
-    "outDir": "./dist",                           // Specify an output folder for all emitted files
+    "outDir": "./output",                           // Specify an output folder for all emitted files
     "removeComments": true,                      // Keep comments in the output
     "noEmit": false,                              // Enable emitting files from a compilation
     
@@ -58,7 +58,7 @@
   ],
   "exclude": [
     "node_modules",
-    "dist",
+    "output",
     "**/*.spec.ts"
   ]
 }
