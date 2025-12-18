@@ -40,15 +40,9 @@ interface Pet{
  */
 
 enum Petstatus{
-<<<<<<< HEAD
     AVAILABLE="available",
     PENDING="pending",
     SOLD="sold"
-=======
-    available,
-    pending,
-    sold
->>>>>>> 978052a (Updated Petstore Models files with interfaces and enum with examples)
 }
 
 const dog:Pet={
@@ -57,10 +51,6 @@ const dog:Pet={
     category:{id:1, name:"Dog"},
     photoUrls:["Tommy: https://example.com/dog.jpg"],
     tags:[{id:1, name:"Tommy"}],
-<<<<<<< HEAD
     status:Petstatus.AVAILABLE
-=======
-    status:Petstatus.available
->>>>>>> 978052a (Updated Petstore Models files with interfaces and enum with examples)
 };
 console.log(dog);
