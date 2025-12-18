@@ -24,8 +24,5 @@ interface User {
     userStatus:UserStatus.ACTIVE
   }
 
-<<<<<<< HEAD
   console.log(user1);
-=======
-  console.log(user1);
->>>>>>> afb8d35 (adding assignments)
+
