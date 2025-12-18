@@ -39,6 +39,7 @@ console.log(afterDiscount);
 
 //Next Problem 
 
+
 // enum moblieList{
 //     oppo,
 //     iPhone,
@@ -49,3 +50,14 @@ console.log(afterDiscount);
 
 // }
 //
+
+enum moblieList{
+    oppo,
+    iPhone,
+    vivo,
+    samsung
+}
+// function getMobileByManufacturer(string):string{
+
+// }
+
