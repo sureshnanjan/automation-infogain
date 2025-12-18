@@ -1,7 +1,7 @@
 {
   "name": "automation-infogain",
   "version": "1.0.0",
-  "description": "Automation Training for Playwright with TypeScript",
+  "description": "Comprehensive TypeScript automation framework with Playwright support",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
@@ -38,10 +38,7 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "chalk": "^5.6.2"
+    "dotenv": "^16.3.1"
   }
 }
