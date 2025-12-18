@@ -1,5 +1,5 @@
 /**
- * Represents a Category entity in the application.
+ * Categories of pet 
  */
 export interface Category {
     /** Unique identifier for the category */
