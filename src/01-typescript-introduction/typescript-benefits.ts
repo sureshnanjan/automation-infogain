@@ -42,6 +42,7 @@ addNumbersJS("suresh", 20);
  * @param {number} b - Second number
  * @returns {number} Sum of the two numbers
  */
+/*
 function addNumbers(a: number, b: number): number {
     return a + b;
 }
@@ -51,7 +52,7 @@ function addNumbers(a: number, b: number): number {
 // TypeScript will show error before running: Argument of type 'string' is not assignable to parameter of type 'number'
 // console.log(addNumbers("10", 20)); // ❌ Compile-time error
 console.log(addNumbers(10, 20)); // ✅ Output: 30
-
+*/
 
 /**
  * BENEFIT 2: BETTER IDE SUPPORT & AUTOCOMPLETE
@@ -403,3 +404,66 @@ export {
     AutomationFramework
 };
 
+//Day 4 Trainee assigement by Priyanka Mane
+
+interface apiResponse{
+    code:string,
+    type:string,
+    message:string
+}
+
+interface catagory {
+    id:number,
+    name:string
+}
+
+interface pet {
+    id:number,
+    catagory:{
+        id:number,
+        name:string
+    }
+    name:string,
+    photoUrl:string,
+    tag:[{
+            id:number,
+            name:string
+    }]
+    status:string
+    
+}
+
+interface tag extends catagory{
+    //tag and catagory have same data
+}
+
+interface order{
+    id:number,
+    petId:number,
+    quantity:number,
+    shipData:string,
+    status:string,
+    complete:boolean
+}
+
+interface user{
+    id:number,
+    usernaem:string,
+    firstName:string,
+    lastName:string,
+    email:string,
+    password:string,
+    userStatus:string
+}
+//creating an object for the order interface
+const orderDetails:order ={
+    id:101,
+    petId:1010,
+    quantity:2,
+    shipData:"18-12-2025",
+    status:"deliverd",
+    complete:true
+}
+//printing 
+console.log("Order Details:",orderDetails);
+console.log("Order Details:",orderDetails.shipData,orderDetails.id);
