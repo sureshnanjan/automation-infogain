@@ -17,9 +17,9 @@ interface Order{
  */
 
 enum Orderstatus{
-    PLACED="placed",
-    APPROVED="approved",
-    DELIVERED="delivered"
+    placed,
+    approved,
+    delivered
 }
 
 const order1:Order={
@@ -27,7 +27,7 @@ const order1:Order={
     petId:101, 
     quantity:1, 
     shipDate:"2025-12-18", 
-    status:Orderstatus.PLACED, 
+    status:Orderstatus.placed, 
     complete:true
 };
 console.log(order1);
