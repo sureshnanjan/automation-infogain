@@ -437,7 +437,7 @@ let strLength: number = (someValue as string).length;
 
 // Using angle-bracket syntax (not usable in JSX)
 let anotherValue: unknown = 'another string';
-let anotherLength: number = (<string>anotherValue).length; (Int)
+let anotherLength: number = (<string>anotherValue).length; (Intl)
 
 /**
  * Practical example: Asserting DOM element types
