@@ -40,9 +40,9 @@ interface Pet{
  */
 
 enum Petstatus{
-    available,
-    pending,
-    sold
+    AVAILABLE="available",
+    PENDING="pending",
+    SOLD="sold"
 }
 
 const dog:Pet={
@@ -51,6 +51,6 @@ const dog:Pet={
     category:{id:1, name:"Dog"},
     photoUrls:["Tommy: https://example.com/dog.jpg"],
     tags:[{id:1, name:"Tommy"}],
-    status:Petstatus.available
+    status:Petstatus.AVAILABLE
 };
 console.log(dog);
