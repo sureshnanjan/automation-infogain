@@ -1,9 +1,8 @@
-import { Category } from "src/models/Category";
-import { Tag } from "src/models/Tag";
+import {Category} from "src/models/Category";//
+import {Tag} from "src/models/Tag";
 
 /**
- * Represents a Pet entity in the pet store application.
- * 
+ * Pet model representing pet details in the store
  */
  interface Pet {
     id: number;                              // Optional as per API
