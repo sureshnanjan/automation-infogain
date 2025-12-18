@@ -28,6 +28,9 @@ const firstOrder:Order={
     quantity: 1,
     shipDate: "2025-12-18",
     status: Orderstatus.PLACED,
-    complete: true
+    complete: true,
+    orderId: 0,
+    customerName: "",
+    orderAmount: 0
 };
 console.log(firstOrder);
