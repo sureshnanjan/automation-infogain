@@ -5,7 +5,7 @@ productname = 12345 as unknown as String
 let productavailability:boolean=false;
  
 const discountpercentage:number=30;
-
+//Below is the code for enum
 enum Mobileprice{
   //Black=250,
   //Gold=280,
