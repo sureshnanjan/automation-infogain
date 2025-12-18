@@ -17,9 +17,15 @@ interface Order{
  */
 
 enum Orderstatus{
+<<<<<<< HEAD
     PLACED="placed",
     APPROVED="approved",
     DELIVERED="delivered"
+=======
+    placed,
+    approved,
+    delivered
+>>>>>>> 978052a (Updated Petstore Models files with interfaces and enum with examples)
 }
 
 const order1:Order={
@@ -27,7 +33,11 @@ const order1:Order={
     petId:101, 
     quantity:1, 
     shipDate:"2025-12-18", 
+<<<<<<< HEAD
     status:Orderstatus.PLACED, 
+=======
+    status:Orderstatus.placed, 
+>>>>>>> 978052a (Updated Petstore Models files with interfaces and enum with examples)
     complete:true
 };
 console.log(order1);
