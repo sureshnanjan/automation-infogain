@@ -82,6 +82,17 @@ function addNumbers(a, b) {
 // TypeScript will show error before running: Argument of type 'string' is not assignable to parameter of type 'number'
 // console.log(addNumbers("10", 20)); // ❌ Compile-time error
 console.log(addNumbers(10, 20)); // ✅ Output: 30
+//created By Anusha
+var user1 = { id: 1, name: "Anusha", email: "anusha@example.com", isActive: true };
+function userInfo(user1) {
+    console.log("User Name: ".concat(user1.name));
+    console.log("User Email: ".concat(user1.email));
+    console.log("User ID: ".concat(user1.id));
+}
+function meetingDetails(meet) {
+    console.log("ID: ".concat(meet.meetID, ", Name: ").concat(meet.meetName, ", Password: ").concat(meet.meetPassword));
+}
+meetingDetails({ meetID: 123, meetName: "Training", meetPassword: "1234567" });
 /**
  * Example function showing autocomplete benefits
  * @param {User} user - User object with type information
@@ -106,6 +117,11 @@ var LocatorStrategy;
     LocatorStrategy["XPATH"] = "xpath";
     LocatorStrategy["TEXT"] = "text";
 })(LocatorStrategy || (LocatorStrategy = {}));
+//created By Anusha
+var csslocator = LocatorStrategy.CSS;
+var idlocator = LocatorStrategy.ID;
+var xpathlocator = LocatorStrategy.XPATH;
+var textlocator = LocatorStrategy.TEXT;
 /**
  * Finds an element using the specified locator
  * The function signature clearly shows what types are expected
