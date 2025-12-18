@@ -13,7 +13,11 @@ import { Tag } from "src/models/Tag";
     tags: Tag[];                             // List of tags
     status: "available" | "pending" | "sold";// Pet status in store
 <<<<<<< HEAD
+<<<<<<< HEAD
  }
 =======
   }
 >>>>>>> 57ee0e0 (adding assignments)
+=======
+  }
+>>>>>>> 91e0c18 (adding assignments)
