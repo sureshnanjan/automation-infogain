@@ -6,7 +6,7 @@
  */
 
 import test from "node:test";
-import { userInfo } from "os";
+//import { userInfo } from "os";
 
 /**
  * 
@@ -186,11 +186,6 @@ enum LocatorStrategy {
     XPATH = 'xpath',
     TEXT = 'text'
 }
-//created By Anusha
-let csslocator:LocatorStrategy= LocatorStrategy.CSS;
-let idlocator:LocatorStrategy= LocatorStrategy.ID;
-let xpathlocator:LocatorStrategy= LocatorStrategy.XPATH;
-let textlocator:LocatorStrategy= LocatorStrategy.TEXT;
 //created By Anusha
 let csslocator:LocatorStrategy= LocatorStrategy.CSS;
 let idlocator:LocatorStrategy= LocatorStrategy.ID;
