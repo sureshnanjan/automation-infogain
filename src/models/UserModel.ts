@@ -4,7 +4,11 @@ enum UserStatus{
 }
 interface User {
     id: number;
+<<<<<<< HEAD
     userName: string;
+=======
+    username: string;
+>>>>>>> 16ffc7c (adding assignments)
     firstName: string;
     lastName: string;
     email: string;

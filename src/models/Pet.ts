@@ -12,4 +12,8 @@ import { Tag } from "src/models/Tag";
     photoUrls: string[];                     // Required field
     tags: Tag[];                             // List of tags
     status: "available" | "pending" | "sold";// Pet status in store
+<<<<<<< HEAD
  }
+=======
+  }
+>>>>>>> 16ffc7c (adding assignments)
