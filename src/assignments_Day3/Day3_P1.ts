@@ -40,7 +40,7 @@ Activity 1: Modify Data Type
 productName as unknown as number;  // Changed from string to number
 console.log(`Modified Product Name: ${typeof(productName)}`); // Output: number
 
-console.log("productName value:", productName); // Output: Widget Pro
+console.log("productName value:", productName); // Output:iPhone 15 Pro
 
 
 /*
