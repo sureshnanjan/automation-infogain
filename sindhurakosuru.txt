@@ -1,0 +1,69 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20251218201638
+Username: IGGLOBAL\Kosuru.Sindura
+RunAs User: IGGLOBAL\Kosuru.Sindura
+Configuration Name: 
+Machine: LPBL5CD046HGML (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 15160
+PSVersion: 5.1.26100.7462
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7462
+BuildVersion: 10.0.26100.7462
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is sindhurakosuru.txt
+PS C:\Users\kosuru.sindura> New-Item -ItemType Directory -Path C:\Users\kosuru.sindura -Name QA-Training
+
+
+    Directory: C:\Users\kosuru.sindura
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        18-12-2025     20:16                QA-Training
+
+
+PS C:\Users\kosuru.sindura> Set-Location C:\Users\kosuru.sindura\QA-Training
+PS C:\Users\kosuru.sindura\QA-Training> git --version
+git version 2.49.0.windows.1
+PS C:\Users\kosuru.sindura\QA-Training> git clone https://github.com/sureshnanjan/automation-infogain.git
+Cloning into 'automation-infogain'...
+remote: Enumerating objects: 424, done.
+remote: Counting objects: 100% (239/239), done.
+remote: Compressing objects: 100% (163/163), done.
+Rremote: Total 424 (delta 88), reused 201 (delta 59), pack-reused 185 (from 1)
+Receiving objects: 100% (424/424), 127.36 KiB | 1.31 MiB/s, done.
+Resolving deltas: 100% (158/158), done.
+PS C:\Users\kosuru.sindura\QA-Training> Set-Location automation-infogain
+PS C:\Users\kosuru.sindura\QA-Training\automation-infogain> git status
+
+PS C:\Users\kosuru.sindura\QA-Training\automation-infogain> git checkout -b sindhurakosuru-branch
+
+PS C:\Users\kosuru.sindura\QA-Training\automation-infogain> git branch
+
+PS C:\Users\kosuru.sindura\QA-Training\automation-infogain> git status
+
+PS C:\Users\kosuru.sindura\QA-Training\automation-infogain> Move-Item C:\Users\kosuru.sindura\sindhurakosuru.txt .
+Move-Item : The process cannot access the file because it is being used by another process.
+At line:1 char:1
++ Move-Item C:\Users\kosuru.sindura\sindhurakosuru.txt .
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (C:\Users\kosuru...dhurakosuru.txt:FileInfo) [Move-Item], IOException
+    + FullyQualifiedErrorId : MoveFileInfoItemIOError,Microsoft.PowerShell.Commands.MoveItemCommand
+Move-Item : The process cannot access the file because it is being used by another process.
+At line:1 char:1
++ Move-Item C:\Users\kosuru.sindura\sindhurakosuru.txt .
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (C:\Users\kosuru...dhurakosuru.txt:FileInfo) [Move-Item], IOException
+    + FullyQualifiedErrorId : MoveFileInfoItemIOError,Microsoft.PowerShell.Commands.MoveItemCommand
+
+PS C:\Users\kosuru.sindura\QA-Training\automation-infogain> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20251218202949
+**********************
