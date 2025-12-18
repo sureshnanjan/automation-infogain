@@ -112,21 +112,7 @@ interface User {
     name: string;
     email: string;
     isActive: boolean;
-    //gosometing():void;
 }
-
-interface Pet{
-    name:string;
-    age:number;
-    price?:number; 
-}
-
-const pet1:Pet = {name:"Tommy", age:5};
-const pet2 = {name:"Rocky", age:3, price:2000, breed:"Bulldog"};
-
-//petconst myobj = {is:true, name:"Suresh"};
-//myobj.newparam = 100;
-//myobj
 
 /**
  * Example function showing autocomplete benefits
@@ -181,6 +167,11 @@ enum LocatorStrategy {
     XPATH = 'xpath',
     TEXT = 'text'
 }
+//created By Anusha
+let csslocator:LocatorStrategy= LocatorStrategy.CSS;
+let idlocator:LocatorStrategy= LocatorStrategy.ID;
+let xpathlocator:LocatorStrategy= LocatorStrategy.XPATH;
+let textlocator:LocatorStrategy= LocatorStrategy.TEXT;
 
 /**
  * Web element locator configuration
