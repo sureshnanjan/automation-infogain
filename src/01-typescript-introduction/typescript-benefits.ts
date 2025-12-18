@@ -191,6 +191,11 @@ let csslocator:LocatorStrategy= LocatorStrategy.CSS;
 let idlocator:LocatorStrategy= LocatorStrategy.ID;
 let xpathlocator:LocatorStrategy= LocatorStrategy.XPATH;
 let textlocator:LocatorStrategy= LocatorStrategy.TEXT;
+//created By Anusha
+let csslocator:LocatorStrategy= LocatorStrategy.CSS;
+let idlocator:LocatorStrategy= LocatorStrategy.ID;
+let xpathlocator:LocatorStrategy= LocatorStrategy.XPATH;
+let textlocator:LocatorStrategy= LocatorStrategy.TEXT;
 
 /**
  * Web element locator configuration
