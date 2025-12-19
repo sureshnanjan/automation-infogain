@@ -8,7 +8,7 @@ interface Order {
 // Fix object
 const order: Order = {
   orderId: 5001,
-  customerName: "Mani",
+  customerName: "Arun",
   orderAmount: 12000
 };
  
