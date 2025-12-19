@@ -7,7 +7,7 @@ interface Customer {
 // Create customer with extra property
 const customerObj = {
   customerId: 201,
-  customerName: "Mani",
+  customerName: "Sagar",
   accountType: "Savings"
 };
  
