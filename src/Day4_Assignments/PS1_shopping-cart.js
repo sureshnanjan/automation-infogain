@@ -1,5 +1,5 @@
 // Cart can store only string values (product names)
-var cart = [];
+var cart = []; //Ensures cart can hold multiple string values
 function addToCart(productNames) {
     for (var _i = 0, productNames_1 = productNames; _i < productNames_1.length; _i++) {
         var product = productNames_1[_i];
