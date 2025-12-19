@@ -6,8 +6,9 @@ enum MobilePrice {
 }
 
 function calculateAmount(color: MobilePrice, discount: number): number {
-  let totalAmount = color - discount;
-  return totalAmount;
+    const price = color;
+    const totalAmount = price - (price * discount / 100);
+    return totalAmount;
 }
 
 // Example usage
