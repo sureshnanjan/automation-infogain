@@ -1,4 +1,4 @@
-/*
+
 enum MobilePrice {
   Black = 250,
   Gold = 280,
@@ -15,7 +15,7 @@ let discount = 20;
 let finalPrice = calculateAmount(MobilePrice.White, discount);
 
 console.log("Actual Price:", MobilePrice.White);
-console.log("Final Price after discount:", finalPrice); */
+console.log("Final Price after discount:", finalPrice); 
 
 //Activity1
 
