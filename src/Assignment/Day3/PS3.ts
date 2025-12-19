@@ -16,19 +16,19 @@ console.log("Final Price after Discount:", calculateAmount(discount, MobilePrice
 
 //Activity2
 enum MobilePrice {
-  Black,
-  Gold = 30000,
-  White
+  Black3,
+  Gold3= 30000,
+  White3
 }
 
-function calculateAmount(discount: number, color: MobilePrice): number {
+function calculateAmount3 (discount: number, color: MobilePrice): number {
   return color - discount;
 }
 
-const discount = 1000;
-console.log("Actual Price of Mobile(Black,Gold):", MobilePrice.Black, MobilePrice.Gold);
-console.log("Actual Price of White Mobile:", MobilePrice.White);
-console.log("Final Price after Discount:", calculateAmount(discount, MobilePrice.White));
+const discount3= 1000;
+console.log("Actual Price of Mobile(Black,Gold):", MobilePrice.Black3 , MobilePrice.Gold3 );
+console.log("Actual Price of White Mobile:", MobilePrice.White3 );
+console.log("Final Price after Discount:", calculateAmount3 (discount3, MobilePrice.White3));
 
 
 
