@@ -41,8 +41,16 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Declare variables here
+let testName1: string = "Login Test";
+let timeout: number = 5000;
+let isPassed: boolean = true;
+let testData1: { username: string; password: string } | null = {
+  username: "admin",
+  password: "admin123"
+};
 
-
+// Example: assigning null
+testData1 = null;
 
 
 /**
@@ -62,6 +70,15 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Fix the code using const and let
+const browser: string = "chrome";
+let retries: number = 0;
+
+if (true) {
+  let browser: string = "firefox"; // block-scoped
+  retries = retries + 1;
+}
+
+console.log(browser); // chrome
 
 
 
@@ -80,6 +97,11 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Create calculateTestDuration function
 
+function calculateTestDuration(startTime: number, endTime: number): number {
+  return endTime - startTime;
+}
+
+console.log(calculateTestDuration(1000, 6000));
 
 
 
@@ -101,8 +123,17 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create runTest function
+function runTest(
+  testName: string,
+  retries: number = 0,
+  timeout: number = 5000
+): string {
+  return `Running ${testName} with ${retries} retries and ${timeout}ms timeout`;
+}
 
+console.log(runTest("Login Test"));
 
+console.log(runTest("Signup Test", 3, 10000));
 
 
 /**
@@ -125,9 +156,23 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create executeTests function
+function executeTests(suiteName: string, ...tests: string[]): number {
+  console.log(`Suite: ${suiteName}`);
 
+  for (const test of tests) {
+    console.log(test);
+  }
 
+  return tests.length;
+}
+const totalTests = executeTests(
+  "Login Suite",
+  "Test 1",
+  "Test 2",
+  "Test 3"
+);
 
+console.log("Total Tests:", totalTests);
 
 /**
  * Exercise 1.6: Function Return Types
@@ -146,9 +191,19 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create getTestResult function
+function getTestResult(score: number): string {
+  if (score >= 90) {
+    return "Excellent";
+  } else if (score >= 70) {
+    return "Good";
+  } else {
+    return "Needs Improvement";
+  }
+}
 
-
-
+console.log(getTestResult(95)); // Excellent
+console.log(getTestResult(75)); // Good
+console.log(getTestResult(60)); // Needs Improvement
 
 /**
  * Exercise 1.7: Arrow Function Basics
@@ -165,6 +220,9 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Convert to arrow function
 
+const multiply = (a: number, b: number): number => {
+  return a * b;
+};
 
 
 
@@ -183,7 +241,10 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Create square arrow function
 
+const square = (num: number): number => num * num;
 
+console.log(square(5)); 
+console.log(square(10));
 
 
 /**
@@ -199,9 +260,9 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create getTimestamp arrow function
+const getTimestamp = (): number => Date.now();
 
-
-
+console.log(getTimestamp()); // e.g., 1703251200000
 
 /**
  * Exercise 1.10: Arrow Function Returning Object
@@ -1134,7 +1195,7 @@ console.log('\n=== TESTING YOUR SOLUTIONS ===\n');
 // Uncomment the tests below as you complete each exercise
 
 // Section 1 Tests
-// console.log('1.1 Variables:', testName, timeout, isPassed, testData);
+// console.log('1.1 Variables:', testName1, timeout, isPassed, testData1);
 // console.log('1.3 Calculate Duration:', calculateTestDuration(1000, 6000));
 // console.log('1.4 Run Test:', runTest('Login Test'));
 // console.log('1.6 Test Result:', getTestResult(95));
