@@ -4,7 +4,7 @@ enum UserStatus{
 }
 interface User {
     id: number;
-    username: string;
+    userName: string;
     firstName: string;
     lastName: string;
     email: string;
