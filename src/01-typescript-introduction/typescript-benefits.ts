@@ -86,6 +86,7 @@ asdljgljasgl
  * @returns {number} Sum of the two numbers
  */
 /*
+/*
 function addNumbers(a: number, b: number): number {
     return a + b;
 }
@@ -97,6 +98,7 @@ function addNumbers(a: number, b: number): number {
 // TypeScript will show error before running: Argument of type 'string' is not assignable to parameter of type 'number'
 // console.log(addNumbers("10", 20)); // ❌ Compile-time error
 console.log(addNumbers(10, 20)); // ✅ Output: 30
+*/
 */
 
 /**
