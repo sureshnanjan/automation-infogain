@@ -1,14 +1,26 @@
-import {Category} from "src/models/Category";//
-import {Tag} from "src/models/Tag";
+import { Category } from "src/models/Category";
+import { Tag } from "src/models/Tag";
 
 /**
- * Pet model representing pet details in the store
+ * Represents a Pet entity in the pet store application.
+ * 
  */
- interface Pet {
-    id: number;                              // Optional as per API
-    category: Category;                      // Single category object
-    name: string;                            // Required field
-    photoUrls: string[];                     // Required field
-    tags: Tag[];                             // List of tags
-    status: "available" | "pending" | "sold";// Pet status in store
-  }
+export interface Pet {
+  /** Unique identifier for the pet (optional as per API specification) */
+  id: number;
+
+  /** Category to which the pet belongs */
+  category: Category;
+
+  /** Name of the pet (required) */
+  name: string;
+
+  /** List of photo URLs associated with the pet */
+  photoUrls: string[];
+
+  /** List of tags associated with the pet */
+  tags: Tag[];
+
+  /** Current status of the pet in the store */
+  status: "available" | "pending" | "sold";
+}
