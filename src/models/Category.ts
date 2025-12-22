@@ -10,7 +10,7 @@ export interface Category {
   }
   
 /**
- * Categories of pet 
+ * Represents a Category entity in the application.
  */
 export interface Category{
     id:number, // unique identification number
