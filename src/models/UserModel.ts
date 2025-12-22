@@ -1,32 +1,17 @@
-
 /**
- * UserModel interface representing UserModel section in petstore.swagger.
- * @interface UserModel
+ * https://petstore.swagger.io/#/pet/uploadFile
+ *
+ * @module assignments_Day4/day4
+ * Author: Pavithra
+ * Date: 18th Dec 2025
  */
-enum UserStatus {
-    Inactive = 0,
-    Active = 1
+interface User {
+  id: number;
+  username: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  phone: string;
+  userStatus: number;
 }
-interface UserModel {
-    id: number;
-    username: string;
-    first_Name: string;
-    last_Name: string;
-    email: string;
-    password: string;
-    phone: string;
-    user_Status: UserStatus;
-}
-
-const newUser: UserModel = {
-    id: 101,
-    username: "Mnaik",
-    first_Name: "Manjunath",
-    last_Name: "Naik",
-    email: "manjunath@xyz.com", 
-    password: "Pa$$word@123",
-    phone: "123-456-7890",
-    user_Status: UserStatus.Active
-}
-
-console.log(newUser);

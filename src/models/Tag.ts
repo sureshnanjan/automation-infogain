@@ -1,15 +1,11 @@
 /**
- * Tag interface representing Tag section in petstore.swagger.
- * @interface tag
+ * https://petstore.swagger.io/#/pet/uploadFile
+ *
+ * @module assignments_Day4/day4
+ * Author: Pavithra
+ * Date: 18th Dec 2025
  */
 interface Tag {
-    id: number;
-    name: string;
-
+  id: number;
+  name: string;
 }
-const groomedTag:Tag = {
-    id: 1,
-    name: 'groomed'
-}
-
-console.log(groomedTag);

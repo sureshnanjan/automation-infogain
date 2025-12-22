@@ -1,62 +1,18 @@
 /**
- * Pet interface representing Pet section in petstore.swagger.
- * @interface Pet
+ * https://petstore.swagger.io/#/pet/uploadFile
+ *
+ * @module assignments_Day4/day4
+ * Author: Pavithra
+ * Date: 18th Dec 2025
  */
-
-interface Category{
-    id:number;
+interface Pet {
+  id: number;
+  category: {
+    id: number;
     name: string;
+  };
+  name: string;
+  photoUrls: string[];
+  tags: object[];
+  status: string;
 }
-
-/**
- * Tag interface representing a tag section. 
- * @interface Tag
- */
-interface Tag {
-    id:number;
-    name:string;
-}
-
-/**
- * Pet interface representing a pet section.
- * @interface Pet
- */
-
-interface Pet{
-    id:number;
-    category:Category;
-    name:string;
-    photoUrls:string[];
-    tags:Tag[];
-    status:Petstatus;
-}
-
-/**
- * Petstatus enum represents the possible status of a pet.
- * @enum Petstatus
- */
-
-enum Petstatus{
-    AVAILABLE = "available",
-    PENDING = "pending",
-    SOLD = "sold"
-}
-
-const pet:Pet={
-    id:1,
-    category:{id: 1, name: "Dogs"},
-    name:"Jimmy",   
-    photoUrls:["https://example.com/jimmy.jpg"],
-    tags:[{id: 1, name: "groomed"}],
-    status:Petstatus.AVAILABLE
-};
-
-function isAvailable(pet:Pet): boolean{
-return pet.status ===Petstatus.AVAILABLE
-}
-
-const canBeDelivered = isAvailable(pet);
-if(canBeDelivered)
-    console.log("Pet is availbel and can be delivered")
-else
-    console.log("Pet is not availble and can not be delivered")
