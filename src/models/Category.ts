@@ -1,0 +1,10 @@
+/**
+ * Represents a Category entity in the application.
+ */
+export interface Category {
+    /** Unique identifier for the category */
+    id: number;
+  
+    /** Name of the category */
+    name: string;
+  }
