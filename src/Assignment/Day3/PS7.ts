@@ -1,4 +1,3 @@
-// PS7.ts
 // Demonstration of function overloading with proper type safety
 
 // Function overload signatures

@@ -1,3 +1,5 @@
+export {};
+
 /*************************************************
  * Function: getMobileByManufacturer
  *************************************************/
@@ -18,34 +20,5 @@ function getMobileByManufacturer(manufacturer: string): string[] {
     return mobileList;
 }
 
-/*************************************************
- * Activity 1: Comment Specific Lines
- *************************************************/
-
-// Commenting the return statement will cause a compile-time error
-// return mobileList;
-
-/*
-Observed Behavior:
-- Function execution fails
-- Compilation error occurs
-- Return type string[] is not satisfied
-*/
-
-
-// Correct execution
 console.log("The available mobile list:", getMobileByManufacturer("Samsung"));
-
-
-
-/*************************************************
- * Activity 2: Modify Function Call
- *************************************************/
-
-// Modified function call using + operator
 console.log("The available mobile list: " + getMobileByManufacturer("Nokia"));
-
-/*
-Explanation:
-- Array is converted to a comma-separated string
-*/
