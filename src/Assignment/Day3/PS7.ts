@@ -1,46 +1,53 @@
-/*************************************************
- * Function: getMobileByManufacturer
- * Demonstrates optional parameters & default values
- *************************************************/
+// PS7.ts
+// Demonstration of function overloading with proper type safety
 
-// Activity 1: Modified function declaration
-function getMobileByManufacturer(
-    manufacturer: string,
-    id?: number
-): string[] {
+// Function overload signatures
+function getMobileByManufacturer(manufacturer: string): string[];
+function getMobileByManufacturer(manufacturer: string, id: number): string[];
 
-    // Special case: id = 101 returns Moto list
-    if (id === 101) {
-        return ["Moto G73", "Moto Edge 40", "Moto G Power"];
+// Function implementation
+function getMobileByManufacturer(manufacturer: string, id?: number): string[] {
+    let mobiles: string[] = [];
+
+    if (manufacturer === "Apple") {
+        mobiles = ["iPhone 13", "iPhone 14", "iPhone 15"];
+    } else if (manufacturer === "Samsung") {
+        mobiles = ["Galaxy S21", "Galaxy S22", "Galaxy S23"];
+    } else if (manufacturer === "Microsoft") {
+        mobiles = ["Lumia 950", "Surface Duo"];
+    } else {
+        mobiles = ["No mobiles found"];
     }
 
-    // Manufacturer-based logic
-    if (manufacturer === "Samsung") {
-        return ["Galaxy S23", "Galaxy A54", "Galaxy Z Fold"];
-    } 
-    else if (manufacturer === "Apple") {
-        return ["iPhone 14", "iPhone 15", "iPhone 15 Pro"];
-    } 
-    else {
-        return ["No mobiles available"];
+    // Optional logic using id
+    if (id !== undefined) {
+        console.log(`Manufacturer ID: ${id}`);
     }
+
+    return mobiles;
 }
 
-/*************************************************
- * Activity 2: Modified function invocations
- *************************************************/
+// --------------------
+// Function Calls
+// --------------------
 
-// Default manufacturer behavior (Samsung)
-console.log(
-    "The available mobile list : " + getMobileByManufacturer(undefined)
-);
+// Case 1: Valid string value
+let manufacturer1: string = "Apple";
+console.log("Apple Mobiles:", getMobileByManufacturer(manufacturer1));
 
-// Special id-based logic (Moto list)
-console.log(
-    "The available mobile list : " + getMobileByManufacturer(undefined, 101)
-);
+// Case 2: Another valid string
+let manufacturer2: string = "Samsung";
+console.log("Samsung Mobiles:", getMobileByManufacturer(manufacturer2, 101));
 
-// Undefined manufacturer with non-special id
-console.log(
-    "The available mobile list : " + getMobileByManufacturer(undefined, 102)
-);
+// Case 3: Yet another valid string
+let manufacturer3: string = "Microsoft";
+console.log("Microsoft Mobiles:", getMobileByManufacturer(manufacturer3));
+
+// Case 4: Safe handling of possible undefined value
+let manufacturer4: string | undefined = undefined;
+
+if (manufacturer4) {
+    console.log(getMobileByManufacturer(manufacturer4));
+} else {
+    console.log("Manufacturer name is undefined");
+}
