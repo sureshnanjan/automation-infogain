@@ -29,7 +29,7 @@
 // ============================================================================
 
 console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
-//const myvar:string="test"||42||true||{username:"user",password:"pass"}; // to avoid TS error for empty file
+
 /**
  * Exercise 1.1: Variable Declarations
  * ------------------------------------
@@ -41,8 +41,16 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Declare variables here
+let testName1:string='Login Test';
+let timeout:number=5000;
+let isPassed:boolean=true;
+type user =
+{
+    username:string;
+    password:string;
+}
 
-
+const test:null | user = null;
 
 
 /**
@@ -62,7 +70,13 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Fix the code using const and let
-
+const browser = 'chrome';
+let retries = 0;
+ if (true) {
+       let browser = 'firefox';
+       retries = retries + 1;
+ }
+ console.log(browser); 
 
 
 
@@ -80,6 +94,12 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Create calculateTestDuration function
 
+const timeDuration=(startTime:number, endTime:number):number=>
+{
+    return endTime - startTime;
+}
+let duration=timeDuration(1000, 6000);
+console.log(`Duration in milliseconds: ${duration}`);
 
 
 
@@ -101,8 +121,11 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create runTest function
-
-
+const runTest1=(testName:string,retries?:number,timeout?:number):void=>{
+    console.log(`Running ${testName} with 0 retries and 5000 ms timeout`);
+}
+runTest1("LoginTest");
+runTest1("Signup Test");
 
 
 /**
@@ -125,8 +148,18 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create executeTests function
-
-
+const executeTests=(suiteName:string,testNames:string[])=>
+{
+    
+    console.log(`Logs:
+Suite:${suiteName}`)
+for(let i=0;i<testNames.length;i++){
+        console.log(` 
+${testNames[i]}`);
+    }
+    console.log(`returns: ${testNames.length}`);
+}
+executeTests('Login Suite', ['Test 1', 'Test 2', 'Test 3']);
 
 
 /**
@@ -146,9 +179,28 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create getTestResult function
+const getTestResult=(score:number)=>{
+    if(score>=90){
+        return `Excellent`;
+    }
+    else if(score>=70)
+    {
+        return `Good`;
+    }
+    else if(score>=50){
+        return `Needs Improvement`;
+    }
+    else {
+        return `Failed`;
+    }
+}
+const result1 = getTestResult(95);
+const result2 = getTestResult(75);
+const result3 = getTestResult(60);
 
-
-
+console.log(`${result1}`);
+console.log(`${result2}`);
+console.log(`${result3}`);
 
 /**
  * Exercise 1.7: Arrow Function Basics
@@ -165,8 +217,13 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Convert to arrow function
 
+const multiply=(a:number,b:number):number=>{
+    return a*b;
+}
 
+let multiplyResult=multiply(12,10);
 
+console.log(multiplyResult);
 
 /**
  * Exercise 1.8: Implicit Return
@@ -182,9 +239,15 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create square arrow function
+const square=(num:number):number=>{
+    return num*num;
+}
 
+let squareResult1=square(5);
+let squareResult2=square(10);
 
-
+console.log(squareResult1);
+console.log(squareResult2);
 
 /**
  * Exercise 1.9: Arrow Function with No Parameters
@@ -199,7 +262,12 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create getTimestamp arrow function
+const getTimestamp=()=>{
+    return Date.now();
+}
 
+let timestamp=getTimestamp();
+console.log(timestamp);
 
 
 
@@ -219,7 +287,22 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create createUser arrow function
+interface userDetails
+{
+    name:string;
+    email:string;
+    createdAt:Date;
+}
+const createUser=(name:string,email:string):userDetails=>{
+ return {
+    name,
+    email,
+    createdAt: new Date()
+ };
+};
 
+const userCreated=createUser("John", "john@test.com");
+console.log(userCreated);
 
 
 
@@ -242,8 +325,8 @@ console.log('\n=== SECTION 2: ARRAY METHODS WITH ARROW FUNCTIONS ===\n');
 
 const testNames = ['login test', 'signup test', 'checkout test'];
 // TODO: Use .map() to convert to uppercase
-
-
+const upperCaseNames:string[]=testNames.map(testName=>testName.toUpperCase());
+console.log(`Test names in upper case: ${upperCaseNames}`);
 
 
 /**
@@ -268,6 +351,9 @@ const tests = [
 ];
 // TODO: Extract only the IDs
 
+const testId:string[]=tests.map(test=>test.id);
+console.log(`Test Ids are: ${testId}`);
+
 
 
 
@@ -280,8 +366,8 @@ const tests = [
  */
 
 // TODO: Filter to get only passing tests
-
-
+//const testPassed:string[]=testNames.filter(passedValue=>passedValue==='passed');
+//console.log(`Passed test: ${testPassed}`);
 
 
 /**
@@ -298,7 +384,8 @@ const tests = [
 const scores = [95, 67, 88, 45, 92, 78, 53, 81];
 // TODO: Filter scores >= 70
 
-
+const filteredScores=scores.filter(newScoreArray=>newScoreArray>=70);
+console.log(`New Score array greater than or equal to 70:${filteredScores}`);
 
 
 /**
@@ -353,8 +440,10 @@ const browsers = ['chrome', 'firefox', 'chrome', 'safari', 'chrome', 'firefox'];
 
 const testCases = ['TC-001', 'TC-002', 'TC-003'];
 // TODO: Log each test case with index
+/* testCases.forEach((tcValue:string)=>{
+    console.log(`${tcValue.charAt} ${tcValue}`);
 
-
+}); */
 
 
 /**
@@ -461,6 +550,8 @@ const testResults = [
 const durations = [1500, 3000, 800, 2200, 1000];
 // TODO: Sort in ascending order (create copy first)
 
+const sortedDuration:number[]=durations.sort((a,b)=>a-b);
+console.log(`Sorted Array: ${sortedDuration}`);
 
 
 
@@ -565,7 +656,24 @@ console.log('\n=== SECTION 3: STRING METHODS WITH ARROW FUNCTIONS ===\n');
 
 const csv = 'TC-001,Login Test,Passed,1500';
 // TODO: Parse CSV into object
+const stringAfterSplit=csv.split(",");
+console.log(`String after split: ${stringAfterSplit}`);
 
+type testCase={
+    id:string;
+    name:string;
+    status:string;
+    duration:number;
+}
+
+const tcDetails:testCase={
+    id:stringAfterSplit[0],
+    name:stringAfterSplit[1],
+    status:stringAfterSplit[2],
+    duration:parseInt(stringAfterSplit[3],1500)
+};
+
+console.log(`id: ${tcDetails.id}, name: ${tcDetails.name}, status: ${tcDetails.status}, duration: ${tcDetails.duration}`);
 
 
 
@@ -1165,3 +1273,5 @@ console.log('\n=== TESTING YOUR SOLUTIONS ===\n');
 console.log('\n=== ALL DONE! ===\n');
 console.log('Great job completing the exercises!');
 console.log('Remember: Practice makes perfect! 🚀');
+
+
