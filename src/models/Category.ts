@@ -9,3 +9,10 @@ export interface Category {
     name: string;
   }
   
+/**
+ * Represents a Category entity in the application.
+ */
+export interface Category{
+    id:number, // unique identification number
+    name:string // Name of the category
+}
