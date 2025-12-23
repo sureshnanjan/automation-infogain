@@ -280,8 +280,15 @@ console.log(getTimestamp()); // e.g., 1703251200000
  */
 
 // TODO: Create createUser arrow function
-
-
+const createUser = (
+  name: string,
+  email: string
+): { name: string; email: string; createdAt: number } => ({
+  name,
+  email,
+  createdAt: Date.now()
+});
+console.log(createUser("John", "john@test.com"));
 
 
 // ============================================================================
@@ -305,7 +312,11 @@ const testNames = ['login test', 'signup test', 'checkout test'];
 // TODO: Use .map() to convert to uppercase
 
 
+const upperCaseTestNames = testNames.map(
+  (testName: string) => testName.toUpperCase()
+);
 
+console.log(upperCaseTestNames);
 
 /**
  * Exercise 2.2: Array.map() - Extract Property
@@ -329,8 +340,9 @@ const tests = [
 ];
 // TODO: Extract only the IDs
 
+const testIds1 = tests.map(test => test.id);
 
-
+console.log(testIds1);
 
 /**
  * Exercise 2.3: Array.filter() - Get Passing Tests
@@ -341,8 +353,15 @@ const tests = [
  */
 
 // TODO: Filter to get only passing tests
+const tests2 = [
+  { id: "TC-001", name: "Login Test", passed: true },
+  { id: "TC-002", name: "Signup Test", passed: false },
+  { id: "TC-003", name: "Checkout Test", passed: true }
+];
 
+const passedTests = tests.filter(test => test.passed === true);
 
+console.log(passedTests);
 
 
 /**
@@ -359,6 +378,11 @@ const tests = [
 const scores = [95, 67, 88, 45, 92, 78, 53, 81];
 // TODO: Filter scores >= 70
 
+//const scores = [95, 67, 88, 45, 92, 78, 53, 81];
+
+const passingScores = scores.filter(score => score >= 70);
+
+console.log(passingScores);
 
 
 
@@ -373,6 +397,15 @@ const scores = [95, 67, 88, 45, 92, 78, 53, 81];
  */
 
 // TODO: Calculate total sum using reduce
+
+const scores2 = [95, 67, 88, 45, 92, 78, 53, 81];
+
+const totalScore = scores2.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  0
+);
+
+console.log(totalScore);
 
 
 
@@ -393,6 +426,14 @@ const scores = [95, 67, 88, 45, 92, 78, 53, 81];
 const browsers = ['chrome', 'firefox', 'chrome', 'safari', 'chrome', 'firefox'];
 // TODO: Count occurrences of each browser
 
+//const browsers = ['chrome', 'firefox', 'chrome', 'safari', 'chrome', 'firefox'];
+
+const browserCount = browsers.reduce((acc: Record<string, number>, browser) => {
+  acc[browser] = (acc[browser] || 0) + 1;
+  return acc;
+}, {});
+
+console.log(browserCount);
 
 
 
@@ -415,7 +456,9 @@ const browsers = ['chrome', 'firefox', 'chrome', 'safari', 'chrome', 'firefox'];
 const testCases = ['TC-001', 'TC-002', 'TC-003'];
 // TODO: Log each test case with index
 
-
+testCases.forEach((testCase, index) => {
+  console.log(`${index + 1}. ${testCase}`);
+});
 
 
 /**
@@ -440,7 +483,9 @@ const users = [
 ];
 // TODO: Find first admin user
 
+const adminUser = users.find(user => user.role === 'admin');
 
+console.log(adminUser);
 
 
 /**
@@ -454,6 +499,11 @@ const users = [
  */
 
 // TODO: Check if any score is below 50
+const scores29 = [95, 67, 88, 45, 92, 78, 53, 81];
+
+const hasLowScore = scores29.some(score => score < 50);
+
+console.log(hasLowScore);
 
 
 
@@ -469,7 +519,9 @@ const users = [
  */
 
 // TODO: Check if all scores are above 40
+const areAllAbove40 = scores.every(score => score > 40);
 
+console.log(areAllAbove40);
 
 
 
