@@ -24,6 +24,8 @@
  * ============================================================================
  */
 
+import { constants } from "buffer";
+
 // ============================================================================
 // SECTION 1: VARIABLES & BASIC FUNCTIONS (10 exercises)
 // ============================================================================
@@ -42,8 +44,13 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Declare variables here
 
-
-
+let testNamee:string = "Login Test";
+let timeout:number = 5000;
+let isPassed:boolean = true;
+let testData1 : {
+    username:string,
+    password:string
+} | null;
 
 /**
  * Exercise 1.2: Const vs Let
@@ -62,9 +69,13 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Fix the code using const and let
-
-
-
+ const browser = 'chrome';
+ var retries = 0;
+ if (true) {
+     let browser = 'firefox';
+     retries = retries + 1;
+ }
+ console.log(browser); 
 
 /**
  * Exercise 1.3: Function with Type Annotations
@@ -80,7 +91,11 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Create calculateTestDuration function
 
-
+function calculateTestDuration(startTime:number, endTime:number):number{
+    let duration = endTime - startTime;
+    return duration;
+}
+console.log(`Duration is : `,calculateTestDuration(1000, 6000));
 
 
 /**
@@ -102,8 +117,13 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Create runTest function
 
-
-
+function runTest(testName:string,retries:number=0,timeout:number=5000):string{
+    let loginTest = `Running ${testName} with ${retries} and ${timeout}ms timeout`;
+    return loginTest;
+}
+console.log(runTest('Login Test'));
+console.log(runTest('Signup Test', 3, 10000));
+ 
 
 /**
  * Exercise 1.5: Rest Parameters
@@ -126,7 +146,10 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Create executeTests function
 
-
+function executeTests(suiteName:string,...testNames:string[]){
+    console.log(`Logs:\n Suite: ${suiteName} \n ${testNames}\n Returns: ${testNames.length} `)
+}
+executeTests('Login Suite', 'Test 1', 'Test 2', 'Test 3');
 
 
 /**
@@ -146,10 +169,23 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create getTestResult function
-
-
-
-
+function getTestResult(score:number):string {
+    let remarks="";
+    if(score>=90){
+        remarks =`Excellent`;
+    }
+    else if(score>=70){
+        remarks =`Good`;
+    }
+    else if(score<70){
+        remarks = `Needs Improvement`;
+    }
+    console.log(remarks);
+return remarks;
+}
+getTestResult(95);
+getTestResult(75);
+getTestResult(60);
 /**
  * Exercise 1.7: Arrow Function Basics
  * ------------------------------------
@@ -165,8 +201,10 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Convert to arrow function
 
-
-
+const multiply=(a: number, b: number): number =>{
+    return a * b;
+}
+console.log(multiply(5, 3));
 
 /**
  * Exercise 1.8: Implicit Return
@@ -182,8 +220,10 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create square arrow function
+const square=(a: number): number => a * a;
 
-
+console.log(square(5));
+console.log(square(10));
 
 
 /**
@@ -199,8 +239,8 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create getTimestamp arrow function
-
-
+const getTimestamp=(): number => Date.now();
+console.log(getTimestamp());
 
 
 /**
@@ -219,9 +259,9 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create createUser arrow function
+const createUser=(name:string, email:string): Object => ({name: name, email: email, createdAt: Date.now()})
 
-
-
+console.log(createUser('John', 'john@test.com'));
 
 // ============================================================================
 // SECTION 2: ARRAY METHODS WITH ARROW FUNCTIONS (15 exercises)
@@ -242,8 +282,9 @@ console.log('\n=== SECTION 2: ARRAY METHODS WITH ARROW FUNCTIONS ===\n');
 
 const testNames = ['login test', 'signup test', 'checkout test'];
 // TODO: Use .map() to convert to uppercase
-
-
+const uppercaseTestNames = testNames.map( upper => upper.toUpperCase()
+);
+console.log(uppercaseTestNames);
 
 
 /**
@@ -268,6 +309,8 @@ const tests = [
 ];
 // TODO: Extract only the IDs
 
+const testId = tests.map(tc => tc.id);
+console.log(testId);
 
 
 
@@ -281,7 +324,8 @@ const tests = [
 
 // TODO: Filter to get only passing tests
 
-
+const passedTests = tests.filter(pass => pass.passed);
+console.log(passedTests.map(i => i.id));
 
 
 /**
@@ -298,7 +342,8 @@ const tests = [
 const scores = [95, 67, 88, 45, 92, 78, 53, 81];
 // TODO: Filter scores >= 70
 
-
+const highScore = scores.filter(hs => hs >= 70);
+console.log(highScore);
 
 
 /**
@@ -314,7 +359,8 @@ const scores = [95, 67, 88, 45, 92, 78, 53, 81];
 // TODO: Calculate total sum using reduce
 
 
-
+const sum = scores.reduce((accumulator, currentValue) => accumulator + currentValue);
+console.log(sum);
 
 /**
  * Exercise 2.6: Array.reduce() - Count Occurrences
@@ -332,7 +378,13 @@ const scores = [95, 67, 88, 45, 92, 78, 53, 81];
 const browsers = ['chrome', 'firefox', 'chrome', 'safari', 'chrome', 'firefox'];
 // TODO: Count occurrences of each browser
 
+const occBrowser = browsers.reduce((acc: Record<string, number>, browser) =>
+{
+    acc[browser] = (acc[browser] || 0) +1;
+    return acc;
+}, {})
 
+console.log(occBrowser);
 
 
 /**
