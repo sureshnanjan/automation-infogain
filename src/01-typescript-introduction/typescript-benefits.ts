@@ -86,6 +86,7 @@ asdljgljasgl
  * @returns {number} Sum of the two numbers
  */
 /*
+/*
 function addNumbers(a: number, b: number): number {
     return a + b;
 }
@@ -98,6 +99,7 @@ function addNumbers(a: number, b: number): number {
 // console.log(addNumbers("10", 20)); // ❌ Compile-time error
 console.log(addNumbers(10, 20)); // ✅ Output: 30
 */
+
 
 /**
  * BENEFIT 2: BETTER IDE SUPPORT & AUTOCOMPLETE
