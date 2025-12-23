@@ -29,7 +29,7 @@
 // ============================================================================
 
 console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
-
+//const myvar:string="test"||42||true||{username:"user",password:"pass"}; // to avoid TS error for empty file
 /**
  * Exercise 1.1: Variable Declarations
  * ------------------------------------
