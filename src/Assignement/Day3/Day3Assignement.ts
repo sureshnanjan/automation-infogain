@@ -48,8 +48,4 @@ console.log(afterDiscount);
 // function getMobileByManufacturer(string):string{
 
 // }
-<<<<<<< HEAD
-
-=======
 //
->>>>>>> ba5432db6821a3ce0f2e056e97f263e9a90a91e2
