@@ -62,6 +62,5 @@ Element implicitly has an 'any' type because index expression is not of type 'nu
 const correctProductName = productAvailable[0];
 const correctAvailability = productAvailable[1];
 
-
 console.log("Product Name:", correctProductName);
 console.log("Availability:", correctAvailability);
