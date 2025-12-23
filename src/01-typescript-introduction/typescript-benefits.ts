@@ -121,7 +121,7 @@ interface Pet{
     price?:number; 
 }
 
-const pet1:Pet = {name:"Tommy", age:5};
+//const pet1:Pet = {name:"Tommy", age:5};
 const pet2 = {name:"Rocky", age:3, price:2000, breed:"Bulldog"};
 
 //petconst myobj = {is:true, name:"Suresh"};
@@ -266,30 +266,30 @@ class HomePageWeb implements HomePageOperations{
     }
 }
 
-class HomePageMobile implements HomePageOperations{
-    logoDetails:{width:50, height:25};
-    login(): void {
-        // Appium WDIO
-        console.log("Mobile Login functionality");
-    }
-    logout(): void {
-        console.log("Mobile Logout functionality");
-    }
-    accessCart(): void {
-        console.log("Mobile Access Cart functionality");
-    }
-}
+// class HomePageMobile implements HomePageOperations{
+//     // logoDetails:{width:50, height:25};
+//     login(): void {
+//         // Appium WDIO
+//         console.log("Mobile Login functionality");
+//     }
+//     logout(): void {
+//         console.log("Mobile Logout functionality");
+//     }
+//     accessCart(): void {
+//         console.log("Mobile Access Cart functionality");
+//     }
+// }
 
 // API 
 
 //int mynum
 
-var anddroid = new HomePageMobile();
+//var anddroid = new HomePageMobile();
 const webapp = new HomePageWeb();
 let start = 0; var end = 5;
 while(start < 5){
     webapp.accessCart();
-    anddroid.accessCart();
+    // anddroid.accessCart();
     start++;
 }
 
@@ -617,14 +617,14 @@ const Order1: Orders = {
     complete: false,
 };
 
-const Pet1: Pet = {
-    id: 202,
-    category: { id: 1, name: "Dogs" },
-    name: "Buddy",
-    photoUrls: ["http://example.com/photo1.jpg", "http://example.com/photo2.jpg"],
-    tags: [{ id: 1, name: "friendly" }, { id: 2, name: "trained" }],
-    status: "available",
-};
+// const Pet1: Pet = {
+//     id: 202,
+//     category: { id: 1, name: "Dogs" },
+//     name: "Buddy",
+//     photoUrls: ["http://example.com/photo1.jpg", "http://example.com/photo2.jpg"],
+//     tags: [{ id: 1, name: "friendly" }, { id: 2, name: "trained" }],
+//     status: "available",
+// };
 
 function getUserInfo(user: TestUser): string {
     return `User Info: ${user.firstName} ${user.lastName}, Email: ${user.email}, Phone: ${user.phone}`;
@@ -638,4 +638,4 @@ function getPetInfo(pet: Pet): string {
 
 console.log(getUserInfo(TestUser1));
 console.log(getOrderInfo(Order1));
-console.log(getPetInfo(Pet1));  
+//console.log(getPetInfo(Pet1));  
