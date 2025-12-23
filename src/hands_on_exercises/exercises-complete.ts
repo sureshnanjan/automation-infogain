@@ -41,8 +41,14 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Declare variables here
-
-
+{
+const testName: string = "Login Test";
+let timeout: number = 5000;
+let isPassed: boolean = true;
+let testData: { 
+    username: string; 
+    password: string } | null = null;
+}
 
 
 /**
@@ -63,7 +69,13 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Fix the code using const and let
 
-
+let browser = 'chrome';
+  var retries = 0;
+ if (true) {
+     let browser = 'firefox';
+     retries = retries + 1;
+ }
+ console.log(browser); // Should print 'chrome', not 'firefox'
 
 
 /**
@@ -80,6 +92,10 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Create calculateTestDuration function
 
+function calculateTestDuration(startTime: number, endTime: number): number {
+    return endTime - startTime;
+}
+console.log("Test Duration:", calculateTestDuration(1000, 6000));
 
 
 
