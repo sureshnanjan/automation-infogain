@@ -40,6 +40,7 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  * - A testData variable that can be null or an object with username and password
  */
 
+// TODO: Declare variables here
 const testName: string = "Login Test";
 let timeout: number = 5000;
 let isPassed: boolean = true;
@@ -64,6 +65,8 @@ let testData: {
  * console.log(browser); // Should print 'chrome', not 'firefox'
  */
 
+// TODO: Fix the code using const and let
+
 let browser = 'chrome';
   var retries = 0;
  if (true) {
@@ -86,6 +89,7 @@ let browser = 'chrome';
  * calculateTestDuration(1000, 6000) // should return 5000
  */
 
+// TODO: Create calculateTestDuration function
 
 /**
  * Function to calculate test duration
@@ -118,6 +122,7 @@ console.log("Test Duration:", calculateTestDuration(1000, 6000));
  * // returns "Running Signup Test with 3 retries and 10000ms timeout"
  */
 
+// TODO: Create runTest function
 
 /**
  * Function to run a test with optional retries and timeout
@@ -153,6 +158,7 @@ console.log(runTest('Login Test'));
  * // Returns: 3
  */
 
+// TODO: Create executeTests function
 
 /**
  * Function to execute tests in a suite
@@ -188,6 +194,7 @@ console.log(executeTests('Login Suite', 'Test 1', 'Test 2', 'Test 3'));
  * getTestResult(60) // returns "Needs Improvement"
  */
 
+// TODO: Create getTestResult function
 
 /**
  * Function to get test result based on score
@@ -221,6 +228,7 @@ console.log(getTestResult(75));
  * multiply(5, 3) // should return 15
  */
 
+// TODO: Convert to arrow function
 
 /**
  * Function to multiply two numbers
@@ -246,6 +254,7 @@ console.log(multiply(5, 3));
  * square(10) // returns 100
  */
 
+// TODO: Create square arrow function
 
 /**
  * Function to calculate square of a number
@@ -270,6 +279,7 @@ console.log(square(5));
  * getTimestamp() // returns current timestamp (e.g., 1703251200000)
  */
 
+// TODO: Create getTimestamp arrow function
 
 /**
  * Function to get current timestamp
@@ -296,6 +306,7 @@ console.log(getTimestamp());
  * Hint: Wrap object in parentheses for implicit return: (name, email) => ({ ... })
  */
 
+// TODO: Create createUser arrow function
 
 /**
  * Function to create a user object
@@ -331,6 +342,7 @@ console.log('\n=== SECTION 2: ARRAY METHODS WITH ARROW FUNCTIONS ===\n');
  * Expected output: ['LOGIN TEST', 'SIGNUP TEST', 'CHECKOUT TEST']
  */
 
+// TODO: Use .map() to convert to uppercase
 
 /**
  * Maps all test names to uppercase
@@ -364,6 +376,7 @@ const tests = [
     { id: 'TC-002', name: 'Signup Test', passed: false },
     { id: 'TC-003', name: 'Checkout Test', passed: true }
 ];
+// TODO: Extract only the IDs
 
 /**
  * Extracts test IDs from array of test objects
@@ -383,6 +396,7 @@ console.log(testIds);
  * Expected output: Array with TC-001 and TC-003 objects
  */
 
+// TODO: Filter to get only passing tests
 
 /**
  * Filters tests to get only those that passed
@@ -404,6 +418,7 @@ console.log(passingTests);
  */
 
 const scores = [95, 67, 88, 45, 92, 78, 53, 81];
+// TODO: Filter scores >= 70
 
 /**
  * Filters scores to get only those 70 or above
@@ -423,6 +438,7 @@ console.log(passingScores);
  * Hint: reduce((accumulator, currentValue) => accumulator + currentValue, initialValue)
  */
 
+// TODO: Calculate total sum using reduce
 
 /**
  * Calculates total sum of scores
@@ -446,6 +462,7 @@ console.log(totalScore);
  */
 
 const browsers = ['chrome', 'firefox', 'chrome', 'safari', 'chrome', 'firefox'];
+// TODO: Count occurrences of each browser
 
 /**
  * Counts occurrences of each browser in the array
@@ -474,6 +491,7 @@ console.log(browserCounts);
  */
 
 const testCases = ['TC-001', 'TC-002', 'TC-003'];
+// TODO: Log each test case with index
 
 /**
  * Logs each test case with its index
@@ -507,6 +525,7 @@ const users = [
     { username: 'admin1', role: 'admin' },
     { username: 'user2', role: 'user' }
 ];
+// TODO: Find first admin user
 
 /**
  * Finds the first user with role 'admin'
@@ -529,6 +548,7 @@ console.log(adminUser);
  * Hint: .some() returns true if at least one element matches the condition
  */
 
+// TODO: Check if any score is below 50
 
 /**
  * Checks if any score is below 50
@@ -551,6 +571,7 @@ console.log(hasLowScore);
  * Hint: .every() returns true only if ALL elements match the condition
  */
 
+// TODO: Check if all scores are above 40
 
 /**
  * Checks if all scores are above 40
@@ -589,6 +610,7 @@ const testResults = [
     { name: 'Test 3', score: 87, passed: true },
     { name: 'Test 4', score: 62, passed: false }
 ];
+// TODO: Calculate average score of passing tests
 
 /**
  * Calculates average score of passing tests through method chaining
@@ -620,6 +642,7 @@ console.log(averagePassingScore);
  */
 
 const durations = [1500, 3000, 800, 2200, 1000];
+// TODO: Sort in ascending order (create copy first)
 
 /**
  * Sorts durations in ascending order
@@ -643,6 +666,7 @@ console.log(sortedDurations);
  * Example: (a, b) => a.name.localeCompare(b.name)
  */
 
+// TODO: Sort tests alphabetically by name (create copy first)
 
 /**
  * Sorts tests alphabetically by name
@@ -679,11 +703,13 @@ console.log(sortedTestsByName);
  */
 
 const testData1 = [
+const testData1 = [
     { test: 'Test 1', status: 'passed' },
     { test: 'Test 2', status: 'failed' },
     { test: 'Test 3', status: 'passed' },
     { test: 'Test 4', status: 'failed' }
 ];
+// TODO: Group tests by status
 
 /**
  * Groups tests by their status
@@ -726,6 +752,7 @@ const testExecutions = [
     { name: 'Checkout', duration: 3000, browser: 'chrome', passed: true },
     { name: 'Profile', duration: 1200, browser: 'safari', passed: true }
 ];
+// TODO: Total duration of passing Chrome tests
 
 /**
  * Calculates total duration of passing tests in Chrome browser
@@ -767,7 +794,6 @@ const csv = 'TC-001,Login Test,Passed,1500';
 const [id, name, status, durationStr] = csv.split(',');
 const duration = parseInt(durationStr, 10);
 const parsedCsv = { id, name, status, duration };
-console.log(parsedCsv);
 
 
 /**
@@ -790,6 +816,7 @@ console.log(parsedCsv);
  */
 
 const testName2 = '  login_test_01  ';
+// TODO: Transform to "Login Test 01"
 
 /**
  * Transforms a test name string by trimming whitespace, replacing underscores with spaces, and converting to title case.
@@ -802,7 +829,7 @@ const formattedName = testName2.trim()
                .replace(/_/g, ' ') .split(' ')
                .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
                .join(' ');
-console.log(formattedName);
+
 
 /**
  * Exercise 3.3: Array.filter() with String.includes()
@@ -830,6 +857,7 @@ const logs = [
     'ERROR: Timeout',
     'INFO: Test completed'
 ];
+// TODO: Filter to get only ERROR logs
 
 /**
  * Filters logs to get only those containing 'ERROR'
@@ -837,7 +865,6 @@ const logs = [
  * @return {string[]} array of ERROR log strings
  */
 const errorLogs= logs.filter(log => log.includes('ERROR'));
-console.log(errorLogs);
 
 
 /**
@@ -878,6 +905,7 @@ console.log("User ID (Split):", userId2);
  */
 
 const usernames = ['john', 'jane', 'bob'];
+// TODO: Create email addresses
 
 /**
  * Creates email addresses from usernames
@@ -887,7 +915,7 @@ const usernames = ['john', 'jane', 'bob'];
  * createEmailAddresses(['john', 'jane']) // returns ['john@test.com', 'jane@test.com']
  */
 const emails= usernames.map(username => `${username}@test.com`);
-console.log(emails);
+
 
 /**
  * Exercise 3.6: String.substring() and Array Methods
@@ -905,6 +933,7 @@ console.log(emails);
  */
 
 const testIDs = ['TC-001', 'TC-002', 'TC-003', 'BUG-001', 'TC-004'];
+// TODO: Get TC numbers only
 
 /**
  * Extracts test case numbers from test IDs
@@ -936,6 +965,7 @@ console.log(tcNumbers(testIDs));
  */
 
 const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
+// TODO: Normalize to lowercase and remove duplicates
 
 /**
  * Normalizes statuses to lowercase and removes duplicates
@@ -945,7 +975,7 @@ const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
  * normalizedStatuses(['PASSED', 'failed', 'SKIPPED', 'passed']) // returns ['passed', 'failed', 'skipped']
  */
 const normalizedStatuses = [...new Set(statuses.map(status => status.toLowerCase()))];
-console.log(normalizedStatuses);
+
 
 /**
  * Exercise 3.8: String Validation
@@ -963,6 +993,7 @@ console.log(normalizedStatuses);
  * Hint: Use .includes() to check for both characters
  */
 
+// TODO: Create isValidEmail arrow function
 
 /**
  * Validates an email address
@@ -1021,7 +1052,7 @@ console.log(queryParams);
  * Hint: Divide by 1000, use .toFixed(1) for one decimal place
  */
 
-
+// TODO: Create formatDuration arrow function
 
 /**
  * Formats a duration in milliseconds into a human-readable string
@@ -1072,6 +1103,7 @@ const results4_1 = [
     { name: 'Test 2', passed: false, duration: 2000 },
     { name: 'Test 3', passed: true, duration: 1200 }
 ];
+// TODO: Create generateReport function and use it
 
 /**
  * Generates a test report summary from an array of test results
@@ -1080,7 +1112,7 @@ const results4_1 = [
  * @example
  * generateReport(results4_1) // returns { total: 3, passed: 2, failed: 1, totalDuration: 4700, passRate: 66.67 }
  */
-function generateReport (results: { name: string; passed: boolean; duration: number }[]) : { total: number; passed: number; failed: number; totalDuration: number; passRate: number } {
+const generateReport = (results: { name: string; passed: boolean; duration: number }[]) : { total: number; passed: number; failed: number; totalDuration: number; passRate: number }=> {
     const total = results.length;
     const passed = results.filter(test => test.passed).length;
     const failed = total - passed;
@@ -1088,7 +1120,6 @@ function generateReport (results: { name: string; passed: boolean; duration: num
     const passRate = total === 0 ? 0 : parseFloat(((passed / total) * 100).toFixed(2));
     return { total, passed, failed, totalDuration, passRate };
 }
-console.log(generateReport(results4_1));
 
 /**
  * Exercise 4.2: Filter and Transform
@@ -1112,6 +1143,7 @@ const testCases4_2 = [
     { id: 'TC-003', priority: 'high', automated: true },
     { id: 'TC-004', priority: 'medium', automated: false }
 ];
+// TODO: Get IDs of high priority automated tests as comma-separated string
 
 /**
  * Gets IDs of high priority automated tests as a comma-separated string
@@ -1123,7 +1155,6 @@ const highPriorityIds = testCases4_2
     .map(test => test.id)
     .join(', ');
 
-    console.log(highPriorityIds);
 
 /**
  * Exercise 4.3: Data Transformation Pipeline
@@ -1137,17 +1168,8 @@ const highPriorityIds = testCases4_2
  */
 
 const rawData = ['  test1  ', '  TEST2  ', '  Test3  '];
-/**
- * Transforms raw data strings by trimming whitespace and converting to title case
- * @param {string[]} rawData - array of raw data strings
- * @return {string[]} array of transformed strings
- */
-const transformedData = rawData.map(item => {
-    const trimmed = item.trim();
-    return trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
-}   
-);
-console.log(transformedData);
+// TODO: Transform to trimmed title case
+
 
 
 /**
@@ -1176,20 +1198,8 @@ const executions = [
     { browser: 'firefox', status: 'passed' },
     { browser: 'chrome', status: 'failed' }
 ];
+// TODO: Create browser/status summary
 
-/**
- * Generates a summary of test executions grouped by browser and status
- * @param {object[]} executions - array of execution objects
- * @return {object} summary object with counts by browser and status
- */
-const summary = executions.reduce((acc, curr) => {
-    if (!acc[curr.browser]) {
-        acc[curr.browser] = { passed: 0, failed: 0 };
-    }   
-    acc[curr.browser][curr.status]++;
-    return acc;
-}, {} as { [key: string]: { passed: number; failed: number } });
-console.log(summary);
 
 
 /**
@@ -1208,22 +1218,8 @@ console.log(summary);
  * Hint: Use RegExp with 'gi' flags for case-insensitive global replace
  */
 
-/**
- * Function to search and replace substrings in an array of test names
- * @param {string[]} tests - array of test names
- * @param {string} search - string to search for
- * @param {string} replace - string to replace with
- * @returns {string[]} array of replaced test names
- * @example
- * searchAndReplace(['Login Test', 'Signup Test'], 'login', 'authentication')
- * // returns ['Authentication Test', 'Signup Test']
- */
-function searchAndReplace(tests: string[], search: string, replace: string): string[] {
-    const regex = new RegExp(search, 'gi');
-    return tests.map(test => test.replace(regex, replace));
-}   
-const tests4_5 = ['Login Test', 'Signup Test', 'Login Validation'];
-console.log(searchAndReplace(tests4_5, 'login', 'authentication'));
+// TODO: Create searchAndReplace function
+
 
 
 /**
@@ -1251,21 +1247,8 @@ const tests4_6 = [
     { name: 'Test C', priority: 'high', duration: 1500 },
     { name: 'Test D', priority: 'medium', duration: 1200 }
 ];
+// TODO: Sort by priority then duration
 
-const priorityOrder: { [key: string]: number } = { high: 3, medium: 2, low: 1 }; 
-/**
- * Sorts tests by priority and duration
- * @param {object[]} tests4_6 - array of test objects
- * @return {object[]} sorted array of test objects
- */   
-const sortedTests4_6 = [...tests4_6].sort((a, b) => {
-    const priorityDiff = priorityOrder[b.priority] - priorityOrder[a.priority]; 
-    if (priorityDiff !== 0) {
-        return priorityDiff;
-    }
-    return a.duration - b.duration; 
-});
-console.log(sortedTests4_6);
 
 
 /**
@@ -1289,29 +1272,7 @@ console.log(sortedTests4_6);
  * - If even length: average of two middle elements
  */
 
-/**
- * Function to calculate statistics from an array of durations
- * @param {number[]} durations - array of test durations
- * @returns {object} object with min, max, avg, and median values
- * @example
- * calculateStats([1000, 1500, 2000, 1200, 1800])
- */
-function calculateStats(durations: number[]): { min: number; max: number; avg: number; median: number } {   
-    const sorted = [...durations].sort((a, b) => a - b);
-    const min = sorted[0];
-    const max = sorted[sorted.length - 1];
-    const avg = durations.reduce((sum, dur) => sum + dur, 0) / durations.length;
-    let median: number;
-    const mid = Math.floor(sorted.length / 2);
-    if (sorted.length % 2 === 0) {
-        median = (sorted[mid - 1] + sorted[mid]) / 2;
-    }   
-    else {  
-        median = sorted[mid];
-    }   
-    return { min, max, avg, median };
-}
-console.log(calculateStats([1000, 1500, 2000, 1200, 1800]));
+// TODO: Create calculateStats function
 
 
 /**
@@ -1593,7 +1554,23 @@ console.log('1.7 Multiply:', multiply(5, 3));
 console.log('1.8 Square:', square(5));
 console.log('1.9 Timestamp:', getTimestamp());
 console.log('1.10 Create User:', createUser('John', 'john@test.com'));
+//Section 1 Tests
+console.log('1.1 Variables:', testName, timeout, isPassed, testData);
+console.log('1.3 Calculate Duration:', calculateTestDuration(1000, 6000));
+console.log('1.4 Run Test:', runTest('Login Test'));
+console.log('1.6 Test Result:', getTestResult(95));
+console.log('1.7 Multiply:', multiply(5, 3));
+console.log('1.8 Square:', square(5));
+console.log('1.9 Timestamp:', getTimestamp());
+console.log('1.10 Create User:', createUser('John', 'john@test.com'));
 
+//Section 2 Tests
+console.log('2.1 Uppercase:', upperCaseTests);
+console.log('2.2 Test IDs:', testIds);
+console.log('2.3 Passing Tests:', passingTests);
+console.log('2.4 Passing Scores:', passingScores);
+console.log('2.5 Total Score:', totalScore);
+console.log('2.6 Browser Counts:', browserCounts);
 //Section 2 Tests
 console.log('2.1 Uppercase:', upperCaseTests);
 console.log('2.2 Test IDs:', testIds);
@@ -1608,8 +1585,16 @@ console.log('3.2 Formatted Name:', formattedName);
 console.log('3.3 Error Logs:', errorLogs);
 console.log('3.5 Emails:', emails);
 console.log('3.7 Normalized:', normalizedStatuses);
+//Section 3 Tests
+console.log('3.1 Parsed CSV:', parsedCsv);
+console.log('3.2 Formatted Name:', formattedName);
+console.log('3.3 Error Logs:', errorLogs);
+console.log('3.5 Emails:', emails);
+console.log('3.7 Normalized:', normalizedStatuses);
 
 // Section 4 Tests
+ console.log('4.1 Report:', generateReport(results4_1));
+ console.log('4.2 High Priority:', highPriorityIds);
  console.log('4.1 Report:', generateReport(results4_1));
  console.log('4.2 High Priority:', highPriorityIds);
 
