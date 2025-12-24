@@ -1,8 +1,7 @@
 
 /**
  * Interface defining operations for the Basic Authentication Page.
- * This includes methods for verifying the logging in,
- * logging out, verifying page content, and verifying the page title.
+ * This includes methods to get page header, page content and footer text
  * @interface BasicAuthPageOperations
  */
 export interface BasicAuthPageOperations {
