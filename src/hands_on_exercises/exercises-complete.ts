@@ -41,9 +41,14 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Declare variables here
-
-
-
+{
+const testName: string = 'Login Test';
+const timeout: number = 5000;
+const isPassed: boolean = true;
+const testData: {
+     username: string;
+      password: string } | null = null;
+}
 
 /**
  * Exercise 1.2: Const vs Let
@@ -62,7 +67,12 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Fix the code using const and let
-
+let browser: string = 'chrome';
+let retries: number = 0;
+if (true) {
+let tempBrowser = 'firefox';
+retries += 1;
+}
 
 
 
@@ -80,7 +90,7 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Create calculateTestDuration function
 
-
+const calculateTestDuration = (startTime: number, endTime: number): number => endTime - startTime;
 
 
 /**
