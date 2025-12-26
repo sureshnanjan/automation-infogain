@@ -1,4 +1,3 @@
 var a = 10;
-console.log('a');
-//const ta:string = 100.1
-//const mynum:number = "suresh"
+var ta = 100.1;
+var mynum = "suresh";

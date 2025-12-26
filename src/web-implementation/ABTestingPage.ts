@@ -9,6 +9,18 @@ export class ABTestingPage extends BasePage implements ABTestingOperations {
         super()
         //this.page = page;
     }
+    accessABTestingVariant(): Promise<void> {
+        throw new Error("Method not implemented.");
+    }
+    getABTestingHeader(): Promise<string | null> {
+        throw new Error("Method not implemented.");
+    }
+    getABTestingBodyContent(): Promise<string | null> {
+        throw new Error("Method not implemented.");
+    }
+    getABTestingFooterContent(): Promise<string | null> {
+        throw new Error("Method not implemented.");
+    }
 
     async getTitle(): Promise<string | null> {
         try {
@@ -25,7 +37,7 @@ export class ABTestingPage extends BasePage implements ABTestingOperations {
         let retry = 3; // This i can configure in my 
         while (!done){
             try{
-                Logger.info()
+                //Logger.info()
 
                 return page.locator(element).getTextContent();
 
@@ -33,7 +45,7 @@ export class ABTestingPage extends BasePage implements ABTestingOperations {
             catch{
                 retry++;
                 if (retry <= 0) {
-                    Logger.Debug(``)
+                    //Logger.Debug(``)
                     throw new Error("Maximum Retr")
                     // Take Screen shot 
                 }
