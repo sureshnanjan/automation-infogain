@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import type { DynamicControlsOperations } from '@src/operations/DynamicControlsOperations';
-import { getHerokuAppUrl } from '@src/utilities/herokuapp-utils';
+import type { DynamicControlsOperations } from '../operations/DynamicControlsOperations';
+import { getHerokuAppUrl } from '../utilities/herokuapp-utils';
 
 /*
  Dynamic Controls tests
