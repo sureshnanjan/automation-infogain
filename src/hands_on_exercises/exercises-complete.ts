@@ -1552,7 +1552,46 @@ console.log(customReduce([1, 2, 3], (sum, x) => sum * x, 1)); // 6
 
 // TODO: Create TestBuilder class
 
-
+// Final Test object structure
+interface TestConfig {
+  name: string;
+  timeout: number;
+  retries: number;
+  tags: string[];
+}
+ 
+class TestBuilder {
+  private test: TestConfig = {
+    name: "",
+    timeout: 0,
+    retries: 0,
+    tags: []
+  };
+ 
+  withName(name: string): this {
+    this.test.name = name;
+    return this;
+  }
+ 
+  withTimeout(timeout: number): this {
+    this.test.timeout = timeout;
+    return this;
+  }
+ 
+  withRetries(retries: number): this {
+    this.test.retries = retries;
+    return this;
+  }
+ 
+  withTags(tags: string[]): this {
+    this.test.tags = tags;
+    return this;
+  }
+ 
+  build(): TestConfig {
+    return this.test;
+  }
+}
 
 
 /**
@@ -1575,7 +1614,10 @@ console.log(customReduce([1, 2, 3], (sum, x) => sum * x, 1)); // 6
 
 // TODO: Create pipeline function
 
-
+function pipeline<T>(...fns: Array<(arg: any) => any>) {
+  return (input: T) =>
+    fns.reduce((result, fn) => fn(result), input);
+}
 
 // ============================================================================
 // TEST YOUR SOLUTIONS

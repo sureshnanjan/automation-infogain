@@ -22,4 +22,6 @@ productAvailable = false;
 
 console.log("Updated Product Availability :",productAvailable) 
 
+export default {};
+
 
