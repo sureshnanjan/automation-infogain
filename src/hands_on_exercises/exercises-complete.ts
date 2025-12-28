@@ -1613,7 +1613,10 @@ class TestBuilder {
 
 // TODO: Create pipeline function
 
-
+function pipeline<T>(...fns: Array<(arg: any) => any>) {
+  return (input: T) =>
+    fns.reduce((result, fn) => fn(result), input);
+}
 
 // ============================================================================
 // TEST YOUR SOLUTIONS
