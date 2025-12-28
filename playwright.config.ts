@@ -39,6 +39,7 @@ export default defineConfig({
       username: 'admin',
       password: 'admin',
     },
+    screenshot:'on',
 
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',

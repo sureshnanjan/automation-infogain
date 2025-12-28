@@ -5,7 +5,7 @@ enum MobilePrice {
   White =300
 }
 
-function calculateAmount(discount: number,color: MobilePrice): number {
+export function calculateAmount(discount: number,color: MobilePrice): number {
   const price = color;
   const finalAmount = price - (price * discount / 100);
   return finalAmount;
