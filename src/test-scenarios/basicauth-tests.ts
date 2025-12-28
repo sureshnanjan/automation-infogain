@@ -29,7 +29,7 @@ test('Logged In Basic Auth Page Footer Verification', async ({ page }) => {
   await page.getByRole('link', { name: 'Basic Auth' }).click();
    const basicAuthPage: BasicAuth = new BasicAuth(page);
   const footerText = await basicAuthPage.getFooterText();
-  console.log('Footer Text:', footerText);
+  console.log('Footer Text:', footerText?.trim());
   expect(footerText?.trim()).toBe('Powered by Elemental Selenium');
    await page.close();
 });
