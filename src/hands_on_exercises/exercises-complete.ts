@@ -592,6 +592,30 @@ console.log(sortedTests);
  *
  * Hint: Initialize empty object, create array for each status if not exists, push test name
  */
+const testData1 = [
+  { test: "Test 1", status: "passed" },
+  { test: "Test 2", status: "failed" },
+  { test: "Test 3", status: "passed" },
+  { test: "Test 4", status: "failed" },
+];
+/**
+ * Groups tests by their status
+ * @param {object[]} testData - array of test data objects
+ * @return {object} object grouping tests by status
+ * @example
+ * groupTestsByStatus(testData) // returns { passed: [...], failed: [...] }
+ */
+const groupedTests = testData1.reduce(
+  (acc, curr) => {
+    if (!acc[curr.status]) {
+      acc[curr.status] = [];
+    }
+    acc[curr.status].push(curr.test);
+    return acc;
+  },
+  {} as { [key: string]: string[] },
+);
+console.log(groupedTests);
 
 const testData = [
   { test: "Test 1", status: "passed" },
@@ -652,9 +676,13 @@ console.log("\n=== SECTION 3: STRING METHODS WITH ARROW FUNCTIONS ===\n");
  * Hint: Use .split(',') to create array, then destructure or access by index
  * Don't forget to convert duration to number using parseInt()
  */
-
 const csv = "TC-001,Login Test,Passed,1500";
 // TODO: Parse CSV into object
+
+const [id, name, status, durationStr] = csv.split(",");
+const duration = parseInt(durationStr, 10);
+const parsedCsv = { id, name, status, duration };
+console.log(parsedCsv);
 
 /**
  * Exercise 3.2: String Manipulation Chain
@@ -675,8 +703,23 @@ const csv = "TC-001,Login Test,Passed,1500";
  * - word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() for each word
  */
 
-const testName = "  login_test_01  ";
+const testName3 = "  login_test_01  ";
 // TODO: Transform to "Login Test 01"
+
+/**
+ * Transforms a test name string by trimming whitespace, replacing underscores with spaces, and converting to title case.
+ * @param {string} name - test name string to transform
+ * @returns {string} Transformed test name
+ * @example
+ * transformTestName('  login_test_01  ') // returns "Login Test 01"
+ */
+const formattedName = testName3
+  .trim()
+  .replace(/_/g, " ")
+  .split(" ")
+  .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+  .join(" ");
+console.log(formattedName);
 
 /**
  * Exercise 3.3: Array.filter() with String.includes()
@@ -704,7 +747,14 @@ const logs = [
   "ERROR: Timeout",
   "INFO: Test completed",
 ];
-// TODO: Filter to get only ERROR logs
+
+/**
+ * Filters logs to get only those containing 'ERROR'
+ * @param {string[]} logs - array of log strings
+ * @return {string[]} array of ERROR log strings
+ */
+const errorLogs = logs.filter((log) => log.includes("ERROR"));
+console.log(errorLogs);
 
 /**
  * Exercise 3.4: String.match() with Regular Expression
@@ -720,9 +770,15 @@ const logs = [
  * Method 2: Using split: url.split('/')[4]
  * Try both methods!
  */
-
 const url = "https://example.com/users/12345/profile";
 // TODO: Extract user ID
+
+const userIdRegex = url.match(/\/users\/(\d+)\//);
+const userId1 = userIdRegex ? userIdRegex[1] : null;
+console.log("User ID (Regex):", userId1);
+
+const userId2 = url.split("/")[4];
+console.log("User ID (Split):", userId2);
 
 /**
  * Exercise 3.5: Array.map() with String Template
@@ -739,6 +795,15 @@ const url = "https://example.com/users/12345/profile";
 
 const usernames = ["john", "jane", "bob"];
 // TODO: Create email addresses
+/**
+ * Creates email addresses from usernames
+ * @param {string[]} usernames - array of usernames
+ * @return {string[]} array of email addresses
+ * @example
+ * createEmailAddresses(['john', 'jane']) // returns ['john@test.com', 'jane@test.com']
+ */
+const emails = usernames.map((username) => `${username}@test.com`);
+console.log(emails);
 
 /**
  * Exercise 3.6: String.substring() and Array Methods
@@ -759,6 +824,20 @@ const testIds = ["TC-001", "TC-002", "TC-003", "BUG-001", "TC-004"];
 // TODO: Get TC numbers only
 
 /**
+ * Extracts test case numbers from test IDs
+ * @param {string[]} testIds - array of test IDs
+ * @return {string[]} array of test case numbers
+ * @example
+ * tcNumbers(['TC-001', 'BUG-001']) // returns ['001']
+ */
+const tcNumbers = (testlist: string[]): string[] => {
+  return testlist
+    .filter((id) => id.startsWith("TC-"))
+    .map((id) => id.substring(3));
+};
+console.log(tcNumbers(testIds));
+
+/**
  * Exercise 3.7: Case Conversion
  * ------------------------------
  * Given:
@@ -775,6 +854,17 @@ const testIds = ["TC-001", "TC-002", "TC-003", "BUG-001", "TC-004"];
 
 const statuses = ["PASSED", "failed", "SKIPPED", "passed"];
 // TODO: Normalize to lowercase and remove duplicates
+/**
+ * Normalizes statuses to lowercase and removes duplicates
+ * @param {string[]} statuses - array of status strings
+ * @return {string[]} array of unique lowercase statuses
+ * @example
+ * normalizedStatuses(['PASSED', 'failed', 'SKIPPED', 'passed']) // returns ['passed', 'failed', 'skipped']
+ */
+const normalizedStatuses = [
+  ...new Set(statuses.map((status) => status.toLowerCase())),
+];
+console.log(normalizedStatuses);
 
 /**
  * Exercise 3.8: String Validation
@@ -791,8 +881,19 @@ const statuses = ["PASSED", "failed", "SKIPPED", "passed"];
  *
  * Hint: Use .includes() to check for both characters
  */
-
 // TODO: Create isValidEmail arrow function
+/**
+ * Validates an email address
+ * @param {string} email - email string to validate
+ * @returns {boolean}   true if valid email, false otherwise
+ * @example
+ * isValidEmail('test@example.com') // returns true
+ * isValidEmail('invalid.email')    // returns false
+ */
+const isValidEmail = (email: string) =>
+  email.includes("@") && email.includes(".");
+console.log(isValidEmail("test@example.com"));
+console.log(isValidEmail("invalid.email"));
 
 /**
  * Exercise 3.9: Parse Test Data
@@ -810,9 +911,20 @@ const statuses = ["PASSED", "failed", "SKIPPED", "passed"];
  *
  * Alternative: Use Object.fromEntries()
  */
-
 const queryString = "username=john@test.com&password=secret123&role=admin";
 // TODO: Parse query string into object
+
+const queryParams = queryString
+  .split("&")
+  .map((pair) => pair.split("="))
+  .reduce(
+    (acc, [key, value]) => {
+      acc[key] = value;
+      return acc;
+    },
+    {} as { [key: string]: string },
+  );
+console.log(queryParams);
 
 /**
  * Exercise 3.10: Format Duration
@@ -829,8 +941,21 @@ const queryString = "username=john@test.com&password=secret123&role=admin";
  *
  * Hint: Divide by 1000, use .toFixed(1) for one decimal place
  */
-
 // TODO: Create formatDuration arrow function
+/**
+ * Formats a duration in milliseconds into a human-readable string
+ * @param {number} durationMs - duration in milliseconds
+ * @returns {string} formatted duration string
+ * @example
+ * formatDuration(1500) // returns '1.5s'
+ */
+const formatDuration = (durationMs: number): string => {
+  const durationSec = (durationMs / 1000).toFixed(1);
+  return `${durationSec}s`;
+};
+console.log(formatDuration(1500));
+console.log(formatDuration(2000));
+console.log(formatDuration(500));
 
 // ============================================================================
 // SECTION 4: COMBINED CHALLENGES (10 exercises)
@@ -866,6 +991,31 @@ const results4_1 = [
   { name: "Test 3", passed: true, duration: 1200 },
 ];
 // TODO: Create generateReport function and use it
+/**
+ * Generates a test report summary from an array of test results
+ * @param {object[]} results4_1 - array of test result objects
+ * @returns {object} summary report object
+ * @example
+ * generateReport(results4_1) // returns { total: 3, passed: 2, failed: 1, totalDuration: 4700, passRate: 66.67 }
+ */
+function generateReport(
+  results: { name: string; passed: boolean; duration: number }[],
+): {
+  total: number;
+  passed: number;
+  failed: number;
+  totalDuration: number;
+  passRate: number;
+} {
+  const total = results.length;
+  const passed = results.filter((test) => test.passed).length;
+  const failed = total - passed;
+  const totalDuration = results.reduce((sum, test) => sum + test.duration, 0);
+  const passRate =
+    total === 0 ? 0 : parseFloat(((passed / total) * 100).toFixed(2));
+  return { total, passed, failed, totalDuration, passRate };
+}
+console.log(generateReport(results4_1));
 
 /**
  * Exercise 4.2: Filter and Transform
@@ -892,6 +1042,18 @@ const testCases4_2 = [
 // TODO: Get IDs of high priority automated tests as comma-separated string
 
 /**
+ * Gets IDs of high priority automated tests as a comma-separated string
+ * @param {object[]} testCases4_2 - array of test case objects
+ * @return {string} comma-separated string of test IDs
+ */
+const highPriorityIds = testCases4_2
+  .filter((test) => test.priority === "high" && test.automated)
+  .map((test) => test.id)
+  .join(", ");
+
+console.log(highPriorityIds);
+
+/**
  * Exercise 4.3: Data Transformation Pipeline
  * -------------------------------------------
  * Given:
@@ -904,6 +1066,17 @@ const testCases4_2 = [
 
 const rawData = ["  test1  ", "  TEST2  ", "  Test3  "];
 // TODO: Transform to trimmed title case
+
+/**
+ * Transforms raw data strings by trimming whitespace and converting to title case
+ * @param {string[]} rawData - array of raw data strings
+ * @return {string[]} array of transformed strings
+ */
+const transformedData = rawData.map((item) => {
+  const trimmed = item.trim();
+  return trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
+});
+console.log(transformedData);
 
 /**
  * Exercise 4.4: Group and Count
@@ -932,6 +1105,22 @@ const executions = [
   { browser: "chrome", status: "failed" },
 ];
 // TODO: Create browser/status summary
+/**
+ * Generates a summary of test executions grouped by browser and status
+ * @param {object[]} executions - array of execution objects
+ * @return {object} summary object with counts by browser and status
+ */
+const summary = executions.reduce(
+  (acc, curr) => {
+    if (!acc[curr.browser]) {
+      acc[curr.browser] = { passed: 0, failed: 0 };
+    }
+    acc[curr.browser][curr.status]++;
+    return acc;
+  },
+  {} as { [key: string]: { passed: number; failed: number } },
+);
+console.log(summary);
 
 /**
  * Exercise 4.5: Search and Replace
@@ -950,6 +1139,26 @@ const executions = [
  */
 
 // TODO: Create searchAndReplace function
+/**
+ * Function to search and replace substrings in an array of test names
+ * @param {string[]} tests - array of test names
+ * @param {string} search - string to search for
+ * @param {string} replace - string to replace with
+ * @returns {string[]} array of replaced test names
+ * @example
+ * searchAndReplace(['Login Test', 'Signup Test'], 'login', 'authentication')
+ * // returns ['Authentication Test', 'Signup Test']
+ */
+function searchAndReplace(
+  tests: string[],
+  search: string,
+  replace: string,
+): string[] {
+  const regex = new RegExp(search, "gi");
+  return tests.map((test) => test.replace(regex, replace));
+}
+const tests4_5 = ["Login Test", "Signup Test", "Login Validation"];
+console.log(searchAndReplace(tests4_5, "login", "authentication"));
 
 /**
  * Exercise 4.6: Sort by Multiple Criteria
@@ -977,6 +1186,20 @@ const tests4_6 = [
   { name: "Test D", priority: "medium", duration: 1200 },
 ];
 // TODO: Sort by priority then duration
+const priorityOrder: { [key: string]: number } = { high: 3, medium: 2, low: 1 };
+/**
+ * Sorts tests by priority and duration
+ * @param {object[]} tests4_6 - array of test objects
+ * @return {object[]} sorted array of test objects
+ */
+const sortedTests4_6 = [...tests4_6].sort((a, b) => {
+  const priorityDiff = priorityOrder[b.priority] - priorityOrder[a.priority];
+  if (priorityDiff !== 0) {
+    return priorityDiff;
+  }
+  return a.duration - b.duration;
+});
+console.log(sortedTests4_6);
 
 /**
  * Exercise 4.7: Calculate Statistics
@@ -1000,6 +1223,33 @@ const tests4_6 = [
  */
 
 // TODO: Create calculateStats function
+/**
+ * Function to calculate statistics from an array of durations
+ * @param {number[]} durations - array of test durations
+ * @returns {object} object with min, max, avg, and median values
+ * @example
+ * calculateStats([1000, 1500, 2000, 1200, 1800])
+ */
+function calculateStats(durations: number[]): {
+  min: number;
+  max: number;
+  avg: number;
+  median: number;
+} {
+  const sorted = [...durations].sort((a, b) => a - b);
+  const min = sorted[0];
+  const max = sorted[sorted.length - 1];
+  const avg = durations.reduce((sum, dur) => sum + dur, 0) / durations.length;
+  let median: number;
+  const mid = Math.floor(sorted.length / 2);
+  if (sorted.length % 2 === 0) {
+    median = (sorted[mid - 1] + sorted[mid]) / 2;
+  } else {
+    median = sorted[mid];
+  }
+  return { min, max, avg, median };
+}
+console.log(calculateStats([1000, 1500, 2000, 1200, 1800]));
 
 /**
  * Exercise 4.8: Validate Test Data
@@ -1025,6 +1275,33 @@ const tests4_6 = [
 
 // TODO: Create validateUsers function
 
+const users4_8 = [
+  { username: "john@test.com", password: "pass123" },
+  { username: "invalid", password: "p" },
+  { username: "jane@test.com", password: "pass456" },
+];
+/**
+ * Validates an array of user objects for username and password criteria
+ * @param {object[]} users - array of user objects
+ * @return {string[]} array of validation error messages
+ * @example
+ * validateUsers(users) // returns array of error messages
+ */
+function validateUsers(
+  users: { username: string; password: string }[],
+): string[] {
+  const errors: string[] = [];
+  users.forEach((user, index) => {
+    if (!user.username.includes("@")) {
+      errors.push(`User ${index + 1}: Username must contain @`);
+    }
+    if (user.password.length < 6) {
+      errors.push(`User ${index + 1}: Password must be at least 6 characters`);
+    }
+  });
+  return errors;
+}
+console.log(validateUsers(users4_8));
 /**
  * Exercise 4.9: Test Execution Queue
  * -----------------------------------
@@ -1047,6 +1324,32 @@ const tests4_6 = [
  */
 
 // TODO: Create processQueue function
+
+/**
+ * Processes a queue of tests by sorting by priority and calculating start/end times
+ * @param {object[]} queue - array of test objects
+ * @return {object[]} array of processed test objects with startTime and endTime
+ * @example
+ * processQueue(queue) // returns processed queue with timings
+ */
+function processQueue(
+  queue: { name: string; priority: number; estimated: number }[],
+) {
+  const sortedQueue = [...queue].sort((a, b) => b.priority - a.priority);
+  let currentTime = 0;
+  return sortedQueue.map((test) => {
+    const startTime = currentTime;
+    const endTime = startTime + test.estimated;
+    currentTime = endTime;
+    return { ...test, startTime, endTime };
+  });
+}
+const queue = [
+  { name: "Test 1", priority: 1, estimated: 1000 },
+  { name: "Test 2", priority: 3, estimated: 2000 },
+  { name: "Test 3", priority: 2, estimated: 1500 },
+];
+console.log(processQueue(queue));
 
 /**
  * Exercise 4.10: Parse and Format Log Entries
@@ -1073,6 +1376,23 @@ const logs4_10 = [
   "[2024-01-01 10:32:00] INFO: Retrying...",
 ];
 // TODO: Parse logs and filter errors
+
+/**
+ * Parses log entries and formats ERROR logs
+ * @param {string[]} logs4_10 - array of log entry strings
+ * @return {string[]} array of formatted ERROR log messages
+ */
+const errorLogMessages = logs4_10
+  .map((log) => {
+    const match = log.match(/\[(.*?)\] (\w+): (.*)/);
+    if (match) {
+      return { timestamp: match[1], level: match[2], message: match[3] };
+    }
+    return null;
+  })
+  .filter((log) => log && log.level === "ERROR")
+  .map((log) => `${log!.timestamp} - ${log!.message}`);
+console.log(errorLogMessages);
 
 // ============================================================================
 // BONUS CHALLENGES (Optional - Advanced)
