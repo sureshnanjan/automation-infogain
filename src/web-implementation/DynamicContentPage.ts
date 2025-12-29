@@ -31,13 +31,13 @@ export class DynamicContentPage implements DynamicContentPageOperations {
             await this.page.goto('/dynamic_content?with_content=static');
         }
 
-        async isLoaded(expect: Expect): Promise<void> {
+        async isLoaded(): Promise<void> {
             await expect(this.headerTitle).toBeVisible();
-            await expect(this.contentRows).toHaveCount(3);
+            await expect(this.contentRows).toHaveCount(3, {timeout: 5000});
         }
 
         async enableStaticViaLink(): Promise<void> {
-            await this,this.staticLink.click();
+            await this.staticLink.click();
         }
             
         async getRowText(): Promise<string[]> {
