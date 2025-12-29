@@ -10,31 +10,34 @@ test('Verify JS Alert', async ({ page }) => {
     const alertsPage: JavaScriptAlertsOperations = getJavaScriptAlerts(page);
 
     page.once('dialog', async dialog => {
+        expect(dialog.message()).toBe('I am a JS Alert');  // Verify alert message
         await dialog.accept();
     });
 
-    await alertsPage. clickJsAlert();
-    expect(await alertsPage. getResultText()).toBe('You successfully clicked an alert');
+    await alertsPage.clickJsAlert();
+    expect(await alertsPage.getResultText()).toBe('You successfully clicked an alert');
 });
 
 test('Verify JS Confirm - OK', async ({ page }) => {
     const alertsPage = getJavaScriptAlerts(page);
 
     page.once('dialog', async dialog => {
+        expect(dialog.message()).toBe('I am a JS Confirm');  // Verify confirm message
         await dialog.accept();
     });
 
-    await alertsPage. clickJsConfirm();
-    expect(await alertsPage. getResultText()).toBe('You clicked: Ok');
+    await alertsPage.clickJsConfirm();
+    expect(await alertsPage.getResultText()).toBe('You clicked: Ok');
 });
 
 test('Verify JS Prompt', async ({ page }) => {
     const alertsPage = getJavaScriptAlerts(page);
 
     page.once('dialog', async dialog => {
+        expect(dialog.message()).toBe('I am a JS Prompt');  // Verify prompt message
         await dialog.accept('Playwright');
     });
 
     await alertsPage.clickJsPrompt();
-    expect(await alertsPage. getResultText()).toBe('You entered: Playwright');
+    expect(await alertsPage.getResultText()).toBe('You entered: Playwright');
 });
