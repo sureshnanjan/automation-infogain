@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
-import { DynamicContentPage } from '@src/web-implementation/DynamicContentPage';
-import { IDynamicContentPage } from '@src/operations/IDynamicContentPage';
+import { DynamicContentPageOperations } from '@src/operations/DynamicContentPageOperations';
 import { HomePageOperations } from '@src/operations/HomePageOperations';
 import {getHerokuAppUrl,getHerokuApp} from '../utilities/herokuapp-utils';
+import { DynamicContentPage } from '@src/web-implementation/DynamicContentPage';
 
 /**
  * All test use page object model
@@ -12,7 +12,7 @@ test.describe('Dynamic Content', () =>{
     test('user can navigate from home page to Dynamic Content page', async({page}) => {
 
         const home: HomePageOperations = getHerokuApp(page);
-        const dynamic: IDynamicContentPage = new DynamicContentPage(page);
+        const dynamic: DynamicContentPageOperations = new DynamicContentPage(page);
         await dynamic.goto();
         await dynamic.isLoaded(expect);
         await expect(page).toHaveURL('/dynamic_content');
@@ -20,7 +20,7 @@ test.describe('Dynamic Content', () =>{
     })
 
     test('default dynamic page shows three rows with images and texts', async({page}) =>{
-        const dynamic: IDynamicContentPage = new DynamicContentPage(page);
+        const dynamic: DynamicContentPageOperations = new DynamicContentPage(page);
         await dynamic.goto();
         await dynamic.isLoaded(expect);
         const texts = await dynamic.getRowText();
@@ -39,7 +39,7 @@ test.describe('Dynamic Content', () =>{
     })
 
     test('content changes when reloaded on dynamic content page', async({page}) =>{
-        const dynamic: IDynamicContentPage = new DynamicContentPage(page);
+        const dynamic: DynamicContentPageOperations = new DynamicContentPage(page);
         await dynamic.goto();
         await dynamic.isLoaded(expect);
         const firstRunText = await dynamic.getRowText();

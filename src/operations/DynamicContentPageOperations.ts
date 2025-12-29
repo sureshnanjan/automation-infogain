@@ -4,14 +4,7 @@ import type { Location, Page, Expect, Locator } from "@playwright/test";
  * exaple page from the-internet.herokuapp.com
  */
 
-export interface IDynamicContentPage {
-    readonly page: Page;
-    readonly headerTitle: Locator;
-    readonly staticLink: Locator;
-    readonly contentRows: Locator;
-    readonly imagesInRows: Locator;
-    readonly textInRows: Locator;
-
+interface DynamicContentPageOperations {
     goto(): Promise<void>;
     gotoStaticVersion(): Promise<void>;
     isLoaded(expect: Expect): Promise<void>;
@@ -20,3 +13,5 @@ export interface IDynamicContentPage {
     getImageSources(): Promise<string[]>;
     
 }
+
+ export type { DynamicContentPageOperations };
