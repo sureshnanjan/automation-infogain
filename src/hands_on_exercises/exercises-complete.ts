@@ -41,14 +41,13 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Declare variables here
-{
+
 const testName: string = "Login Test";
 let timeout: number = 5000;
 let isPassed: boolean = true;
 let testData: { 
     username: string; 
     password: string } | null = null;
-}
 
 
 /**
@@ -729,7 +728,7 @@ console.log(sortedTestsByName);
  * Hint: Initialize empty object, create array for each status if not exists, push test name
  */
 
-const testData = [
+const testData2 = [
     { test: 'Test 1', status: 'passed' },
     { test: 'Test 2', status: 'failed' },
     { test: 'Test 3', status: 'passed' },
@@ -744,7 +743,7 @@ const testData = [
  * @example
  * groupTestsByStatus(testData) // returns { passed: [...], failed: [...] }
  */
-const groupedTests= testData.reduce((acc, curr) => {
+const groupedTests= testData2.reduce((acc, curr) => {
     if (!acc[curr.status]) {
         acc[curr.status] = [];
     }
@@ -844,7 +843,7 @@ console.log(parsedCsv);
  * - word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() for each word
  */
 
-const testName = '  login_test_01  ';
+const testName3 = '  login_test_01  ';
 // TODO: Transform to "Login Test 01"
 
 /**
