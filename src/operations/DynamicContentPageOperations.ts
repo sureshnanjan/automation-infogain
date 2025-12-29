@@ -7,7 +7,7 @@ import type { Location, Page, Expect, Locator } from "@playwright/test";
 interface DynamicContentPageOperations {
     goto(): Promise<void>;
     gotoStaticVersion(): Promise<void>;
-    isLoaded(expect: Expect): Promise<void>;
+    isLoaded(): Promise<void>;
     enableStaticViaLink(): Promise<void>;
     getRowText(): Promise<string[]>;
     getImageSources(): Promise<string[]>;
