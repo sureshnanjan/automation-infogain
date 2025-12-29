@@ -141,7 +141,12 @@ console.log( runTest('Signup Test', 3, 10000));
  */
 
 // TODO: Create executeTests function
+function executeTests(suiteName:string,...testNames:string[]):number{  
+    console.log(`Suite: ${suiteName}`);
+    testNames.forEach(test=>console.log(test));
 
+    return testNames.length;
+}
 
 
 
@@ -162,6 +167,23 @@ console.log( runTest('Signup Test', 3, 10000));
  */
 
 // TODO: Create getTestResult function
+function getTestResult(score:number):string{
+
+
+    if(score>=90){
+        return "Excellent";
+    }
+    else if(score>=70){
+        return "Good";
+    }
+
+    else if(score<70)
+        {
+        return "Needs Improvement";
+    }   
+    return "";
+
+}
 
 
 
@@ -180,6 +202,11 @@ console.log( runTest('Signup Test', 3, 10000));
  */
 
 // TODO: Convert to arrow function
+
+const multiply = (a: number, b: number): number => {
+    return a * b;
+ }
+
 
 
 
