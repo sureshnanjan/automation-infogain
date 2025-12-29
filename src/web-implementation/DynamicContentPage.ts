@@ -1,11 +1,11 @@
 import { Expect, expect, Locator, Page } from "@playwright/test";
-import type { IDynamicContentPage } from "@src/operations/IDynamicContentPage";
+import { DynamicContentPageOperations } from "@src/operations/DynamicContentPageOperations";
 
 /**
  * DynamicContentPage is the concrete implementation of IDynamicContentPage.
  */
 
-export class DynamicContentPage implements IDynamicContentPage {
+export class DynamicContentPage implements DynamicContentPageOperations {
     readonly page: Page;
 
     readonly headerTitle: Locator;
