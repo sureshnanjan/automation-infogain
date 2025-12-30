@@ -36,6 +36,14 @@ Then("Title should match {string}", async ({}, arg: string) => {
   expect(actualResult).toEqual(arg);
 });
 
+Then("The page description should contain:", async ({ page }, desc: string) => {
+  // Step: And The page description should contain:
+  // From: src\features\dynamicLoading_page.feature:13:5
+  const dynamicLoading = new DynamicLoadingPage(page);
+  const description = await dynamicLoading.getDescription();
+  expect(description?.trim()).toEqual(desc.trim());
+});
+
 When("User clicks {string}", async ({ page }, arg: string) => {
   // Step: When User clicks "Example 1: Element on page that is hidden"
   // From: src\features\dynamicLoading_page.feature:15:5

@@ -10,6 +10,13 @@ Feature: Dynamic Loading Page functionality
   Scenario: Dynamic Loading Page has a valid Title
     And Title should match "Dynamically Loaded Page Elements"
 
+    
+Scenario: Verify Description on Dynamic Loading Page
+  And The page description should contain:
+    """
+    It's common to see an action get triggered that returns a result dynamically. It does not rely on the page to reload or finish loading. The page automatically gets updated (e.g. hiding elements, showing elements, updating copy, etc) through the use of JavaScript.
+    """
+
   Scenario Outline: Verify Example pages load and show "Hello World!"
     When User clicks "<exampleLink>"
     When User clicks the "Start" button"

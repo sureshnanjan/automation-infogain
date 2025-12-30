@@ -87,7 +87,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 8787,
+                      "duration": 8660,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -95,10 +95,10 @@
                       "steps": [
                         {
                           "title": "And Title should match \"Dynamically Loaded Page Elements\"",
-                          "duration": 2
+                          "duration": 4
                         }
                       ],
-                      "startTime": "2025-12-30T14:26:19.378Z",
+                      "startTime": "2025-12-30T14:37:16.907Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -110,13 +110,53 @@
               "file": "src/features/dynamicLoading_page.feature.spec.js",
               "line": 12,
               "column": 7
+            },
+            {
+              "title": "Verify Description on Dynamic Loading Page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 8651,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "And The page description should contain:",
+                          "duration": 68
+                        }
+                      ],
+                      "startTime": "2025-12-30T14:37:16.941Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "be811ebf21f1b56272cb-74f5095e5c774c0f7fb5",
+              "file": "src/features/dynamicLoading_page.feature.spec.js",
+              "line": 16,
+              "column": 7
             }
           ],
           "suites": [
             {
               "title": "Verify Example pages load and show \"Hello World!\"",
               "file": "src/features/dynamicLoading_page.feature.spec.js",
-              "line": 16,
+              "line": 20,
               "column": 8,
               "specs": [
                 {
@@ -132,10 +172,10 @@
                       "projectName": "chromium",
                       "results": [
                         {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
+                          "workerIndex": 2,
+                          "parallelIndex": 2,
                           "status": "passed",
-                          "duration": 9222,
+                          "duration": 8954,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
@@ -143,18 +183,18 @@
                           "steps": [
                             {
                               "title": "When User clicks \"Example 1: Element on page that is hidden\"",
-                              "duration": 334
+                              "duration": 370
                             },
                             {
                               "title": "When User clicks the \"Start\" button\"",
-                              "duration": 98
+                              "duration": 66
                             },
                             {
                               "title": "Then User get text should be \"Hello World!\"",
-                              "duration": 9
+                              "duration": 10
                             }
                           ],
-                          "startTime": "2025-12-30T14:26:19.429Z",
+                          "startTime": "2025-12-30T14:37:16.926Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -164,7 +204,7 @@
                   ],
                   "id": "be811ebf21f1b56272cb-a57cf719d90ffd649ac9",
                   "file": "src/features/dynamicLoading_page.feature.spec.js",
-                  "line": 18,
+                  "line": 22,
                   "column": 9
                 },
                 {
@@ -180,10 +220,10 @@
                       "projectName": "chromium",
                       "results": [
                         {
-                          "workerIndex": 2,
-                          "parallelIndex": 2,
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
                           "status": "passed",
-                          "duration": 13700,
+                          "duration": 14742,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
@@ -191,18 +231,18 @@
                           "steps": [
                             {
                               "title": "When User clicks \"Example 2: Element rendered after the fact\"",
-                              "duration": 343
+                              "duration": 438
                             },
                             {
                               "title": "When User clicks the \"Start\" button\"",
-                              "duration": 117
+                              "duration": 131
                             },
                             {
                               "title": "Then User get text should be \"Hello World!\"",
-                              "duration": 4993
+                              "duration": 5420
                             }
                           ],
-                          "startTime": "2025-12-30T14:26:19.378Z",
+                          "startTime": "2025-12-30T14:37:16.900Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -212,7 +252,7 @@
                   ],
                   "id": "be811ebf21f1b56272cb-918e77c55ab6383f40e7",
                   "file": "src/features/dynamicLoading_page.feature.spec.js",
-                  "line": 24,
+                  "line": 28,
                   "column": 9
                 }
               ]
@@ -247,10 +287,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7496,
+                      "duration": 5590,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -258,18 +298,18 @@
                       "steps": [
                         {
                           "title": "Given User Visits HomePage",
-                          "duration": 5131
+                          "duration": 4523
                         },
                         {
                           "title": "When User Observes Title",
-                          "duration": 45
+                          "duration": 24
                         },
                         {
                           "title": "Then title should match \"Welcome to the-internet\"",
-                          "duration": 6
+                          "duration": 1
                         }
                       ],
-                      "startTime": "2025-12-30T14:26:19.395Z",
+                      "startTime": "2025-12-30T14:37:26.581Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -295,10 +335,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 5310,
+                      "duration": 5147,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -306,7 +346,7 @@
                       "steps": [
                         {
                           "title": "Given User Visits HomePage",
-                          "duration": 4621
+                          "duration": 4282
                         },
                         {
                           "title": "When User Observes Subtitle",
@@ -314,10 +354,10 @@
                         },
                         {
                           "title": "Then Subtitle should match \"Available Examples\"",
-                          "duration": 1
+                          "duration": 2
                         }
                       ],
-                      "startTime": "2025-12-30T14:26:28.117Z",
+                      "startTime": "2025-12-30T14:37:26.881Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -337,9 +377,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-30T14:26:17.188Z",
-    "duration": 17995.751,
-    "expected": 5,
+    "startTime": "2025-12-30T14:37:14.722Z",
+    "duration": 18871.331000000002,
+    "expected": 6,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
