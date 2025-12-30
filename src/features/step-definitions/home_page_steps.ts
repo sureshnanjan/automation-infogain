@@ -22,3 +22,16 @@ Then('title should match {string}', async ({}, arg) => {
   // From: src\features\home_page.feature:7:1
   expect(actualResult).toEqual(arg);
 });
+
+When('User Observes Sub-Title', async ({}) => {
+  // Step: When User Observes Sub-Title
+  // From: src\features\home_page.feature:11:1
+  actualResult =await homePage.getSubTitle();
+});
+
+Then('subtitle should match {string}', async ({}, arg) => {
+  // Step: Then title should match "Available Examples"
+  // From: src\features\home_page.feature:12:1
+  actualResult =await homePage.getSubTitle();
+  expect(actualResult).toEqual(arg);
+});
