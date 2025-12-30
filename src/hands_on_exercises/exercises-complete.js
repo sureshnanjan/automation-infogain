@@ -23,6 +23,26 @@
  *
  * ============================================================================
  */
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 // ============================================================================
 // SECTION 1: VARIABLES & BASIC FUNCTIONS (10 exercises)
 // ============================================================================
@@ -36,7 +56,7 @@ console.log("\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n");
  * - A isPassed variable containing true
  * - A testData variable that can be null or an object with username and password
  */
-
+// TODO: Declare variables here
 var testname = "Login Test";
 var timeout = 5000;
 var isPassed = true;
@@ -365,7 +385,14 @@ console.log("Total is:" + reduce);
  * Hint: Start with empty object {}, for each browser: acc[browser] = (acc[browser] || 0) + 1
  */
 var browsers = ["chrome", "firefox", "chrome", "safari", "chrome", "firefox"];
-// TODO: Count occurrences of each browser
+/**
+ * Count occurrences of each browser
+ */
+var count = browsers.reduce(function (acc, browser) {
+    acc[browser] = (acc[browser] || 0) + 1;
+    return acc;
+}, {});
+console.log("Browsers count:" + count);
 /**
  * Exercise 2.7: Array.forEach() - Log with Index
  * -----------------------------------------------
@@ -382,7 +409,12 @@ var browsers = ["chrome", "firefox", "chrome", "safari", "chrome", "firefox"];
  * Hint: forEach provides (element, index) as parameters
  */
 var testCases = ["TC-001", "TC-002", "TC-003"];
-// TODO: Log each test case with index
+/**
+ * Log each test case with index
+ */
+testCases.forEach(function (element, index) {
+    console.log("".concat(index + 1, ". ").concat(element));
+});
 /**
  * Exercise 2.8: Array.find() - Find First Match
  * ----------------------------------------------
@@ -402,7 +434,11 @@ var users = [
     { username: "admin1", role: "admin" },
     { username: "user2", role: "user" },
 ];
-// TODO: Find first admin user
+/**
+ * Find first admin user
+ */
+var role = users.find(function (user) { return user.role === "admin"; });
+console.log(role);
 /**
  * Exercise 2.9: Array.some() - Check if Any
  * ------------------------------------------
@@ -412,7 +448,11 @@ var users = [
  *
  * Hint: .some() returns true if at least one element matches the condition
  */
-// TODO: Check if any score is below 50
+/**
+ * Check if any score is below 50
+ */
+var checkedScore = scores.some(function (score) { return score < 50; });
+console.log(checkedScore);
 /**
  * Exercise 2.10: Array.every() - Check if All
  * --------------------------------------------
@@ -422,7 +462,11 @@ var users = [
  *
  * Hint: .every() returns true only if ALL elements match the condition
  */
-// TODO: Check if all scores are above 40
+/**
+ * Check if all scores are above 40
+ */
+var hasabove40 = scores.every(function (scores) { return scores > 40; });
+console.log(hasabove40);
 /**
  * Exercise 2.11: Chain Multiple Methods
  * --------------------------------------
@@ -449,7 +493,15 @@ var testResults = [
     { name: "Test 3", score: 87, passed: true },
     { name: "Test 4", score: 62, passed: false },
 ];
-// TODO: Calculate average score of passing tests
+/**
+ * Calculate average score of passing tests
+ */
+var averageScore = testResults
+    .filter(function (t) { return t.passed; })
+    .map(function (t) { return t.score; })
+    .reduce(function (sum, s) { return sum + s; }, 0) /
+    testResults.filter(function (t) { return t.passed; }).length;
+console.log(averageScore);
 /**
  * Exercise 2.12: Array.sort() - Sort Numbers
  * -------------------------------------------
@@ -464,7 +516,11 @@ var testResults = [
  * Hint: For ascending order use: (a, b) => a - b
  */
 var durations = [1500, 3000, 800, 2200, 1000];
-// TODO: Sort in ascending order (create copy first)
+/**
+ * Sort in ascending order (create copy first)
+ */
+var sortedDuration = durations.sort(function (a, b) { return a - b; });
+console.log(sortedDuration);
 /**
  * Exercise 2.13: Array.sort() - Sort Objects
  * -------------------------------------------
@@ -475,7 +531,11 @@ var durations = [1500, 3000, 800, 2200, 1000];
  * Hint: Use .localeCompare() for string comparison in sort
  * Example: (a, b) => a.name.localeCompare(b.name)
  */
-// TODO: Sort tests alphabetically by name (create copy first)
+/**
+ * Sort tests alphabetically by name (create copy first)
+ */
+var sortedTests = tests.sort(function (a, b) { return a.name.localeCompare(b.name); });
+console.log(sortedTests);
 /**
  * Exercise 2.14: Array.reduce() - Group By
  * -----------------------------------------
@@ -497,6 +557,27 @@ var durations = [1500, 3000, 800, 2200, 1000];
  *
  * Hint: Initialize empty object, create array for each status if not exists, push test name
  */
+var testData1 = [
+    { test: "Test 1", status: "passed" },
+    { test: "Test 2", status: "failed" },
+    { test: "Test 3", status: "passed" },
+    { test: "Test 4", status: "failed" },
+];
+/**
+ * Groups tests by their status
+ * @param {object[]} testData - array of test data objects
+ * @return {object} object grouping tests by status
+ * @example
+ * groupTestsByStatus(testData) // returns { passed: [...], failed: [...] }
+ */
+var groupedTests = testData1.reduce(function (acc, curr) {
+    if (!acc[curr.status]) {
+        acc[curr.status] = [];
+    }
+    acc[curr.status].push(curr.test);
+    return acc;
+}, {});
+console.log(groupedTests);
 var testData = [
     { test: "Test 1", status: "passed" },
     { test: "Test 2", status: "failed" },
@@ -504,6 +585,7 @@ var testData = [
     { test: "Test 4", status: "failed" },
 ];
 // TODO: Group tests by status
+// testData.reduce(testCases, status);
 /**
  * Exercise 2.15: Complex Chain
  * -----------------------------
@@ -521,13 +603,19 @@ var testData = [
  *
  * Hint: Filter by multiple conditions (browser AND passed), then reduce to sum durations
  */
+/**
+ * Total duration of passing Chrome tests
+ */
 var testExecutions = [
     { name: "Login", duration: 1500, browser: "chrome", passed: true },
     { name: "Signup", duration: 2000, browser: "firefox", passed: false },
     { name: "Checkout", duration: 3000, browser: "chrome", passed: true },
     { name: "Profile", duration: 1200, browser: "safari", passed: true },
 ];
-// TODO: Total duration of passing Chrome tests
+var totalDuration = testExecutions
+    .filter(function (t) { return t.browser === "chrome" && t.passed; })
+    .reduce(function (sum, t) { return sum + t.duration; }, 0);
+console.log(totalDuration);
 // ============================================================================
 // SECTION 3: STRING METHODS WITH ARROW FUNCTIONS (10 exercises)
 // ============================================================================
@@ -548,6 +636,10 @@ console.log("\n=== SECTION 3: STRING METHODS WITH ARROW FUNCTIONS ===\n");
  */
 var csv = "TC-001,Login Test,Passed,1500";
 // TODO: Parse CSV into object
+var _a = csv.split(","), id = _a[0], name = _a[1], status = _a[2], durationStr = _a[3];
+var duration = parseInt(durationStr, 10);
+var parsedCsv = { id: id, name: name, status: status, duration: duration };
+console.log(parsedCsv);
 /**
  * Exercise 3.2: String Manipulation Chain
  * ----------------------------------------
@@ -566,8 +658,22 @@ var csv = "TC-001,Login Test,Passed,1500";
  * - .split(' ').map(...).join(' ') for title case
  * - word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() for each word
  */
-var testName = "  login_test_01  ";
+var testName3 = "  login_test_01  ";
 // TODO: Transform to "Login Test 01"
+/**
+ * Transforms a test name string by trimming whitespace, replacing underscores with spaces, and converting to title case.
+ * @param {string} name - test name string to transform
+ * @returns {string} Transformed test name
+ * @example
+ * transformTestName('  login_test_01  ') // returns "Login Test 01"
+ */
+var formattedName = testName3
+    .trim()
+    .replace(/_/g, " ")
+    .split(" ")
+    .map(function (word) { return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(); })
+    .join(" ");
+console.log(formattedName);
 /**
  * Exercise 3.3: Array.filter() with String.includes()
  * ----------------------------------------------------
@@ -593,7 +699,13 @@ var logs = [
     "ERROR: Timeout",
     "INFO: Test completed",
 ];
-// TODO: Filter to get only ERROR logs
+/**
+ * Filters logs to get only those containing 'ERROR'
+ * @param {string[]} logs - array of log strings
+ * @return {string[]} array of ERROR log strings
+ */
+var errorLogs = logs.filter(function (log) { return log.includes("ERROR"); });
+console.log(errorLogs);
 /**
  * Exercise 3.4: String.match() with Regular Expression
  * -----------------------------------------------------
@@ -610,6 +722,11 @@ var logs = [
  */
 var url = "https://example.com/users/12345/profile";
 // TODO: Extract user ID
+var userIdRegex = url.match(/\/users\/(\d+)\//);
+var userId1 = userIdRegex ? userIdRegex[1] : null;
+console.log("User ID (Regex):", userId1);
+var userId2 = url.split("/")[4];
+console.log("User ID (Split):", userId2);
 /**
  * Exercise 3.5: Array.map() with String Template
  * -----------------------------------------------
@@ -624,6 +741,15 @@ var url = "https://example.com/users/12345/profile";
  */
 var usernames = ["john", "jane", "bob"];
 // TODO: Create email addresses
+/**
+ * Creates email addresses from usernames
+ * @param {string[]} usernames - array of usernames
+ * @return {string[]} array of email addresses
+ * @example
+ * createEmailAddresses(['john', 'jane']) // returns ['john@test.com', 'jane@test.com']
+ */
+var emails = usernames.map(function (username) { return "".concat(username, "@test.com"); });
+console.log(emails);
 /**
  * Exercise 3.6: String.substring() and Array Methods
  * ---------------------------------------------------
@@ -641,6 +767,19 @@ var usernames = ["john", "jane", "bob"];
 var testIds = ["TC-001", "TC-002", "TC-003", "BUG-001", "TC-004"];
 // TODO: Get TC numbers only
 /**
+ * Extracts test case numbers from test IDs
+ * @param {string[]} testIds - array of test IDs
+ * @return {string[]} array of test case numbers
+ * @example
+ * tcNumbers(['TC-001', 'BUG-001']) // returns ['001']
+ */
+var tcNumbers = function (testlist) {
+    return testlist
+        .filter(function (id) { return id.startsWith("TC-"); })
+        .map(function (id) { return id.substring(3); });
+};
+console.log(tcNumbers(testIds));
+/**
  * Exercise 3.7: Case Conversion
  * ------------------------------
  * Given:
@@ -657,6 +796,15 @@ var testIds = ["TC-001", "TC-002", "TC-003", "BUG-001", "TC-004"];
 var statuses = ["PASSED", "failed", "SKIPPED", "passed"];
 // TODO: Normalize to lowercase and remove duplicates
 /**
+ * Normalizes statuses to lowercase and removes duplicates
+ * @param {string[]} statuses - array of status strings
+ * @return {string[]} array of unique lowercase statuses
+ * @example
+ * normalizedStatuses(['PASSED', 'failed', 'SKIPPED', 'passed']) // returns ['passed', 'failed', 'skipped']
+ */
+var normalizedStatuses = __spreadArray([], new Set(statuses.map(function (status) { return status.toLowerCase(); })), true);
+console.log(normalizedStatuses);
+/**
  * Exercise 3.8: String Validation
  * --------------------------------
  * Create a function isValidEmail that:
@@ -672,6 +820,19 @@ var statuses = ["PASSED", "failed", "SKIPPED", "passed"];
  * Hint: Use .includes() to check for both characters
  */
 // TODO: Create isValidEmail arrow function
+/**
+ * Validates an email address
+ * @param {string} email - email string to validate
+ * @returns {boolean}   true if valid email, false otherwise
+ * @example
+ * isValidEmail('test@example.com') // returns true
+ * isValidEmail('invalid.email')    // returns false
+ */
+var isValidEmail = function (email) {
+    return email.includes("@") && email.includes(".");
+};
+console.log(isValidEmail("test@example.com"));
+console.log(isValidEmail("invalid.email"));
 /**
  * Exercise 3.9: Parse Test Data
  * ------------------------------
@@ -690,6 +851,15 @@ var statuses = ["PASSED", "failed", "SKIPPED", "passed"];
  */
 var queryString = "username=john@test.com&password=secret123&role=admin";
 // TODO: Parse query string into object
+var queryParams = queryString
+    .split("&")
+    .map(function (pair) { return pair.split("="); })
+    .reduce(function (acc, _a) {
+    var key = _a[0], value = _a[1];
+    acc[key] = value;
+    return acc;
+}, {});
+console.log(queryParams);
 /**
  * Exercise 3.10: Format Duration
  * -------------------------------
@@ -706,6 +876,20 @@ var queryString = "username=john@test.com&password=secret123&role=admin";
  * Hint: Divide by 1000, use .toFixed(1) for one decimal place
  */
 // TODO: Create formatDuration arrow function
+/**
+ * Formats a duration in milliseconds into a human-readable string
+ * @param {number} durationMs - duration in milliseconds
+ * @returns {string} formatted duration string
+ * @example
+ * formatDuration(1500) // returns '1.5s'
+ */
+var formatDuration = function (durationMs) {
+    var durationSec = (durationMs / 1000).toFixed(1);
+    return "".concat(durationSec, "s");
+};
+console.log(formatDuration(1500));
+console.log(formatDuration(2000));
+console.log(formatDuration(500));
 // ============================================================================
 // SECTION 4: COMBINED CHALLENGES (10 exercises)
 // ============================================================================
@@ -738,6 +922,22 @@ var results4_1 = [
 ];
 // TODO: Create generateReport function and use it
 /**
+ * Generates a test report summary from an array of test results
+ * @param {object[]} results4_1 - array of test result objects
+ * @returns {object} summary report object
+ * @example
+ * generateReport(results4_1) // returns { total: 3, passed: 2, failed: 1, totalDuration: 4700, passRate: 66.67 }
+ */
+function generateReport(results) {
+    var total = results.length;
+    var passed = results.filter(function (test) { return test.passed; }).length;
+    var failed = total - passed;
+    var totalDuration = results.reduce(function (sum, test) { return sum + test.duration; }, 0);
+    var passRate = total === 0 ? 0 : parseFloat(((passed / total) * 100).toFixed(2));
+    return { total: total, passed: passed, failed: failed, totalDuration: totalDuration, passRate: passRate };
+}
+console.log(generateReport(results4_1));
+/**
  * Exercise 4.2: Filter and Transform
  * -----------------------------------
  * Given:
@@ -760,6 +960,16 @@ var testCases4_2 = [
 ];
 // TODO: Get IDs of high priority automated tests as comma-separated string
 /**
+ * Gets IDs of high priority automated tests as a comma-separated string
+ * @param {object[]} testCases4_2 - array of test case objects
+ * @return {string} comma-separated string of test IDs
+ */
+var highPriorityIds = testCases4_2
+    .filter(function (test) { return test.priority === "high" && test.automated; })
+    .map(function (test) { return test.id; })
+    .join(", ");
+console.log(highPriorityIds);
+/**
  * Exercise 4.3: Data Transformation Pipeline
  * -------------------------------------------
  * Given:
@@ -771,6 +981,16 @@ var testCases4_2 = [
  */
 var rawData = ["  test1  ", "  TEST2  ", "  Test3  "];
 // TODO: Transform to trimmed title case
+/**
+ * Transforms raw data strings by trimming whitespace and converting to title case
+ * @param {string[]} rawData - array of raw data strings
+ * @return {string[]} array of transformed strings
+ */
+var transformedData = rawData.map(function (item) {
+    var trimmed = item.trim();
+    return trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
+});
+console.log(transformedData);
 /**
  * Exercise 4.4: Group and Count
  * ------------------------------
@@ -798,6 +1018,19 @@ var executions = [
 ];
 // TODO: Create browser/status summary
 /**
+ * Generates a summary of test executions grouped by browser and status
+ * @param {object[]} executions - array of execution objects
+ * @return {object} summary object with counts by browser and status
+ */
+var summary = executions.reduce(function (acc, curr) {
+    if (!acc[curr.browser]) {
+        acc[curr.browser] = { passed: 0, failed: 0 };
+    }
+    acc[curr.browser][curr.status]++;
+    return acc;
+}, {});
+console.log(summary);
+/**
  * Exercise 4.5: Search and Replace
  * ---------------------------------
  * Create a function that:
@@ -813,6 +1046,22 @@ var executions = [
  * Hint: Use RegExp with 'gi' flags for case-insensitive global replace
  */
 // TODO: Create searchAndReplace function
+/**
+ * Function to search and replace substrings in an array of test names
+ * @param {string[]} tests - array of test names
+ * @param {string} search - string to search for
+ * @param {string} replace - string to replace with
+ * @returns {string[]} array of replaced test names
+ * @example
+ * searchAndReplace(['Login Test', 'Signup Test'], 'login', 'authentication')
+ * // returns ['Authentication Test', 'Signup Test']
+ */
+function searchAndReplace(tests, search, replace) {
+    var regex = new RegExp(search, "gi");
+    return tests.map(function (test) { return test.replace(regex, replace); });
+}
+var tests4_5 = ["Login Test", "Signup Test", "Login Validation"];
+console.log(searchAndReplace(tests4_5, "login", "authentication"));
 /**
  * Exercise 4.6: Sort by Multiple Criteria
  * ----------------------------------------
@@ -838,6 +1087,20 @@ var tests4_6 = [
     { name: "Test D", priority: "medium", duration: 1200 },
 ];
 // TODO: Sort by priority then duration
+var priorityOrder = { high: 3, medium: 2, low: 1 };
+/**
+ * Sorts tests by priority and duration
+ * @param {object[]} tests4_6 - array of test objects
+ * @return {object[]} sorted array of test objects
+ */
+var sortedTests4_6 = __spreadArray([], tests4_6, true).sort(function (a, b) {
+    var priorityDiff = priorityOrder[b.priority] - priorityOrder[a.priority];
+    if (priorityDiff !== 0) {
+        return priorityDiff;
+    }
+    return a.duration - b.duration;
+});
+console.log(sortedTests4_6);
 /**
  * Exercise 4.7: Calculate Statistics
  * -----------------------------------
@@ -860,6 +1123,29 @@ var tests4_6 = [
  */
 // TODO: Create calculateStats function
 /**
+ * Function to calculate statistics from an array of durations
+ * @param {number[]} durations - array of test durations
+ * @returns {object} object with min, max, avg, and median values
+ * @example
+ * calculateStats([1000, 1500, 2000, 1200, 1800])
+ */
+function calculateStats(durations) {
+    var sorted = __spreadArray([], durations, true).sort(function (a, b) { return a - b; });
+    var min = sorted[0];
+    var max = sorted[sorted.length - 1];
+    var avg = durations.reduce(function (sum, dur) { return sum + dur; }, 0) / durations.length;
+    var median;
+    var mid = Math.floor(sorted.length / 2);
+    if (sorted.length % 2 === 0) {
+        median = (sorted[mid - 1] + sorted[mid]) / 2;
+    }
+    else {
+        median = sorted[mid];
+    }
+    return { min: min, max: max, avg: avg, median: median };
+}
+console.log(calculateStats([1000, 1500, 2000, 1200, 1800]));
+/**
  * Exercise 4.8: Validate Test Data
  * ---------------------------------
  * Create a function that validates an array of user objects:
@@ -881,6 +1167,31 @@ var tests4_6 = [
  * ]
  */
 // TODO: Create validateUsers function
+var users4_8 = [
+    { username: "john@test.com", password: "pass123" },
+    { username: "invalid", password: "p" },
+    { username: "jane@test.com", password: "pass456" },
+];
+/**
+ * Validates an array of user objects for username and password criteria
+ * @param {object[]} users - array of user objects
+ * @return {string[]} array of validation error messages
+ * @example
+ * validateUsers(users) // returns array of error messages
+ */
+function validateUsers(users) {
+    var errors = [];
+    users.forEach(function (user, index) {
+        if (!user.username.includes("@")) {
+            errors.push("User ".concat(index + 1, ": Username must contain @"));
+        }
+        if (user.password.length < 6) {
+            errors.push("User ".concat(index + 1, ": Password must be at least 6 characters"));
+        }
+    });
+    return errors;
+}
+console.log(validateUsers(users4_8));
 /**
  * Exercise 4.9: Test Execution Queue
  * -----------------------------------
@@ -902,6 +1213,29 @@ var tests4_6 = [
  * ]
  */
 // TODO: Create processQueue function
+/**
+ * Processes a queue of tests by sorting by priority and calculating start/end times
+ * @param {object[]} queue - array of test objects
+ * @return {object[]} array of processed test objects with startTime and endTime
+ * @example
+ * processQueue(queue) // returns processed queue with timings
+ */
+function processQueue(queue) {
+    var sortedQueue = __spreadArray([], queue, true).sort(function (a, b) { return b.priority - a.priority; });
+    var currentTime = 0;
+    return sortedQueue.map(function (test) {
+        var startTime = currentTime;
+        var endTime = startTime + test.estimated;
+        currentTime = endTime;
+        return __assign(__assign({}, test), { startTime: startTime, endTime: endTime });
+    });
+}
+var queue = [
+    { name: "Test 1", priority: 1, estimated: 1000 },
+    { name: "Test 2", priority: 3, estimated: 2000 },
+    { name: "Test 3", priority: 2, estimated: 1500 },
+];
+console.log(processQueue(queue));
 /**
  * Exercise 4.10: Parse and Format Log Entries
  * --------------------------------------------
@@ -926,6 +1260,22 @@ var logs4_10 = [
     "[2024-01-01 10:32:00] INFO: Retrying...",
 ];
 // TODO: Parse logs and filter errors
+/**
+ * Parses log entries and formats ERROR logs
+ * @param {string[]} logs4_10 - array of log entry strings
+ * @return {string[]} array of formatted ERROR log messages
+ */
+var errorLogMessages = logs4_10
+    .map(function (log) {
+    var match = log.match(/\[(.*?)\] (\w+): (.*)/);
+    if (match) {
+        return { timestamp: match[1], level: match[2], message: match[3] };
+    }
+    return null;
+})
+    .filter(function (log) { return log && log.level === "ERROR"; })
+    .map(function (log) { return "".concat(log.timestamp, " - ").concat(log.message); });
+console.log(errorLogMessages);
 // ============================================================================
 // BONUS CHALLENGES (Optional - Advanced)
 // ============================================================================
