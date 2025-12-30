@@ -9,6 +9,7 @@ test('Digest Authentication (valid credentials)', async ({ page }) => {
   // Open home page
   await page.goto(getHerokuAppUrl());
  const digestPage = new DigestAuthPage(page);
+ 
   // Navigate to Digest Auth page with credentials
    await digestPage.navigateWithCredentials(
     DIGEST_AUTH.username,
