@@ -1,6 +1,5 @@
 import { DisappearingElementsOperations } from "@src/operations/DisappearingElementsOperations";
-import {Page, Locator, expect} from '@playwright/test';
-import { getHerokuAppUrl } from "@src/utilities/herokuapp-utils";
+import {Page, Locator, expect} from '@playwright/test'; 
 
 export class DisappearingElements implements DisappearingElementsOperations
 {
