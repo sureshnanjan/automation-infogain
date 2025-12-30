@@ -5,3 +5,4 @@ Scenario: Home Page has a valid Title
 Given User Visits HomePage
 When User Observes Title
 Then title should match "Welcome to the-internet"
+
