@@ -20,5 +20,4 @@ export function getHerokuAppSync(page:Page): HomePageOperations {
 
 export function getDisappearingElementsPage(page:Page): DisappearingElementsOperations {
     return new (require('@src/web-implementation/DisappearingElementsPage').DisappearingElements)(page);
-
 }
