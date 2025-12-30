@@ -14,7 +14,7 @@ export class JavaScriptAlerts implements JavaScriptAlertsOperations {
     }
 
     async clickJsPrompt(): Promise<void> {
-        await this.page.getByRole('button', { name: 'Click for JS Prompt' }).click();
+        await this.page.getByRole('button', { name: 'Click for JS prompt' }).click();
     }
 
     async getResultText(): Promise<string | null> {

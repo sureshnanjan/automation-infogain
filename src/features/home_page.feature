@@ -10,23 +10,8 @@ Given User Visits HomePage
 When User Observes Title
 Then title should match "Welcome to the-internet"
 
-Scenario: Multiline String are possible in a keyword
-Given I have the following text 
-"""
-fdsakjlkfjasdlfkaj
-fsd
-adsfdsaf
-fdsf
-affadsfffasdf
-f
-sfffsdfa
-f
-fsf
+Scenario: Home Page has a valid SubTitle
+Given User Visits HomePage
+When User Observes SubTitle
+Then title should match "Available Examples"
 
-
-"""
-
-Given I have the following data
-|name|title|salary|
-|suresh|trainer|10000|
-|suresh|trainer|10000|

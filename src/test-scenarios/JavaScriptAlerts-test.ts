@@ -34,7 +34,7 @@ test('Verify JS Prompt', async ({ page }) => {
     const alertsPage = getJavaScriptAlerts(page);
 
     page.once('dialog', async dialog => {
-        expect(dialog.message()).toBe('I am a JS Prompt');  // Verify prompt message
+        expect(dialog.message()).toBe('I am a JS prompt');  // Verify prompt message
         await dialog.accept('Playwright');
     });
 
