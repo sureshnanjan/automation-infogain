@@ -1,3 +1,4 @@
+"use strict";
 /**
  * ============================================================================
  * TypeScript Exercises: Variables, Functions & Arrow Functions
@@ -23,10 +24,13 @@
  *
  * ============================================================================
  */
+Object.defineProperty(exports, "__esModule", { value: true });
+var functions_1 = require("@src/03-variables-functions/functions");
 // ============================================================================
 // SECTION 1: VARIABLES & BASIC FUNCTIONS (10 exercises)
 // ============================================================================
 console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
+//const myvar:string="test"||42||true||{username:"user",password:"pass"}; // to avoid TS error for empty file
 /**
  * Exercise 1.1: Variable Declarations
  * ------------------------------------
@@ -48,44 +52,59 @@ var testData = null;
  * The browser variable should remain 'chrome' after the if block.
  *
   Current code (BROKEN):
- var browser = 'chrome';
-  var retries = 0;
+  
+ let browser = 'chrome';
+  let retries = 0;
  if (true) {
-     var browser = 'firefox';
+      browser = 'firefox';
      retries = retries + 1;
  }
  console.log(browser); // Should print 'chrome', not 'firefox'
- */
+ 
+*/
 // TODO: Fix the code using const and let
-/**
- * Exercise 1.3: Function with Type Annotations
- * ---------------------------------------------
- * Create a function calculateTestDuration that:
- * - Takes two parameters: startTime (number) and endTime (number)
- * - Returns the duration in milliseconds (number)
- * - Add proper type annotations to all parameters and return type
- *
- * Example:
- * calculateTestDuration(1000, 6000) // should return 5000
- */
-// TODO: Create calculateTestDuration function
-/**
- * Exercise 1.4: Optional Parameters
- * ----------------------------------
- * Create a function runTest that:
- * - Takes testName (string) as required parameter
- * - Takes retries (number) as optional parameter (default to 0)
- * - Takes timeout (number) as optional parameter (default to 5000)
- * - Returns a string: "Running [testName] with [retries] retries and [timeout]ms timeout"
- *
- * Example:
- * runTest('Login Test')
- * // returns "Running Login Test with 0 retries and 5000ms timeout"
- *
- * runTest('Signup Test', 3, 10000)
- * // returns "Running Signup Test with 3 retries and 10000ms timeout"
- */
-// TODO: Create runTest function
+var browser = 'chrome'; //making varible const 
+var retries = 0;
+if (true) {
+    var browser_1 = 'firefox';
+    retries = retries + 1;
+}
+console.log(browser); // Should print 'chrome', not 'firefox'
+function calculateTestDuration(startTime, endTime) {
+    return endTime - startTime;
+}
+var totalTime = calculateTestDuration(1000, 6000);
+console.log("time in milisec is: ", totalTime),
+    /**
+     * Exercise 1.4: Optional Parameters
+     * ----------------------------------
+     * Create a function runTest that:
+     * - Takes testName (string) as required parameter
+     * - Takes retries (number) as optional parameter (default to 0)
+     * - Takes timeout (number) as optional parameter (default to 5000)
+     * - Returns a string: "Running [testName] with [retries] retries and [timeout]ms timeout"
+     *
+     * Example:
+     *
+     * runTest('Login Test')
+     * // returns "Running Login Test with 0 retries and 5000ms timeout"
+     *
+     * runTest('Signup Test', 3, 10000)
+     * // returns "Running Signup Test with 3 retries and 10000ms timeout"
+     */
+    // TODO: Create runTest function
+    function runTest(testName, retries, timeout) {
+        return runTest("QA_TestEnv", 0, 5000);
+    };
+console.log("Run Time Entity is:", functions_1.runTest);
+/*
+
+function runTest(testName:string,retries:number,timeout:number):string{
+    return runTest("john",4444,223);
+}
+console.log(runTest);
+
+*/
 /**
  * Exercise 1.5: Rest Parameters
  * ------------------------------

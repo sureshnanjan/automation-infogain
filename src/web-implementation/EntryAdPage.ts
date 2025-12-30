@@ -6,7 +6,7 @@ import { getHerokuAppUrl } from "@src/utilities/herokuapp-utils";
  
 export class EntryAdPage implements EntryAdPageOperations {
 
-  // Variable decleration (Arrange)
+  // Variable decleration 
   private readonly page:Page ;
   private readonly modelWindowTitle: Locator;
   private readonly modelWindowParaText:Locator;

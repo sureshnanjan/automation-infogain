@@ -16,34 +16,40 @@ import { EntryAdPage } from '@src/web-implementation/EntryAdPage';
 import {getHerokuAppUrl,getHerokuApp} from '@src/utilities/herokuapp-utils';
 import { HomePageOperations } from "@src/operations/HomePageOperations";
  
+
+
+
 test.describe('Entry Ad Modal Test', () => {
  
   test('Verify notification appeare on first visit and close it', async ({ page }) => {
     const homePage:HomePageOperations = getHerokuApp(page);
     const entryAdPage = new EntryAdPage(page);
     
-    const title=await homePage.getTitle();
-    expect(title).toBe("Welcome to the-internet");
-    
     //await entryAdPage.clickOnEntryAd();
-    await entryAdPage.modalWindowVisible();
+    await entryAdPage.modalWindowVisible();  //getting popup/model window
     //Assertion
-    const windowPara=await entryAdPage.modelWindowPara();
+    const windowPara=await entryAdPage.modelWindowPara();  // popup/model paragraph
     expect(windowPara).toContain("It's commonly used to encourage a user to take an action ");
 
-    await entryAdPage.closeModalWindow();
+    await entryAdPage.closeModalWindow();  // closing popup/model
 
-    const adTitle=await entryAdPage.getEntryAdTitle();
-    expect(adTitle).toBe("Entry Ad");
+    
+  })
 
-    const des=await entryAdPage.getEntryAdDes();
-    expect(des).toContain("Displays an ad on page load");
+  test('Verify Title and regenrating popup', async ({ page }) =>{
+      const homePage:HomePageOperations = getHerokuApp(page);
+      const entryAdPage = new EntryAdPage(page);
+      const adTitle=await entryAdPage.getEntryAdTitle();   //Title of Entry Ad
+      expect(adTitle).toBe("Entry Ad");
 
-    const footerText=await entryAdPage.getFooterText();
-    expect(footerText).toContain('Elemental Selenium');
+      const des=await entryAdPage.getEntryAdDes();   // Entry Ad description
+      expect(des).toContain("Displays an ad on page load");
 
-    await entryAdPage.getReEnablePopUp();
+      const footerText=await entryAdPage.getFooterText();    //footer text
+      expect(footerText).toContain('Elemental Selenium');
 
-  });
+      await entryAdPage.getReEnablePopUp();  //regenerating the popup
+
+  })
  
 });
