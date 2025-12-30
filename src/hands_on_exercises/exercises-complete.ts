@@ -1031,6 +1031,11 @@ const testCases4_2 = [
     { id: 'TC-004', priority: 'medium', automated: false }
 ];
 // TODO: Get IDs of high priority automated tests as comma-separated string
+const highPriorityAutomatedIDs = testCases4_2
+    .filter(test => test.priority === 'high' && test.automated)
+    .map(test => test.id)
+    .join(', ');
+console.log(highPriorityAutomatedIDs);
 
 
 
@@ -1048,6 +1053,12 @@ const testCases4_2 = [
 
 const rawData = ['  test1  ', '  TEST2  ', '  Test3  '];
 // TODO: Transform to trimmed title case
+const transformedData = rawData.map(item => {
+    const trimmed = item.trim();
+    return trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
+}
+);
+console.log(transformedData);
 
 
 
@@ -1079,9 +1090,14 @@ const executions = [
     { browser: 'chrome', status: 'failed' }
 ];
 // TODO: Create browser/status summary
-
-
-
+const summary = executions.reduce((acc, curr) => {
+    if (!acc[curr.browser]) {
+        acc[curr.browser] = { passed: 0, failed: 0 };
+    }
+    acc[curr.browser][curr.status]++;
+    return acc;
+}, {});
+console.log(summary);
 
 /**
  * Exercise 4.5: Search and Replace
@@ -1100,6 +1116,12 @@ const executions = [
  */
 
 // TODO: Create searchAndReplace function
+function searchAndReplace(tests: string[], search: string, replace: string): string[] {
+    const regex = new RegExp(search, 'gi');
+    return tests.map(test => test.replace(regex, replace));
+}
+const tests4_5 = ['Login Test', 'Signup Test', 'Login Validation'];
+console.log(searchAndReplace(tests4_5, 'login', 'authentication'));
 
 
 
@@ -1130,6 +1152,13 @@ const tests4_6 = [
     { name: 'Test D', priority: 'medium', duration: 1200 }
 ];
 // TODO: Sort by priority then duration
+const priorityOrder: { [key: string]: number } = { high: 3, medium: 2, low: 1 };
+const sortedTests4_6 = [...tests4_6].sort((a, b) => {
+    const priorityDiff = priorityOrder[b.priority] - priorityOrder[a.priority];
+    if (priorityDiff !== 0) return priorityDiff;
+    return a.duration - b.duration;
+});
+console.log(sortedTests4_6);
 
 
 
@@ -1156,8 +1185,21 @@ const tests4_6 = [
  */
 
 // TODO: Create calculateStats function
-
-
+function calculateStats(durations: number[]) {
+    const sorted = [...durations].sort((a, b) => a - b);
+    const min = sorted[0];
+    const max = sorted[sorted.length - 1];
+    const avg = parseFloat((durations.reduce((acc, curr) => acc + curr, 0) / durations.length).toFixed(2));
+    let median: number;
+    const mid = Math.floor(sorted.length / 2);
+    if (sorted.length % 2 === 0) {
+        median = (sorted[mid - 1] + sorted[mid]) / 2;
+    } else {
+        median = sorted[mid];
+    }
+    return { min, max, avg, median };
+}
+console.log(calculateStats([1000, 1500, 2000, 1200, 1800]));
 
 
 /**
@@ -1183,6 +1225,24 @@ const tests4_6 = [
  */
 
 // TODO: Create validateUsers function
+function validateUsers(users: { username: string; password: string }[]) {
+    const errors: string[] = [];
+    users.forEach((user, index) => {
+        if (!user.username.includes('@')) {
+            errors.push(`User ${index + 1}: Username must contain @`);
+        }
+        if (user.password.length < 6) {
+            errors.push(`User ${index + 1}: Password must be at least 6 characters`);
+        }
+    });
+    return errors;
+}
+const users4_8 = [
+    { username: 'john@test.com', password: 'pass123' },
+    { username: 'invalid', password: 'p' },
+    { username: 'jane@test.com', password: 'pass456' }
+];
+console.log(validateUsers(users4_8));
 
 
 
@@ -1209,6 +1269,22 @@ const tests4_6 = [
  */
 
 // TODO: Create processQueue function
+function processQueue(queue: { name: string; priority: number; estimated: number }[]) {
+    const sortedQueue = [...queue].sort((a, b) => b.priority - a.priority);
+    let cumulativeTime = 0;
+    return sortedQueue.map(test => {
+        const startTime = cumulativeTime;
+        const endTime = startTime + test.estimated;
+        cumulativeTime = endTime;
+        return { ...test, startTime, endTime };
+    });
+}
+const queue4_9 = [
+    { name: 'Test 1', priority: 1, estimated: 1000 },
+    { name: 'Test 2', priority: 3, estimated: 2000 },
+    { name: 'Test 3', priority: 2, estimated: 1500 }
+];
+console.log(processQueue(queue4_9));
 
 
 
@@ -1242,6 +1318,8 @@ const logs4_10 = [
 
 
 
+
+
 // ============================================================================
 // BONUS CHALLENGES (Optional - Advanced)
 // ============================================================================
@@ -1265,16 +1343,41 @@ console.log('\n=== BONUS CHALLENGES ===\n');
  */
 
 // TODO: Implement customMap
+function customMap<T, U>(array: T[], transformFn: (item: T, index: number, array: T[]) => U): U[] {
+    const result: U[] = [];
+    for (let i = 0; i < array.length; i++) {
+        result.push(transformFn(array[i], i, array));
+    }
+    return result;
+}
+
 
 
 
 
 // TODO: Implement customFilter
+function customFilter<T>(array: T[], predicateFn: (item: T, index: number, array: T[]) => boolean): T[] {
+    const result: T[] = [];
+    for (let i = 0; i < array.length; i++) {
+        if (predicateFn(array[i], i, array)) {
+            result.push(array[i]);
+        }
+    }
+    return result;
+}
+
 
 
 
 
 // TODO: Implement customReduce
+function customReduce<T, U>(array: T[], reducerFn: (accumulator: U, item: T, index: number, array: T[]) => U, initialValue: U): U {
+    let accumulator = initialValue;
+    for (let i = 0; i < array.length; i++) {
+        accumulator = reducerFn(accumulator, array[i], i, array);
+    }
+    return accumulator;
+}
 
 
 

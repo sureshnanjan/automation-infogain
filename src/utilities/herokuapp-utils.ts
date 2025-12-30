@@ -8,14 +8,6 @@ export function getHerokuAppUrl(): string {
     return 'https://the-internet.herokuapp.com/';
 }
 
-<<<<<<< HEAD
-export async function getHerokuApp(page:Page): Promise<HomePageOperations> {
-    // How call a async factory method from here?
-
-    return  HomePage.create(page);
-    //app.navigate();
-    //return app;
-=======
 export function getHerokuApp(page:Page): HomePageOperations {
     return new (require('@src/web-implementation/HomePage').HomePage)(page);
 }

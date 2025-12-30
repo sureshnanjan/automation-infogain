@@ -5,7 +5,7 @@ import {getHerokuAppUrl,getHerokuApp, getDisappearingElementsPage} from '@src/ut
 
 
 test("Verify DisappearingElements Link exists",async({page})=>{
-    const homePage:HomePageOperations = getHerokuApp(page);
+    const homePage:HomePageOperations = await getHerokuApp(page);
     const title=await homePage.getTitle();
     expect(title).toBe("Welcome to the-internet");
     const disappearingelements:DisappearingElementsOperations = getDisappearingElementsPage(page);
@@ -13,7 +13,7 @@ test("Verify DisappearingElements Link exists",async({page})=>{
 });
 
 test("Verify DisappearingElements page is clickable",async({page})=>{
-    const homePage:HomePageOperations = getHerokuApp(page);
+    const homePage:HomePageOperations = await getHerokuApp(page);
     const disappearingelements:DisappearingElementsOperations = getDisappearingElementsPage(page);
     await disappearingelements.clickDisappearingElementsLink();
 });
