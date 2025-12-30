@@ -32,7 +32,12 @@ test("Navigate to Example Page from Home Page",async({page})=>{
     // Arrange
     const testPage = "A/B Testing"
     // Expected A/B Test Variation 1
-    const homePage:HomePageOperations = await getHerokuApp(page);
+    const homePage:HomePageOperations = await getHerokuApp(page); 
+    // Factory Method Patter
+
+    //const home1: HomePageOperations = new HomePage(page);
+
+
     // Act
     const returnPage = (homePage.gotoExample(testPage) as unknown) as ABTestingOperations;
 

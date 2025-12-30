@@ -28,6 +28,7 @@ export class HomePage extends BasePage implements HomePageOperations {
         }
       
     async navigate(): Promise<void> {
+        // Log the properties of 
         await this.page.goto(getHerokuAppUrl());
     }
 
