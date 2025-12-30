@@ -52,7 +52,7 @@ PS C:\Users\pavan\QA-Training> Invoke-WebRequest -Uri https://github.com/git-for
 PS C:\Users\pavan\QA-Training> Invoke-WebRequest -Uri https://github.com/git-for-windows/git/releases/download/v2.44.0.windows.1/Git-2.44.0-64-bit.exe -OutFile git-installer.exe
 PS C:\Users\pavan\QA-Training> .\git-installer.exe /VERYSILENT /NORESTART
 PS C:\Users\pavan\QA-Training> Stop-Transcript
-**********************
+***********************
 Windows PowerShell transcript end
 End time: 20251215103134
-**********************
+***********************
