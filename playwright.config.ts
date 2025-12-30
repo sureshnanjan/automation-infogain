@@ -1,8 +1,8 @@
-import { defineConfig, devices } from '@playwright/test';
-import { defineBddConfig } from 'playwright-bdd';
+import { defineConfig, devices } from "@playwright/test";
+import { defineBddConfig } from "playwright-bdd";
 const testDir = defineBddConfig({
-  features: 'src/features/**/*.feature',
-  steps: 'src/features/step-definitions/**/*.ts',
+  features: "src/features/**/*.feature",
+  steps: "src/features/step-definitions/**/*.ts",
 });
 
 /**
@@ -17,9 +17,9 @@ const testDir = defineBddConfig({
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  //testDir: './src/test-scenarios',
+  // testDir: "./src/test-scenarios",
   testDir: testDir,
-  //testMatch: '**/*.ts',
+  // testMatch: "**/*.ts",
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -30,8 +30,8 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['html'],
-    ['json', { outputFile: 'test-results/cucumber-report.json' }],
+    ["html"],
+    ["json", { outputFile: "test-results/cucumber-report.json" }],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -56,7 +56,7 @@ export default defineConfig({
     // },
 
     // {
-    //   name: "webkit",
+    //  name: "webkit",
     //   use: { ...devices["Desktop Safari"] },
     // },
 

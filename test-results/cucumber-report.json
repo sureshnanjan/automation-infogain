@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "C:\\Trainings-2025\\infogain\\automation-infogain\\playwright.config.ts",
-    "rootDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
+    "configFile": "C:\\QA Training\\automation-infogain\\playwright.config.ts",
+    "rootDir": "C:/QA Training/automation-infogain/.features-gen",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 3
+      "actualWorkers": 4
     },
     "preserveOutput": "always",
     "reporter": [
@@ -33,47 +33,15 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
+        "outputDir": "C:/QA Training/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 3
+          "actualWorkers": 4
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
-        "testIgnore": [],
-        "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
-        ],
-        "timeout": 30000
-      },
-      {
-        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 3
-        },
-        "id": "firefox",
-        "name": "firefox",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
-        "testIgnore": [],
-        "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
-        ],
-        "timeout": 30000
-      },
-      {
-        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 3
-        },
-        "id": "webkit",
-        "name": "webkit",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
+        "testDir": "C:/QA Training/automation-infogain/.features-gen",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -90,6 +58,169 @@
     "webServer": null
   },
   "suites": [
+    {
+      "title": "src\\features\\dynamicLoading_page.feature.spec.js",
+      "file": "src/features/dynamicLoading_page.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Dynamic Loading Page functionality",
+          "file": "src/features/dynamicLoading_page.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Dynamic Loading Page has a valid Title",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8787,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "And Title should match \"Dynamically Loaded Page Elements\"",
+                          "duration": 2
+                        }
+                      ],
+                      "startTime": "2025-12-30T14:26:19.378Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "be811ebf21f1b56272cb-d288ded4186b4bf060d9",
+              "file": "src/features/dynamicLoading_page.feature.spec.js",
+              "line": 12,
+              "column": 7
+            }
+          ],
+          "suites": [
+            {
+              "title": "Verify Example pages load and show \"Hello World!\"",
+              "file": "src/features/dynamicLoading_page.feature.spec.js",
+              "line": 16,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Example #1",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 9222,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "When User clicks \"Example 1: Element on page that is hidden\"",
+                              "duration": 334
+                            },
+                            {
+                              "title": "When User clicks the \"Start\" button\"",
+                              "duration": 98
+                            },
+                            {
+                              "title": "Then User get text should be \"Hello World!\"",
+                              "duration": 9
+                            }
+                          ],
+                          "startTime": "2025-12-30T14:26:19.429Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "be811ebf21f1b56272cb-a57cf719d90ffd649ac9",
+                  "file": "src/features/dynamicLoading_page.feature.spec.js",
+                  "line": 18,
+                  "column": 9
+                },
+                {
+                  "title": "Example #2",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 2,
+                          "status": "passed",
+                          "duration": 13700,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "When User clicks \"Example 2: Element rendered after the fact\"",
+                              "duration": 343
+                            },
+                            {
+                              "title": "When User clicks the \"Start\" button\"",
+                              "duration": 117
+                            },
+                            {
+                              "title": "Then User get text should be \"Hello World!\"",
+                              "duration": 4993
+                            }
+                          ],
+                          "startTime": "2025-12-30T14:26:19.378Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "be811ebf21f1b56272cb-918e77c55ab6383f40e7",
+                  "file": "src/features/dynamicLoading_page.feature.spec.js",
+                  "line": 24,
+                  "column": 9
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
     {
       "title": "src\\features\\home_page.feature.spec.js",
       "file": "src/features/home_page.feature.spec.js",
@@ -116,10 +247,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 3837,
+                      "duration": 7496,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -127,18 +258,18 @@
                       "steps": [
                         {
                           "title": "Given User Visits HomePage",
-                          "duration": 3564
+                          "duration": 5131
                         },
                         {
                           "title": "When User Observes Title",
-                          "duration": 36
+                          "duration": 45
                         },
                         {
                           "title": "Then title should match \"Welcome to the-internet\"",
-                          "duration": 7
+                          "duration": 6
                         }
                       ],
-                      "startTime": "2025-12-30T05:44:12.126Z",
+                      "startTime": "2025-12-30T14:26:19.395Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -152,7 +283,7 @@
               "column": 7
             },
             {
-              "title": "Home Page has a valid Title",
+              "title": "Home Page has a valid Subtitle",
               "ok": true,
               "tags": [],
               "tests": [
@@ -160,14 +291,14 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 5164,
+                      "duration": 5310,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -175,18 +306,18 @@
                       "steps": [
                         {
                           "title": "Given User Visits HomePage",
-                          "duration": 4075
+                          "duration": 4621
                         },
                         {
-                          "title": "When User Observes Title",
-                          "duration": 41
+                          "title": "When User Observes Subtitle",
+                          "duration": 25
                         },
                         {
-                          "title": "Then title should match \"Welcome to the-internet\"",
-                          "duration": 2
+                          "title": "Then Subtitle should match \"Available Examples\"",
+                          "duration": 1
                         }
                       ],
-                      "startTime": "2025-12-30T05:44:12.138Z",
+                      "startTime": "2025-12-30T14:26:28.117Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -194,57 +325,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "5c90d46ba501b38b18f6-00196061bf7593b4a983",
+              "id": "5c90d46ba501b38b18f6-7e1db79a47490c90e42f",
               "file": "src/features/home_page.feature.spec.js",
-              "line": 6,
-              "column": 7
-            },
-            {
-              "title": "Home Page has a valid Title",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 4413,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "steps": [
-                        {
-                          "title": "Given User Visits HomePage",
-                          "duration": 3941
-                        },
-                        {
-                          "title": "When User Observes Title",
-                          "duration": 51
-                        },
-                        {
-                          "title": "Then title should match \"Welcome to the-internet\"",
-                          "duration": 8
-                        }
-                      ],
-                      "startTime": "2025-12-30T05:44:12.116Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "5c90d46ba501b38b18f6-dfecf8d9e9901a4c5fdd",
-              "file": "src/features/home_page.feature.spec.js",
-              "line": 6,
+              "line": 12,
               "column": 7
             }
           ]
@@ -254,9 +337,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-30T05:44:10.851Z",
-    "duration": 7752.585999999999,
-    "expected": 3,
+    "startTime": "2025-12-30T14:26:17.188Z",
+    "duration": 17995.751,
+    "expected": 5,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
