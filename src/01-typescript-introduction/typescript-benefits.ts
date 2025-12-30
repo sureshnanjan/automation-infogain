@@ -243,7 +243,7 @@ class TestRunner {
     }
 }
 
-interface HomePageOperations{
+interface HomePageOperationsDemo{
     logoDetails:{width:number; height:number;};
     login():void;
     logout():void;
@@ -252,7 +252,7 @@ interface HomePageOperations{
 
 
 // Automation for WebPage
-class HomePageWeb implements HomePageOperations{
+class HomePageWeb implements HomePageOperationsDemo{
     logoDetails = {width:100, height:50};
     login(): void {
         // Plwright 
@@ -266,8 +266,9 @@ class HomePageWeb implements HomePageOperations{
     }
 }
 
-class HomePageMobile implements HomePageOperations{
-    logoDetails:{width:50, height:25};
+class HomePageMobile implements HomePageOperationsDemo{
+    logoDetails = { width:10, height:10 };
+    //Details:{width:50, height:25};
     login(): void {
         // Appium WDIO
         console.log("Mobile Login functionality");
