@@ -10,9 +10,7 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {
-      "actualWorkers": 3
-    },
+    "metadata": {},
     "preserveOutput": "always",
     "reporter": [
       [
@@ -36,9 +34,7 @@
         "outputDir": "D:/QA_Training/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 3
-        },
+        "metadata": {},
         "id": "chromium",
         "name": "chromium",
         "testDir": "D:/QA_Training/automation-infogain/.features-gen",
@@ -57,192 +53,17 @@
     "workers": 4,
     "webServer": null
   },
-  "suites": [
+  "suites": [],
+  "errors": [
     {
-      "title": "src\\features\\basic_auth.feature.spec.js",
-      "file": "src/features/basic_auth.feature.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Basic Auth Page Verification",
-          "file": "src/features/basic_auth.feature.spec.js",
-          "line": 4,
-          "column": 6,
-          "specs": [
-            {
-              "title": "Logged In Basic Auth Page Header Verification",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 13526,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "steps": [
-                        {
-                          "title": "Given User navigates to the HerokuApp site",
-                          "duration": 5717
-                        },
-                        {
-                          "title": "When User clicks on Basic Auth link",
-                          "duration": 911
-                        },
-                        {
-                          "title": "Then Page header should be \"Basic Auth\"",
-                          "duration": 2024
-                        }
-                      ],
-                      "startTime": "2025-12-30T12:00:41.145Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "D:\\QA_Training\\automation-infogain\\test-results\\src-features-basic_auth.fe-ed42a-th-Page-Header-Verification-chromium\\test-finished-1.png"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "57da057ca88078568c52-03e819d4bb12798723aa",
-              "file": "src/features/basic_auth.feature.spec.js",
-              "line": 6,
-              "column": 7
-            },
-            {
-              "title": "Logged In Basic Auth Page Content Verification",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 11050,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "steps": [
-                        {
-                          "title": "Given User navigates to the HerokuApp site",
-                          "duration": 5160
-                        },
-                        {
-                          "title": "When User clicks on Basic Auth link",
-                          "duration": 899
-                        },
-                        {
-                          "title": "Then Page content should contain \"Congratulations! You must have the proper credentials.\"",
-                          "duration": 2008
-                        }
-                      ],
-                      "startTime": "2025-12-30T12:00:42.458Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "D:\\QA_Training\\automation-infogain\\test-results\\src-features-basic_auth.fe-23db1-h-Page-Content-Verification-chromium\\test-finished-1.png"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "57da057ca88078568c52-1099a76e936b618286f4",
-              "file": "src/features/basic_auth.feature.spec.js",
-              "line": 12,
-              "column": 7
-            },
-            {
-              "title": "Logged In Basic Auth Page Footer Verification",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 13605,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "steps": [
-                        {
-                          "title": "Given User navigates to the HerokuApp site",
-                          "duration": 5580
-                        },
-                        {
-                          "title": "When User clicks on Basic Auth link",
-                          "duration": 1414
-                        },
-                        {
-                          "title": "Then Page footer should be \"Powered by Elemental Selenium\"",
-                          "duration": 1990
-                        }
-                      ],
-                      "startTime": "2025-12-30T12:00:41.444Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "D:\\QA_Training\\automation-infogain\\test-results\\src-features-basic_auth.fe-a4063-th-Page-Footer-Verification-chromium\\test-finished-1.png"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "57da057ca88078568c52-22bec7ed4712246ed1a8",
-              "file": "src/features/basic_auth.feature.spec.js",
-              "line": 18,
-              "column": 7
-            }
-          ]
-        }
-      ]
+      "message": "Error: No tests found.\nMake sure that arguments are regular expressions matching test files.\nYou may need to escape symbols like \"$\" or \"*\" and quote the arguments.",
+      "stack": "Error: No tests found.\nMake sure that arguments are regular expressions matching test files.\nYou may need to escape symbols like \"$\" or \"*\" and quote the arguments."
     }
   ],
-  "errors": [],
   "stats": {
-    "startTime": "2025-12-30T12:00:32.162Z",
-    "duration": 27177.604,
-    "expected": 3,
+    "startTime": "2025-12-30T12:08:25.488Z",
+    "duration": 119.4380000000001,
+    "expected": 0,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
