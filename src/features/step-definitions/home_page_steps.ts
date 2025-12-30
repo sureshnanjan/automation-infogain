@@ -24,11 +24,15 @@ Then('title should match {string}', async ({}, arg) => {
   expect(actualResult).toEqual(arg);
 });
 
-Given('I have the following data', async ({}, dataTable: DataTable) => {
-  // Step: Given I have the following data
-  // From: src\features\home_page.feature:26:1
-  dataTable.rows().forEach((row)=>{
+When('User Observes Sub-Title', async ({}) => {
+  // Step: When User Observes Sub-Title
+  // From: src\features\home_page.feature:11:1
+  actualResult =await homePage.getSubTitle();
+});
 
-
-  });
+Then('subtitle should match {string}', async ({}, arg) => {
+  // Step: Then title should match "Available Examples"
+  // From: src\features\home_page.feature:12:1
+  actualResult =await homePage.getSubTitle();
+  expect(actualResult).toEqual(arg);
 });
