@@ -24,6 +24,9 @@
  * ============================================================================
  */
 
+//import { runTest } from "@src/03-variables-functions/functions";
+import { Interface } from "readline";
+
 // ============================================================================
 // SECTION 1: VARIABLES & BASIC FUNCTIONS (10 exercises)
 // ============================================================================
@@ -42,28 +45,41 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Declare variables here
 
+const testName="Login Test";
+const timeout=5000;
+const isPassed=true;
 
-
-
+type userDetails={
+    username:string,
+    password:string
+}
+const testData:userDetails|null = null;
 /**
  * Exercise 1.2: Const vs Let
  * ---------------------------
  * Fix the following code by using appropriate variable declarations:
  * The browser variable should remain 'chrome' after the if block.
  * 
- * Current code (BROKEN):
- * var browser = 'chrome';
- * var retries = 0;
- * if (true) {
- *     var browser = 'firefox';
- *     retries = retries + 1;
- * }
- * console.log(browser); // Should print 'chrome', not 'firefox'
- */
-
+  Current code (BROKEN):
+  
+ let browser = 'chrome';
+  let retries = 0;
+ if (true) {
+      browser = 'firefox';
+     retries = retries + 1;
+ }
+ console.log(browser); // Should print 'chrome', not 'firefox'
+ 
+*/
 // TODO: Fix the code using const and let
 
-
+const browser = 'chrome';  //making varible const 
+  let retries = 0;
+ if (true) {
+     let browser = 'firefox'; 
+     retries = retries + 1;
+ }
+ console.log(browser); // Should print 'chrome', not 'firefox'
 
 
 /**
@@ -80,8 +96,16 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Create calculateTestDuration function
 
+type testDuration ={
+    startTime:number,
+    endTime:number
+}
 
-
+function calculateTestDuration(startTime:number,endTime:number):number{
+    return endTime-startTime;
+}
+let totalTime=calculateTestDuration(1000,6000);
+console.log("time in milisec is: ",totalTime),
 
 /**
  * Exercise 1.4: Optional Parameters
@@ -93,6 +117,7 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  * - Returns a string: "Running [testName] with [retries] retries and [timeout]ms timeout"
  * 
  * Example:
+ *
  * runTest('Login Test') 
  * // returns "Running Login Test with 0 retries and 5000ms timeout"
  * 
@@ -102,9 +127,25 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Create runTest function
 
+     function runTest(
+        testName:string,
+        retries:number=0,
+        timeout:number=5000
+    ):string {
+     return 'Running ${testName} Test with ${retries} retries and ${timeout}ms timeout';
+     console.log(runTest("john",3,5000));
+  }
+     
 
 
+/*
 
+function runTest(testName:string,retries:number,timeout:number):string{
+    return runTest("john",4444,223);
+}
+console.log(runTest);
+
+*/
 /**
  * Exercise 1.5: Rest Parameters
  * ------------------------------
@@ -125,10 +166,16 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Create executeTests function
+ 
+  function executeTests(suiteName:string, testName:string[]):number{
+        console.log("Suite:suiteName");
 
-
-
-
+        for(const test of testName){
+            console.log(test);
+        }
+    return testName.length;
+}
+console.log(executeTests("login suite",["test 1","test 2","test 3"]));
 /**
  * Exercise 1.6: Function Return Types
  * ------------------------------------
@@ -147,8 +194,18 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Create getTestResult function
 
-
-
+    function getTestResult(score: number): string {
+    if (score >= 90) {
+        return "Excellent";
+    } else if (score >= 70) {
+        return "Good";
+    } else {
+        return "Needs Improvement";
+    }
+}
+console.log(getTestResult(95)); // returns "Excellent"
+console.log(getTestResult(75)); // returns "Good"
+console.log(getTestResult(60)); // returns "Needs Improvement"
 
 /**
  * Exercise 1.7: Arrow Function Basics
@@ -165,7 +222,8 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Convert to arrow function
 
-
+const multiply = (a: number, b: number): number => a * b;
+console.log(multiply(5, 3)); // should return 15
 
 
 /**
@@ -183,7 +241,9 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Create square arrow function
 
-
+    const square = (num: number): number => num * num;
+    console.log(square(5)); // returns 25
+    console.log(square(10)); // returns 100
 
 
 /**
@@ -200,6 +260,8 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Create getTimestamp arrow function
 
+    const getTimestamp = (): number => Date.now();
+    console.log(getTimestamp()); // returns current timestamp (e.g., 1703251200000)
 
 
 
@@ -220,6 +282,13 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
 
 // TODO: Create createUser arrow function
 
+    const createUser = (name: string, email: string): { name: string; email: string; createdAt: number } => ({
+    name,
+    email,
+    createdAt: Date.now()
+});
+
+    console.log(createUser('John', 'john@test.com'));
 
 
 
@@ -240,9 +309,10 @@ console.log('\n=== SECTION 2: ARRAY METHODS WITH ARROW FUNCTIONS ===\n');
  * Expected output: ['LOGIN TEST', 'SIGNUP TEST', 'CHECKOUT TEST']
  */
 
-const testNames = ['login test', 'signup test', 'checkout test'];
+
 // TODO: Use .map() to convert to uppercase
 
+    const testNames = ['login test', 'signup test', 'checkout test'];
 
 
 
@@ -501,13 +571,13 @@ const durations = [1500, 3000, 800, 2200, 1000];
  * 
  * Hint: Initialize empty object, create array for each status if not exists, push test name
  */
-
+/* commention for same variable name
 const testData = [
     { test: 'Test 1', status: 'passed' },
     { test: 'Test 2', status: 'failed' },
     { test: 'Test 3', status: 'passed' },
     { test: 'Test 4', status: 'failed' }
-];
+]; */
 // TODO: Group tests by status
 
 
@@ -588,7 +658,7 @@ const csv = 'TC-001,Login Test,Passed,1500';
  * - word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() for each word
  */
 
-const testName = '  login_test_01  ';
+//const testName = '  login_test_01  ';
 // TODO: Transform to "Login Test 01"
 
 
