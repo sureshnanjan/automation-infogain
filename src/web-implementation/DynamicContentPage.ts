@@ -1,5 +1,6 @@
 import { Expect, expect, Locator, Page } from "@playwright/test";
 import { DynamicContentPageOperations } from "@src/operations/DynamicContentPageOperations";
+import { getHerokuAppUrl } from "@src/utilities/herokuapp-utils";
 
 /**
  * DynamicContentPage is the concrete implementation of IDynamicContentPage.
@@ -19,16 +20,33 @@ export class DynamicContentPage implements DynamicContentPageOperations {
         this.headerTitle = page.locator('h3', {hasText: 'Dynamic Content'});
         this.staticLink = page.getByRole('link', {name: 'click here'});
         this.contentRows = page.locator('xpath= //div[@id="content" and contains(@class, "large-10")]/*[@class="row"]')
-        this.imagesInRows = page.locator('img');
+        this.imagesInRows = this.contentRows.locator('img');
         this.textInRows = this.contentRows.locator('.large-10');
 
     }
 
-        async goto(): Promise<void> {
-            await this.page.goto('/dynamic_content');
+        // Only Holds good in Async Libraries
+        static async create(page:Page) {
+            const instance = new DynamicContentPage(page);
+            // Do async initialization here
+            await instance.navigate();
+            return instance;
+            }
+        
+        async navigate(): Promise<void> {
+            await this.page.goto(`${getHerokuAppUrl()}dynamic_content`);
         }
+
+        async goto(): Promise<void> {
+            await this.page.goto(`${getHerokuAppUrl()}dynamic_content`);
+        }
+
+        async getTitle(): Promise<string|null> {
+            // Implementation to get the title from the Dynamic Content page
+            return this.headerTitle.textContent();
+        } 
        async gotoStaticVersion(): Promise<void> {
-            await this.page.goto('/dynamic_content?with_content=static');
+            await this.page.goto(`${getHerokuAppUrl()}dynamic_content?with_content=static`);
         }
 
         async isLoaded(): Promise<void> {
@@ -38,6 +56,7 @@ export class DynamicContentPage implements DynamicContentPageOperations {
 
         async enableStaticViaLink(): Promise<void> {
             await this.staticLink.click();
+            await this.page.waitForURL(/.*with_content=static/);
         }
             
         async getRowText(): Promise<string[]> {
@@ -58,4 +77,33 @@ export class DynamicContentPage implements DynamicContentPageOperations {
             }
             return values;
         }
+
+        async validateRowsHaveText(): Promise<void> {
+            const texts = await this.getRowText();
+            for (const t of texts) {
+                expect(t.length, 'Row text should not be empty').toBeGreaterThan(0);
+            }
+        }
+
+        async validateImagesHaveCorrectPaths(pathSnippet: string): Promise<void> {
+            const images = await this.getImageSources();
+            for (const src of images) {
+                expect(src, `Image source should contain ${pathSnippet}`).toContain(pathSnippet);
+            }
+        }
+
+     /**
+     * Compares two lists of strings and returns the indexes where 
+     * the content remains identical.
+     */
+    public findUnchangedIndexes(before: string[], after: string[]): number[] {
+        const unchanged: number[] = [];
+        // Use a loop here instead of the test file
+        for (let i = 0; i < before.length; i++) {
+            if (before[i] === after[i]) {
+                unchanged.push(i);
+            }
+        }
+        return unchanged;
+    }
 }
