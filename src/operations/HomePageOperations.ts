@@ -1,6 +1,6 @@
 import { HomePageBanner } from "@src/models/HomePageBanner";
 import { HerokuAppOperations } from "@src/operations/HerokuAppOperations";
-interface HomePageOperations {
+interface HomePageOperations  extends HerokuAppOperations{
     getTitle(): Promise<string|null>;
     getSubTitle(): Promise<string|null>;
     getAvailableExamples(): Promise<string[]|null>;

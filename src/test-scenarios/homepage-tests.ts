@@ -1,4 +1,5 @@
 import {test,expect} from '@playwright/test';
+import { ABTestingOperations } from '@src/operations/ABTestingOperations';
 import {HomePageOperations} from '@src/operations/HomePageOperations';
 import {getHerokuAppUrl,getHerokuApp} from '@src/utilities/herokuapp-utils';
 test("Verify Home Page Title",async({page})=>{
@@ -26,6 +27,17 @@ test("Verify Available Examples on Home Page",async({page})=>{
 });
 test("Verify Home Page Banner Info",async({page})=>{});
 test("Verify Home Page Footer Text",async({page})=>{});
+
 test("Navigate to Example Page from Home Page",async({page})=>{
+    // Arrange
+    const testPage = "A/B Testing"
+    // Expected A/B Test Variation 1
     const homePage:HomePageOperations = await getHerokuApp(page);
+    // Act
+    const returnPage = (homePage.gotoExample(testPage) as unknown) as ABTestingOperations;
+
+    // Can Be success or Error
+    const actual = returnPage.getTitle();
+    // Assert
+
 });
