@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "C:\\Trainings-2025\\infogain\\automation-infogain\\playwright.config.ts",
-    "rootDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
+    "configFile": "C:\\Working\\Automation\\QA-Training\\automation-infogain\\playwright.config.ts",
+    "rootDir": "C:/Working/Automation/QA-Training/automation-infogain/.features-gen",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -33,7 +33,7 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
+        "outputDir": "C:/Working/Automation/QA-Training/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -41,7 +41,7 @@
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
+        "testDir": "C:/Working/Automation/QA-Training/automation-infogain/.features-gen",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -49,7 +49,7 @@
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
+        "outputDir": "C:/Working/Automation/QA-Training/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -57,7 +57,7 @@
         },
         "id": "firefox",
         "name": "firefox",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
+        "testDir": "C:/Working/Automation/QA-Training/automation-infogain/.features-gen",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -65,7 +65,7 @@
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
+        "outputDir": "C:/Working/Automation/QA-Training/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -73,7 +73,7 @@
         },
         "id": "webkit",
         "name": "webkit",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
+        "testDir": "C:/Working/Automation/QA-Training/automation-infogain/.features-gen",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -119,7 +119,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3837,
+                      "duration": 6084,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -127,18 +127,18 @@
                       "steps": [
                         {
                           "title": "Given User Visits HomePage",
-                          "duration": 3564
+                          "duration": 5157
                         },
                         {
                           "title": "When User Observes Title",
-                          "duration": 36
+                          "duration": 58
                         },
                         {
                           "title": "Then title should match \"Welcome to the-internet\"",
-                          "duration": 7
+                          "duration": 8
                         }
                       ],
-                      "startTime": "2025-12-30T05:44:12.126Z",
+                      "startTime": "2025-12-30T09:43:14.388Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -167,7 +167,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 5164,
+                      "duration": 8508,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -175,18 +175,18 @@
                       "steps": [
                         {
                           "title": "Given User Visits HomePage",
-                          "duration": 4075
+                          "duration": 6632
                         },
                         {
                           "title": "When User Observes Title",
-                          "duration": 41
+                          "duration": 49
                         },
                         {
                           "title": "Then title should match \"Welcome to the-internet\"",
-                          "duration": 2
+                          "duration": 6
                         }
                       ],
-                      "startTime": "2025-12-30T05:44:12.138Z",
+                      "startTime": "2025-12-30T09:43:14.379Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -215,7 +215,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 4413,
+                      "duration": 6886,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -223,18 +223,18 @@
                       "steps": [
                         {
                           "title": "Given User Visits HomePage",
-                          "duration": 3941
+                          "duration": 5485
                         },
                         {
                           "title": "When User Observes Title",
-                          "duration": 51
+                          "duration": 53
                         },
                         {
                           "title": "Then title should match \"Welcome to the-internet\"",
-                          "duration": 8
+                          "duration": 7
                         }
                       ],
-                      "startTime": "2025-12-30T05:44:12.116Z",
+                      "startTime": "2025-12-30T09:43:14.442Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,8 +254,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-30T05:44:10.851Z",
-    "duration": 7752.585999999999,
+    "startTime": "2025-12-30T09:43:11.510Z",
+    "duration": 18351.72,
     "expected": 3,
     "skipped": 0,
     "unexpected": 0,
