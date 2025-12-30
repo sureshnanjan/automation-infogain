@@ -679,7 +679,6 @@ console.log(sortedTestsByName);
  */
 
 const testData1 = [
-const testData1 = [
     { test: 'Test 1', status: 'passed' },
     { test: 'Test 2', status: 'failed' },
     { test: 'Test 3', status: 'passed' },
@@ -1627,58 +1626,34 @@ console.log('\n=== TESTING YOUR SOLUTIONS ===\n');
 
 // Uncomment the tests below as you complete each exercise
 
-//Section 1 Tests
-console.log('1.1 Variables:', testName, timeout, isPassed, testData);
-console.log('1.3 Calculate Duration:', calculateTestDuration(1000, 6000));
-console.log('1.4 Run Test:', runTest('Login Test'));
-console.log('1.6 Test Result:', getTestResult(95));
-console.log('1.7 Multiply:', multiply(5, 3));
-console.log('1.8 Square:', square(5));
-console.log('1.9 Timestamp:', getTimestamp());
-console.log('1.10 Create User:', createUser('John', 'john@test.com'));
-//Section 1 Tests
-console.log('1.1 Variables:', testName, timeout, isPassed, testData);
-console.log('1.3 Calculate Duration:', calculateTestDuration(1000, 6000));
-console.log('1.4 Run Test:', runTest('Login Test'));
-console.log('1.6 Test Result:', getTestResult(95));
-console.log('1.7 Multiply:', multiply(5, 3));
-console.log('1.8 Square:', square(5));
-console.log('1.9 Timestamp:', getTimestamp());
-console.log('1.10 Create User:', createUser('John', 'john@test.com'));
+// Section 1 Tests
+// console.log('1.1 Variables:', testName, timeout, isPassed, testData);
+// console.log('1.3 Calculate Duration:', calculateTestDuration(1000, 6000));
+// console.log('1.4 Run Test:', runTest('Login Test'));
+// console.log('1.6 Test Result:', getTestResult(95));
+// console.log('1.7 Multiply:', multiply(5, 3));
+// console.log('1.8 Square:', square(5));
+// console.log('1.9 Timestamp:', getTimestamp());
+// console.log('1.10 Create User:', createUser('John', 'john@test.com'));
 
-//Section 2 Tests
-console.log('2.1 Uppercase:', upperCaseTests);
-console.log('2.2 Test IDs:', testIds);
-console.log('2.3 Passing Tests:', passingTests);
-console.log('2.4 Passing Scores:', passingScores);
-console.log('2.5 Total Score:', totalScore);
-console.log('2.6 Browser Counts:', browserCounts);
-//Section 2 Tests
-console.log('2.1 Uppercase:', upperCaseTests);
-console.log('2.2 Test IDs:', testIds);
-console.log('2.3 Passing Tests:', passingTests);
-console.log('2.4 Passing Scores:', passingScores);
-console.log('2.5 Total Score:', totalScore);
-console.log('2.6 Browser Counts:', browserCounts);
+// Section 2 Tests
+// console.log('2.1 Uppercase:', upperCaseTests);
+// console.log('2.2 Test IDs:', testIds);
+// console.log('2.3 Passing Tests:', passingTests);
+// console.log('2.4 Passing Scores:', passingScores);
+// console.log('2.5 Total Score:', totalScore);
+// console.log('2.6 Browser Counts:', browserCounts);
 
-//Section 3 Tests
-console.log('3.1 Parsed CSV:', parsedCsv);
-console.log('3.2 Formatted Name:', formattedName);
-console.log('3.3 Error Logs:', errorLogs);
-console.log('3.5 Emails:', emails);
-console.log('3.7 Normalized:', normalizedStatuses);
-//Section 3 Tests
-console.log('3.1 Parsed CSV:', parsedCsv);
-console.log('3.2 Formatted Name:', formattedName);
-console.log('3.3 Error Logs:', errorLogs);
-console.log('3.5 Emails:', emails);
-console.log('3.7 Normalized:', normalizedStatuses);
+// Section 3 Tests
+// console.log('3.1 Parsed CSV:', parsedCsv);
+// console.log('3.2 Formatted Name:', formattedName);
+// console.log('3.3 Error Logs:', errorLogs);
+// console.log('3.5 Emails:', emails);
+// console.log('3.7 Normalized:', normalizedStatuses);
 
 // Section 4 Tests
- console.log('4.1 Report:', generateReport(results4_1));
- console.log('4.2 High Priority:', highPriorityIds);
- console.log('4.1 Report:', generateReport(results4_1));
- console.log('4.2 High Priority:', highPriorityIds);
+// console.log('4.1 Report:', generateReport(results4_1));
+// console.log('4.2 High Priority:', highPriorityIds);
 
 console.log('\n=== ALL DONE! ===\n');
 console.log('Great job completing the exercises!');
