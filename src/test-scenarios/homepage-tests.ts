@@ -34,7 +34,7 @@ test("Navigate to Example Page from Home Page",async({page})=>{
     // Expected A/B Test Variation 1
     const homePage:HomePageOperations = await getHerokuApp(page);
     // Act
-    const returnPage = homePage.gotoExample(testPage) as ABTestingOperations;
+    const returnPage = (homePage.gotoExample(testPage) as unknown) as ABTestingOperations;
 
     // Can Be success or Error
     const actual = returnPage.getTitle();

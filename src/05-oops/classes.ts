@@ -200,11 +200,9 @@ class A{
     public A_Public;
     private A_Private;
     protected A_Protected;
-    constructor(){
+    
+    constructor(a?:number, b?:string){
        //this.
-
-    }
-    constructor(a:number, b:string){
 
     }
 
