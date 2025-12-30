@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 2
+      "actualWorkers": 3
     },
     "preserveOutput": "always",
     "reporter": [
@@ -37,7 +37,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 2
+          "actualWorkers": 3
         },
         "id": "chromium",
         "name": "chromium",
@@ -59,20 +59,20 @@
   },
   "suites": [
     {
-      "title": "src\\features\\home_page.feature.spec.js",
-      "file": "src/features/home_page.feature.spec.js",
+      "title": "src\\features\\basic_auth.feature.spec.js",
+      "file": "src/features/basic_auth.feature.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Heroku App Home Page functionality",
-          "file": "src/features/home_page.feature.spec.js",
+          "title": "Basic Auth Page Verification",
+          "file": "src/features/basic_auth.feature.spec.js",
           "line": 4,
           "column": 6,
           "specs": [
             {
-              "title": "Home Page has a valid Title",
+              "title": "Logged In Basic Auth Page Header Verification",
               "ok": true,
               "tags": [],
               "tests": [
@@ -87,40 +87,46 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7316,
+                      "duration": 13526,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
                       "steps": [
                         {
-                          "title": "Given User Visits HomePage",
-                          "duration": 4918
+                          "title": "Given User navigates to the HerokuApp site",
+                          "duration": 5717
                         },
                         {
-                          "title": "When User Observes Title",
-                          "duration": 150
+                          "title": "When User clicks on Basic Auth link",
+                          "duration": 911
                         },
                         {
-                          "title": "Then title should match \"Welcome to the-internet\"",
-                          "duration": 30
+                          "title": "Then Page header should be \"Basic Auth\"",
+                          "duration": 2024
                         }
                       ],
-                      "startTime": "2025-12-30T06:24:09.797Z",
+                      "startTime": "2025-12-30T12:00:41.145Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\QA_Training\\automation-infogain\\test-results\\src-features-basic_auth.fe-ed42a-th-Page-Header-Verification-chromium\\test-finished-1.png"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
                 }
               ],
-              "id": "5c90d46ba501b38b18f6-96a09658d21608c403a5",
-              "file": "src/features/home_page.feature.spec.js",
+              "id": "57da057ca88078568c52-03e819d4bb12798723aa",
+              "file": "src/features/basic_auth.feature.spec.js",
               "line": 6,
               "column": 7
             },
             {
-              "title": "Home Page has a valid Sub-Title",
+              "title": "Logged In Basic Auth Page Content Verification",
               "ok": true,
               "tags": [],
               "tests": [
@@ -135,36 +141,96 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 7575,
+                      "duration": 11050,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
                       "steps": [
                         {
-                          "title": "Given User Visits HomePage",
-                          "duration": 4643
+                          "title": "Given User navigates to the HerokuApp site",
+                          "duration": 5160
                         },
                         {
-                          "title": "When User Observes Sub-Title",
-                          "duration": 160
+                          "title": "When User clicks on Basic Auth link",
+                          "duration": 899
                         },
                         {
-                          "title": "Then subtitle should match \"Available Examples\"",
-                          "duration": 40
+                          "title": "Then Page content should contain \"Congratulations! You must have the proper credentials.\"",
+                          "duration": 2008
                         }
                       ],
-                      "startTime": "2025-12-30T06:24:08.483Z",
+                      "startTime": "2025-12-30T12:00:42.458Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\QA_Training\\automation-infogain\\test-results\\src-features-basic_auth.fe-23db1-h-Page-Content-Verification-chromium\\test-finished-1.png"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
                 }
               ],
-              "id": "5c90d46ba501b38b18f6-aa20a3223dd360b74515",
-              "file": "src/features/home_page.feature.spec.js",
+              "id": "57da057ca88078568c52-1099a76e936b618286f4",
+              "file": "src/features/basic_auth.feature.spec.js",
               "line": 12,
+              "column": 7
+            },
+            {
+              "title": "Logged In Basic Auth Page Footer Verification",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 13605,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given User navigates to the HerokuApp site",
+                          "duration": 5580
+                        },
+                        {
+                          "title": "When User clicks on Basic Auth link",
+                          "duration": 1414
+                        },
+                        {
+                          "title": "Then Page footer should be \"Powered by Elemental Selenium\"",
+                          "duration": 1990
+                        }
+                      ],
+                      "startTime": "2025-12-30T12:00:41.444Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\QA_Training\\automation-infogain\\test-results\\src-features-basic_auth.fe-a4063-th-Page-Footer-Verification-chromium\\test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "57da057ca88078568c52-22bec7ed4712246ed1a8",
+              "file": "src/features/basic_auth.feature.spec.js",
+              "line": 18,
               "column": 7
             }
           ]
@@ -174,9 +240,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-30T06:23:59.694Z",
-    "duration": 20933.942,
-    "expected": 2,
+    "startTime": "2025-12-30T12:00:32.162Z",
+    "duration": 27177.604,
+    "expected": 3,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
