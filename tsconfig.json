@@ -50,12 +50,16 @@
     /* Completeness */
     "skipLibCheck": true                          // Skip type checking all .d.ts files
   },
-  "include": [
-    "src/**/*",
-    "tests/**/*",
-    "utils/**/*",
-    "config/**/*"
-  ],
+  // Without BDD
+  //  "include": [
+  //  "src/**/*",
+  //  "tests/**/*",
+  //  "utils/**/*",
+  //  "config/**/*"
+  //],
+  "include": ["src/features/**/*", "src/**/*"],
+  //"exclude": ["node_modules", "dist"]
+  
   "exclude": [
     "node_modules",
     "dist",
