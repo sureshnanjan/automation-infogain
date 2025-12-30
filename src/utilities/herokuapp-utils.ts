@@ -17,7 +17,3 @@ export async function getHerokuApp(page:Page): Promise<HomePageOperations> {
 export function getHerokuAppSync(page:Page): HomePageOperations {
     return new (require('@src/web-implementation/HomePage').HomePage)(page);
 }
-
-export function getDisappearingElementsPage(page:Page): DisappearingElementsOperations {
-    return new (require('@src/web-implementation/DisappearingElementsPage').DisappearingElements)(page);
-}
