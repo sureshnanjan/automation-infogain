@@ -1,5 +1,5 @@
 import { HomePageOperations } from "@src/operations/HomePageOperations";
-import { HomePage } from "@src/web-implementation/HomePage";
+import { HomePage } from "@src/web-implementation/HomePage";   
 import { Page } from "@playwright/test";
 import { Logger } from "./Logger";
 import { BasicAuthPageOperations } from "@src/operations/BasicAuthPageOperations";
@@ -18,7 +18,6 @@ export async function getHerokuApp(page:Page): Promise<HomePageOperations> {
     //app.navigate();
     //return app;
 }
-
 export async function getBasicAuthPage(page:Page): Promise<BasicAuthPageOperations> {
 
     return  BasicAuth.create(page);
