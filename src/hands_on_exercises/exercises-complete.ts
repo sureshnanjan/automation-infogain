@@ -313,8 +313,8 @@ console.log('\n=== SECTION 2: ARRAY METHODS WITH ARROW FUNCTIONS ===\n');
 // TODO: Use .map() to convert to uppercase
 
     const testNames = ['login test', 'signup test', 'checkout test'];
-
-
+    const upperCase=testNames.map((testNames:string) => testNames.toUpperCase());
+    console.log("Output is:",upperCase);
 
 /**
  * Exercise 2.2: Array.map() - Extract Property
@@ -337,9 +337,8 @@ const tests = [
     { id: 'TC-003', name: 'Checkout Test', passed: true }
 ];
 // TODO: Extract only the IDs
-
-
-
+    const result=tests.map(tests =>tests.id);
+    console.log("Expected Output is:",result);
 
 /**
  * Exercise 2.3: Array.filter() - Get Passing Tests
@@ -350,8 +349,8 @@ const tests = [
  */
 
 // TODO: Filter to get only passing tests
-
-
+    const passTest=tests.filter(tests =>tests.passed);
+    console.log(passTest);
 
 
 /**
@@ -368,7 +367,8 @@ const tests = [
 const scores = [95, 67, 88, 45, 92, 78, 53, 81];
 // TODO: Filter scores >= 70
 
-
+const score=scores.filter(scores => scores>=70);
+console.log(score);
 
 
 /**
@@ -383,7 +383,8 @@ const scores = [95, 67, 88, 45, 92, 78, 53, 81];
 
 // TODO: Calculate total sum using reduce
 
-
+    const sum=scores.reduce((accumulator, currentValue) => accumulator + currentValue);
+    console.log(sum);
 
 
 /**
@@ -402,7 +403,12 @@ const scores = [95, 67, 88, 45, 92, 78, 53, 81];
 const browsers = ['chrome', 'firefox', 'chrome', 'safari', 'chrome', 'firefox'];
 // TODO: Count occurrences of each browser
 
+    const browserCounts = browsers.reduce((acc: Record<string, number>, browser) => {
+     acc[browser] = (acc[browser] || 0) + 1;
+    return acc;
+    }, {});
 
+    console.log(browserCounts);
 
 
 /**
@@ -424,8 +430,9 @@ const browsers = ['chrome', 'firefox', 'chrome', 'safari', 'chrome', 'firefox'];
 const testCases = ['TC-001', 'TC-002', 'TC-003'];
 // TODO: Log each test case with index
 
-
-
+    testCases.forEach((testCase, index) => {
+    console.log(`${index + 1}. ${testCase}`);
+    });
 
 /**
  * Exercise 2.8: Array.find() - Find First Match
@@ -441,15 +448,17 @@ const testCases = ['TC-001', 'TC-002', 'TC-003'];
  * 
  * Expected output: { username: 'admin1', role: 'admin' }
  */
-
-const users = [
+   
+    const users = [
     { username: 'user1', role: 'user' },
     { username: 'admin1', role: 'admin' },
     { username: 'user2', role: 'user' }
 ];
+
 // TODO: Find first admin user
 
-
+        const adminUser = users.find(user => user.role === 'admin');
+        console.log(adminUser);
 
 
 /**
@@ -464,6 +473,8 @@ const users = [
 
 // TODO: Check if any score is below 50
 
+const lowScore = scores.some(score => score < 50);
+console.log(lowScore);
 
 
 
@@ -479,6 +490,8 @@ const users = [
 
 // TODO: Check if all scores are above 40
 
+    const allAbove = scores.every(score => score > 40);
+    console.log(allAbove);
 
 
 
@@ -511,7 +524,10 @@ const testResults = [
 ];
 // TODO: Calculate average score of passing tests
 
-
+    const results=testResults.filter(testResults=> testResults.passed);
+    const scorePass=results.map(results => results.score);
+    const avarageScore=scorePass.reduce((acc,test)=> acc + test, 0)/ results.length;
+    console.log("Avarage Score : ",avarageScore);
 
 
 /**
@@ -531,6 +547,8 @@ const testResults = [
 const durations = [1500, 3000, 800, 2200, 1000];
 // TODO: Sort in ascending order (create copy first)
 
+    const sortedDurations= [...durations].sort((a, b) => a - b);
+    console.log(sortedDurations);
 
 
 
@@ -547,7 +565,8 @@ const durations = [1500, 3000, 800, 2200, 1000];
 
 // TODO: Sort tests alphabetically by name (create copy first)
 
-
+    const sortedTestsByName= [...tests].sort((a, b) => a.name.localeCompare(b.name));
+    console.log(sortedTestsByName);
 
 
 /**
@@ -571,16 +590,24 @@ const durations = [1500, 3000, 800, 2200, 1000];
  * 
  * Hint: Initialize empty object, create array for each status if not exists, push test name
  */
-/* commention for same variable name
-const testData = [
+//commention for same variable name
+const testData1 = [
     { test: 'Test 1', status: 'passed' },
     { test: 'Test 2', status: 'failed' },
     { test: 'Test 3', status: 'passed' },
     { test: 'Test 4', status: 'failed' }
-]; */
+]; 
 // TODO: Group tests by status
 
 
+        const groupedTests= testData1.reduce((acc, curr) => {
+        if (!acc[curr.status]) {
+        acc[curr.status] = [];
+    }
+        acc[curr.status].push(curr.test);
+        return acc;
+    }, {} as { [key: string]: string[] });
+        console.log(groupedTests);
 
 
 /**
@@ -610,7 +637,9 @@ const testExecutions = [
 // TODO: Total duration of passing Chrome tests
 
 
-
+        const totalChromePassingDuration = testExecutions.filter(test => test.browser === 'chrome' && test.passed)
+                           .reduce((sum, test) => sum + test.duration, 0);
+        console.log(totalChromePassingDuration);
 
 // ============================================================================
 // SECTION 3: STRING METHODS WITH ARROW FUNCTIONS (10 exercises)
@@ -637,6 +666,10 @@ const csv = 'TC-001,Login Test,Passed,1500';
 // TODO: Parse CSV into object
 
 
+const [id, name, status, durationStr] = csv.split(',');
+const duration = parseInt(durationStr, 10);
+const parsedCsv = { id, name, status, duration };
+console.log(parsedCsv);
 
 
 /**
@@ -658,11 +691,12 @@ const csv = 'TC-001,Login Test,Passed,1500';
  * - word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() for each word
  */
 
-//const testName = '  login_test_01  ';
+const testName1 = '  login_test_01  ';
 // TODO: Transform to "Login Test 01"
-
-
-
+    const result1=testName1.trim().replace(/_/g, ' ')
+    .split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+               .join(' ');;
+    console.log("Transfer to: ",result1);
 
 /**
  * Exercise 3.3: Array.filter() with String.includes()
@@ -692,6 +726,8 @@ const logs = [
 ];
 // TODO: Filter to get only ERROR logs
 
+    const errorLogs= logs.filter(log => log.includes('ERROR'));
+    console.log(errorLogs);
 
 
 
@@ -713,7 +749,12 @@ const logs = [
 const url = 'https://example.com/users/12345/profile';
 // TODO: Extract user ID
 
+const userIdRegex = url.match(/\/users\/(\d+)\//);
+const userId1 = userIdRegex ? userIdRegex[1] : null;
+console.log("User ID (Regex):", userId1);
 
+const userId2 = url.split('/')[4];
+console.log("User ID (Split):", userId2);
 
 
 /**
@@ -732,7 +773,8 @@ const url = 'https://example.com/users/12345/profile';
 const usernames = ['john', 'jane', 'bob'];
 // TODO: Create email addresses
 
-
+const emails= usernames.map(username => `${username}@test.com`);
+console.log(emails);
 
 
 /**
@@ -754,7 +796,11 @@ const testIds = ['TC-001', 'TC-002', 'TC-003', 'BUG-001', 'TC-004'];
 // TODO: Get TC numbers only
 
 
-
+const tcNumbers= (testlist: string[]): string[] => {
+    return testlist.filter(id => id.startsWith('TC-'))
+                   .map(id => id.substring(3));
+}
+console.log(tcNumbers(testIds));
 
 /**
  * Exercise 3.7: Case Conversion
@@ -774,7 +820,8 @@ const testIds = ['TC-001', 'TC-002', 'TC-003', 'BUG-001', 'TC-004'];
 const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
 // TODO: Normalize to lowercase and remove duplicates
 
-
+        const normalizedStatuses = [...new Set(statuses.map(status => status.toLowerCase()))];
+        console.log(normalizedStatuses);
 
 
 /**
@@ -795,7 +842,9 @@ const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
 
 // TODO: Create isValidEmail arrow function
 
-
+        const isValidEmail = (email: string) => email.includes('@') && email.includes('.');
+        console.log(isValidEmail('test@example.com'));
+        console.log(isValidEmail('invalid.email'));
 
 
 /**
@@ -818,6 +867,14 @@ const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
 const queryString = 'username=john@test.com&password=secret123&role=admin';
 // TODO: Parse query string into object
 
+    const queryParams = queryString.split('&')
+    .map(pair => pair.split('='))
+    .reduce((acc, [key, value]) => {    
+        acc[key] = value;    
+        return acc;  
+    }, {} as { [key: string]: string });
+        console.log(queryParams);
+
 
 
 
@@ -839,7 +896,13 @@ const queryString = 'username=john@test.com&password=secret123&role=admin';
 
 // TODO: Create formatDuration arrow function
 
-
+        const formatDuration = (durationMs: number): string => {
+    const durationSec = (durationMs / 1000).toFixed(1);
+    return `${durationSec}s`;
+}
+    console.log(formatDuration(1500));
+    console.log(formatDuration(2000));
+    console.log(formatDuration(500));
 
 
 // ============================================================================
@@ -877,7 +940,15 @@ const results4_1 = [
 ];
 // TODO: Create generateReport function and use it
 
-
+    function generateReport (results: { name: string; passed: boolean; duration: number }[]) : { total: number; passed: number; failed: number; totalDuration: number; passRate: number } {
+    const total = results.length;
+    const passed = results.filter(test => test.passed).length;
+    const failed = total - passed;
+    const totalDuration = results.reduce((sum, test) => sum + test.duration, 0);
+    const passRate = total === 0 ? 0 : parseFloat(((passed / total) * 100).toFixed(2));
+    return { total, passed, failed, totalDuration, passRate };
+}
+    console.log(generateReport(results4_1));
 
 
 /**
@@ -904,7 +975,12 @@ const testCases4_2 = [
 ];
 // TODO: Get IDs of high priority automated tests as comma-separated string
 
+            const highPriorityIds = testCases4_2
+    .filter(test => test.priority === 'high' && test.automated)
+    .map(test => test.id)
+    .join(', ');
 
+    console.log(highPriorityIds);
 
 
 /**
@@ -921,7 +997,12 @@ const testCases4_2 = [
 const rawData = ['  test1  ', '  TEST2  ', '  Test3  '];
 // TODO: Transform to trimmed title case
 
-
+        const transformedData = rawData.map(item => {
+    const trimmed = item.trim();
+    return trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
+}   
+);
+    console.log(transformedData);
 
 
 /**
@@ -952,6 +1033,14 @@ const executions = [
 ];
 // TODO: Create browser/status summary
 
+        const summary = executions.reduce((acc, curr) => {
+    if (!acc[curr.browser]) {
+        acc[curr.browser] = { passed: 0, failed: 0 };
+    }   
+    acc[curr.browser][curr.status]++;
+    return acc;
+}, {} as { [key: string]: { passed: number; failed: number } });
+        console.log(summary);
 
 
 
@@ -972,7 +1061,12 @@ const executions = [
  */
 
 // TODO: Create searchAndReplace function
-
+    function searchAndReplace(tests: string[], search: string, replace: string): string[] {
+    const regex = new RegExp(search, 'gi');
+    return tests.map(test => test.replace(regex, replace));
+}   
+    const tests4_5 = ['Login Test', 'Signup Test', 'Login Validation'];
+    console.log(searchAndReplace(tests4_5, 'login', 'authentication'));
 
 
 
@@ -1002,7 +1096,15 @@ const tests4_6 = [
     { name: 'Test D', priority: 'medium', duration: 1200 }
 ];
 // TODO: Sort by priority then duration
-
+const priorityOrder: { [key: string]: number } = { high: 3, medium: 2, low: 1 }; 
+const sortedTests4_6 = [...tests4_6].sort((a, b) => {
+    const priorityDiff = priorityOrder[b.priority] - priorityOrder[a.priority]; 
+    if (priorityDiff !== 0) {
+        return priorityDiff;
+    }
+    return a.duration - b.duration; 
+});
+console.log(sortedTests4_6);
 
 
 
@@ -1029,7 +1131,22 @@ const tests4_6 = [
 
 // TODO: Create calculateStats function
 
-
+    function calculateStats(durations: number[]): { min: number; max: number; avg: number; median: number } {   
+    const sorted = [...durations].sort((a, b) => a - b);
+    const min = sorted[0];
+    const max = sorted[sorted.length - 1];
+    const avg = durations.reduce((sum, dur) => sum + dur, 0) / durations.length;
+    let median: number;
+    const mid = Math.floor(sorted.length / 2);
+    if (sorted.length % 2 === 0) {
+        median = (sorted[mid - 1] + sorted[mid]) / 2;
+    }   
+    else {  
+        median = sorted[mid];
+    }   
+    return { min, max, avg, median };
+}
+    console.log(calculateStats([1000, 1500, 2000, 1200, 1800]));
 
 
 /**
@@ -1055,8 +1172,24 @@ const tests4_6 = [
  */
 
 // TODO: Create validateUsers function
-
-
+const users1 = [
+      { username: 'john@test.com', password: 'pass123' },
+      { username: 'invalid', password: 'p' },
+      { username: 'jane@test.com', password: 'pass456' }
+ ];
+function validateUsers(users: { username: string; password: string }[]): string[] {
+    const errors: string[] = [];
+    users.forEach((user, index) => {
+        if (!user.username.includes('@')) {
+            errors.push(`User ${index + 1}: Username must contain @`);
+        }
+        if (user.password.length < 6) {
+            errors.push(`User ${index + 1}: Password must be at least 6 characters`);
+        }
+    });
+    return errors;
+}
+console.log(validateUsers(users1));
 
 
 /**
@@ -1082,7 +1215,23 @@ const tests4_6 = [
 
 // TODO: Create processQueue function
 
-
+    function processQueue(queue: { name: string; priority: number; estimated: number }[]) { 
+    const sortedQueue = [...queue].sort((a, b) => b.priority - a.priority);
+    let currentTime = 0;
+    return sortedQueue.map(test => {
+        const startTime = currentTime;
+        const endTime = startTime + test.estimated;
+        currentTime = endTime;
+        return { ...test, startTime, endTime };
+    }
+    );
+}
+    const queue = [
+    { name: 'Test 1', priority: 1, estimated: 1000 },
+    { name: 'Test 2', priority: 3, estimated: 2000 },
+    { name: 'Test 3', priority: 2, estimated: 1500 }
+    ];
+    console.log(processQueue(queue));   
 
 
 /**
@@ -1111,7 +1260,17 @@ const logs4_10 = [
 ];
 // TODO: Parse logs and filter errors
 
-
+        const errorLogMessages = logs4_10
+        .map(log => {
+        const match = log.match(/\[(.*?)\] (\w+): (.*)/);
+        if (match) {
+            return { timestamp: match[1], level: match[2], message: match[3] };
+        }
+        return null;
+    })
+    .filter(log => log && log.level === 'ERROR')
+    .map(log => `${log!.timestamp} - ${log!.message}`); 
+    console.log(errorLogMessages);
 
 
 // ============================================================================
