@@ -56,7 +56,13 @@ export class HomePage extends BasePage implements HomePageOperations {
     }}   
 
 function CheckPageAndReturnPO(page, expectedTitle) {
+    if(expectedTitle==="A/B Testing") {
     const abTestingPageModule = require('@src/web-implementation/ABTestingPage');
     // Exception Handling
     return new abTestingPageModule.ABTestingPage(page);
+    }else if(expectedTitle==="Basic Auth") {
+        const basicAuthPageModule = require('@src/web-implementation/BasicAuth');
+        // Exception Handling
+        return new basicAuthPageModule.BasicAuth(page);
+    }
 }

@@ -6,6 +6,6 @@ interface HomePageOperations  extends HerokuAppOperations{
     getAvailableExamples(): Promise<string[]|null>;
     getBannerInfo(): Promise<HomePageBanner|null>;
     getFooterText(): Promise<string|null>;
-    gotoExample(exampleName:string): Promise<HerokuAppOperations>;
+    gotoExample(exampleName:string): Promise<any>;
 }
  export type { HomePageOperations };

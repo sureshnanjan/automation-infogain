@@ -1,43 +1,42 @@
 import { BasicAuth } from "@src/web-implementation/BasicAuth";
-import { getHerokuApp, getHerokuAppUrl } from '@src/utilities/herokuapp-utils';
+import { getBasicAuthPage, getHerokuApp, getHerokuAppUrl } from '@src/utilities/herokuapp-utils';
+import { HomePageOperations } from '@src/operations/HomePageOperations';
 import { createBdd } from 'playwright-bdd';
 import { expect } from '@playwright/test';
+import { HomePage } from "@src/web-implementation/HomePage";
+import { BasicAuthPageOperations } from "@src/operations/BasicAuthPageOperations";
 const { Given, When, Then } = createBdd(); // Decorators
-let basicAuthPage:BasicAuth;
+let basicAuthPage:BasicAuthPageOperations;
+let homePage :HomePageOperations;
 let actualResult:string|null;
-Given('User navigates to the HerokuApp site', async ({page}) => {
-  // Step: Given User navigates to the HerokuApp site
-  // From: src\features\basic_auth.feature:4:5
-  await page.goto(getHerokuAppUrl());
-  
+
+Given('User navigates to the Basic Auth Page', async ({page}) => {
+  homePage = await getHerokuApp(page);
+  basicAuthPage = await getBasicAuthPage(page);
 });
 
-When('User clicks on Basic Auth link', async ({page}) => {
-  // Step: When User clicks on Basic Auth link
-  // From: src\features\basic_auth.feature:5:5
-  await page.getByRole('link', { name: 'Basic Auth' }).click();
-  basicAuthPage = new BasicAuth(page);
+When('User observes the Basic Auth page header', async ({}) => {
+     actualResult = await basicAuthPage.getPageHeader();
+});
+
+When('User observes the Basic Auth page content', async ({}) => {
+     actualResult = await basicAuthPage.getPageContent();
+});
+
+When('User observes the Basic Auth page footer', async ({}) => {
+     actualResult = await basicAuthPage.getFooterText();
 });
 
 Then('Page header should be {string}', async ({}, arg: string) => {
-  // Step: Then Page header should be "Basic Auth"
-  // From: src\features\basic_auth.feature:6:5
-    const pageTitle = await basicAuthPage.getPageHeader();
-    expect(pageTitle).toBe('Basic Auth');
+  expect(actualResult).toEqual(arg);
 });
 
 Then('Page content should contain {string}', async ({}, arg: string) => {
-  // Step: Then Page content should contain "Congratulations! You must have the proper credentials."
-  // From: src\features\basic_auth.feature:11:5
-  const pageContent = await basicAuthPage.getPageContent();
-  expect(pageContent).toContain('Congratulations! You must have the proper credentials.');
+  expect(actualResult).toContain(arg);
 });
 
 Then('Page footer should be {string}', async ({}, arg: string) => {
-  // Step: Then Page footer should be "Powered by Elemental Selenium"
-  // From: src\features\basic_auth.feature:16:5
-    const footerText = await basicAuthPage.getFooterText();
-    expect(footerText?.trim()).toBe('Powered by Elemental Selenium');
+    expect(actualResult).toContain(arg);
 });
 
 

@@ -14,6 +14,12 @@ export class BasicAuth {
     this.footerSelector = this.page.locator('div#page-footer');
   }
 
+  static async create(page: Page): Promise<BasicAuth> {
+    const instance = new BasicAuth(page);
+    await instance.page.goto('https://the-internet.herokuapp.com/basic_auth');
+    return instance;
+    }
+
   async getPageHeader(): Promise<string|null> {
     return  this.titleSelector.textContent();
   }
