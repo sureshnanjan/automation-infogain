@@ -39,4 +39,7 @@ export class AddRemovePage implements AddRemoveOperations {
     async removeElement(): Promise<void> {
         await this.removeElementSelector.click();
     }
+    async removeButtonVisible(): Promise<void>{
+        await this.removeElementSelector.isVisible();
+    }
     }   

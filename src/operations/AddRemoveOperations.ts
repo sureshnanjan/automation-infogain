@@ -5,6 +5,7 @@ interface AddRemoveOperations
     getAvailableElements(): Promise<number>;
     addElement():Promise<void>;
     addMultipleElement(num:number):Promise<void>;
+    removeButtonVisible():Promise<void>;
     removeElement():Promise<void>;
 }
 
