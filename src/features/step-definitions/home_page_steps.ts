@@ -5,6 +5,7 @@ import { expect } from '@playwright/test';
 const { Given, When, Then } = createBdd(); // Decorators
 let homePage:HomePageOperations;
 let actualResult:string|null;
+let expected_logo:{color:string, place: string, font:number}
 Given('User Visits HomePage', async ({page}) => {
   // Step: Given User Visits HomePage
   // From: src\features\home_page.feature:5:1
@@ -27,7 +28,7 @@ Given('I have the following data', async ({}, dataTable: DataTable) => {
   // Step: Given I have the following data
   // From: src\features\home_page.feature:26:1
   dataTable.rows().forEach((row)=>{
-    
+
 
   });
 });

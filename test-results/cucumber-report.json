@@ -10,9 +10,7 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {
-      "actualWorkers": 3
-    },
+    "metadata": {},
     "preserveOutput": "always",
     "reporter": [
       [
@@ -36,9 +34,7 @@
         "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 3
-        },
+        "metadata": {},
         "id": "chromium",
         "name": "chromium",
         "testDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
@@ -52,9 +48,7 @@
         "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 3
-        },
+        "metadata": {},
         "id": "firefox",
         "name": "firefox",
         "testDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
@@ -68,9 +62,7 @@
         "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 3
-        },
+        "metadata": {},
         "id": "webkit",
         "name": "webkit",
         "testDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
@@ -89,174 +81,17 @@
     "workers": 4,
     "webServer": null
   },
-  "suites": [
+  "suites": [],
+  "errors": [
     {
-      "title": "src\\features\\home_page.feature.spec.js",
-      "file": "src/features/home_page.feature.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Heroku App Home Page functionality",
-          "file": "src/features/home_page.feature.spec.js",
-          "line": 4,
-          "column": 6,
-          "specs": [
-            {
-              "title": "Home Page has a valid Title",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3837,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "steps": [
-                        {
-                          "title": "Given User Visits HomePage",
-                          "duration": 3564
-                        },
-                        {
-                          "title": "When User Observes Title",
-                          "duration": 36
-                        },
-                        {
-                          "title": "Then title should match \"Welcome to the-internet\"",
-                          "duration": 7
-                        }
-                      ],
-                      "startTime": "2025-12-30T05:44:12.126Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "5c90d46ba501b38b18f6-96a09658d21608c403a5",
-              "file": "src/features/home_page.feature.spec.js",
-              "line": 6,
-              "column": 7
-            },
-            {
-              "title": "Home Page has a valid Title",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 5164,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "steps": [
-                        {
-                          "title": "Given User Visits HomePage",
-                          "duration": 4075
-                        },
-                        {
-                          "title": "When User Observes Title",
-                          "duration": 41
-                        },
-                        {
-                          "title": "Then title should match \"Welcome to the-internet\"",
-                          "duration": 2
-                        }
-                      ],
-                      "startTime": "2025-12-30T05:44:12.138Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "5c90d46ba501b38b18f6-00196061bf7593b4a983",
-              "file": "src/features/home_page.feature.spec.js",
-              "line": 6,
-              "column": 7
-            },
-            {
-              "title": "Home Page has a valid Title",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 4413,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "steps": [
-                        {
-                          "title": "Given User Visits HomePage",
-                          "duration": 3941
-                        },
-                        {
-                          "title": "When User Observes Title",
-                          "duration": 51
-                        },
-                        {
-                          "title": "Then title should match \"Welcome to the-internet\"",
-                          "duration": 8
-                        }
-                      ],
-                      "startTime": "2025-12-30T05:44:12.116Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "5c90d46ba501b38b18f6-dfecf8d9e9901a4c5fdd",
-              "file": "src/features/home_page.feature.spec.js",
-              "line": 6,
-              "column": 7
-            }
-          ]
-        }
-      ]
+      "message": "Error: No tests found.\nMake sure that arguments are regular expressions matching test files.\nYou may need to escape symbols like \"$\" or \"*\" and quote the arguments.",
+      "stack": "Error: No tests found.\nMake sure that arguments are regular expressions matching test files.\nYou may need to escape symbols like \"$\" or \"*\" and quote the arguments."
     }
   ],
-  "errors": [],
   "stats": {
-    "startTime": "2025-12-30T05:44:10.851Z",
-    "duration": 7752.585999999999,
-    "expected": 3,
+    "startTime": "2025-12-31T06:26:15.153Z",
+    "duration": 12.90300000000002,
+    "expected": 0,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

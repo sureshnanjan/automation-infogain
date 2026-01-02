@@ -7,7 +7,7 @@ test("Verify Home Page Title",async({page})=>{
     const title=await homePage.getTitle();
     expect(title).toBe("Welcome to the-internet");
 });
-test("Verify Home Page SubTitle",async({page})=>{
+test("Verify Home Page SubTitle",async({page,})=>{
     // Arrange
     const homePage:HomePageOperations = await getHerokuApp(page);
     const expectedSubTitle="Available Examples";
