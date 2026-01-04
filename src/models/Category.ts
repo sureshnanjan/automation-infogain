@@ -8,4 +8,5 @@ export interface Category {
     /** Name of the category */
     name: string;
   }
+
   
