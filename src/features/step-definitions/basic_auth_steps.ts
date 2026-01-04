@@ -1,14 +1,13 @@
-import { BasicAuth } from "@src/web-implementation/BasicAuth";
 import { getBasicAuthPage, getHerokuApp, getHerokuAppUrl } from '@src/utilities/herokuapp-utils';
 import { HomePageOperations } from '@src/operations/HomePageOperations';
 import { createBdd } from 'playwright-bdd';
 import { expect } from '@playwright/test';
-import { HomePage } from "@src/web-implementation/HomePage";
 import { BasicAuthPageOperations } from "@src/operations/BasicAuthPageOperations";
 const { Given, When, Then } = createBdd(); // Decorators
 let basicAuthPage:BasicAuthPageOperations;
 let homePage :HomePageOperations;
 let actualResult:string|null;
+
 
 Given('User navigates to the Basic Auth Page', async ({page}) => {
   homePage = await getHerokuApp(page);

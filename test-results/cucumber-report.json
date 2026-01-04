@@ -87,34 +87,24 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 7117,
+                      "duration": 14246,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
                       "steps": [
                         {
-                          "title": "Given User navigates to the Basic Auth Page",
-                          "duration": 5990
-                        },
-                        {
                           "title": "When User observes the Basic Auth page header",
-                          "duration": 57
+                          "duration": 145
                         },
                         {
                           "title": "Then Page header should be \"Basic Auth\"",
-                          "duration": 7
+                          "duration": 18
                         }
                       ],
-                      "startTime": "2025-12-31T04:42:38.703Z",
+                      "startTime": "2026-01-03T14:17:17.449Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "D:\\QA_Training\\automation-infogain\\test-results\\src-features-basic_auth.fe-ed42a-th-Page-Header-Verification-chromium\\test-finished-1.png"
-                        }
-                      ]
+                      "attachments": []
                     }
                   ],
                   "status": "expected"
@@ -122,7 +112,7 @@
               ],
               "id": "57da057ca88078568c52-03e819d4bb12798723aa",
               "file": "src/features/basic_auth.feature.spec.js",
-              "line": 6,
+              "line": 10,
               "column": 7
             },
             {
@@ -141,34 +131,24 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 8167,
+                      "duration": 15081,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
                       "steps": [
                         {
-                          "title": "Given User navigates to the Basic Auth Page",
-                          "duration": 7297
-                        },
-                        {
                           "title": "When User observes the Basic Auth page content",
-                          "duration": 60
+                          "duration": 178
                         },
                         {
                           "title": "Then Page content should contain \"Congratulations! You must have the proper credentials.\"",
-                          "duration": 6
+                          "duration": 29
                         }
                       ],
-                      "startTime": "2025-12-31T04:42:36.175Z",
+                      "startTime": "2026-01-03T14:17:17.919Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "D:\\QA_Training\\automation-infogain\\test-results\\src-features-basic_auth.fe-23db1-h-Page-Content-Verification-chromium\\test-finished-1.png"
-                        }
-                      ]
+                      "attachments": []
                     }
                   ],
                   "status": "expected"
@@ -176,7 +156,7 @@
               ],
               "id": "57da057ca88078568c52-1099a76e936b618286f4",
               "file": "src/features/basic_auth.feature.spec.js",
-              "line": 12,
+              "line": 15,
               "column": 7
             },
             {
@@ -195,34 +175,24 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 7212,
+                      "duration": 15165,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
                       "steps": [
                         {
-                          "title": "Given User navigates to the Basic Auth Page",
-                          "duration": 6075
-                        },
-                        {
                           "title": "When User observes the Basic Auth page footer",
-                          "duration": 74
+                          "duration": 187
                         },
                         {
                           "title": "Then Page footer should be \"Powered by Elemental Selenium\"",
-                          "duration": 8
+                          "duration": 18
                         }
                       ],
-                      "startTime": "2025-12-31T04:42:37.166Z",
+                      "startTime": "2026-01-03T14:17:17.334Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "D:\\QA_Training\\automation-infogain\\test-results\\src-features-basic_auth.fe-a4063-th-Page-Footer-Verification-chromium\\test-finished-1.png"
-                        }
-                      ]
+                      "attachments": []
                     }
                   ],
                   "status": "expected"
@@ -230,7 +200,7 @@
               ],
               "id": "57da057ca88078568c52-22bec7ed4712246ed1a8",
               "file": "src/features/basic_auth.feature.spec.js",
-              "line": 18,
+              "line": 20,
               "column": 7
             }
           ]
@@ -240,8 +210,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-31T04:42:30.939Z",
-    "duration": 15772.342999999997,
+    "startTime": "2026-01-03T14:17:05.059Z",
+    "duration": 33179.563,
     "expected": 3,
     "skipped": 0,
     "unexpected": 0,
