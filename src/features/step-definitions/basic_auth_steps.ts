@@ -8,6 +8,7 @@ let basicAuthPage:BasicAuthPageOperations;
 let homePage :HomePageOperations;
 let actualResult:string|null;
 
+
 Given('User navigates to the Basic Auth Page', async ({page}) => {
   homePage = await getHerokuApp(page);
   basicAuthPage = await getBasicAuthPage(page);
