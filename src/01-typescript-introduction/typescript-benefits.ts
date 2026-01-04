@@ -270,6 +270,7 @@ class HomePageWeb implements HomePageOperationsDemo{
     }
 }
 
+<<<<<<< HEAD
 class HomePageMobile implements HomePageOperationsDemo{
     logoDetails = { width:10, height:10 };
     //Details:{width:50, height:25};
@@ -284,19 +285,34 @@ class HomePageMobile implements HomePageOperationsDemo{
         console.log("Mobile Access Cart functionality");
     }
 }
+=======
+// class HomePageMobile implements HomePageOperations{
+//     logoDetails:{width:50, height:25};
+//     login(): void {
+//         // Appium WDIO
+//         console.log("Mobile Login functionality");
+//     }
+//     logout(): void {
+//         console.log("Mobile Logout functionality");
+//     }
+//     accessCart(): void {
+//         console.log("Mobile Access Cart functionality");
+//     }
+// }
+>>>>>>> 9455ba79faf85732debe3de04a82ec5cc7ff2a3a
 
 // API 
 
 //int mynum
 
-var anddroid = new HomePageMobile();
-const webapp = new HomePageWeb();
-let start = 0; var end = 5;
-while(start < 5){
-    webapp.accessCart();
-    anddroid.accessCart();
-    start++;
-}
+// var anddroid = new HomePageMobile();
+// const webapp = new HomePageWeb();
+// let start = 0; var end = 5;
+// while(start < 5){
+//     webapp.accessCart();
+//     anddroid.accessCart();
+//     start++;
+// }
 
 
 
