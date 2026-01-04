@@ -105,7 +105,7 @@
           "specs": [
             {
               "title": "Home Page has a valid Title",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -118,54 +118,32 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "timedOut",
-                      "duration": 30036,
-                      "error": {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                      },
-                      "errors": [
-                        {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
-                          "location": {
-                            "file": "C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\web-implementation\\HomePage.ts",
-                            "column": 31,
-                            "line": 57
-                          },
-                          "message": "Error: locator.textContent: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\src\\web-implementation\\HomePage.ts:57\n\n\u001b[0m \u001b[90m 55 |\u001b[39m         \u001b[36mreturn\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtitleSelector\u001b[33m.\u001b[39mtextContent()\u001b[33m;\u001b[39m\n \u001b[90m 56 |\u001b[39m     }}   \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m\n \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCheckPageAndReturnPO\u001b[39m(page\u001b[33m,\u001b[39m expectedTitle) {\n \u001b[90m 59 |\u001b[39m     \u001b[36mconst\u001b[39m abTestingPageModule \u001b[33m=\u001b[39m require(\u001b[32m'@src/web-implementation/ABTestingPage'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 60 |\u001b[39m     \u001b[90m// Exception Handling\u001b[39m\u001b[0m\n\u001b[2m    at HomePage.getTitle (C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\web-implementation\\HomePage.ts:57:31)\u001b[22m\n\u001b[2m    at Object.<anonymous> (C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\features\\step-definitions\\home_page_steps.ts:17:32)\u001b[22m\n\u001b[2m    at C:\\Users\\mahantesh.pujari\\automation-infogain\\.features-gen\\src\\features\\home_page.feature.spec.js:8:5\u001b[22m"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 6287,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
                       "steps": [
                         {
                           "title": "Given User Visits HomePage",
-                          "duration": 1469
+                          "duration": 5033
                         },
                         {
                           "title": "When User Observes Title",
-                          "duration": 27042,
-                          "error": {
-                            "message": "Error: locator.textContent: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n",
-                            "stack": "Error: locator.textContent: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n    at HomePage.getTitle (C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\web-implementation\\HomePage.ts:57:31)\n    at Object.<anonymous> (C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\features\\step-definitions\\home_page_steps.ts:17:32)\n    at C:\\Users\\mahantesh.pujari\\automation-infogain\\.features-gen\\src\\features\\home_page.feature.spec.js:8:5",
-                            "location": {
-                              "file": "C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\web-implementation\\HomePage.ts",
-                              "column": 31,
-                              "line": 57
-                            },
-                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\web-implementation\\HomePage.ts:57\n\n\u001b[0m \u001b[90m 55 |\u001b[39m         \u001b[36mreturn\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtitleSelector\u001b[33m.\u001b[39mtextContent()\u001b[33m;\u001b[39m\n \u001b[90m 56 |\u001b[39m     }}   \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m\n \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCheckPageAndReturnPO\u001b[39m(page\u001b[33m,\u001b[39m expectedTitle) {\n \u001b[90m 59 |\u001b[39m     \u001b[36mconst\u001b[39m abTestingPageModule \u001b[33m=\u001b[39m require(\u001b[32m'@src/web-implementation/ABTestingPage'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 60 |\u001b[39m     \u001b[90m// Exception Handling\u001b[39m\u001b[0m"
-                          }
+                          "duration": 88
+                        },
+                        {
+                          "title": "Then title should match \"Welcome to the-internet\"",
+                          "duration": 9
                         }
                       ],
-                      "startTime": "2025-12-30T07:50:13.686Z",
+                      "startTime": "2025-12-30T09:29:47.348Z",
                       "annotations": [],
                       "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "5c90d46ba501b38b18f6-96a09658d21608c403a5",
@@ -175,7 +153,7 @@
             },
             {
               "title": "Home Page has a valid Title",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -188,54 +166,32 @@
                     {
                       "workerIndex": 1,
                       "parallelIndex": 1,
-                      "status": "timedOut",
-                      "duration": 30049,
-                      "error": {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                      },
-                      "errors": [
-                        {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
-                          "location": {
-                            "file": "C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\web-implementation\\HomePage.ts",
-                            "column": 31,
-                            "line": 57
-                          },
-                          "message": "Error: locator.textContent: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\src\\web-implementation\\HomePage.ts:57\n\n\u001b[0m \u001b[90m 55 |\u001b[39m         \u001b[36mreturn\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtitleSelector\u001b[33m.\u001b[39mtextContent()\u001b[33m;\u001b[39m\n \u001b[90m 56 |\u001b[39m     }}   \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m\n \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCheckPageAndReturnPO\u001b[39m(page\u001b[33m,\u001b[39m expectedTitle) {\n \u001b[90m 59 |\u001b[39m     \u001b[36mconst\u001b[39m abTestingPageModule \u001b[33m=\u001b[39m require(\u001b[32m'@src/web-implementation/ABTestingPage'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 60 |\u001b[39m     \u001b[90m// Exception Handling\u001b[39m\u001b[0m\n\u001b[2m    at HomePage.getTitle (C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\web-implementation\\HomePage.ts:57:31)\u001b[22m\n\u001b[2m    at Object.<anonymous> (C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\features\\step-definitions\\home_page_steps.ts:17:32)\u001b[22m\n\u001b[2m    at C:\\Users\\mahantesh.pujari\\automation-infogain\\.features-gen\\src\\features\\home_page.feature.spec.js:8:5\u001b[22m"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 7397,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
                       "steps": [
                         {
                           "title": "Given User Visits HomePage",
-                          "duration": 1110
+                          "duration": 5495
                         },
                         {
                           "title": "When User Observes Title",
-                          "duration": 26689,
-                          "error": {
-                            "message": "Error: locator.textContent: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n",
-                            "stack": "Error: locator.textContent: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n    at HomePage.getTitle (C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\web-implementation\\HomePage.ts:57:31)\n    at Object.<anonymous> (C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\features\\step-definitions\\home_page_steps.ts:17:32)\n    at C:\\Users\\mahantesh.pujari\\automation-infogain\\.features-gen\\src\\features\\home_page.feature.spec.js:8:5",
-                            "location": {
-                              "file": "C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\web-implementation\\HomePage.ts",
-                              "column": 31,
-                              "line": 57
-                            },
-                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\web-implementation\\HomePage.ts:57\n\n\u001b[0m \u001b[90m 55 |\u001b[39m         \u001b[36mreturn\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtitleSelector\u001b[33m.\u001b[39mtextContent()\u001b[33m;\u001b[39m\n \u001b[90m 56 |\u001b[39m     }}   \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m\n \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCheckPageAndReturnPO\u001b[39m(page\u001b[33m,\u001b[39m expectedTitle) {\n \u001b[90m 59 |\u001b[39m     \u001b[36mconst\u001b[39m abTestingPageModule \u001b[33m=\u001b[39m require(\u001b[32m'@src/web-implementation/ABTestingPage'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 60 |\u001b[39m     \u001b[90m// Exception Handling\u001b[39m\u001b[0m"
-                          }
+                          "duration": 61
+                        },
+                        {
+                          "title": "Then title should match \"Welcome to the-internet\"",
+                          "duration": 6
                         }
                       ],
-                      "startTime": "2025-12-30T07:50:14.020Z",
+                      "startTime": "2025-12-30T09:29:47.548Z",
                       "annotations": [],
                       "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "5c90d46ba501b38b18f6-00196061bf7593b4a983",
@@ -245,7 +201,7 @@
             },
             {
               "title": "Home Page has a valid Title",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -258,54 +214,32 @@
                     {
                       "workerIndex": 2,
                       "parallelIndex": 2,
-                      "status": "timedOut",
-                      "duration": 30142,
-                      "error": {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                      },
-                      "errors": [
-                        {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
-                          "location": {
-                            "file": "C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\web-implementation\\HomePage.ts",
-                            "column": 31,
-                            "line": 57
-                          },
-                          "message": "Error: locator.textContent: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\src\\web-implementation\\HomePage.ts:57\n\n\u001b[0m \u001b[90m 55 |\u001b[39m         \u001b[36mreturn\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtitleSelector\u001b[33m.\u001b[39mtextContent()\u001b[33m;\u001b[39m\n \u001b[90m 56 |\u001b[39m     }}   \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m\n \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCheckPageAndReturnPO\u001b[39m(page\u001b[33m,\u001b[39m expectedTitle) {\n \u001b[90m 59 |\u001b[39m     \u001b[36mconst\u001b[39m abTestingPageModule \u001b[33m=\u001b[39m require(\u001b[32m'@src/web-implementation/ABTestingPage'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 60 |\u001b[39m     \u001b[90m// Exception Handling\u001b[39m\u001b[0m\n\u001b[2m    at HomePage.getTitle (C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\web-implementation\\HomePage.ts:57:31)\u001b[22m\n\u001b[2m    at Object.<anonymous> (C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\features\\step-definitions\\home_page_steps.ts:17:32)\u001b[22m\n\u001b[2m    at C:\\Users\\mahantesh.pujari\\automation-infogain\\.features-gen\\src\\features\\home_page.feature.spec.js:8:5\u001b[22m"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 7014,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
                       "steps": [
                         {
                           "title": "Given User Visits HomePage",
-                          "duration": 1025
+                          "duration": 5024
                         },
                         {
                           "title": "When User Observes Title",
-                          "duration": 26975,
-                          "error": {
-                            "message": "Error: locator.textContent: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n",
-                            "stack": "Error: locator.textContent: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n    at HomePage.getTitle (C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\web-implementation\\HomePage.ts:57:31)\n    at Object.<anonymous> (C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\features\\step-definitions\\home_page_steps.ts:17:32)\n    at C:\\Users\\mahantesh.pujari\\automation-infogain\\.features-gen\\src\\features\\home_page.feature.spec.js:8:5",
-                            "location": {
-                              "file": "C:\\Users\\mahantesh.pujari\\automation-infogain\\src\\web-implementation\\HomePage.ts",
-                              "column": 31,
-                              "line": 57
-                            },
-                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\web-implementation\\HomePage.ts:57\n\n\u001b[0m \u001b[90m 55 |\u001b[39m         \u001b[36mreturn\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtitleSelector\u001b[33m.\u001b[39mtextContent()\u001b[33m;\u001b[39m\n \u001b[90m 56 |\u001b[39m     }}   \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 57 |\u001b[39m\n \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 58 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCheckPageAndReturnPO\u001b[39m(page\u001b[33m,\u001b[39m expectedTitle) {\n \u001b[90m 59 |\u001b[39m     \u001b[36mconst\u001b[39m abTestingPageModule \u001b[33m=\u001b[39m require(\u001b[32m'@src/web-implementation/ABTestingPage'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 60 |\u001b[39m     \u001b[90m// Exception Handling\u001b[39m\u001b[0m"
-                          }
+                          "duration": 66
+                        },
+                        {
+                          "title": "Then title should match \"Welcome to the-internet\"",
+                          "duration": 10
                         }
                       ],
-                      "startTime": "2025-12-30T07:50:14.268Z",
+                      "startTime": "2025-12-30T09:29:47.902Z",
                       "annotations": [],
                       "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "5c90d46ba501b38b18f6-dfecf8d9e9901a4c5fdd",
@@ -320,11 +254,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-30T07:50:08.789Z",
-    "duration": 42664.831,
-    "expected": 0,
+    "startTime": "2025-12-30T09:29:43.519Z",
+    "duration": 16350.124,
+    "expected": 3,
     "skipped": 0,
-    "unexpected": 3,
+    "unexpected": 0,
     "flaky": 0
   }
 }
