@@ -13,7 +13,7 @@
     "lint": "eslint src/**/*.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "testbdd": "bddgen && playwright test",
-    "testbdd:headed": "bddgen && playwright test --headed",
+    "testbdd:headed": "bddgen && playwright test --headed --project=chromium",
     "testbdd:debug": "bddgen && playwright test --debug",
     "bddgen": "bddgen",
     "report": "playwright show-report"

@@ -15,7 +15,8 @@ export class HomePage extends BasePage implements HomePageOperations {
         //this.page.locator.
         this.titleSelector = page.locator('h1'); // data-testid = 'home-title'
         this.subTitleSelector = page.locator('h2'); // data-testid = 'home-subtitle'
-        this.exampleSelector = page.getByRole('listitem'); // data-testid = 'example-link'
+        // this.exampleSelector = page.getByRole('listitem'); // data-testid = 'example-link'
+        this.exampleSelector = page.locator('#content > ul > li > a');
         //this.page.goto(getHerokuAppUrl());
         //this.navigate();
     }
@@ -38,12 +39,18 @@ export class HomePage extends BasePage implements HomePageOperations {
     getFooterText(): Promise<string | null> {
         throw new Error("Method not implemented.");
     }
-    gotoExample(exampleName: string): Promise<HerokuAppOperations> {
-        this.exampleSelector.filter({ hasText: exampleName }).first().click();
+    async gotoExample(exampleName: string): Promise<HerokuAppOperations> {
+        const link = this.page.getByRole('link', { name: exampleName }).first();
+        await link.waitFor({ state: 'visible', timeout: 15000 });
+        await Promise.all([
+            this.page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
+            link.click()
+        ]);
         return CheckPageAndReturnPO(this.page, exampleName);
        
     }
     async getSubTitle(): Promise<string|null> {
+        await this.page.waitForLoadState('domcontentloaded');
         return this.subTitleSelector.textContent();
     }
     async getAvailableExamples(): Promise<string[]|null> {
@@ -52,7 +59,7 @@ export class HomePage extends BasePage implements HomePageOperations {
     }
     async getTitle(): Promise<string|null> {
         // Implementation to get the title from the home page
-        
+        await this.page.waitForLoadState('domcontentloaded');
         return this.titleSelector.textContent();
     }}   
 

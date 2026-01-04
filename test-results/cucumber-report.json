@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "C:\\Trainings-2025\\infogain\\automation-infogain\\playwright.config.ts",
-    "rootDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
+    "configFile": "C:\\Users\\Amlana.sahoo\\QA-Training\\automation_infogain_TestBDD\\automation-infogain\\playwright.config.ts",
+    "rootDir": "C:/Users/Amlana.sahoo/QA-Training/automation_infogain_TestBDD/automation-infogain/.features-gen",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -10,7 +10,9 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {},
+    "metadata": {
+      "actualWorkers": 4
+    },
     "preserveOutput": "always",
     "reporter": [
       [
@@ -31,13 +33,15 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
+        "outputDir": "C:/Users/Amlana.sahoo/QA-Training/automation_infogain_TestBDD/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 4
+        },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
+        "testDir": "C:/Users/Amlana.sahoo/QA-Training/automation_infogain_TestBDD/automation-infogain/.features-gen",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -45,13 +49,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
+        "outputDir": "C:/Users/Amlana.sahoo/QA-Training/automation_infogain_TestBDD/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 4
+        },
         "id": "firefox",
         "name": "firefox",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
+        "testDir": "C:/Users/Amlana.sahoo/QA-Training/automation_infogain_TestBDD/automation-infogain/.features-gen",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -59,13 +65,15 @@
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
+        "outputDir": "C:/Users/Amlana.sahoo/QA-Training/automation_infogain_TestBDD/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 4
+        },
         "id": "webkit",
         "name": "webkit",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/.features-gen",
+        "testDir": "C:/Users/Amlana.sahoo/QA-Training/automation_infogain_TestBDD/automation-infogain/.features-gen",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -81,17 +89,295 @@
     "workers": 4,
     "webServer": null
   },
-  "suites": [],
-  "errors": [
+  "suites": [
     {
-      "message": "Error: No tests found.\nMake sure that arguments are regular expressions matching test files.\nYou may need to escape symbols like \"$\" or \"*\" and quote the arguments.",
-      "stack": "Error: No tests found.\nMake sure that arguments are regular expressions matching test files.\nYou may need to escape symbols like \"$\" or \"*\" and quote the arguments."
+      "title": "src\\features\\abTesting_page.feature.spec.js",
+      "file": "src/features/abTesting_page.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "A/B Testing Page functionality",
+          "file": "src/features/abTesting_page.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "A/B Testing Page has a valid Title",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10321,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given User Visits HomePage",
+                          "duration": 5447
+                        },
+                        {
+                          "title": "Given User accesses ABTestingPage",
+                          "duration": 681
+                        },
+                        {
+                          "title": "Then header should match \"A/B Test Control\"",
+                          "duration": 62
+                        }
+                      ],
+                      "startTime": "2026-01-04T17:19:05.260Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cf1d2c41e77f40b5081d-012ed3241c321f681925",
+              "file": "src/features/abTesting_page.feature.spec.js",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "A/B Testing Page has a valid content",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 10871,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given User Visits HomePage",
+                          "duration": 6079
+                        },
+                        {
+                          "title": "Given User accesses ABTestingPage",
+                          "duration": 707
+                        },
+                        {
+                          "title": "When User Observes content",
+                          "duration": 70
+                        },
+                        {
+                          "title": "Then content should match \"Also known as split testing. This is a way in which businesses are able to simultaneously test and learn different versions of a page to see which text and/or functionality works better towards a desired outcome (e.g. a user action such as a click-through).\"",
+                          "duration": 0
+                        }
+                      ],
+                      "startTime": "2026-01-04T17:19:05.325Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cf1d2c41e77f40b5081d-7a3a15666a29b048bd5a",
+              "file": "src/features/abTesting_page.feature.spec.js",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "A/B Testing Page has a valid footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 9844,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given User Visits HomePage",
+                          "duration": 4721
+                        },
+                        {
+                          "title": "Given User accesses ABTestingPage",
+                          "duration": 738
+                        },
+                        {
+                          "title": "When User Observes footer",
+                          "duration": 38
+                        },
+                        {
+                          "title": "Then footer should match \"Powered by Elemental Selenium\"",
+                          "duration": 21
+                        }
+                      ],
+                      "startTime": "2026-01-04T17:19:05.403Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cf1d2c41e77f40b5081d-706320a6780c34ea1ef5",
+              "file": "src/features/abTesting_page.feature.spec.js",
+              "line": 19,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "src\\features\\home_page.feature.spec.js",
+      "file": "src/features/home_page.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Heroku App Home Page functionality",
+          "file": "src/features/home_page.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Home Page has a valid Title",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 9757,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given User Visits HomePage",
+                          "duration": 5517
+                        },
+                        {
+                          "title": "When User Observes Title",
+                          "duration": 111
+                        },
+                        {
+                          "title": "Then title should match \"Welcome to the-internet\"",
+                          "duration": 15
+                        }
+                      ],
+                      "startTime": "2026-01-04T17:19:05.279Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c90d46ba501b38b18f6-96a09658d21608c403a5",
+              "file": "src/features/home_page.feature.spec.js",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "Home Page has a valid sub Title",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 5675,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Given User Visits HomePage",
+                          "duration": 3982
+                        },
+                        {
+                          "title": "When User Observes sub Title",
+                          "duration": 35
+                        },
+                        {
+                          "title": "Then sub title should match \"Available Examples\"",
+                          "duration": 1
+                        }
+                      ],
+                      "startTime": "2026-01-04T17:19:16.820Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c90d46ba501b38b18f6-2fca320d7e55e27efc1a",
+              "file": "src/features/home_page.feature.spec.js",
+              "line": 12,
+              "column": 7
+            }
+          ]
+        }
+      ]
     }
   ],
+  "errors": [],
   "stats": {
-    "startTime": "2025-12-31T06:26:15.153Z",
-    "duration": 12.90300000000002,
-    "expected": 0,
+    "startTime": "2026-01-04T17:19:02.349Z",
+    "duration": 21335.174,
+    "expected": 5,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

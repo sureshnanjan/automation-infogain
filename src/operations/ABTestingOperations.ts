@@ -1,8 +1,8 @@
-import { HerokuAppOperations } from "./HerokuAppOperations";
+interface ABTestingOperations {
+    accessABTestingVariant(): Promise<void>;
+    getABTestingHeader(): Promise<string|null>;
+    getABTestingBodyContent(): Promise<string|null>;
+    getABTestingFooterContent(): Promise<string|null>;
 
-export interface ABTestingOperations extends HerokuAppOperations {
-    getTitle(): Promise<string|null>;
-    getDescription(): Promise<string|null>;
-    disableABTesting(): Promise<void>;
-    enableABTesting(): Promise<void>;
 }
+ export type { ABTestingOperations };
