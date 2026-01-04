@@ -5,7 +5,7 @@ import { getHerokuAppUrl } from "@src/utilities/herokuapp-utils";
 import { HomePageBanner } from "@src/models/HomePageBanner";
 import { HerokuAppOperations } from "@src/operations/HerokuAppOperations";
 export class HomePage extends BasePage implements HomePageOperations {
-    private readonly page;
+    //private readonly page;
     private readonly subTitleSelector:Locator; // data-testid = subtitle
     private readonly titleSelector:Locator;
     private readonly exampleSelector:Locator;
