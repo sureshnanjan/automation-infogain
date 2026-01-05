@@ -12,6 +12,10 @@ let actualResult:string|null;
 Given('User navigates to the Basic Auth Page', async ({page}) => {
   homePage = await getHerokuApp(page);
   basicAuthPage = await getBasicAuthPage(page);
+// Basic Authentication credentials (HttpCredential: username + password)
+// have already been added in the config file.
+// Direct page verification will automatically use these credentials
+// when sending requests, so no manual login method is required.
 });
 
 When('User observes the Basic Auth page header', async ({}) => {

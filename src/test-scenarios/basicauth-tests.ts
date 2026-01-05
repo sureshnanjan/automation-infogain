@@ -2,6 +2,10 @@ import { test,expect, chromium, Browser, BrowserContext, Page } from '@playwrigh
 import { BasicAuth } from "@src/web-implementation/BasicAuth";
 import {getHerokuAppUrl, getHerokuApp} from '@src/utilities/herokuapp-utils';
 
+// Basic Authentication credentials (HttpCredential: username + password)
+// have already been added in the config file.
+// Direct page verification will automatically use these credentials
+// when sending requests, so no manual login method is required.
 
 test('Logged In Basic Auth Page Header Verification', async ({ page }) => {
   
