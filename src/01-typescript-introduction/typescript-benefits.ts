@@ -276,9 +276,8 @@ class HomePageWeb implements HomePageOperationsDemo{
     }
 }
 
-class HomePageMobile implements HomePageOperationsDemo{
-    logoDetails = { width:10, height:10 };
-    //Details:{width:50, height:25};
+class HomePageMobile implements HomePageOperations{
+    logoDetails = {width:10, height:25};
     login(): void {
         // Appium WDIO
         console.log("Mobile Login functionality");
