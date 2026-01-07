@@ -1,3 +1,4 @@
+export{};
 function getMobileByManufacturer(manufacturer: string): string[] {
     let mobileList: string[] = [];
 
