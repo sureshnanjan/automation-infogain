@@ -403,10 +403,14 @@ console.log(occBrowser);
  * Hint: forEach provides (element, index) as parameters
  */
 
-const testCases = ['TC-001', 'TC-002', 'TC-003'];
+//const testCases = ['TC-001', 'TC-002', 'TC-003'];
 // TODO: Log each test case with index
 
-
+const testCases = ['TC-001', 'TC-002', 'TC-003'];
+ 
+testCases.forEach((testCase, index) => {
+  console.log(`${index + 1}. ${testCase}`);
+});
 
 
 /**
@@ -429,8 +433,12 @@ const users = [
     { username: 'admin1', role: 'admin' },
     { username: 'user2', role: 'user' }
 ];
-// TODO: Find first admin user
-
+// TODO: Find first admin use
+ 
+// Find the first user with role 'admin'
+const adminUser = users.find(user => user.role === 'admin');
+ 
+console.log(adminUser);
 
 
 
@@ -446,7 +454,9 @@ const users = [
 
 // TODO: Check if any score is below 50
 
-
+const hasBelow50 = scores.some(score => score < 50);
+ 
+console.log(hasBelow50);
 
 
 /**
@@ -461,6 +471,9 @@ const users = [
 
 // TODO: Check if all scores are above 40
 
+const allAbove40 = scores.every(score => score > 40);
+ 
+console.log(allAbove40); 
 
 
 
@@ -485,15 +498,24 @@ const users = [
  * Hint: array.filter(...).map(...).reduce(...) / filteredLength
  */
 
-const testResults = [
-    { name: 'Test 1', score: 95, passed: true },
-    { name: 'Test 2', score: 45, passed: false },
-    { name: 'Test 3', score: 87, passed: true },
-    { name: 'Test 4', score: 62, passed: false }
-];
+
 // TODO: Calculate average score of passing tests
-
-
+const testResults = [
+  { name: 'Test 1', score: 95, passed: true },
+  { name: 'Test 2', score: 45, passed: false },
+  { name: 'Test 3', score: 87, passed: true },
+  { name: 'Test 4', score: 62, passed: false }
+];
+ 
+const passingScores = testResults
+  .filter(test => test.passed)     // Step 1: keep only passed tests
+  .map(test => test.score);        // Step 2: get their scores
+ 
+const averageScore =
+  passingScores.reduce((sum, score) => sum + score, 0) /
+  passingScores.length;
+ 
+console.log(averageScore); // 91
 
 
 /**
@@ -512,6 +534,10 @@ const testResults = [
 
 const durations = [1500, 3000, 800, 2200, 1000];
 // TODO: Sort in ascending order (create copy first)
+ 
+// Create a copy first, then sort in ascending order
+const sortedDurations = [...durations].sort((a, b) => a - b);
+console.log(sortedDurations);
 
 
 
@@ -529,7 +555,11 @@ const durations = [1500, 3000, 800, 2200, 1000];
 
 // TODO: Sort tests alphabetically by name (create copy first)
 
-
+const sortedTests = [...tests].sort(
+  (a, b) => a.name.localeCompare(b.name)
+);
+ 
+console.log(sortedTests);
 
 
 /**
@@ -554,14 +584,27 @@ const durations = [1500, 3000, 800, 2200, 1000];
  * Hint: Initialize empty object, create array for each status if not exists, push test name
  */
 
-const testData = [
-    { test: 'Test 1', status: 'passed' },
-    { test: 'Test 2', status: 'failed' },
-    { test: 'Test 3', status: 'passed' },
-    { test: 'Test 4', status: 'failed' }
-];
 // TODO: Group tests by status
-
+const testData = [
+  { test: 'Test 1', status: 'passed' },
+  { test: 'Test 2', status: 'failed' },
+  { test: 'Test 3', status: 'passed' },
+  { test: 'Test 4', status: 'failed' }
+];
+ 
+const groupedByStatus = testData.reduce((acc, item) => {
+  // If the status key doesn't exist, create it
+  if (!acc[item.status]) {
+    acc[item.status] = [];
+  }
+ 
+  // Push test name into the correct status array
+  acc[item.status].push(item.test);
+ 
+  return acc;
+}, {});
+ 
+console.log(groupedByStatus);
 
 
 
@@ -583,15 +626,22 @@ const testData = [
  * Hint: Filter by multiple conditions (browser AND passed), then reduce to sum durations
  */
 
-const testExecutions = [
-    { name: 'Login', duration: 1500, browser: 'chrome', passed: true },
-    { name: 'Signup', duration: 2000, browser: 'firefox', passed: false },
-    { name: 'Checkout', duration: 3000, browser: 'chrome', passed: true },
-    { name: 'Profile', duration: 1200, browser: 'safari', passed: true }
-];
+
+
 // TODO: Total duration of passing Chrome tests
 
-
+const testExecutions = [
+  { name: 'Login', duration: 1500, browser: 'chrome', passed: true },
+  { name: 'Signup', duration: 2000, browser: 'firefox', passed: false },
+  { name: 'Checkout', duration: 3000, browser: 'chrome', passed: true },
+  { name: 'Profile', duration: 1200, browser: 'safari', passed: true }
+];
+ 
+const totalDuration = testExecutions
+  .filter(test => test.browser === 'chrome' && test.passed)
+  .reduce((sum, test) => sum + test.duration, 0);
+ 
+console.log(totalDuration);
 
 
 // ============================================================================
@@ -615,10 +665,22 @@ console.log('\n=== SECTION 3: STRING METHODS WITH ARROW FUNCTIONS ===\n');
  * Don't forget to convert duration to number using parseInt()
  */
 
-const csv = 'TC-001,Login Test,Passed,1500';
 // TODO: Parse CSV into object
 
-
+const csv = 'TC-001, Login Test, Passed, 1500';
+ 
+const [id, name, status, duration] = csv
+  .split(',')
+  .map(item => item.trim());
+ 
+const testObj = {
+  id,
+  name,
+  status,
+  duration: parseInt(duration, 10)
+};
+ 
+console.log(testObj);
 
 
 /**
@@ -640,9 +702,22 @@ const csv = 'TC-001,Login Test,Passed,1500';
  * - word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() for each word
  */
 
-const testName = '  login_test_01  ';
 // TODO: Transform to "Login Test 01"
-
+const testName = ' login_test_01 ';
+ 
+function formatTestName(name) {
+  return name
+    .trim()
+    .replace(/_/g, ' ')
+    .split(' ')
+    .map(word =>
+      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    )
+    .join(' ');
+}
+ 
+const result = formatTestName(testName);
+console.log(result);
 
 
 
@@ -665,15 +740,19 @@ const testName = '  login_test_01  ';
  * Hint: Use .includes() to check if string contains 'ERROR'
  */
 
-const logs = [
-    'INFO: Test started',
-    'ERROR: Connection failed',
-    'INFO: Retrying...',
-    'ERROR: Timeout',
-    'INFO: Test completed'
-];
-// TODO: Filter to get only ERROR logs
 
+// TODO: Filter to get only ERROR logs
+const logs = [
+  'INFO: Test started',
+  'ERROR: Connection failed',
+  'INFO: Retrying.....',
+  'ERROR: Timeout',
+  'INFO: Test completed'
+];
+ 
+const errorLogs = logs.filter(log => log.includes('ERROR'));
+ 
+console.log(errorLogs);
 
 
 
@@ -693,8 +772,15 @@ const logs = [
  */
 
 const url = 'https://example.com/users/12345/profile';
-// TODO: Extract user ID
-
+ 
+// Method 1: Using regex
+const userIdRegex = url.match(/\/users\/(\d+)\//)?.[1];
+ 
+// Method 2: Using split
+const userIdSplit = url.split('/')[4];
+ 
+console.log(userIdRegex); // '12345'
+console.log(userIdSplit); // '12345'
 
 
 
@@ -712,8 +798,9 @@ const url = 'https://example.com/users/12345/profile';
  */
 
 const usernames = ['john', 'jane', 'bob'];
-// TODO: Create email addresses
-
+const emails = usernames.map(username => `${username}@test.com`);
+ 
+console.log(emails);
 
 
 
@@ -732,10 +819,17 @@ const usernames = ['john', 'jane', 'bob'];
  * 2. Map using .substring(3) or .split('-')[1]
  */
 
-const testIds = ['TC-001', 'TC-002', 'TC-003', 'BUG-001', 'TC-004'];
+
 // TODO: Get TC numbers only
 
-
+const testIds = ['TC-001', 'TC-002', 'TC-003', 'BUG-001', 'TC-004'];
+ 
+const tcNumbers = testIds
+  .filter(id => id.startsWith('TC-'))
+  .map(id => id.substring(3));
+ 
+console.log(tcNumbers);
+ 
 
 
 /**
@@ -753,9 +847,16 @@ const testIds = ['TC-001', 'TC-002', 'TC-003', 'BUG-001', 'TC-004'];
  * 2. Use Set to remove duplicates: [...new Set(array)]
  */
 
-const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
-// TODO: Normalize to lowercase and remove duplicates
 
+// TODO: Normalize to lowercase and remove duplicates
+const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
+ 
+const normalizedStatuses = [...new Set(
+  statuses.map(status => status.toLowerCase())
+)];
+ 
+console.log(normalizedStatuses);
+// ['passed', 'failed', 'skipped']
 
 
 
@@ -776,7 +877,13 @@ const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
  */
 
 // TODO: Create isValidEmail arrow function
+const isValidEmail = (email) => {
+  return email.includes('@') && email.includes('.');
+};
+ 
 
+console.log(isValidEmail('test@example.com')); 
+console.log(isValidEmail('invalid.email'));    
 
 
 
@@ -797,10 +904,19 @@ const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
  * Alternative: Use Object.fromEntries()
  */
 
-const queryString = 'username=john@test.com&password=secret123&role=admin';
 // TODO: Parse query string into object
 
-
+const queryString = 'username=john@test.com&password=secret123&role=admin';
+ 
+const parsedObject = queryString
+  .split('&')
+  .map(pair => pair.split('='))
+  .reduce((obj, [key, value]) => {
+    obj[key] = value;
+    return obj;
+  }, {});
+ 
+console.log(parsedObject);
 
 
 /**
@@ -821,7 +937,7 @@ const queryString = 'username=john@test.com&password=secret123&role=admin';
 
 // TODO: Create formatDuration arrow function
 
-
+const formatDuration = (ms) => `${(ms / 1000).toFixed(1)}s`;
 
 
 // ============================================================================
@@ -858,7 +974,28 @@ const results4_1 = [
     { name: 'Test 3', passed: true, duration: 1200 }
 ];
 // TODO: Create generateReport function and use it
-
+const generateReport = (results) => {
+  const total = results.length;
+ 
+  const passed = results.filter(r => r.passed).length;
+  const failed = total - passed;
+ 
+  const totalDuration = results.reduce(
+    (sum, r) => sum + r.duration,
+    0
+  );
+ 
+  const passRate = Number(((passed / total) * 100).toFixed(2));
+ 
+  return {
+    total,
+    passed,
+    failed,
+    totalDuration,
+    passRate
+  };
+};
+ 
 
 
 
