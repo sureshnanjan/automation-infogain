@@ -9,3 +9,8 @@ interface HomePageOperations  extends HerokuAppOperations{
     gotoExample(exampleName:string): Promise<HerokuAppOperations>;
 }
  export type { HomePageOperations };
+
+ interface HerokuExample{
+    name:string;
+    url:string;
+ }
