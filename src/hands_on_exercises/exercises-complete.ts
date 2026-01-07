@@ -41,10 +41,13 @@ console.log('\n=== SECTION 1: VARIABLES & BASIC FUNCTIONS ===\n');
  */
 
 // TODO: Declare variables here
-const testName1: string = "Login Test";
-const timeout1: number = 5000;
-const isPassed1: boolean = true;
-let testData1: { username: string; password: string } | null = null;
+
+const testName: string = "Login Test";
+let timeout: number = 5000;
+let isPassed: boolean = true;
+let testData: { 
+    username: string; 
+    password: string } | null = null;
 
 
 /**
@@ -64,15 +67,14 @@ let testData1: { username: string; password: string } | null = null;
  */
 
 // TODO: Fix the code using const and let
-const browser1: string = 'chrome';
-let retries1: number = 0;
-if (true) {
-    const browser: string = 'firefox';
-    retries1 = retries1 + 1;
-}
-console.log(browser1); // Should print 'chrome', not 'firefox'
 
-
+let browser = 'chrome';
+  var retries = 0;
+ if (true) {
+     let browser = 'firefox';
+     retries = retries + 1;
+ }
+ console.log(browser); // Should print 'chrome', not 'firefox'
 
 
 /**
@@ -88,11 +90,18 @@ console.log(browser1); // Should print 'chrome', not 'firefox'
  */
 
 // TODO: Create calculateTestDuration function
-function calculateTestDuration(startTime: number, endTime: number): number {    
+/**
+ * Function to calculate test duration
+ * @param {number} startTime - start time in milliseconds
+ * @param {number} endTime - end time in milliseconds
+ * @returns {number} duration in milliseconds
+ * @example
+ * calculateTestDuration(1000, 6000) // returns 5000
+ */
+function calculateTestDuration(startTime: number, endTime: number): number {
     return endTime - startTime;
 }
-console.log(calculateTestDuration(1000, 6000)); // should return 5000
-
+console.log("Test Duration:", calculateTestDuration(1000, 6000));
 
 
 
@@ -114,11 +123,21 @@ console.log(calculateTestDuration(1000, 6000)); // should return 5000
  */
 
 // TODO: Create runTest function
-function runTest(testName: string, retries?: number, timeout?: number): string {
+
+/**
+ * Function to run a test with optional retries and timeout
+ * @param {string} testName - name of the test
+ * @param {number} retries - number of retries (default: 0)
+ * @param {number} timeout - timeout in milliseconds (default: 5000)
+ * @returns {string} formatted test execution string
+ * @example
+ * runTest('Login Test')
+ */
+function runTest(testName: string, retries = 0, timeout = 5000): string {
     return `Running ${testName} with ${retries} retries and ${timeout}ms timeout`;
 }
 console.log(runTest('Login Test'));
-console.log(runTest('Signup Test', 3, 10000));
+
 
 /**
  * Exercise 1.5: Rest Parameters
@@ -140,12 +159,27 @@ console.log(runTest('Signup Test', 3, 10000));
  */
 
 // TODO: Create executeTests function
+
+/**
+ * Function to execute tests in a suite
+ * @param {string} suiteName - name of the test suite
+ * @param {string[]} testNames - array of test names
+ * @returns {number} number of tests
+ * @example
+ * executeTests('Login Suite', 'Test 1', 'Test 2', 'Test 3')
+ */
 function executeTests(suiteName: string, ...testNames: string[]): number {
     console.log(`Suite: ${suiteName}`);
-    testNames.forEach(testName => console.log(testName));
+    for(const testName of testNames) {
+        console.log(testName);}
+   // testNames.forEach(testName => console.log(testName));
     return testNames.length;
 }
+console.log("Logs:")
 console.log(executeTests('Login Suite', 'Test 1', 'Test 2', 'Test 3'));
+
+
+
 /**
  * Exercise 1.6: Function Return Types
  * ------------------------------------
@@ -163,8 +197,16 @@ console.log(executeTests('Login Suite', 'Test 1', 'Test 2', 'Test 3'));
  */
 
 // TODO: Create getTestResult function
+
+/**
+ * Function to get test result based on score
+ * @param {number} score - score of the test
+ * @returns {string} result of the test
+ * @example
+ * getTestResult(95) // returns "Excellent"
+ */
 function getTestResult(score: number): string {
-    if (score >= 90) {
+    if (score >= 90) { 
         return "Excellent";
     } else if (score >= 70) {
         return "Good";
@@ -172,9 +214,10 @@ function getTestResult(score: number): string {
         return "Needs Improvement";
     }
 }
-console.log(getTestResult(95)); // returns "Excellent"
-console.log(getTestResult(75)); // returns "Good"
-console.log(getTestResult(60)); // returns "Needs Improvement"
+console.log(getTestResult(95)); // Excellent
+console.log(getTestResult(75)); // Good
+console.log(getTestResult(60)); // Needs Improvement
+
 
 /**
  * Exercise 1.7: Arrow Function Basics
@@ -191,9 +234,16 @@ console.log(getTestResult(60)); // returns "Needs Improvement"
 
 // TODO: Convert to arrow function
 
-const multiply = (a: number, b: number): number => a * b;
-console.log(multiply(5, 3)); // should return 15
-
+/**
+ * Function to multiply two numbers
+ * @param {number} a - first number
+ * @param {number} b - second number
+ * @returns {number} product of a and b
+ * @example
+ * multiply(5, 3) // returns 15
+ */
+const multiply = (a: number, b: number): number => { return a * b };
+console.log(multiply(5, 3));
 
 
 /**
@@ -210,12 +260,16 @@ console.log(multiply(5, 3)); // should return 15
  */
 
 // TODO: Create square arrow function
-const square = (num: number): number => num * num;
-console.log(square(5)); // returns 25
-console.log(square(10)); // returns 100
 
-
-
+/**
+ * Function to calculate square of a number
+ * @param {number} num - number to be squared
+ * @returns {number} square of the number
+ * @example
+ * square(5) // returns 25
+ */
+const square=(num:number):number=> num * num;
+console.log(square(5));
 
 
 /**
@@ -231,9 +285,15 @@ console.log(square(10)); // returns 100
  */
 
 // TODO: Create getTimestamp arrow function
-
+/**
+ * Function to get current timestamp
+ * @returns {number} -current timestamp
+ * @example
+ * getTimestamp() // returns current timestamp (e.g., 1703251200000)
+ */
 const getTimestamp = (): number => Date.now();
-console.log(getTimestamp()); // returns current timestamp (e.g., 1703251200000)
+console.log(getTimestamp());
+
 
 
 
@@ -253,14 +313,22 @@ console.log(getTimestamp()); // returns current timestamp (e.g., 1703251200000)
  */
 
 // TODO: Create createUser arrow function
-
-const createUser = (name: string, email: string): { name: string; email: string; createdAt: number } => ({
+/**
+ * Function to create a user object
+ * @param {string} name - user's name
+ * @param {string} email - user's email
+ * @returns {object} user object with name, email, and createdAt
+ * @example
+ * createUser('John', 'john@test.com')
+ * // returns { name: 'John', email: 'john@test.com', createdAt: 1703251200000 }
+ */
+const createUser = (name: string, email: string): { name: string, email: string, createdAt: number } => ({
     name,
     email,
-    createdAt: Date.now()
-});
-
+    createdAt: Date.now()});
 console.log(createUser('John', 'john@test.com'));
+
+
 
 
 
@@ -281,9 +349,21 @@ console.log('\n=== SECTION 2: ARRAY METHODS WITH ARROW FUNCTIONS ===\n');
  * Expected output: ['LOGIN TEST', 'SIGNUP TEST', 'CHECKOUT TEST']
  */
 
-const testNames = ['login test', 'signup test', 'checkout test'];
+//const testNames = ['login test', 'signup test', 'checkout test'];
+
 // TODO: Use .map() to convert to uppercase
 
+/**
+ * Maps all test names to uppercase
+ * @param {string[]} testNames - array of test names
+ * @returns {string[]} array of uppercase test names
+ * @example
+ * mapToUppercase(['login test', 'signup test']) // returns ['LOGIN TEST', 'SIGNUP TEST']
+ */
+
+const testNames = ['login test', 'signup test', 'checkout test']
+const upperCaseTests= testNames.map(name => name.toUpperCase());
+console.log(upperCaseTests);
 
 
 
@@ -310,6 +390,13 @@ const tests = [
 // TODO: Extract only the IDs
 
 
+/**
+ * Extracts test IDs from array of test objects
+ * @param {object[]} tests - array of test objects
+ * @return {string[]} array of test IDs
+ */
+const extracttestIds= tests.map(test => test.id);
+console.log(extracttestIds);
 
 
 /**
@@ -322,6 +409,13 @@ const tests = [
 
 // TODO: Filter to get only passing tests
 
+/**
+ * Filters tests to get only those that passed
+ * @param {object[]} tests - array of test objects
+ * @return {object[]} array of passing test objects
+*/
+const passingTests= tests.filter(test => test.passed);
+console.log(passingTests);
 
 
 
@@ -339,6 +433,13 @@ const tests = [
 const scores = [95, 67, 88, 45, 92, 78, 53, 81];
 // TODO: Filter scores >= 70
 
+/**
+ * Filters scores to get only those 70 or above
+ * @param {number[]} scores - array of scores
+ * @return {number[]} array of scores 70 or above
+ */
+const passingScores= scores.filter(score => score >=70);
+console.log(passingScores);
 
 
 
@@ -353,6 +454,13 @@ const scores = [95, 67, 88, 45, 92, 78, 53, 81];
  */
 
 // TODO: Calculate total sum using reduce
+/**
+ * Calculates total sum of scores
+ * @param {number[]} scores - array of scores
+ * @return {number} total sum of scores
+ */
+const totalScore= scores.reduce((a, b) => a + b, 0);
+console.log(totalScore);
 
 
 
@@ -372,7 +480,15 @@ const scores = [95, 67, 88, 45, 92, 78, 53, 81];
 
 const browsers = ['chrome', 'firefox', 'chrome', 'safari', 'chrome', 'firefox'];
 // TODO: Count occurrences of each browser
-
+/**
+ * Counts occurrences of each browser in the array
+ * @param {string[]} browsers - array of browser names
+ * @return {object} object with browser counts
+ */
+const browserCounts= browsers.reduce((acc, browser) => {
+    acc[browser] = (acc[browser] || 0) + 1; 
+    return acc;}, {});
+console.log(browserCounts);
 
 
 
@@ -394,7 +510,16 @@ const browsers = ['chrome', 'firefox', 'chrome', 'safari', 'chrome', 'firefox'];
 
 const testCases = ['TC-001', 'TC-002', 'TC-003'];
 // TODO: Log each test case with index
-
+/**
+ * Logs each test case with its index
+ * @param {string[]} testCases - array of test case IDs
+ * @example
+ * logTestCases(testCases)
+ */
+testCases.forEach((testCase, index) => {
+    console.log(`${index + 1}. ${testCase}`);
+});
+console.log(testCases)
 
 
 
@@ -420,6 +545,16 @@ const users = [
 ];
 // TODO: Find first admin user
 
+/**
+ * Finds the first user with role 'admin'
+ * @param {object[]} users - array of user objects
+ * @return {object | undefined} first admin user object or undefined if not found
+ * @example
+ * findAdminUser(users) // returns { username: 'admin1', role: 'admin' }
+ */
+const adminUser= users.find(user => user.role === 'admin');
+console.log(adminUser);
+
 
 
 
@@ -434,6 +569,15 @@ const users = [
  */
 
 // TODO: Check if any score is below 50
+/**
+ * Checks if any score is below 50
+ * @param {number[]} scores - array of scores
+ * @return {boolean} true if any score is below 50, else false
+ * @example
+ * hasLowScore(scores) // returns true
+ */
+const hasLowScore= scores.some(score => score < 50);
+console.log(hasLowScore);
 
 
 
@@ -450,6 +594,15 @@ const users = [
 
 // TODO: Check if all scores are above 40
 
+/**
+ * Checks if all scores are above 40
+ * @param {number[]} scores - array of scores
+ * @return {boolean} true if all scores are above 40, else false
+ * @example
+ * allScoresAbove40(scores) // returns true
+ */
+const allScoresAbove40= scores.every(score => score > 40);
+console.log(allScoresAbove40);
 
 
 
@@ -481,6 +634,19 @@ const testResults = [
     { name: 'Test 4', score: 62, passed: false }
 ];
 // TODO: Calculate average score of passing tests
+/**
+ * Calculates average score of passing tests through method chaining
+ * @param {object[]} testResults - array of test result objects
+ * @return {number} average score of passing tests
+ * @example
+ * averagePassingScore(testResults) // returns 91
+ */
+const averagePassingScore = (() => {
+    const passingTests = testResults.filter(test => test.passed);
+    const totalScore = passingTests.reduce((acc, test) => acc + test.score, 0);
+    return totalScore / passingTests.length;
+})();
+console.log(averagePassingScore);
 
 
 
@@ -502,6 +668,16 @@ const testResults = [
 const durations = [1500, 3000, 800, 2200, 1000];
 // TODO: Sort in ascending order (create copy first)
 
+/**
+ * Sorts durations in ascending order
+ * @param {number[]} durations - array of durations
+ * @return {number[]} sorted array of durations
+ * @example
+ * sortDurations(durations) // returns [800, 1000, 1500, 2200, 3000]
+ */
+const sortedDurations= [...durations].sort((a, b) => a - b);
+console.log(sortedDurations);
+
 
 
 
@@ -518,6 +694,15 @@ const durations = [1500, 3000, 800, 2200, 1000];
 
 // TODO: Sort tests alphabetically by name (create copy first)
 
+/**
+ * Sorts tests alphabetically by name
+ * @param {object[]} tests - array of test objects
+ * @return {object[]} sorted array of test objects
+ * @example
+ * sortTestsByName(tests) // returns tests sorted by name
+ */
+const sortedTestsByName= [...tests].sort((a, b) => a.name.localeCompare(b.name));
+console.log(sortedTestsByName);
 
 
 
@@ -543,13 +728,29 @@ const durations = [1500, 3000, 800, 2200, 1000];
  * Hint: Initialize empty object, create array for each status if not exists, push test name
  */
 
-const testData = [
+const testData2 = [
     { test: 'Test 1', status: 'passed' },
     { test: 'Test 2', status: 'failed' },
     { test: 'Test 3', status: 'passed' },
     { test: 'Test 4', status: 'failed' }
 ];
 // TODO: Group tests by status
+
+/**
+ * Groups tests by their status
+ * @param {object[]} testData - array of test data objects
+ * @return {object} object grouping tests by status
+ * @example
+ * groupTestsByStatus(testData) // returns { passed: [...], failed: [...] }
+ */
+const groupedTests= testData2.reduce((acc, curr) => {
+    if (!acc[curr.status]) {
+        acc[curr.status] = [];
+    }
+    acc[curr.status].push(curr.test);
+    return acc;
+}, {} as { [key: string]: string[] });
+console.log(groupedTests);
 
 
 
@@ -579,7 +780,16 @@ const testExecutions = [
     { name: 'Profile', duration: 1200, browser: 'safari', passed: true }
 ];
 // TODO: Total duration of passing Chrome tests
-
+/**
+ * Calculates total duration of passing tests in Chrome browser
+ * @param {object[]} testExecutions - array of test execution objects
+ * @return {number} total duration of passing Chrome tests
+ * @example
+ * totalChromePassingDuration(testExecutions) // returns 4500
+ */
+const totalChromePassingDuration = testExecutions.filter(test => test.browser === 'chrome' && test.passed)
+                           .reduce((sum, test) => sum + test.duration, 0);
+console.log(totalChromePassingDuration);
 
 
 
@@ -607,6 +817,10 @@ console.log('\n=== SECTION 3: STRING METHODS WITH ARROW FUNCTIONS ===\n');
 const csv = 'TC-001,Login Test,Passed,1500';
 // TODO: Parse CSV into object
 
+const [id, name, status, durationStr] = csv.split(',');
+const duration = parseInt(durationStr, 10);
+const parsedCsv = { id, name, status, duration };
+console.log(parsedCsv);
 
 
 
@@ -629,10 +843,21 @@ const csv = 'TC-001,Login Test,Passed,1500';
  * - word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() for each word
  */
 
-const testName = '  login_test_01  ';
+const testName3 = '  login_test_01  ';
 // TODO: Transform to "Login Test 01"
 
-
+/**
+ * Transforms a test name string by trimming whitespace, replacing underscores with spaces, and converting to title case.
+ * @param {string} name - test name string to transform
+ * @returns {string} Transformed test name
+ * @example
+ * transformTestName('  login_test_01  ') // returns "Login Test 01"
+ */
+const formattedName = testName.trim()
+               .replace(/_/g, ' ') .split(' ')
+               .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+               .join(' ');
+console.log(formattedName);
 
 
 /**
@@ -663,7 +888,13 @@ const logs = [
 ];
 // TODO: Filter to get only ERROR logs
 
-
+/**
+ * Filters logs to get only those containing 'ERROR'
+ * @param {string[]} logs - array of log strings
+ * @return {string[]} array of ERROR log strings
+ */
+const errorLogs= logs.filter(log => log.includes('ERROR'));
+console.log(errorLogs);
 
 
 /**
@@ -684,6 +915,13 @@ const logs = [
 const url = 'https://example.com/users/12345/profile';
 // TODO: Extract user ID
 
+const userIdRegex = url.match(/\/users\/(\d+)\//);
+const userId1 = userIdRegex ? userIdRegex[1] : null;
+console.log("User ID (Regex):", userId1);
+
+const userId2 = url.split('/')[4];
+console.log("User ID (Split):", userId2);
+
 
 
 
@@ -702,7 +940,15 @@ const url = 'https://example.com/users/12345/profile';
 
 const usernames = ['john', 'jane', 'bob'];
 // TODO: Create email addresses
-
+/**
+ * Creates email addresses from usernames
+ * @param {string[]} usernames - array of usernames
+ * @return {string[]} array of email addresses
+ * @example
+ * createEmailAddresses(['john', 'jane']) // returns ['john@test.com', 'jane@test.com']
+ */
+const emails= usernames.map(username => `${username}@test.com`);
+console.log(emails);
 
 
 
@@ -724,6 +970,18 @@ const usernames = ['john', 'jane', 'bob'];
 const testIds = ['TC-001', 'TC-002', 'TC-003', 'BUG-001', 'TC-004'];
 // TODO: Get TC numbers only
 
+/**
+ * Extracts test case numbers from test IDs
+ * @param {string[]} testIds - array of test IDs
+ * @return {string[]} array of test case numbers
+ * @example
+ * tcNumbers(['TC-001', 'BUG-001']) // returns ['001']
+ */
+const tcNumbers= (testlist: string[]): string[] => {
+    return testlist.filter(id => id.startsWith('TC-'))
+                   .map(id => id.substring(3));
+}
+console.log(tcNumbers(testIds));
 
 
 
@@ -744,6 +1002,15 @@ const testIds = ['TC-001', 'TC-002', 'TC-003', 'BUG-001', 'TC-004'];
 
 const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
 // TODO: Normalize to lowercase and remove duplicates
+/**
+ * Normalizes statuses to lowercase and removes duplicates
+ * @param {string[]} statuses - array of status strings
+ * @return {string[]} array of unique lowercase statuses
+ * @example
+ * normalizedStatuses(['PASSED', 'failed', 'SKIPPED', 'passed']) // returns ['passed', 'failed', 'skipped']
+ */
+const normalizedStatuses = [...new Set(statuses.map(status => status.toLowerCase()))];
+console.log(normalizedStatuses);
 
 
 
@@ -765,6 +1032,17 @@ const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
  */
 
 // TODO: Create isValidEmail arrow function
+/**
+ * Validates an email address
+ * @param {string} email - email string to validate
+ * @returns {boolean}   true if valid email, false otherwise
+ * @example
+ * isValidEmail('test@example.com') // returns true
+ * isValidEmail('invalid.email')    // returns false
+ */
+const isValidEmail = (email: string) => email.includes('@') && email.includes('.');
+console.log(isValidEmail('test@example.com'));
+console.log(isValidEmail('invalid.email'));
 
 
 
@@ -789,7 +1067,13 @@ const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
 const queryString = 'username=john@test.com&password=secret123&role=admin';
 // TODO: Parse query string into object
 
-
+const queryParams = queryString.split('&')
+    .map(pair => pair.split('='))
+    .reduce((acc, [key, value]) => {    
+        acc[key] = value;    
+        return acc;  
+    }, {} as { [key: string]: string });
+console.log(queryParams);
 
 
 /**
@@ -809,6 +1093,20 @@ const queryString = 'username=john@test.com&password=secret123&role=admin';
  */
 
 // TODO: Create formatDuration arrow function
+/**
+ * Formats a duration in milliseconds into a human-readable string
+ * @param {number} durationMs - duration in milliseconds
+ * @returns {string} formatted duration string
+ * @example
+ * formatDuration(1500) // returns '1.5s'
+ */
+const formatDuration = (durationMs: number): string => {
+    const durationSec = (durationMs / 1000).toFixed(1);
+    return `${durationSec}s`;
+}
+console.log(formatDuration(1500));
+console.log(formatDuration(2000));
+console.log(formatDuration(500));
 
 
 
@@ -847,6 +1145,22 @@ const results4_1 = [
     { name: 'Test 3', passed: true, duration: 1200 }
 ];
 // TODO: Create generateReport function and use it
+/**
+ * Generates a test report summary from an array of test results
+ * @param {object[]} results4_1 - array of test result objects
+ * @returns {object} summary report object
+ * @example
+ * generateReport(results4_1) // returns { total: 3, passed: 2, failed: 1, totalDuration: 4700, passRate: 66.67 }
+ */
+function generateReport (results: { name: string; passed: boolean; duration: number }[]) : { total: number; passed: number; failed: number; totalDuration: number; passRate: number } {
+    const total = results.length;
+    const passed = results.filter(test => test.passed).length;
+    const failed = total - passed;
+    const totalDuration = results.reduce((sum, test) => sum + test.duration, 0);
+    const passRate = total === 0 ? 0 : parseFloat(((passed / total) * 100).toFixed(2));
+    return { total, passed, failed, totalDuration, passRate };
+}
+console.log(generateReport(results4_1));
 
 
 
@@ -875,7 +1189,17 @@ const testCases4_2 = [
 ];
 // TODO: Get IDs of high priority automated tests as comma-separated string
 
+/**
+ * Gets IDs of high priority automated tests as a comma-separated string
+ * @param {object[]} testCases4_2 - array of test case objects
+ * @return {string} comma-separated string of test IDs
+ */
+const highPriorityIds = testCases4_2
+    .filter(test => test.priority === 'high' && test.automated)
+    .map(test => test.id)
+    .join(', ');
 
+    console.log(highPriorityIds);
 
 
 /**
@@ -892,6 +1216,17 @@ const testCases4_2 = [
 const rawData = ['  test1  ', '  TEST2  ', '  Test3  '];
 // TODO: Transform to trimmed title case
 
+/**
+ * Transforms raw data strings by trimming whitespace and converting to title case
+ * @param {string[]} rawData - array of raw data strings
+ * @return {string[]} array of transformed strings
+ */
+const transformedData = rawData.map(item => {
+    const trimmed = item.trim();
+    return trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
+}   
+);
+console.log(transformedData);
 
 
 
@@ -922,7 +1257,19 @@ const executions = [
     { browser: 'chrome', status: 'failed' }
 ];
 // TODO: Create browser/status summary
-
+/**
+ * Generates a summary of test executions grouped by browser and status
+ * @param {object[]} executions - array of execution objects
+ * @return {object} summary object with counts by browser and status
+ */
+const summary = executions.reduce((acc, curr) => {
+    if (!acc[curr.browser]) {
+        acc[curr.browser] = { passed: 0, failed: 0 };
+    }   
+    acc[curr.browser][curr.status]++;
+    return acc;
+}, {} as { [key: string]: { passed: number; failed: number } });
+console.log(summary);
 
 
 
@@ -944,6 +1291,22 @@ const executions = [
 
 // TODO: Create searchAndReplace function
 
+/**
+ * Function to search and replace substrings in an array of test names
+ * @param {string[]} tests - array of test names
+ * @param {string} search - string to search for
+ * @param {string} replace - string to replace with
+ * @returns {string[]} array of replaced test names
+ * @example
+ * searchAndReplace(['Login Test', 'Signup Test'], 'login', 'authentication')
+ * // returns ['Authentication Test', 'Signup Test']
+ */
+function searchAndReplace(tests: string[], search: string, replace: string): string[] {
+    const regex = new RegExp(search, 'gi');
+    return tests.map(test => test.replace(regex, replace));
+}   
+const tests4_5 = ['Login Test', 'Signup Test', 'Login Validation'];
+console.log(searchAndReplace(tests4_5, 'login', 'authentication'));
 
 
 
@@ -974,6 +1337,20 @@ const tests4_6 = [
 ];
 // TODO: Sort by priority then duration
 
+const priorityOrder: { [key: string]: number } = { high: 3, medium: 2, low: 1 }; 
+/**
+ * Sorts tests by priority and duration
+ * @param {object[]} tests4_6 - array of test objects
+ * @return {object[]} sorted array of test objects
+ */   
+const sortedTests4_6 = [...tests4_6].sort((a, b) => {
+    const priorityDiff = priorityOrder[b.priority] - priorityOrder[a.priority]; 
+    if (priorityDiff !== 0) {
+        return priorityDiff;
+    }
+    return a.duration - b.duration; 
+});
+console.log(sortedTests4_6);
 
 
 
@@ -1000,7 +1377,29 @@ const tests4_6 = [
 
 // TODO: Create calculateStats function
 
-
+/**
+ * Function to calculate statistics from an array of durations
+ * @param {number[]} durations - array of test durations
+ * @returns {object} object with min, max, avg, and median values
+ * @example
+ * calculateStats([1000, 1500, 2000, 1200, 1800])
+ */
+function calculateStats(durations: number[]): { min: number; max: number; avg: number; median: number } {   
+    const sorted = [...durations].sort((a, b) => a - b);
+    const min = sorted[0];
+    const max = sorted[sorted.length - 1];
+    const avg = durations.reduce((sum, dur) => sum + dur, 0) / durations.length;
+    let median: number;
+    const mid = Math.floor(sorted.length / 2);
+    if (sorted.length % 2 === 0) {
+        median = (sorted[mid - 1] + sorted[mid]) / 2;
+    }   
+    else {  
+        median = sorted[mid];
+    }   
+    return { min, max, avg, median };
+}
+console.log(calculateStats([1000, 1500, 2000, 1200, 1800]));
 
 
 /**
@@ -1027,8 +1426,31 @@ const tests4_6 = [
 
 // TODO: Create validateUsers function
 
-
-
+const users4_8 = [
+    { username: 'john@test.com', password: 'pass123' },
+    { username: 'invalid', password: 'p' },
+    { username: 'jane@test.com', password: 'pass456' }
+];
+/**
+ * Validates an array of user objects for username and password criteria
+ * @param {object[]} users - array of user objects
+ * @return {string[]} array of validation error messages
+ * @example
+ * validateUsers(users) // returns array of error messages
+ */
+function validateUsers(users: { username: string; password: string }[]): string[] {
+    const errors: string[] = [];
+    users.forEach((user, index) => {
+        if (!user.username.includes('@')) {
+            errors.push(`User ${index + 1}: Username must contain @`);
+        }
+        if (user.password.length < 6) {
+            errors.push(`User ${index + 1}: Password must be at least 6 characters`);
+        }
+    });
+    return errors;
+}
+console.log(validateUsers(users4_8));
 
 /**
  * Exercise 4.9: Test Execution Queue
@@ -1052,6 +1474,30 @@ const tests4_6 = [
  */
 
 // TODO: Create processQueue function
+/**
+ * Processes a queue of tests by sorting by priority and calculating start/end times
+ * @param {object[]} queue - array of test objects
+ * @return {object[]} array of processed test objects with startTime and endTime    
+ * @example
+ * processQueue(queue) // returns processed queue with timings
+ */
+function processQueue(queue: { name: string; priority: number; estimated: number }[]) { 
+    const sortedQueue = [...queue].sort((a, b) => b.priority - a.priority);
+    let currentTime = 0;
+    return sortedQueue.map(test => {
+        const startTime = currentTime;
+        const endTime = startTime + test.estimated;
+        currentTime = endTime;
+        return { ...test, startTime, endTime };
+    }
+    );
+}
+const queue = [
+    { name: 'Test 1', priority: 1, estimated: 1000 },
+    { name: 'Test 2', priority: 3, estimated: 2000 },
+    { name: 'Test 3', priority: 2, estimated: 1500 }
+];
+console.log(processQueue(queue));   
 
 
 
@@ -1081,6 +1527,22 @@ const logs4_10 = [
     '[2024-01-01 10:32:00] INFO: Retrying...'
 ];
 // TODO: Parse logs and filter errors
+/**
+ * Parses log entries and formats ERROR logs
+ * @param {string[]} logs4_10 - array of log entry strings
+ * @return {string[]} array of formatted ERROR log messages
+ */
+const errorLogMessages = logs4_10
+    .map(log => {
+        const match = log.match(/\[(.*?)\] (\w+): (.*)/);
+        if (match) {
+            return { timestamp: match[1], level: match[2], message: match[3] };
+        }
+        return null;
+    })
+    .filter(log => log && log.level === 'ERROR')
+    .map(log => `${log!.timestamp} - ${log!.message}`); 
+console.log(errorLogMessages);
 
 
 
@@ -1109,18 +1571,65 @@ console.log('\n=== BONUS CHALLENGES ===\n');
 
 // TODO: Implement customMap
 
-
+/**
+ * Function to implement custom map logic
+ * @param {array} array - The input array
+ * @param transformFn - The transformation function
+ * @returns The transformed array
+ * @example
+ * customMap([1, 2, 3], x => x * 2) // returns [2, 4, 6]
+ */
+function customMap<T, U>(array: T[], transformFn: (item: T, index: number, array: T[]) => U): U[] {
+    const result: U[] = [];
+    for (let i = 0; i < array.length; i++) {
+        result.push(transformFn(array[i], i, array));
+    }
+    return result;
+}
+console.log(customMap([1, 2, 3], x => x * x * x)); // [2, 4, 6]
 
 
 // TODO: Implement customFilter
+/**
+ * Function to implement custom filter logic
+ * @param {array} array - The input array
+ * @param predicateFn - The predicate function
+ * @returns The filtered array
+ * @example
+ * customFilter([5, 6, 3, 4], x => x % 2 === 0) // returns [6, 4]
+ */
+function customFilter<T>(array: T[], predicateFn: (item: T, index: number, array: T[]) => boolean): T[] {
+    const result: T[] = []; 
+    for (let i = 0; i < array.length; i++) {
+        if (predicateFn(array[i], i, array)) {
+            result.push(array[i]);
+        }
+    }
+    return result;
+}
 
-
+console.log(customFilter([5, 6, 3, 4], x => x % 2 === 0)); // [6, 4]
 
 
 // TODO: Implement customReduce
+/**
+ * Function to implement custom reduce logic
+ * @param {array} array - The input array
+ * @param reducerFn - The reducer function
+ * @param initialValue - The initial value
+ * @returns The accumulated result
+ * @example
+ * customReduce([1, 2, 3], (sum, x) => sum + x, 0) // returns 6
+ */
+function customReduce<T, U>(array: T[], reducerFn: (accumulator: U, item: T, index: number, array: T[]) => U, initialValue: U): U {
+    let accumulator = initialValue;
+    for (let i = 0; i < array.length; i++) {
+        accumulator = reducerFn(accumulator, array[i], i, array);
+    }
+    return accumulator;
+}
 
-
-
+console.log(customReduce([1, 2, 3], (sum, x) => sum * x, 1)); // 6
 
 /**
  * Bonus 2: Fluent API
@@ -1140,6 +1649,46 @@ console.log('\n=== BONUS CHALLENGES ===\n');
 
 // TODO: Create TestBuilder class
 
+// Final Test object structure
+interface TestConfig {
+  name: string;
+  timeout: number;
+  retries: number;
+  tags: string[];
+}
+ 
+class TestBuilder {
+  private test: TestConfig = {
+    name: "",
+    timeout: 0,
+    retries: 0,
+    tags: []
+  };
+ 
+  withName(name: string): this {
+    this.test.name = name;
+    return this;
+  }
+ 
+  withTimeout(timeout: number): this {
+    this.test.timeout = timeout;
+    return this;
+  }
+ 
+  withRetries(retries: number): this {
+    this.test.retries = retries;
+    return this;
+  }
+ 
+  withTags(tags: string[]): this {
+    this.test.tags = tags;
+    return this;
+  }
+ 
+  build(): TestConfig {
+    return this.test;
+  }
+}
 
 
 
@@ -1163,7 +1712,10 @@ console.log('\n=== BONUS CHALLENGES ===\n');
 
 // TODO: Create pipeline function
 
-
+function pipeline<T>(...fns: Array<(arg: any) => any>) {
+  return (input: T) =>
+    fns.reduce((result, fn) => fn(result), input);
+}
 
 
 // ============================================================================
@@ -1174,34 +1726,34 @@ console.log('\n=== TESTING YOUR SOLUTIONS ===\n');
 
 // Uncomment the tests below as you complete each exercise
 
-// Section 1 Tests
-// console.log('1.1 Variables:', testName, timeout, isPassed, testData);
-// console.log('1.3 Calculate Duration:', calculateTestDuration(1000, 6000));
-// console.log('1.4 Run Test:', runTest('Login Test'));
-// console.log('1.6 Test Result:', getTestResult(95));
-// console.log('1.7 Multiply:', multiply(5, 3));
-// console.log('1.8 Square:', square(5));
-// console.log('1.9 Timestamp:', getTimestamp());
-// console.log('1.10 Create User:', createUser('John', 'john@test.com'));
+//Section 1 Tests
+console.log('1.1 Variables:', testName, timeout, isPassed, testData);
+console.log('1.3 Calculate Duration:', calculateTestDuration(1000, 6000));
+console.log('1.4 Run Test:', runTest('Login Test'));
+console.log('1.6 Test Result:', getTestResult(95));
+console.log('1.7 Multiply:', multiply(5, 3));
+console.log('1.8 Square:', square(5));
+console.log('1.9 Timestamp:', getTimestamp());
+console.log('1.10 Create User:', createUser('John', 'john@test.com'));
 
-// Section 2 Tests
-// console.log('2.1 Uppercase:', upperCaseTests);
-// console.log('2.2 Test IDs:', testIds);
-// console.log('2.3 Passing Tests:', passingTests);
-// console.log('2.4 Passing Scores:', passingScores);
-// console.log('2.5 Total Score:', totalScore);
-// console.log('2.6 Browser Counts:', browserCounts);
+//Section 2 Tests
+console.log('2.1 Uppercase:', upperCaseTests);
+console.log('2.2 Test IDs:', testIds);
+console.log('2.3 Passing Tests:', passingTests);
+console.log('2.4 Passing Scores:', passingScores);
+console.log('2.5 Total Score:', totalScore);
+console.log('2.6 Browser Counts:', browserCounts);
 
-// Section 3 Tests
-// console.log('3.1 Parsed CSV:', parsedCsv);
-// console.log('3.2 Formatted Name:', formattedName);
-// console.log('3.3 Error Logs:', errorLogs);
-// console.log('3.5 Emails:', emails);
-// console.log('3.7 Normalized:', normalizedStatuses);
+//Section 3 Tests
+console.log('3.1 Parsed CSV:', parsedCsv);
+console.log('3.2 Formatted Name:', formattedName);
+console.log('3.3 Error Logs:', errorLogs);
+console.log('3.5 Emails:', emails);
+console.log('3.7 Normalized:', normalizedStatuses);
 
-// Section 4 Tests
-// console.log('4.1 Report:', generateReport(results4_1));
-// console.log('4.2 High Priority:', highPriorityIds);
+//Section 4 Tests
+console.log('4.1 Report:', generateReport(results4_1));
+console.log('4.2 High Priority:', highPriorityIds);
 
 console.log('\n=== ALL DONE! ===\n');
 console.log('Great job completing the exercises!');
