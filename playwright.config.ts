@@ -4,6 +4,10 @@ const testDir = defineBddConfig({
   features: 'src/features/**/*.feature',
   steps: 'src/features/step-definitions/**/*.ts',
 });
+let a = ""
+let b = ""
+let myfirstname = ""
+let lastname = ""
 
 /**
  * Read environment variables from file.

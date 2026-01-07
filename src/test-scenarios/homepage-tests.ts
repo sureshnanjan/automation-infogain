@@ -7,7 +7,7 @@ test("Verify Home Page Title",async({page})=>{
     const title=await homePage.getTitle();
     expect(title).toBe("Welcome to the-internet");
 });
-test("Verify Home Page SubTitle",async({page})=>{
+test("Verify Home Page SubTitle",async({page,})=>{
     // Arrange
     const homePage:HomePageOperations = await getHerokuApp(page);
     const expectedSubTitle="Available Examples";
@@ -32,7 +32,12 @@ test("Navigate to Example Page from Home Page",async({page})=>{
     // Arrange
     const testPage = "A/B Testing"
     // Expected A/B Test Variation 1
-    const homePage:HomePageOperations = await getHerokuApp(page);
+    const homePage:HomePageOperations = await getHerokuApp(page); 
+    // Factory Method Patter
+
+    //const home1: HomePageOperations = new HomePage(page);
+
+
     // Act
     const returnPage = (homePage.gotoExample(testPage) as unknown) as ABTestingOperations;
 
