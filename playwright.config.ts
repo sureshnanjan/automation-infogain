@@ -22,7 +22,9 @@ let lastname = ""
  */
 export default defineConfig({
   //testDir: './src/test-scenarios',
-  testDir: testDir,
+
+  //testDir: testDir,
+  testDir: 'src/test-scenarios/api-scenarios',
   //testMatch: '**/*.ts',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -30,12 +32,14 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
+  //process.env.FIRST_NAME = myfirstname,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['html'],
     ['json', { outputFile: 'test-results/cucumber-report.json' }],
+    
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -49,6 +53,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    //trace:
   },
 
   /* Configure projects for major browsers */

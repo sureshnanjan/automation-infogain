@@ -14,3 +14,5 @@ test.only("This is my Fixture Data",({examples})=>{
 
 
 });
+
+test("Check Smithrecord is available",({page,})=>{})

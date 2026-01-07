@@ -1,0 +1,1 @@
+npx prism mock specs\acme-OpenAPI.yml
