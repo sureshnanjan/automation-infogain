@@ -4,6 +4,10 @@ import { createBdd } from "playwright-bdd";
 import { expect } from "@playwright/test";
 
 const { Given, When, Then } = createBdd(); // Decorators
+let homePage:HomePageOperations;
+let actualResult:string|null;
+let expected_logo:{color:string, place: string, font:number}
+Given('User Visits HomePage', async ({page}) => {
 let homePage: HomePageOperations;
 let actualResult: string | null;
 

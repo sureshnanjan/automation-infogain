@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "C:\\QA Training\\automation-infogain\\playwright.config.ts",
-    "rootDir": "C:/QA Training/automation-infogain/.features-gen",
+    "configFile": "C:\\Trainings-2025\\infogain\\automation-infogain\\playwright.config.ts",
+    "rootDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios/api-scenarios",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -41,7 +41,39 @@
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "C:/QA Training/automation-infogain/.features-gen",
+        "testDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios/api-scenarios",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios/api-scenarios",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios/api-scenarios",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -59,329 +91,911 @@
   },
   "suites": [
     {
-      "title": "src\\features\\dynamicLoading_page.feature.spec.js",
-      "file": "src/features/dynamicLoading_page.feature.spec.js",
+      "title": "auth.spec.ts",
+      "file": "auth.spec.ts",
       "column": 0,
       "line": 0,
-      "specs": [],
-      "suites": [
+      "specs": [
         {
-          "title": "Dynamic Loading Page functionality",
-          "file": "src/features/dynamicLoading_page.feature.spec.js",
-          "line": 4,
-          "column": 6,
-          "specs": [
+          "title": "POST /auth/login returns token",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "Dynamic Loading Page has a valid Title",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
                 {
-                  "timeout": 30000,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 408,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:18.656Z",
                   "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 8660,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "steps": [
-                        {
-                          "title": "And Title should match \"Dynamically Loaded Page Elements\"",
-                          "duration": 4
-                        }
-                      ],
-                      "startTime": "2025-12-30T14:37:16.907Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
+                  "attachments": []
                 }
               ],
-              "id": "be811ebf21f1b56272cb-d288ded4186b4bf060d9",
-              "file": "src/features/dynamicLoading_page.feature.spec.js",
-              "line": 12,
-              "column": 7
-            },
-            {
-              "title": "Verify Description on Dynamic Loading Page",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 8651,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "steps": [
-                        {
-                          "title": "And The page description should contain:",
-                          "duration": 68
-                        }
-                      ],
-                      "startTime": "2025-12-30T14:37:16.941Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "be811ebf21f1b56272cb-74f5095e5c774c0f7fb5",
-              "file": "src/features/dynamicLoading_page.feature.spec.js",
-              "line": 16,
-              "column": 7
+              "status": "expected"
             }
           ],
-          "suites": [
+          "id": "d748ac400d08b85935ef-5400bec329a35e2dce38",
+          "file": "auth.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "GET /users without token returns 401",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "Verify Example pages load and show \"Hello World!\"",
-              "file": "src/features/dynamicLoading_page.feature.spec.js",
-              "line": 20,
-              "column": 8,
-              "specs": [
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
                 {
-                  "title": "Example #1",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "chromium",
-                      "projectName": "chromium",
-                      "results": [
-                        {
-                          "workerIndex": 2,
-                          "parallelIndex": 2,
-                          "status": "passed",
-                          "duration": 8954,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "steps": [
-                            {
-                              "title": "When User clicks \"Example 1: Element on page that is hidden\"",
-                              "duration": 370
-                            },
-                            {
-                              "title": "When User clicks the \"Start\" button\"",
-                              "duration": 66
-                            },
-                            {
-                              "title": "Then User get text should be \"Hello World!\"",
-                              "duration": 10
-                            }
-                          ],
-                          "startTime": "2025-12-30T14:37:16.926Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "be811ebf21f1b56272cb-a57cf719d90ffd649ac9",
-                  "file": "src/features/dynamicLoading_page.feature.spec.js",
-                  "line": 22,
-                  "column": 9
-                },
-                {
-                  "title": "Example #2",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "chromium",
-                      "projectName": "chromium",
-                      "results": [
-                        {
-                          "workerIndex": 3,
-                          "parallelIndex": 3,
-                          "status": "passed",
-                          "duration": 14742,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "steps": [
-                            {
-                              "title": "When User clicks \"Example 2: Element rendered after the fact\"",
-                              "duration": 438
-                            },
-                            {
-                              "title": "When User clicks the \"Start\" button\"",
-                              "duration": 131
-                            },
-                            {
-                              "title": "Then User get text should be \"Hello World!\"",
-                              "duration": 5420
-                            }
-                          ],
-                          "startTime": "2025-12-30T14:37:16.900Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "be811ebf21f1b56272cb-918e77c55ab6383f40e7",
-                  "file": "src/features/dynamicLoading_page.feature.spec.js",
-                  "line": 28,
-                  "column": 9
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 394,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:18.739Z",
+                  "annotations": [],
+                  "attachments": []
                 }
-              ]
+              ],
+              "status": "expected"
             }
-          ]
+          ],
+          "id": "d748ac400d08b85935ef-a4abd113738a7facbba9",
+          "file": "auth.spec.ts",
+          "line": 19,
+          "column": 5
+        },
+        {
+          "title": "Health Of Srver is OK",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 371,
+                  "error": {
+                    "message": "SyntaxError: Unexpected end of JSON input",
+                    "stack": "SyntaxError: Unexpected end of JSON input\n    at C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts:27:16",
+                    "location": {
+                      "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts",
+                      "column": 16,
+                      "line": 27
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 25 |\u001b[39m   \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'/health'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m   expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m   expect(body\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'ok'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts",
+                        "column": 16,
+                        "line": 27
+                      },
+                      "message": "SyntaxError: Unexpected end of JSON input\n\n\u001b[0m \u001b[90m 25 |\u001b[39m   \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'/health'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m   expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m   expect(body\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'ok'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts:27:16\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:18.703Z",
+                  "annotations": [],
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts",
+                    "column": 16,
+                    "line": 27
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d748ac400d08b85935ef-fbffc6836042d20a72b2",
+          "file": "auth.spec.ts",
+          "line": 24,
+          "column": 5
+        },
+        {
+          "title": "POST /auth/login returns token",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 366,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:21.109Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d748ac400d08b85935ef-613c8acf42466fc4da19",
+          "file": "auth.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "GET /users without token returns 401",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 365,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:21.087Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d748ac400d08b85935ef-5ef08ddbbb7705090a5d",
+          "file": "auth.spec.ts",
+          "line": 19,
+          "column": 5
+        },
+        {
+          "title": "Health Of Srver is OK",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 369,
+                  "error": {
+                    "message": "SyntaxError: Unexpected end of JSON input",
+                    "stack": "SyntaxError: Unexpected end of JSON input\n    at C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts:27:16",
+                    "location": {
+                      "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts",
+                      "column": 16,
+                      "line": 27
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 25 |\u001b[39m   \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'/health'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m   expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m   expect(body\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'ok'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts",
+                        "column": 16,
+                        "line": 27
+                      },
+                      "message": "SyntaxError: Unexpected end of JSON input\n\n\u001b[0m \u001b[90m 25 |\u001b[39m   \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'/health'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m   expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m   expect(body\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'ok'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts:27:16\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:21.129Z",
+                  "annotations": [],
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts",
+                    "column": 16,
+                    "line": 27
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d748ac400d08b85935ef-e8caa22819090d02ed56",
+          "file": "auth.spec.ts",
+          "line": 24,
+          "column": 5
+        },
+        {
+          "title": "POST /auth/login returns token",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 405,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:23.623Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d748ac400d08b85935ef-52b01ceecd6f5aa08e70",
+          "file": "auth.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "GET /users without token returns 401",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 405,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:23.649Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d748ac400d08b85935ef-20cbd9fa3760356461b6",
+          "file": "auth.spec.ts",
+          "line": 19,
+          "column": 5
+        },
+        {
+          "title": "Health Of Srver is OK",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 406,
+                  "error": {
+                    "message": "SyntaxError: Unexpected end of JSON input",
+                    "stack": "SyntaxError: Unexpected end of JSON input\n    at C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts:27:16",
+                    "location": {
+                      "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts",
+                      "column": 16,
+                      "line": 27
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 25 |\u001b[39m   \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'/health'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m   expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m   expect(body\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'ok'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts",
+                        "column": 16,
+                        "line": 27
+                      },
+                      "message": "SyntaxError: Unexpected end of JSON input\n\n\u001b[0m \u001b[90m 25 |\u001b[39m   \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'/health'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m   expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m   expect(body\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'ok'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts:27:16\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:26.601Z",
+                  "annotations": [],
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts",
+                    "column": 16,
+                    "line": 27
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d748ac400d08b85935ef-c65441c16164ade750a8",
+          "file": "auth.spec.ts",
+          "line": 24,
+          "column": 5
         }
       ]
     },
     {
-      "title": "src\\features\\home_page.feature.spec.js",
-      "file": "src/features/home_page.feature.spec.js",
+      "title": "contracts.spec.ts",
+      "file": "contracts.spec.ts",
       "column": 0,
       "line": 0,
-      "specs": [],
-      "suites": [
+      "specs": [
         {
-          "title": "Heroku App Home Page functionality",
-          "file": "src/features/home_page.feature.spec.js",
-          "line": 4,
-          "column": 6,
-          "specs": [
+          "title": "POST /users with invalid body returns 400",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "Home Page has a valid Title",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
                 {
-                  "timeout": 30000,
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 429,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:18.666Z",
                   "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5590,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "steps": [
-                        {
-                          "title": "Given User Visits HomePage",
-                          "duration": 4523
-                        },
-                        {
-                          "title": "When User Observes Title",
-                          "duration": 24
-                        },
-                        {
-                          "title": "Then title should match \"Welcome to the-internet\"",
-                          "duration": 1
-                        }
-                      ],
-                      "startTime": "2025-12-30T14:37:26.581Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
+                  "attachments": []
                 }
               ],
-              "id": "5c90d46ba501b38b18f6-96a09658d21608c403a5",
-              "file": "src/features/home_page.feature.spec.js",
-              "line": 6,
-              "column": 7
-            },
-            {
-              "title": "Home Page has a valid Subtitle",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 5147,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "steps": [
-                        {
-                          "title": "Given User Visits HomePage",
-                          "duration": 4282
-                        },
-                        {
-                          "title": "When User Observes Subtitle",
-                          "duration": 25
-                        },
-                        {
-                          "title": "Then Subtitle should match \"Available Examples\"",
-                          "duration": 2
-                        }
-                      ],
-                      "startTime": "2025-12-30T14:37:26.881Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "5c90d46ba501b38b18f6-7e1db79a47490c90e42f",
-              "file": "src/features/home_page.feature.spec.js",
-              "line": 12,
-              "column": 7
+              "status": "expected"
             }
-          ]
+          ],
+          "id": "94d2a11b1fc1ed31b81d-528ebc506408bf5c9510",
+          "file": "contracts.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "POST /users with invalid body returns 400",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 420,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:23.485Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "94d2a11b1fc1ed31b81d-fb3e8ef06cefce0fc46a",
+          "file": "contracts.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "POST /users with invalid body returns 400",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 425,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:26.661Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "94d2a11b1fc1ed31b81d-575311285320805d9d61",
+          "file": "contracts.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "file.spec.ts",
+      "file": "file.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "POST /documents accepts multipart upload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 57,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:19.116Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a12ab5c82540690a4e0b-5adb7392d2711b4d5e20",
+          "file": "file.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "POST /documents accepts multipart upload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 39,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:21.489Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a12ab5c82540690a4e0b-a23307287efaacadac99",
+          "file": "file.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "POST /documents accepts multipart upload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 53,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:24.098Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a12ab5c82540690a4e0b-a9b41d7fa574237a97f6",
+          "file": "file.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "system.spec.ts",
+      "file": "system.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "GET /health returns 200",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 383,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:21.040Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "19fec53437319cd87246-32a2e5eac115ec2dcd09",
+          "file": "system.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "GET /health returns 200",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 20,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:21.515Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "19fec53437319cd87246-096e5238eb6c47414c60",
+          "file": "system.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "GET /health returns 200",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 39,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:24.122Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "19fec53437319cd87246-839daff9b0407352cc86",
+          "file": "system.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "user.spec.ts",
+      "file": "user.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "POST /users returns 201 for valid payload",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 71,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"s\u001b[7m@test.com\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"s\u001b[7mtring\u001b[27m\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"s\u001b[7m@test.com\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"s\u001b[7mtring\u001b[27m\"\u001b[39m\n    at C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts:23:22",
+                    "location": {
+                      "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts",
+                      "column": 22,
+                      "line": 23
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 21 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m   expect(body\u001b[33m.\u001b[39mid)\u001b[33m.\u001b[39mtoBeDefined()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 23 |\u001b[39m   expect(body\u001b[33m.\u001b[39memail)\u001b[33m.\u001b[39mtoBe(\u001b[32m's@test.com'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 24 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 25 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts",
+                        "column": 22,
+                        "line": 23
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"s\u001b[7m@test.com\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"s\u001b[7mtring\u001b[27m\"\u001b[39m\n\n\u001b[0m \u001b[90m 21 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m   expect(body\u001b[33m.\u001b[39mid)\u001b[33m.\u001b[39mtoBeDefined()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 23 |\u001b[39m   expect(body\u001b[33m.\u001b[39memail)\u001b[33m.\u001b[39mtoBe(\u001b[32m's@test.com'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 24 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 25 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts:23:22\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:19.134Z",
+                  "annotations": [],
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts",
+                    "column": 22,
+                    "line": 23
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "475d3afc1dfeb7586876-fd8ed904c0656eff63c6",
+          "file": "user.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "POST /users returns 201 for valid payload",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 453,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"s\u001b[7m@test.com\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"s\u001b[7mtring\u001b[27m\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"s\u001b[7m@test.com\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"s\u001b[7mtring\u001b[27m\"\u001b[39m\n    at C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts:23:22",
+                    "location": {
+                      "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts",
+                      "column": 22,
+                      "line": 23
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 21 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m   expect(body\u001b[33m.\u001b[39mid)\u001b[33m.\u001b[39mtoBeDefined()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 23 |\u001b[39m   expect(body\u001b[33m.\u001b[39memail)\u001b[33m.\u001b[39mtoBe(\u001b[32m's@test.com'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 24 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 25 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts",
+                        "column": 22,
+                        "line": 23
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"s\u001b[7m@test.com\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"s\u001b[7mtring\u001b[27m\"\u001b[39m\n\n\u001b[0m \u001b[90m 21 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m   expect(body\u001b[33m.\u001b[39mid)\u001b[33m.\u001b[39mtoBeDefined()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 23 |\u001b[39m   expect(body\u001b[33m.\u001b[39memail)\u001b[33m.\u001b[39mtoBe(\u001b[32m's@test.com'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 24 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 25 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts:23:22\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:23.560Z",
+                  "annotations": [],
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts",
+                    "column": 22,
+                    "line": 23
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "475d3afc1dfeb7586876-630ae0b275c2d86e8331",
+          "file": "user.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "POST /users returns 201 for valid payload",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 58,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"s\u001b[7m@test.com\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"s\u001b[7mtring\u001b[27m\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"s\u001b[7m@test.com\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"s\u001b[7mtring\u001b[27m\"\u001b[39m\n    at C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts:23:22",
+                    "location": {
+                      "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts",
+                      "column": 22,
+                      "line": 23
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 21 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m   expect(body\u001b[33m.\u001b[39mid)\u001b[33m.\u001b[39mtoBeDefined()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 23 |\u001b[39m   expect(body\u001b[33m.\u001b[39memail)\u001b[33m.\u001b[39mtoBe(\u001b[32m's@test.com'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 24 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 25 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts",
+                        "column": 22,
+                        "line": 23
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"s\u001b[7m@test.com\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"s\u001b[7mtring\u001b[27m\"\u001b[39m\n\n\u001b[0m \u001b[90m 21 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m   expect(body\u001b[33m.\u001b[39mid)\u001b[33m.\u001b[39mtoBeDefined()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 23 |\u001b[39m   expect(body\u001b[33m.\u001b[39memail)\u001b[33m.\u001b[39mtoBe(\u001b[32m's@test.com'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 24 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 25 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts:23:22\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-07T06:20:24.185Z",
+                  "annotations": [],
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "C:\\Trainings-2025\\infogain\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts",
+                    "column": 22,
+                    "line": 23
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "475d3afc1dfeb7586876-148df4e1dcbb4e7230d8",
+          "file": "user.spec.ts",
+          "line": 2,
+          "column": 5
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-30T14:37:14.722Z",
-    "duration": 18871.331000000002,
-    "expected": 6,
+    "startTime": "2026-01-07T06:20:17.006Z",
+    "duration": 10162.572,
+    "expected": 15,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 6,
     "flaky": 0
   }
 }

@@ -4,6 +4,10 @@ const testDir = defineBddConfig({
   features: "src/features/**/*.feature",
   steps: "src/features/step-definitions/**/*.ts",
 });
+let a = ""
+let b = ""
+let myfirstname = ""
+let lastname = ""
 
 /**
  * Read environment variables from file.
@@ -17,21 +21,25 @@ const testDir = defineBddConfig({
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  // testDir: "./src/test-scenarios",
-  testDir: testDir,
-  // testMatch: "**/*.ts",
+  //testDir: './src/test-scenarios',
+
+  //testDir: testDir,
+  testDir: 'src/test-scenarios/api-scenarios',
+  //testMatch: '**/*.ts',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
+  //process.env.FIRST_NAME = myfirstname,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ["html"],
-    ["json", { outputFile: "test-results/cucumber-report.json" }],
+    ['html'],
+    ['json', { outputFile: 'test-results/cucumber-report.json' }],
+    
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -39,8 +47,8 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry",
-    headless: false,
+    trace: 'on-first-retry',
+    //trace:
   },
 
   /* Configure projects for major browsers */
