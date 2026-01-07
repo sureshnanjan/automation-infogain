@@ -24,6 +24,8 @@
  * ============================================================================
  */
 
+import { join } from "path";
+
 // ============================================================================
 // SECTION 1: VARIABLES & BASIC FUNCTIONS (10 exercises)
 // ============================================================================
@@ -153,10 +155,14 @@ const executeTests=(suiteName:string,testNames:string[])=>
     
     console.log(`Logs:
 Suite:${suiteName}`)
-for(let i=0;i<testNames.length;i++){
+/* for(let i=0;i<testNames.length;i++){
         console.log(` 
 ${testNames[i]}`);
-    }
+    } */
+
+testNames.forEach((test, index) => {
+    console.log(`${index + 1}. ${testNames[index]}`);
+});
     console.log(`returns: ${testNames.length}`);
 }
 executeTests('Login Suite', ['Test 1', 'Test 2', 'Test 3']);
@@ -366,9 +372,9 @@ console.log(`Test Ids are: ${testId}`);
  */
 
 // TODO: Filter to get only passing tests
-//const testPassed:string[]=testNames.filter(passedValue=>passedValue==='passed');
-//console.log(`Passed test: ${testPassed}`);
-
+const passedTest:string[]=tests.filter(test=>test.passed===true)
+                                .map(test=>test.id);
+console.log(`Passed test: ${passedTest}`);
 
 /**
  * Exercise 2.4: Array.filter() - Filter by Condition
@@ -384,7 +390,7 @@ console.log(`Test Ids are: ${testId}`);
 const scores = [95, 67, 88, 45, 92, 78, 53, 81];
 // TODO: Filter scores >= 70
 
-const filteredScores=scores.filter(newScoreArray=>newScoreArray>=70);
+const filteredScores=scores.filter(test=>test>=70);
 console.log(`New Score array greater than or equal to 70:${filteredScores}`);
 
 
@@ -399,6 +405,8 @@ console.log(`New Score array greater than or equal to 70:${filteredScores}`);
  */
 
 // TODO: Calculate total sum using reduce
+const totalScore=scores.reduce((sum,test)=>sum+test,0);
+console.log(totalScore);
 
 
 
@@ -444,6 +452,9 @@ const testCases = ['TC-001', 'TC-002', 'TC-003'];
     console.log(`${tcValue.charAt} ${tcValue}`);
 
 }); */
+testCases.forEach((test,index)=>{
+    console.log(`${index + 1}. ${test}`);
+});
 
 
 /**
@@ -468,6 +479,8 @@ const users = [
 ];
 // TODO: Find first admin user
 
+const adminUser=users.find(test=>test.role==='admin');
+console.log(adminUser);
 
 
 
@@ -483,7 +496,8 @@ const users = [
 
 // TODO: Check if any score is below 50
 
-
+const scoreBelow50=scores.some(test=>test<50);
+console.log(scoreBelow50);
 
 
 /**
@@ -497,7 +511,8 @@ const users = [
  */
 
 // TODO: Check if all scores are above 40
-
+const everyScoreAbove40=scores.every(test=>test>40);
+console.log(everyScoreAbove40);
 
 
 
@@ -530,7 +545,13 @@ const testResults = [
 ];
 // TODO: Calculate average score of passing tests
 
+const chainedMethods=testResults.filter(test=>test.passed===true)
+                                .map(test=>test.score)
+                                .reduce((sum,test)=>sum + test,0);
 
+const avgScore=chainedMethods/2;
+
+console.log(avgScore);
 
 
 /**
@@ -567,7 +588,9 @@ console.log(`Sorted Array: ${sortedDuration}`);
  */
 
 // TODO: Sort tests alphabetically by name (create copy first)
-
+const sortedArray=tests.sort((a,b)=>a.name.localeCompare(b.name))
+                       .map(test=>test.name);
+console.log(sortedArray);
 
 
 
@@ -601,7 +624,14 @@ const testData = [
 ];
 // TODO: Group tests by status
 
+const groupedByStatus = testData.reduce((acc, test) => {
+    const key = test.status ? 'passed' : 'failed';
+    if (!acc[key]) acc[key] = [];
+    acc[key].push(test);
+    return acc;
+}, {} as { passed?: typeof testData; failed?: typeof testData });
 
+console.log(groupedByStatus);
 
 
 /**
@@ -630,9 +660,11 @@ const testExecutions = [
 ];
 // TODO: Total duration of passing Chrome tests
 
+const passedTestDuration=testExecutions.filter(test=>test.browser==='chrome' && test.passed===true)
+                                    .map(test=>test.duration)
+                                    .reduce((sum,test)=>sum + test, 0);
 
-
-
+console.log(passedTestDuration);
 // ============================================================================
 // SECTION 3: STRING METHODS WITH ARROW FUNCTIONS (10 exercises)
 // ============================================================================
@@ -699,6 +731,13 @@ console.log(`id: ${tcDetails.id}, name: ${tcDetails.name}, status: ${tcDetails.s
 const testName = '  login_test_01  ';
 // TODO: Transform to "Login Test 01"
 
+const trimmedTestName= testName.trim();
+const replaceUnderscoreTestName=trimmedTestName.replaceAll("_"," ");
+const camelCaseTestName= replaceUnderscoreTestName.split(' ')
+                                                  .map(test=>test.charAt(0).toUpperCase()+ test.slice(1))
+                                                  .join(' ');
+                                                 
+console.log(camelCaseTestName);
 
 
 
@@ -730,7 +769,10 @@ const logs = [
 ];
 // TODO: Filter to get only ERROR logs
 
+const errorLogs= logs.filter(test=>test.includes("ERROR"))
+                     .map(test=>test.charAt(0) + test.slice(1));
 
+console.log(errorLogs);
 
 
 /**
@@ -750,6 +792,8 @@ const logs = [
 
 const url = 'https://example.com/users/12345/profile';
 // TODO: Extract user ID
+const splitString= url.split('/')[4];
+console.log(splitString);
 
 
 
@@ -770,6 +814,8 @@ const url = 'https://example.com/users/12345/profile';
 const usernames = ['john', 'jane', 'bob'];
 // TODO: Create email addresses
 
+const emailOfUsers=usernames.map(username=>`${username}@test.com`);
+console.log(emailOfUsers);
 
 
 
@@ -791,9 +837,10 @@ const usernames = ['john', 'jane', 'bob'];
 const testIds = ['TC-001', 'TC-002', 'TC-003', 'BUG-001', 'TC-004'];
 // TODO: Get TC numbers only
 
+const TCIds=testIds.filter(test=>test.startsWith('TC-'))
+                   .map(test=>test.split('-')[1]);
 
-
-
+console.log(TCIds);
 /**
  * Exercise 3.7: Case Conversion
  * ------------------------------
@@ -812,8 +859,8 @@ const testIds = ['TC-001', 'TC-002', 'TC-003', 'BUG-001', 'TC-004'];
 const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
 // TODO: Normalize to lowercase and remove duplicates
 
-
-
+const statusArray=[... new Set(statuses.map(test=>test.toLowerCase()))];
+console.log(statusArray);
 
 /**
  * Exercise 3.8: String Validation
@@ -833,9 +880,17 @@ const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
 
 // TODO: Create isValidEmail arrow function
 
+const isValidEmail=(emailaddress:string)=>{
+    if(emailaddress.includes('@') && emailaddress.includes('.')){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
-
-
+console.log(isValidEmail('test@example.com')); // returns true
+console.log(isValidEmail('invalid.email')); 
 /**
  * Exercise 3.9: Parse Test Data
  * ------------------------------
@@ -853,9 +908,14 @@ const statuses = ['PASSED', 'failed', 'SKIPPED', 'passed'];
  * Alternative: Use Object.fromEntries()
  */
 
+
 const queryString = 'username=john@test.com&password=secret123&role=admin';
 // TODO: Parse query string into object
 
+const splittedString=queryString.split('&');
+const formattedString=splittedString.map(test=>test.split('='))
+const obj = Object.fromEntries(formattedString);
+console.log(obj);
 
 
 
@@ -877,8 +937,14 @@ const queryString = 'username=john@test.com&password=secret123&role=admin';
 
 // TODO: Create formatDuration arrow function
 
-
-
+const formatDuration = (duration:number)=>{
+    const seconds=duration/1000;
+    const toDecimalValue=seconds.toFixed(1);
+    return `${toDecimalValue}s`;
+}
+   console.log(formatDuration(1500)); // returns '1.5s'
+   console.log(formatDuration(2000)); // returns '2.0s'
+   console.log(formatDuration(500)); // returns '0.5s'
 
 // ============================================================================
 // SECTION 4: COMBINED CHALLENGES (10 exercises)
@@ -915,6 +981,14 @@ const results4_1 = [
 ];
 // TODO: Create generateReport function and use it
 
+const result=()=>{
+    return 
+    {
+   console.log(results4_1.length);
+    }
+}
+
+console.log(result());
 
 
 
