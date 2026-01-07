@@ -1,0 +1,26 @@
+[
+  {
+    "fname": "Smith",
+    "lname": "John",
+    "email": "jsmith@gmail.com",
+    "due": "$50.00"
+  },
+  {
+    "fname": "Bach",
+    "lname": "Frank",
+    "email": "fbach@yahoo.com",
+    "due": "$51.00"
+  },
+  {
+    "fname": "Doe",
+    "lname": "Jason",
+    "email": "jdoe@hotmail.com",
+    "due": "$100.00"
+ },
+  {
+    "fname": "Conway",
+    "lname": "Tim",
+    "email": "tconway@earthlink.net",
+    "due": "$50.00"
+  }
+]
