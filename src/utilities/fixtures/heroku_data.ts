@@ -8,6 +8,7 @@ export const test = base.extend<myfix>({
          examples = [];  
 
     }
+    
 });
 export { expect } from '@playwright/test';
     

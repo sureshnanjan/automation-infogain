@@ -3,9 +3,12 @@ import { ABTestingOperations } from '@src/operations/ABTestingOperations';
 import {HomePageOperations} from '@src/operations/HomePageOperations';
 import {getHerokuAppUrl,getHerokuApp} from '@src/utilities/herokuapp-utils';
 test("Verify Home Page Title",async({page})=>{
+    //console.info("This is detailed INformation")
+    //console.trace("");
     const homePage:HomePageOperations = await getHerokuApp(page);
+    const expected_title = "Welcome to the-internet"
     const title=await homePage.getTitle();
-    expect(title).toBe("Welcome to the-internet");
+    expect(title).toBe(expected_title);
 });
 test("Verify Home Page SubTitle",async({page,})=>{
     // Arrange
@@ -17,6 +20,14 @@ test("Verify Home Page SubTitle",async({page,})=>{
     // Assert
     expect(subTitle).toBe(expectedSubTitle);
 });
+// Wherher all the 44 Examples  are available 
+[{name:'ABTesting'},{name:'Add Remove'}].forEach(({name})=>{
+    test(`Example Check ${name}`,async ({page})=>{
+         const homePage:HomePageOperations = await getHerokuApp(page);
+         homePage.getAvailableExamples();
+    });
+
+});
 test("Verify Available Examples on Home Page",async({page})=>{
     const homePage:HomePageOperations = await getHerokuApp(page);
     //await page.Wa
@@ -27,6 +38,8 @@ test("Verify Available Examples on Home Page",async({page})=>{
 });
 test("Verify Home Page Banner Info",async({page})=>{});
 test("Verify Home Page Footer Text",async({page})=>{});
+
+
 
 test("Navigate to Example Page from Home Page",async({page})=>{
     // Arrange
