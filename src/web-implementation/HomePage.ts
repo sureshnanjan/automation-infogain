@@ -4,6 +4,7 @@ import {Page, Locator} from '@playwright/test';
 import { getHerokuAppUrl } from "@src/utilities/herokuapp-utils";
 import { HomePageBanner } from "@src/models/HomePageBanner";
 import { HerokuAppOperations } from "@src/operations/HerokuAppOperations";
+import { WebInteractions } from "./utilites/configuratios";
 export class HomePage extends BasePage implements HomePageOperations {
     //private readonly page;
     private readonly subTitleSelector:Locator; // data-testid = subtitle
@@ -30,6 +31,7 @@ export class HomePage extends BasePage implements HomePageOperations {
     async navigate(): Promise<void> {
         // Log the properties of 
         await this.page.goto(getHerokuAppUrl());
+        //WebInteractions.navigateTo();
     }
 
     getBannerInfo(): Promise<HomePageBanner | null> {

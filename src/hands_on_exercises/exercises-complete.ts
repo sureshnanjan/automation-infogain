@@ -981,14 +981,15 @@ const results4_1 = [
 ];
 // TODO: Create generateReport function and use it
 
-const result=()=>{
-    return 
-    {
-   console.log(results4_1.length);
-    }
+function generateReport (result: { name: string; passed: boolean; duration: number }[]) : { total: number; passed: number; failed: number; totalDuration: number; passRate: number } {
+    const total = result.length;
+    const passed = result.filter(test => test.passed).length;
+    const failed = total - passed;
+    const totalDuration = result.reduce((sum, test) => sum + test.duration, 0);
+    const passRate = total === 0 ? 0 : parseFloat(((passed / total) * 100).toFixed(2));
+    return { total, passed, failed, totalDuration, passRate };
 }
-
-console.log(result());
+console.log(generateReport(results4_1));
 
 
 
@@ -1016,7 +1017,12 @@ const testCases4_2 = [
 ];
 // TODO: Get IDs of high priority automated tests as comma-separated string
 
+const highPriorityIds = testCases4_2
+    .filter(test => test.priority === 'high' && test.automated===true)
+    .map(test => test.id)
+    .join(', ');
 
+    console.log(highPriorityIds);
 
 
 /**
@@ -1033,7 +1039,12 @@ const testCases4_2 = [
 const rawData = ['  test1  ', '  TEST2  ', '  Test3  '];
 // TODO: Transform to trimmed title case
 
+const transformedRawData=rawData.map(test=>{
+                                        const trimmedData=test.trim(); 
+                                        return trimmedData.charAt(0).toUpperCase() + trimmedData.slice(1).toLowerCase()});
 
+
+console.log(transformedRawData);
 
 
 /**
@@ -1063,6 +1074,14 @@ const executions = [
     { browser: 'chrome', status: 'failed' }
 ];
 // TODO: Create browser/status summary
+const summary = executions.reduce((acc, curr) => {
+    if (!acc[curr.browser]) {
+        acc[curr.browser] = { passed: 0, failed: 0 };
+    }   
+    acc[curr.browser][curr.status]++;
+    return acc;
+}, {} as { [key: string]: { passed: number; failed: number } });
+console.log(summary);
 
 
 
@@ -1085,7 +1104,12 @@ const executions = [
 
 // TODO: Create searchAndReplace function
 
-
+function searchAndReplace(tests: string[], search: string, replace: string): string[] {
+    const regex = new RegExp(search, 'gi');
+    return tests.map(test => test.replace(regex, replace));
+}   
+const tests4_5 = ['Login Test', 'Signup Test', 'Login Validation'];
+console.log(searchAndReplace(tests4_5, 'login', 'authentication'));
 
 
 /**
@@ -1114,8 +1138,15 @@ const tests4_6 = [
     { name: 'Test D', priority: 'medium', duration: 1200 }
 ];
 // TODO: Sort by priority then duration
-
-
+const priorityOrder: { [key: string]: number } = { high: 3, medium: 2, low: 1 }; 
+const sortedTests4_6 = [...tests4_6].sort((a, b) => {
+    const priorityDiff = priorityOrder[b.priority] - priorityOrder[a.priority]; 
+    if (priorityDiff !== 0) {
+        return priorityDiff;
+    }
+    return a.duration - b.duration; 
+});
+console.log(sortedTests4_6);
 
 
 /**
@@ -1141,7 +1172,22 @@ const tests4_6 = [
 
 // TODO: Create calculateStats function
 
-
+function calculateStats(durations: number[]): { min: number; max: number; avg: number; median: number } {   
+    const sorted = [...durations].sort((a, b) => a - b);
+    const min = sorted[0];
+    const max = sorted[sorted.length - 1];
+    const avg = durations.reduce((sum, dur) => sum + dur, 0) / durations.length;
+    let median: number;
+    const mid = Math.floor(sorted.length / 2);
+    if (sorted.length % 2 === 0) {
+        median = (sorted[mid - 1] + sorted[mid]) / 2;
+    }   
+    else {  
+        median = sorted[mid];
+    }   
+    return { min, max, avg, median };
+}
+console.log(calculateStats([1000, 1500, 2000, 1200, 1800]));
 
 
 /**
@@ -1165,9 +1211,25 @@ const tests4_6 = [
  *   'User 2: Password must be at least 6 characters'
  * ]
  */
-
+const users4_8 = [
+    { username: 'john@test.com', password: 'pass123' },
+    { username: 'invalid', password: 'p' },
+    { username: 'jane@test.com', password: 'pass456' }
+];
 // TODO: Create validateUsers function
-
+function validateUsers(users: { username: string; password: string }[]): string[] {
+    const errors: string[] = [];
+    users.forEach((user, index) => {
+        if (!user.username.includes('@')) {
+            errors.push(`User ${index + 1}: Username must contain @`);
+        }
+        if (user.password.length < 6) {
+            errors.push(`User ${index + 1}: Password must be at least 6 characters`);
+        }
+    });
+    return errors;
+}
+console.log(validateUsers(users4_8));
 
 
 
@@ -1194,7 +1256,23 @@ const tests4_6 = [
 
 // TODO: Create processQueue function
 
-
+function processQueue(queue: { name: string; priority: number; estimated: number }[]) { 
+    const sortedQueue = [...queue].sort((a, b) => b.priority - a.priority);
+    let currentTime = 0;
+    return sortedQueue.map(test => {
+        const startTime = currentTime;
+        const endTime = startTime + test.estimated;
+        currentTime = endTime;
+        return { ...test, startTime, endTime };
+    }
+    );
+}
+const queue = [
+    { name: 'Test 1', priority: 1, estimated: 1000 },
+    { name: 'Test 2', priority: 3, estimated: 2000 },
+    { name: 'Test 3', priority: 2, estimated: 1500 }
+];
+console.log(processQueue(queue));   
 
 
 /**
@@ -1222,6 +1300,17 @@ const logs4_10 = [
     '[2024-01-01 10:32:00] INFO: Retrying...'
 ];
 // TODO: Parse logs and filter errors
+const errorLogMessages = logs4_10
+    .map(log => {
+        const match = log.match(/\[(.*?)\] (\w+): (.*)/);
+        if (match) {
+            return { timestamp: match[1], level: match[2], message: match[3] };
+        }
+        return null;
+    })
+    .filter(log => log && log.level === 'ERROR')
+    .map(log => `${log!.timestamp} - ${log!.message}`); 
+console.log(errorLogMessages);
 
 
 
@@ -1249,17 +1338,42 @@ console.log('\n=== BONUS CHALLENGES ===\n');
  */
 
 // TODO: Implement customMap
-
+function customMap<T, U>(array: T[], transformFn: (item: T, index: number, array: T[]) => U): U[] {
+    const result: U[] = [];
+    for (let i = 0; i < array.length; i++) {
+        result.push(transformFn(array[i], i, array));
+    }
+    return result;
+}
+console.log(customMap([1, 2, 3], x => x * x * x)); // [2, 4, 6]
 
 
 
 // TODO: Implement customFilter
+function customFilter<T>(array: T[], predicateFn: (item: T, index: number, array: T[]) => boolean): T[] {
+    const result: T[] = []; 
+    for (let i = 0; i < array.length; i++) {
+        if (predicateFn(array[i], i, array)) {
+            result.push(array[i]);
+        }
+    }
+    return result;
+}
 
+console.log(customFilter([5, 6, 3, 4], x => x % 2 === 0)); // [6, 4]
 
 
 
 // TODO: Implement customReduce
+function customReduce<T, U>(array: T[], reducerFn: (accumulator: U, item: T, index: number, array: T[]) => U, initialValue: U): U {
+    let accumulator = initialValue;
+    for (let i = 0; i < array.length; i++) {
+        accumulator = reducerFn(accumulator, array[i], i, array);
+    }
+    return accumulator;
+}
 
+console.log(customReduce([1, 2, 3], (sum, x) => sum * x, 1)); // 6
 
 
 
@@ -1280,6 +1394,45 @@ console.log('\n=== BONUS CHALLENGES ===\n');
  */
 
 // TODO: Create TestBuilder class
+interface TestConfig {
+  name: string;
+  timeout: number;
+  retries: number;
+  tags: string[];
+}
+ 
+class TestBuilder {
+  private test: TestConfig = {
+    name: "",
+    timeout: 0,
+    retries: 0,
+    tags: []
+  };
+ 
+  withName(name: string): this {
+    this.test.name = name;
+    return this;
+  }
+ 
+  withTimeout(timeout: number): this {
+    this.test.timeout = timeout;
+    return this;
+  }
+ 
+  withRetries(retries: number): this {
+    this.test.retries = retries;
+    return this;
+  }
+ 
+  withTags(tags: string[]): this {
+    this.test.tags = tags;
+    return this;
+  }
+ 
+  build(): TestConfig {
+    return this.test;
+  }
+}
 
 
 
@@ -1304,7 +1457,10 @@ console.log('\n=== BONUS CHALLENGES ===\n');
 
 // TODO: Create pipeline function
 
-
+function pipeline<T>(...fns: Array<(arg: any) => any>) {
+  return (input: T) =>
+    fns.reduce((result, fn) => fn(result), input);
+}
 
 
 // ============================================================================
