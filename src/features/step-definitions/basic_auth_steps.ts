@@ -5,10 +5,6 @@ import { expect } from '@playwright/test';
 import { BasicAuthPageOperations } from "@src/operations/BasicAuthPageOperations";
 const { Given, When, Then } = createBdd(); // Decorators
 
-// Basic Authentication credentials (HttpCredential: username + password)
-// have already been added in the config file.
-// Direct page verification will automatically use these credentials
-// when sending requests, so no manual login method is required.
 let basicAuthPage:BasicAuthPageOperations;
 let homePage :HomePageOperations;
 let actualResult:string|null;
