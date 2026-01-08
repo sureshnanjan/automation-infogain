@@ -1,6 +1,6 @@
 import { createBdd } from "playwright-bdd";
 import { expect } from "@playwright/test";
-import { DragDropPage } from "@src/web-implementation/DragAndDrop";
+import { DragDropPage } from "@src/web-implementation/DragAndDropPage";
 
 
 const { Given, When, Then } = createBdd();

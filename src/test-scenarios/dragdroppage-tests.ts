@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { DragDropPage } from '@src/web-implementation/DragAndDrop';
+import { DragDropPage } from '@src/web-implementation/DragAndDropPage';
 test('Drag and Drop A to B', async ({ page }) => {
   const dragDropPage = new DragDropPage(page);
  
