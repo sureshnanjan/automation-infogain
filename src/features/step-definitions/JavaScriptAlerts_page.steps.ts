@@ -3,45 +3,37 @@ import { expect } from '@playwright/test';
 import { getJavaScriptAlerts } from '@src/utilities/javascript-alerts-utils';
 import { JavaScriptAlertsOperations } from '@src/operations/JavaScriptAlertsOperations';
 
-const { Given, When, Then } = createBdd(); // Using BDD decorators
+const { Given, When, Then } = createBdd();
 
 let alertsPage: JavaScriptAlertsOperations;
 
-// Navigate to the JavaScript Alerts page
-Given('I navigate to the JavaScript Alerts page', async ({ page }) => {
-  alertsPage = await getJavaScriptAlerts(page);
-  await page.goto('https://the-internet.herokuapp.com/javascript_alerts');
+Given('I navigate to the JavaScript Alerts page', async function () {
+  // 'this' contains the page
+  await this.page.goto('https://the-internet.herokuapp.com/javascript_alerts');
+  alertsPage = getJavaScriptAlerts(this.page);
 });
 
-// JS Alert
-When('I click on the JS Alert button', async ({ page }) => {
-  page.once('dialog', async dialog => {
-    expect(dialog.message()).toBe('I am a JS Alert'); // Verify alert message
-    await dialog.accept(); // Accept the alert
-  });
-  await alertsPage.clickJsAlert();
+When('I click on the JS Alert button', async function () {
+  await alertsPage.acceptJsAlert('I am a JS Alert');
 });
 
-// JS Confirm
-When('I click on the JS Confirm button', async ({ page }) => {
-  page.once('dialog', async dialog => {
-    expect(dialog.message()).toBe('I am a JS Confirm'); // Verify confirm message
-    await dialog.accept(); // Accept OK
-  });
-  await alertsPage.clickJsConfirm();
+When('I click on the JS Confirm button', async function () {
+  await alertsPage.acceptJsConfirm('I am a JS Confirm');
 });
 
-// JS Prompt
-When('I click on the JS Prompt button', async ({ page }) => {
-  page.once('dialog', async dialog => {
-    expect(dialog.message()).toBe('I am a JS prompt'); // Verify prompt message
-    await dialog.accept('Playwright'); // Provide input to prompt
-  });
-  await alertsPage.clickJsPrompt();
+When('I cancel the JS Confirm dialog', async function () {
+  await alertsPage.cancelJsConfirm('I am a JS Confirm');
 });
 
-// Verify result text after alert, confirm, or prompt
-Then('I should see the result text {string}', async ({ page }, expectedResultText: string) => {
-  const resultText = await alertsPage.getResultText();
-  expect(resultText).toBe(expectedResultText);
+When('I enter {string} in the JS Prompt and accept', async ({ page }, inputText: string)=> {
+  await alertsPage.acceptJsPrompt('I am a JS prompt', inputText);
+});
+
+When('I cancel the JS Prompt dialog', async function () {
+  await alertsPage.cancelJsPrompt('I am a JS prompt');
+});
+Then('I should see the result text {string}', async ({ page }, expectedText: string) => {
+//Then('I should see the result text {string}', async function (expectedText: string) {
+  const result = await alertsPage.getResultText();
+  expect(result).toBe(expectedText);
 });

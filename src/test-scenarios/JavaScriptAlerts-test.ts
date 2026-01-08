@@ -3,73 +3,71 @@ import { getJavaScriptAlerts } from '@src/utilities/javascript-alerts-utils';
 import { JavaScriptAlertsOperations } from '@src/operations/JavaScriptAlertsOperations';
 
 /**
-* Test suite for validating JavaScript Alerts functionality.
-*
-* This suite covers:
-* 1. JS Alert
-* 2. JS Confirm
-* 3. JS Prompt
-*
-*/
+ * Test suite for JavaScript Alerts functionality.
+ *
+ * Covers:
+ * 1. JS Alert
+ * 2. JS Confirm - OK
+ * 3. JS Confirm - Cancel
+ * 4. JS Prompt - OK
+ * 5. JS Prompt - Cancel
+ */
 
 test.beforeEach(async ({ page }) => {
-await page.goto('https://the-internet.herokuapp.com/javascript_alerts');
+  await page.goto('https://the-internet.herokuapp.com/javascript_alerts');
 });
 
 /**
-* Verifies simple JavaScript Alert behavior.
-*
-* Expected:
-* - Alert message should be correct
-* - Alert should be accepted
-* - Result text should be validated
-*/
-
-
+ * Verify simple JavaScript Alert
+ */
 test('Verify JS Alert', async ({ page }) => {
-const alertsPage: JavaScriptAlertsOperations = getJavaScriptAlerts(page);
+  const alertsPage: JavaScriptAlertsOperations = getJavaScriptAlerts(page);
 
-// Register a one-time dialog handler
-page.once('dialog', async dialog => {
+  await alertsPage.acceptJsAlert('I am a JS Alert');
 
-expect(dialog.message()).toBe('I am a JS Alert');  // Verify alert message
-await dialog.accept(); //Click OK
-});
-
-// Trigger JavaScript Alert
-await alertsPage.clickJsAlert();
-
-// Validate result text after alert handling
-expect(await alertsPage.getResultText()).toBe('You successfully clicked an alert');
+  expect(await alertsPage.getResultText()).toBe('You successfully clicked an alert');
 });
 
 /**
-* Verifies JavaScript Confirm dialog when OK is clicked.
-*/
-
+ * Verify JavaScript Confirm dialog - OK
+ */
 test('Verify JS Confirm - OK', async ({ page }) => {
-const alertsPage = getJavaScriptAlerts(page);
+  const alertsPage: JavaScriptAlertsOperations = getJavaScriptAlerts(page);
 
-page.once('dialog', async dialog => {
-expect(dialog.message()).toBe('I am a JS Confirm');  // Verify confirm message
-await dialog.accept();
+  await alertsPage.acceptJsConfirm('I am a JS Confirm');
+
+  expect(await alertsPage.getResultText()).toBe('You clicked: Ok');
 });
 
-await alertsPage.clickJsConfirm();
-expect(await alertsPage.getResultText()).toBe('You clicked: Ok');
-});
 /**
-* Verifies JavaScript Prompt dialog by entering text.
-*/
+ * Verify JavaScript Confirm dialog - Cancel
+ */
+test('Verify JS Confirm - Cancel', async ({ page }) => {
+  const alertsPage: JavaScriptAlertsOperations = getJavaScriptAlerts(page);
 
-test('Verify JS Prompt', async ({ page }) => {
-const alertsPage = getJavaScriptAlerts(page);
+  await alertsPage.cancelJsConfirm('I am a JS Confirm');
 
-page.once('dialog', async dialog => {
-expect(dialog.message()).toBe('I am a JS prompt');  // Verify prompt message
-await dialog.accept('Playwright'); //Enter value
+  expect(await alertsPage.getResultText()).toBe('You clicked: Cancel');
 });
 
-await alertsPage.clickJsPrompt();
-expect(await alertsPage.getResultText()).toBe('You entered: Playwright');
+/**
+ * Verify JavaScript Prompt dialog - OK
+ */
+test('Verify JS Prompt - OK', async ({ page }) => {
+  const alertsPage: JavaScriptAlertsOperations = getJavaScriptAlerts(page);
+
+  await alertsPage.acceptJsPrompt('I am a JS prompt', 'Playwright');
+
+  expect(await alertsPage.getResultText()).toBe('You entered: Playwright');
+});
+
+/**
+ * Verify JavaScript Prompt dialog - Cancel
+ */
+test('Verify JS Prompt - Cancel', async ({ page }) => {
+  const alertsPage: JavaScriptAlertsOperations = getJavaScriptAlerts(page);
+
+  await alertsPage.cancelJsPrompt('I am a JS prompt');
+
+  expect(await alertsPage.getResultText()).toBe('You entered: null');
 });

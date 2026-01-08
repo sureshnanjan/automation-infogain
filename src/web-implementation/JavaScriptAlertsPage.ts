@@ -1,62 +1,61 @@
-import { Page } from '@playwright/test';
+import { Page, expect } from '@playwright/test';
 import { JavaScriptAlertsOperations } from '@src/operations/JavaScriptAlertsOperations';
 
 /**
-* This class implements {@link JavaScriptAlertsOperations}
-* and provides concrete implementations for alert operations.
-*/
-
+ * Page Object for JavaScript Alerts page.
+ * Handles Alerts, Confirms, and Prompts.
+ */
 export class JavaScriptAlerts implements JavaScriptAlertsOperations {
 
-/**
-* Creates an instance of {@link JavaScriptAlerts}.
-*
-* @param page Playwright Page instance used to perform UI actions
-*/
+  constructor(private page: Page) {}
 
-constructor(private page: Page) {}
+  /** Clicks JS Alert and accepts it */
+  async acceptJsAlert(expectedMessage: string): Promise<void> {
+    this.page.once('dialog', async dialog => {
+      expect(dialog.message()).toBe(expectedMessage);
+      await dialog.accept();
+    });
+    await this.page.getByRole('button', { name: 'Click for JS Alert' }).click();
+  }
 
-/**
-* Clicks on the "JS Alert" button to trigger
-* a simple JavaScript alert.
-*
-* @returns Promise<void> Resolves when the click action is completed
-*/
-async clickJsAlert(): Promise<void> {
-await this.page.getByRole('button', { name: 'Click for JS Alert' }).click();
-}
+  /** Clicks JS Confirm and accepts (OK) */
+  async acceptJsConfirm(expectedMessage: string): Promise<void> {
+    this.page.once('dialog', async dialog => {
+      expect(dialog.message()).toBe(expectedMessage);
+      await dialog.accept();
+    });
+    await this.page.getByRole('button', { name: 'Click for JS Confirm' }).click();
+  }
 
-/**
-* Clicks on the "JS Confirm" button to trigger
-* a JavaScript confirmation dialog.
-*
-* @returns Promise<void> Resolves when the click action is completed
-*/
+  /** Clicks JS Confirm and cancels */
+  async cancelJsConfirm(expectedMessage: string): Promise<void> {
+    this.page.once('dialog', async dialog => {
+      expect(dialog.message()).toBe(expectedMessage);
+      await dialog.dismiss();
+    });
+    await this.page.getByRole('button', { name: 'Click for JS Confirm' }).click();
+  }
 
-async clickJsConfirm(): Promise<void> {
-await this.page.getByRole('button', { name: 'Click for JS Confirm' }).click();
-}
+  /** Clicks JS Prompt, enters text, and accepts */
+  async acceptJsPrompt(expectedMessage: string, inputText: string): Promise<void> {
+    this.page.once('dialog', async dialog => {
+      expect(dialog.message()).toBe(expectedMessage);
+      await dialog.accept(inputText);
+    });
+    await this.page.getByRole('button', { name: 'Click for JS prompt' }).click();
+  }
 
-/**
-* Clicks on the "JS Prompt" button to trigger
-* a JavaScript prompt dialog.
-*
-* @returns Promise<void> Resolves when the click action is completed
-*/
+  /** Clicks JS Prompt and cancels */
+  async cancelJsPrompt(expectedMessage: string): Promise<void> {
+    this.page.once('dialog', async dialog => {
+      expect(dialog.message()).toBe(expectedMessage);
+      await dialog.dismiss();
+    });
+    await this.page.getByRole('button', { name: 'Click for JS prompt' }).click();
+  }
 
-async clickJsPrompt(): Promise<void> {
-await this.page.getByRole('button', { name: 'Click for JS prompt' }).click();
-}
-/**
-* Retrieves the result text displayed after
-* interacting with JavaScript alerts.
-*
-* @returns Promise<string | null>
-* The result message shown on the page,
-* or null if the element is not found
-*/
-
-async getResultText(): Promise<string | null> {
-return this.page.locator('#result').textContent();
-}
+  /** Returns the result text displayed on the page */
+  async getResultText(): Promise<string | null> {
+    return this.page.locator('#result').textContent();
+  }
 }
