@@ -10,16 +10,30 @@ export class BasicAuth {
     this.statusMessageSelector = this.page.locator('body');
   }
 
+  /**
+   * Creates an instance of BasicAuth and navigates to the Basic Auth page.
+   * @param page 
+   * @returns 
+   */
   static async create(page: Page): Promise<BasicAuth> {
     const instance = new BasicAuth(page);
     await instance.page.goto('https://the-internet.herokuapp.com/basic_auth');
     return instance;
     }
 
-  async doLogic(username:string,password:string){
+  /**
+   * Login to the Basic Auth page with provided username and password
+   * @param username 
+   * @param password 
+   */
+  async doLogin(username:string,password:string){
     await this.page.goto(`https://${username}:${password}@the-internet.herokuapp.com/basic_auth`);
   }
 
+  /**
+   * Gets the status message displayed on the Basic Auth page
+   * @returns string
+   */
   async getStatusMessage(): Promise<string|null> {
     return this.statusMessageSelector.textContent();
   }

@@ -21,7 +21,7 @@ Given('User logs in with username {string} and password {string}', async ({page}
   // Step: Given User logs in with username "admin" and password "admin"
   // From: src\features\basic_auth.feature:7:5
   basicAuthPage=await getBasicAuthPage(page);
-  basicAuthPage.doLogic(arg, arg1);
+  basicAuthPage.doLogin(arg, arg1);
 
 });
 
@@ -29,7 +29,7 @@ Given('User attempts to access Basic Auth page without credentials', async ({pag
   // Step: Given User attempts to access Basic Auth page without credentials
   // From: src\features\basic_auth.feature:17:5
   basicAuthPage=await getBasicAuthPage(page);
-  basicAuthPage.doLogic('', '');
+  basicAuthPage.doLogin('', '');
 });
 
 When('User observes the Basic Auth Status Message', async ({}) => {

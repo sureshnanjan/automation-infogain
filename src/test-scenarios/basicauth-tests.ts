@@ -47,7 +47,7 @@ test('Basic Auth Page Access with Empty Credentials', async ( {page}) => {
   const password = '';  
   const exceptedMessage="Not authorized";
   const basicAuthPage: BasicAuthPageOperations=await getBasicAuthPage(page);
-  basicAuthPage.doLogic(username, password);
+  basicAuthPage.doLogin(username, password);
   const actualContent= await basicAuthPage.getStatusMessage();
   expect(actualContent).toContain(exceptedMessage);
 });
