@@ -8,17 +8,17 @@ const { chromium } = require('playwright');
  
 let browser;
 let page;
+let dragDrop;
  
 Given('user navigates to the drag and drop page', async function () {
   browser = await chromium.launch({ headless: false });
   const context = await browser.newContext();
   page = await context.newPage();
- 
-  await page.goto('https://the-internet.herokuapp.com/drag_and_drop');
+  const dragDrop = new DragDropPage(page);
+  await dragDrop.goto();
 });
  
 When('user drags the source element A and drops it into the target element B', async function () {
-    const dragDrop = new DragDropPage(page);
     await dragDrop.dragAtoB();
 });
  

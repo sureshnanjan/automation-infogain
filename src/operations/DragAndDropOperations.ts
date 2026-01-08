@@ -9,4 +9,5 @@ export interface DragDropOperations {
     locators: DragDroplocators,
     goto(): Promise<void>;
     dragAtoB(): Promise<void>;
+    dragBtoA(): Promise<void>;
 }
