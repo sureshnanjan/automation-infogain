@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Playwright Network Demo – Real APIs</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    button { margin: 6px; padding: 10px 16px; cursor: pointer; }
+    h2 { margin-top: 30px; }
+    #spinner { display: none; margin: 15px 0; font-weight: bold; }
+    #error { color: red; margin-top: 10px; }
+    table { border-collapse: collapse; margin-top: 15px; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #f4f4f4; }
+    .box { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+
+<h1>Playwright Network Testing Demo (Real APIs)</h1>
+<p>This page intentionally uses <strong>real public APIs</strong> so you can demonstrate Playwright network interception, mocking, waiting, loading states, and network simulation.</p>
+
+<div class="box">
+  <h2>Users (JSONPlaceholder API)</h2>
+  <button id="loadUsers">Load Users</button>
+  <button id="loadUsersSlow">Load Users (Slow)</button>
+  <button id="loadUsersError">Load Users (Mock Error)</button>
+
+  <div id="spinner">⏳ Loading users...</div>
+  <div id="error"></div>
+
+  <table id="usersTable" style="display:none">
+    <thead>
+      <tr><th>ID</th><th>Name</th><th>Email</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<div class="box">
+  <h2>Posts (JSONPlaceholder API)</h2>
+  <button id="loadPosts">Load Posts</button>
+  <ul id="posts"></ul>
+</div>
+
+<div class="box">
+  <h2>Network State</h2>
+  <button id="checkNetwork">Check Online Status</button>
+  <div id="networkStatus"></div>
+</div>
+
+<script>
+  const spinner = document.getElementById('spinner');
+  const error = document.getElementById('error');
+  const usersTable = document.getElementById('usersTable');
+  const usersBody = usersTable.querySelector('tbody');
+  const postsList = document.getElementById('posts');
+
+  function showLoading(show) {
+    spinner.style.display = show ? 'block' : 'none';
+  }
+
+  async function loadUsers(url) {
+    error.textContent = '';
+    usersBody.innerHTML = '';
+    usersTable.style.display = 'none';
+    showLoading(true);
+
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const users = await res.json();
+
+      users.forEach(u => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${u.id}</td><td>${u.name}</td><td>${u.email}</td>`;
+        usersBody.appendChild(row);
+      });
+
+      usersTable.style.display = 'table';
+    } catch (e) {
+      error.textContent = 'Failed to load users';
+    } finally {
+      showLoading(false);
+    }
+  }
+
+  document.getElementById('loadUsers').onclick = () => {
+    loadUsers('https://jsonplaceholder.typicode.com/users');
+  };
+
+  document.getElementById('loadUsersSlow').onclick = () => {
+    loadUsers('https://jsonplaceholder.typicode.com/users?slow=true');
+  };
+
+  document.getElementById('loadUsersError').onclick = () => {
+    loadUsers('https://jsonplaceholder.typicode.com/invalid-endpoint');
+  };
+
+  document.getElementById('loadPosts').onclick = async () => {
+    postsList.innerHTML = '';
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5');
+    const posts = await res.json();
+    posts.forEach(p => {
+      const li = document.createElement('li');
+      li.textContent = p.title;
+      postsList.appendChild(li);
+    });
+  };
+
+  document.getElementById('checkNetwork').onclick = () => {
+    document.getElementById('networkStatus').textContent = navigator.onLine ? 'Online' : 'Offline';
+  };
+</script>
+
+</body>
+</html>
