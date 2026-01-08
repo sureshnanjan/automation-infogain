@@ -22,6 +22,26 @@ test('Basic Auth Page Access with Invalid Credentials', async ( {page}) => {
   expect(actualContent).toContain(exceptedMessage);
 });
 
+test('Basic Auth Page Access with Invalid Username', async ( {page}) => {
+  const username = 'invalidUser';
+  const password = 'admin';
+  const exceptedMessage="Not authorized";
+  const basicAuthPage: BasicAuthPageOperations=await getBasicAuthPage(page);
+  basicAuthPage.doLogic(username, password);
+  const actualContent= await basicAuthPage.getStatusMessage();
+  expect(actualContent).toContain(exceptedMessage);
+});
+
+test('Basic Auth Page Access with Invalid Password', async ( {page}) => {
+  const username = 'admin';
+  const password = 'invalidPass';
+  const exceptedMessage="Not authorized";
+  const basicAuthPage: BasicAuthPageOperations=await getBasicAuthPage(page);
+  basicAuthPage.doLogic(username, password);
+  const actualContent= await basicAuthPage.getStatusMessage();
+  expect(actualContent).toContain(exceptedMessage);
+});
+
 test('Basic Auth Page Access with Empty Credentials', async ( {page}) => {
   const username = '';
   const password = '';  

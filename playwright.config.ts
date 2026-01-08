@@ -23,9 +23,9 @@ let lastname = ""
 export default defineConfig({
   //testDir: './src',
 
-  //testDir: testDir,
-  testDir: './src',
-  testMatch: '**/*.ts',
+  testDir: testDir,
+ // testDir: './src',
+  //testMatch: '**/*.ts',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -51,6 +51,7 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
+    screenshot: 'on',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     //trace:
