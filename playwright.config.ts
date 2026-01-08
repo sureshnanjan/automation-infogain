@@ -24,7 +24,7 @@ export default defineConfig({
   //testDir: './src/test-scenarios',
 
   //testDir: testDir,
-  testDir: 'src/test-scenarios/api-scenarios',
+  testDir: 'src/test-scenarios',
   //testMatch: '**/*.ts',
   /* Run tests in files in parallel */
   fullyParallel: true,
