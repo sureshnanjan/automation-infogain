@@ -103,3 +103,7 @@ console.log(__dirname);
 console.log(__filename);
 const users = ReadTheHugeDataFromJSON(usersFile);
 console.log(users);
+
+export async function getDynamicContentPage(page:Page): Promise<DynamicContentPageOperations> {
+    return  DynamicContentPage.create(page);
+}
