@@ -1,6 +1,5 @@
 import { AddRemoveOperations } from "@src/operations/AddRemoveOperations";
 import {Page, Locator} from '@playwright/test';
-import { getHerokuAppUrl } from "@src/utilities/herokuapp-utils";
 export class AddRemovePage implements AddRemoveOperations {
     private readonly page;
     private readonly getHeadingSelector:Locator;
@@ -15,7 +14,8 @@ export class AddRemovePage implements AddRemoveOperations {
         this.addElementSelector = page.getByRole('button', { name: 'Add Element' });
         this.removeElementSelector = page.getByRole('button', { name: 'Delete' });
     }   
-    async addMultipleElement(numOfTimes: number): Promise<void> {
+    
+    async addMultipleElements(numOfTimes: number): Promise<void> {
         
             const addButton = this.addElementSelector;
 

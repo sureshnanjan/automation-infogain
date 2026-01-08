@@ -16,7 +16,8 @@
     "testbdd:headed": "bddgen && playwright test --headed",
     "testbdd:debug": "bddgen && playwright test --debug",
     "bddgen": "bddgen",
-    "report": "playwright show-report"
+    "report": "playwright show-report",
+    "demo": "serve ./sample_app"
   },
   "keywords": [
     "typescript",
@@ -35,7 +36,9 @@
     "eslint": "^8.54.0",
     "playwright-bdd": "^8.4.2",
     "prettier": "^3.1.0",
+    "serve": "^14.2.5",
     "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "tsx": "^4.21.0",
     "typescript": "^5.3.0"
   },

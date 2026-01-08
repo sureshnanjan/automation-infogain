@@ -1,11 +1,19 @@
 import {test,expect} from '@playwright/test';
-import {AddRemovePage} from '@src/web-implementation/AddRemovePage';
+import {AddRemovePage} from '../web-implementation/AddRemovePage';
 import {AddRemoveOperations} from '@src/operations/AddRemoveOperations';
 import {getHerokuAppUrl,getHerokuApp} from '@src/utilities/herokuapp-utils';
+import { HomePageOperations } from '@src/operations/HomePageOperations';
+import { getAddRemoveTestingApp } from '@src/utilities/addremove-utils';
+
+// test("Verify Home Page Title",async({page})=>{
+//     const homePage:HomePageOperations = await getHerokuApp(page);
+//     const title=await homePage.getTitle();
+//     expect(title).toBe("Welcome to the-internet");
+// });
+
 test("Verify Add Remove Heading",async({page})=>{
-    await page.goto(getHerokuAppUrl());
+    const addRemovePage: AddRemoveOperations = new AddRemovePage(page);
     const expectedHeading='Add/Remove Elements';
-    const addRemovePage=new AddRemovePage(page);
     await addRemovePage.gotoExampleAddRemove();
     const heading=await addRemovePage.getHeading();
     console.log('Page heading is:', heading);
@@ -15,17 +23,14 @@ test("Verify Add Remove Heading",async({page})=>{
 });
 
 test("Add element",async({page})=>{
-
-    await page.goto(getHerokuAppUrl());
-    const addRemovePage=new AddRemovePage(page);
+    const addRemovePage: AddRemoveOperations = new AddRemovePage(page);
     await addRemovePage.gotoExampleAddRemove();
     await addRemovePage.addElement();
     await page.close();
 });
 
 test("Remove element after adding the element",async({page})=>{
-    await page.goto(getHerokuAppUrl());
-    const addRemovePage=new AddRemovePage(page);
+    const addRemovePage: AddRemoveOperations = new AddRemovePage(page);
     await addRemovePage.gotoExampleAddRemove();
     await addRemovePage.addElement();
     await addRemovePage.removeElement();
@@ -33,19 +38,17 @@ test("Remove element after adding the element",async({page})=>{
 }); 
 
 test("Add multiple elements",async({page})=>{
-    await page.goto(getHerokuAppUrl());
-    const addRemovePage=new AddRemovePage(page);
+    const addRemovePage: AddRemoveOperations = new AddRemovePage(page);
     await addRemovePage.gotoExampleAddRemove();
-    await addRemovePage.addMultipleElement(5);
+    await addRemovePage.addMultipleElements(5);
     await page.close();
 });
 
 test("Get count of elements added",async({page})=>{
-    await page.goto(getHerokuAppUrl());
-    const addRemovePage=new AddRemovePage(page);
+    const addRemovePage: AddRemoveOperations = new AddRemovePage(page);
     await addRemovePage.gotoExampleAddRemove();
-    await addRemovePage.addMultipleElement(4);
+    await addRemovePage.addMultipleElements(4);
     const countOfAddedElements=addRemovePage.getAvailableElements();
-    console.log('Count of Added Elements:',countOfAddedElements);
+    expect(countOfAddedElements).toBe(4);
     await page.close();
 });
