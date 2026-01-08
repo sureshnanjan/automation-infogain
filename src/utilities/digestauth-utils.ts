@@ -1,17 +1,11 @@
-export const DIGEST_AUTH = {
-<<<<<<< HEAD
-  username: process.env.DIGEST_USER ?? 'admin',
-  password: process.env.DIGEST_PASS ?? 'admin',
-};
-
 export const DIGEST_AUTH_BASE_URL =
-  'https://the-internet.herokuapp.com/digest_auth';
-=======
-  username: process.env.DIGEST_USER || 'admin',
-  password: process.env.DIGEST_PASS || 'admin',
-};
+  'https://the-internet.herokuapp.com/digest_auth'; //Base URL for Digest Authentication page
 
-export function getDigestAuthUrl(username: string, password: string): string {
-  return `https://${username}:${password}@the-internet.herokuapp.com/digest_auth`;
-}
->>>>>>> b690760 (digest auth)
+  /**
+ * Default credentials for Digest Authentication
+ * Can be overridden using environment variables
+ */
+export const DIGEST_AUTH = {
+  username: process.env.DIGEST_USER || 'admin',       
+  password: process.env.DIGEST_PASS || 'admin',         
+};

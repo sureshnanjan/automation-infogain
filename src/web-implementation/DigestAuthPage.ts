@@ -1,61 +1,67 @@
-import { Page, Locator, expect } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
+import { BasePage } from '@src/web-implementation/BasePage';
+import { DigestAuthOperations } from '@src/operations/DigestAuthOperations';
 import { DIGEST_AUTH_BASE_URL } from '@src/utilities/digestauth-utils';
 
+/**
+ * Page Object implementation for Digest Authentication page
+ */
 export class DigestAuthPage {
+
   private readonly page: Page;
-  private readonly heading: Locator;
-  private readonly successMsg: Locator;
+  private readonly bodyContent: Locator;
 
   constructor(page: Page) {
+ 
     this.page = page;
-    this.heading = page.locator('h3');
-    this.successMsg = page.locator('p');
+    this.bodyContent = page.locator('body');
   }
 
   /**
-   * Navigate to Digest Auth page with credentials
+   * Navigates to Digest Auth page using HTTP credentials
+   * Supports both positive & negative scenarios
    */
   async navigateWithCredentials(
-  username: string,
-  password: string
-): Promise<void> {
-  await this.page.context().setHTTPCredentials({
-    username,
-    password,
-  });
+    username: string,
+    password: string
+  ): Promise<void> {
 
-  try {
-    await this.page.goto(DIGEST_AUTH_BASE_URL, {
-      waitUntil: 'domcontentloaded',
+    //  Authentication must be set at context level
+    await this.page.context().setHTTPCredentials({
+      username,
+      password,
     });
-  } catch (error) {
-    // Expected for invalid credentials (401)
-    console.log('Navigation failed due to unauthorized access');
+
+    // Navigation rules belong to page.goto
+    try {
+      await this.page.goto(DIGEST_AUTH_BASE_URL, {
+        waitUntil: 'load',
+      });
+    } catch (error) {
+      // Expected for invalid credentials (401)
+      console.log('Unauthorized access occurred');
+    }
   }
-}
-
-
   /**
-   * Verify successful Digest Authentication
+   * Checks successful authentication
    */
-  async verifyDigestAuthPage(): Promise<void> {
-    await expect(this.heading).toHaveText('Digest Auth');
-    await expect(this.successMsg).toBeVisible();
+  async isAuthenticated(): Promise<boolean> {
+    const text = await this.bodyContent.textContent();
+    return text?.includes('Congratulations!') ?? false;
   }
 
   /**
-   * Verify unauthorized access (negative case)
+   * Checks unauthorized access
    */
   async isUnauthorized(): Promise<boolean> {
-  const response = await this.page.request.get(DIGEST_AUTH_BASE_URL);
-  return response.status() === 401;
-}
-
+    const text = await this.bodyContent.textContent();
+    return text?.includes('Unauthorized') ?? false;
+  }
 
   /**
-   * Get heading text (optional utility)
+   * Returns full page text
    */
-  async getHeadingText(): Promise<string> {
-    return (await this.heading.textContent()) ?? '';
+  async getPageText(): Promise<string | null> {
+    return await this.bodyContent.textContent();
   }
 }
