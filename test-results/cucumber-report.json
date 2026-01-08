@@ -75,7 +75,7 @@
             {
               "title": "Basic Auth with various credentials",
               "file": "src/features/basic_auth.feature.spec.js",
-              "line": 6,
+              "line": 10,
               "column": 8,
               "specs": [
                 {
@@ -94,7 +94,7 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 5890,
+                          "duration": 5945,
                           "errors": [],
                           "stdout": [
                             {
@@ -112,18 +112,18 @@
                           "steps": [
                             {
                               "title": "Given User logs in with username \"admin\" and password \"admin\"",
-                              "duration": 1290
+                              "duration": 450
                             },
                             {
                               "title": "When User observes the Basic Auth Status Message",
-                              "duration": 4154
+                              "duration": 721
                             },
                             {
                               "title": "Then Status Message should contain \"Congratulations! You must have the proper credentials.\"",
-                              "duration": 7
+                              "duration": 2
                             }
                           ],
-                          "startTime": "2026-01-08T09:59:08.533Z",
+                          "startTime": "2026-01-08T11:47:09.103Z",
                           "annotations": [],
                           "attachments": [
                             {
@@ -139,7 +139,7 @@
                   ],
                   "id": "57da057ca88078568c52-4dce4f0ebff7d372a0f3",
                   "file": "src/features/basic_auth.feature.spec.js",
-                  "line": 8,
+                  "line": 12,
                   "column": 9
                 },
                 {
@@ -158,7 +158,7 @@
                           "workerIndex": 1,
                           "parallelIndex": 1,
                           "status": "passed",
-                          "duration": 2467,
+                          "duration": 6725,
                           "errors": [],
                           "stdout": [
                             {
@@ -176,18 +176,18 @@
                           "steps": [
                             {
                               "title": "Given User logs in with username \"invalidUser\" and password \"invalidPass\"",
-                              "duration": 1395
+                              "duration": 318
                             },
                             {
                               "title": "When User observes the Basic Auth Status Message",
-                              "duration": 701
+                              "duration": 656
                             },
                             {
                               "title": "Then Status Message should contain \"Not authorized\"",
-                              "duration": 4
+                              "duration": 3
                             }
                           ],
-                          "startTime": "2026-01-08T09:59:08.510Z",
+                          "startTime": "2026-01-08T11:47:09.210Z",
                           "annotations": [],
                           "attachments": [
                             {
@@ -203,7 +203,7 @@
                   ],
                   "id": "57da057ca88078568c52-dc458e3d6079dad8ce12",
                   "file": "src/features/basic_auth.feature.spec.js",
-                  "line": 14,
+                  "line": 18,
                   "column": 9
                 },
                 {
@@ -222,7 +222,7 @@
                           "workerIndex": 2,
                           "parallelIndex": 2,
                           "status": "passed",
-                          "duration": 2451,
+                          "duration": 5712,
                           "errors": [],
                           "stdout": [
                             {
@@ -240,18 +240,18 @@
                           "steps": [
                             {
                               "title": "Given User logs in with username \"admin\" and password \"invalidPass\"",
-                              "duration": 1274
+                              "duration": 429
                             },
                             {
                               "title": "When User observes the Basic Auth Status Message",
-                              "duration": 743
+                              "duration": 685
                             },
                             {
                               "title": "Then Status Message should contain \"Not authorized\"",
-                              "duration": 4
+                              "duration": 2
                             }
                           ],
-                          "startTime": "2026-01-08T09:59:08.531Z",
+                          "startTime": "2026-01-08T11:47:09.142Z",
                           "annotations": [],
                           "attachments": [
                             {
@@ -267,7 +267,7 @@
                   ],
                   "id": "57da057ca88078568c52-ea0908821bae5ed05d30",
                   "file": "src/features/basic_auth.feature.spec.js",
-                  "line": 20,
+                  "line": 24,
                   "column": 9
                 },
                 {
@@ -286,7 +286,7 @@
                           "workerIndex": 3,
                           "parallelIndex": 3,
                           "status": "passed",
-                          "duration": 2751,
+                          "duration": 6862,
                           "errors": [],
                           "stdout": [
                             {
@@ -304,18 +304,18 @@
                           "steps": [
                             {
                               "title": "Given User logs in with username \"invalidUser\" and password \"admin\"",
-                              "duration": 1689
+                              "duration": 328
                             },
                             {
                               "title": "When User observes the Basic Auth Status Message",
-                              "duration": 679
+                              "duration": 676
                             },
                             {
                               "title": "Then Status Message should contain \"Not authorized\"",
                               "duration": 4
                             }
                           ],
-                          "startTime": "2026-01-08T09:59:08.487Z",
+                          "startTime": "2026-01-08T11:47:09.101Z",
                           "annotations": [],
                           "attachments": [
                             {
@@ -331,7 +331,7 @@
                   ],
                   "id": "57da057ca88078568c52-6d1127370e9d740fac43",
                   "file": "src/features/basic_auth.feature.spec.js",
-                  "line": 26,
+                  "line": 30,
                   "column": 9
                 },
                 {
@@ -350,7 +350,7 @@
                           "workerIndex": 4,
                           "parallelIndex": 4,
                           "status": "passed",
-                          "duration": 2000,
+                          "duration": 6344,
                           "errors": [],
                           "stdout": [
                             {
@@ -368,18 +368,18 @@
                           "steps": [
                             {
                               "title": "Given User logs in with username \"\" and password \"\"",
-                              "duration": 1259
+                              "duration": 330
                             },
                             {
                               "title": "When User observes the Basic Auth Status Message",
-                              "duration": 403
+                              "duration": 357
                             },
                             {
                               "title": "Then Status Message should contain \"Not authorized\"",
-                              "duration": 4
+                              "duration": 3
                             }
                           ],
-                          "startTime": "2026-01-08T09:59:08.600Z",
+                          "startTime": "2026-01-08T11:47:09.146Z",
                           "annotations": [],
                           "attachments": [
                             {
@@ -395,7 +395,7 @@
                   ],
                   "id": "57da057ca88078568c52-eb07b6b41eb9f2ff08a6",
                   "file": "src/features/basic_auth.feature.spec.js",
-                  "line": 32,
+                  "line": 36,
                   "column": 9
                 }
               ]
@@ -433,7 +433,7 @@
                       "workerIndex": 5,
                       "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 4789,
+                      "duration": 5586,
                       "errors": [],
                       "stdout": [
                         {
@@ -451,18 +451,18 @@
                       "steps": [
                         {
                           "title": "Given User Visits HomePage",
-                          "duration": 374
+                          "duration": 357
                         },
                         {
                           "title": "When User Observes Title",
-                          "duration": 17
+                          "duration": 29
                         },
                         {
                           "title": "Then title should match \"Welcome to the-internet\"",
-                          "duration": 2
+                          "duration": 1
                         }
                       ],
-                      "startTime": "2026-01-08T09:59:08.542Z",
+                      "startTime": "2026-01-08T11:47:09.201Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -494,10 +494,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 4,
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 6558,
+                      "duration": 4640,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
@@ -505,18 +505,18 @@
                       "steps": [
                         {
                           "title": "Given User Visits HomePage",
-                          "duration": 343
+                          "duration": 367
                         },
                         {
                           "title": "When User Observes Sub-Title",
-                          "duration": 15
+                          "duration": 14
                         },
                         {
                           "title": "Then subtitle should match \"Available Examples\"",
-                          "duration": 6
+                          "duration": 5
                         }
                       ],
-                      "startTime": "2026-01-08T09:59:10.873Z",
+                      "startTime": "2026-01-08T11:47:15.082Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -542,8 +542,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-08T09:59:07.056Z",
-    "duration": 10522.457,
+    "startTime": "2026-01-08T11:47:07.625Z",
+    "duration": 12215.966,
     "expected": 7,
     "skipped": 0,
     "unexpected": 0,

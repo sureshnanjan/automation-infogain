@@ -38,7 +38,7 @@ When('User observes the Basic Auth Status Message', async ({}) => {
   actualResult= await basicAuthPage.getStatusMessage();
 });
 
-Then('Status Message should contain {string}', async ({}, arg: string) => {
+Then('Status Message should contain {string}', async ({page}, arg: string) => {
   // Step: Then Prompt message should contain "Not authorized"
   // From: src\features\basic_auth.feature:19:5
   expect(actualResult).toContain(arg);

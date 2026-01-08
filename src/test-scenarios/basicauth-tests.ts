@@ -7,7 +7,7 @@ test('Basic Auth Page Access with Valid Credentials', async ( {page}) => {
   const password = 'admin';
   const exceptedMessage="Congratulations! You must have the proper credentials.";
   const basicAuthPage: BasicAuthPageOperations=await getBasicAuthPage(page);;
-  basicAuthPage.doLogic(username, password);
+  basicAuthPage.doLogin(username, password);
   const actualContent= await basicAuthPage.getStatusMessage();
   expect(actualContent).toContain(exceptedMessage);
 });
@@ -17,7 +17,7 @@ test('Basic Auth Page Access with Invalid Credentials', async ( {page}) => {
   const password = 'invalidPass'; 
   const exceptedMessage="Not authorized";
   const basicAuthPage: BasicAuthPageOperations=await getBasicAuthPage(page);;
-  basicAuthPage.doLogic(username, password);
+  basicAuthPage.doLogin(username, password);
   const actualContent= await basicAuthPage.getStatusMessage();
   expect(actualContent).toContain(exceptedMessage);
 });
@@ -27,7 +27,7 @@ test('Basic Auth Page Access with Invalid Username', async ( {page}) => {
   const password = 'admin';
   const exceptedMessage="Not authorized";
   const basicAuthPage: BasicAuthPageOperations=await getBasicAuthPage(page);
-  basicAuthPage.doLogic(username, password);
+  basicAuthPage.doLogin(username, password);
   const actualContent= await basicAuthPage.getStatusMessage();
   expect(actualContent).toContain(exceptedMessage);
 });
@@ -37,7 +37,7 @@ test('Basic Auth Page Access with Invalid Password', async ( {page}) => {
   const password = 'invalidPass';
   const exceptedMessage="Not authorized";
   const basicAuthPage: BasicAuthPageOperations=await getBasicAuthPage(page);
-  basicAuthPage.doLogic(username, password);
+  basicAuthPage.doLogin(username, password);
   const actualContent= await basicAuthPage.getStatusMessage();
   expect(actualContent).toContain(exceptedMessage);
 });

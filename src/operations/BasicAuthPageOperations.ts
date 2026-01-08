@@ -5,6 +5,6 @@
  * @interface BasicAuthPageOperations
  */
 export interface BasicAuthPageOperations {
-  doLogic(username:string,password:string):void;
+  doLogin(username:string,password:string):void;
   getStatusMessage():Promise<string| null>;
 }
