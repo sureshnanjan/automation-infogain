@@ -17,6 +17,11 @@ Given('user navigates to the drag and drop page', async function () {
   const dragDrop = new DragDropPage(page);
   await dragDrop.goto();
 });
+
+Then('title should match the text {string}', async ({}, arg) => {
+  let actualResult = dragDrop.getTitle();
+  expect(actualResult).toEqual(arg);
+});
  
 When('user drags the source element A and drops it into the target element B', async function () {
     await dragDrop.dragAtoB();

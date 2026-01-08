@@ -6,6 +6,7 @@ export class DragDropPage implements DragDropOperations {
  
   constructor(private page: Page) {
     this.locators = {
+      title: page.locator('h3'),
       columnA: page.locator('#column-a'),
       columnB: page.locator('#column-b')
     };
@@ -20,6 +21,10 @@ export class DragDropPage implements DragDropOperations {
   }
   async dragBtoA(): Promise<void> {
     await this.locators.columnB.dragTo(this.locators.columnA);
+  }
+
+  async getTitle(): Promise<string|null> {
+    return await this.locators.title.textContent();
   }
 }
  
