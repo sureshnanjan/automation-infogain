@@ -10,9 +10,7 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {
-      "actualWorkers": 4
-    },
+    "metadata": {},
     "preserveOutput": "always",
     "reporter": [
       [
@@ -36,9 +34,7 @@
         "outputDir": "C:/QA-Training/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 4
-        },
+        "metadata": {},
         "id": "chromium",
         "name": "chromium",
         "testDir": "C:/QA-Training/automation-infogain/src",
@@ -57,190 +53,339 @@
     "workers": 6,
     "webServer": null
   },
-  "suites": [
+  "suites": [],
+  "errors": [
     {
-      "title": "test-scenarios\\basicauth-tests.ts",
-      "file": "test-scenarios/basicauth-tests.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Basic Auth Page Tests with Valid Credentials",
-          "file": "test-scenarios/basicauth-tests.ts",
-          "line": 5,
-          "column": 6,
-          "specs": [
-            {
-              "title": "Logged In Basic Auth Page Header Verification",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7277,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Page Title: Basic Auth\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-08T06:11:39.450Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "357eecb7a43d62f8f084-eca4ce2931850e57e540",
-              "file": "test-scenarios/basicauth-tests.ts",
-              "line": 20,
-              "column": 5
-            },
-            {
-              "title": "Logged In Basic Auth Page Content Verification",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 8481,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Page Content: \n    Congratulations! You must have the proper credentials.\n  \n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-08T06:11:39.450Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "357eecb7a43d62f8f084-2995a6cbfc8ddfd3ccac",
-              "file": "test-scenarios/basicauth-tests.ts",
-              "line": 27,
-              "column": 5
-            },
-            {
-              "title": "Logged In Basic Auth Page Footer Verification",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 8986,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Footer Text: Powered by Elemental Selenium\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-08T06:11:39.459Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "357eecb7a43d62f8f084-c68d4fa2374862ee0c9e",
-              "file": "test-scenarios/basicauth-tests.ts",
-              "line": 34,
-              "column": 5
-            }
-          ]
-        },
-        {
-          "title": "Basic Auth Page Tests with Invalid Credentials",
-          "file": "test-scenarios/basicauth-tests.ts",
-          "line": 42,
-          "column": 6,
-          "specs": [
-            {
-              "title": "Invalid Login Basic Auth Page Message Verification",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
-                      "status": "passed",
-                      "duration": 5121,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Failed Login Message: Not authorized\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-08T06:11:39.468Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "357eecb7a43d62f8f084-88f50a63c330a46a0ce8",
-              "file": "test-scenarios/basicauth-tests.ts",
-              "line": 57,
-              "column": 5
-            }
-          ]
-        }
-      ]
+      "message": "ReferenceError: Int is not defined",
+      "stack": "ReferenceError: Int is not defined\n    at Object.<anonymous> (C:\\QA-Training\\automation-infogain\\src\\02-basic-types\\primitive-types.ts:440:61)",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\02-basic-types\\primitive-types.ts",
+        "column": 61,
+        "line": 440
+      },
+      "snippet": "\u001b[90m   at \u001b[39m02-basic-types\\primitive-types.ts:440\n\n\u001b[0m \u001b[90m 438 |\u001b[39m \u001b[90m// Using angle-bracket syntax (not usable in JSX)\u001b[39m\n \u001b[90m 439 |\u001b[39m \u001b[36mlet\u001b[39m anotherValue\u001b[33m:\u001b[39m unknown \u001b[33m=\u001b[39m \u001b[32m'another string'\u001b[39m\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 440 |\u001b[39m \u001b[36mlet\u001b[39m anotherLength\u001b[33m:\u001b[39m number \u001b[33m=\u001b[39m (\u001b[33m<\u001b[39m\u001b[33mstring\u001b[39m\u001b[33m>\u001b[39manotherValue)\u001b[33m.\u001b[39mlength\u001b[33m;\u001b[39m (\u001b[33mInt\u001b[39m)\n \u001b[90m     |\u001b[39m                                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 441 |\u001b[39m\n \u001b[90m 442 |\u001b[39m \u001b[90m/**\u001b[39m\n \u001b[90m 443 |\u001b[39m \u001b[90m * Practical example: Asserting DOM element types\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "SyntaxError: C:\\QA-Training\\automation-infogain\\src\\05-oops\\classes.ts: Unexpected token (121:0)\n\n\u001b[0m \u001b[90m 119 |\u001b[39m \u001b[36mclass\u001b[39m \u001b[33mB1\u001b[39m{\n \u001b[90m 120 |\u001b[39m     b1_value\u001b[33m:\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 121 |\u001b[39m }\n \u001b[90m     |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 122 |\u001b[39m \u001b[36mclass\u001b[39m \u001b[33mB2\u001b[39m{\n \u001b[90m 123 |\u001b[39m     b2_value\n \u001b[90m 124 |\u001b[39m }\u001b[0m",
+      "stack": "SyntaxError: C:\\QA-Training\\automation-infogain\\src\\05-oops\\classes.ts: Unexpected token (121:0)\n\n\u001b[0m \u001b[90m 119 |\u001b[39m \u001b[36mclass\u001b[39m \u001b[33mB1\u001b[39m{\n \u001b[90m 120 |\u001b[39m     b1_value\u001b[33m:\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 121 |\u001b[39m }\n \u001b[90m     |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 122 |\u001b[39m \u001b[36mclass\u001b[39m \u001b[33mB2\u001b[39m{\n \u001b[90m 123 |\u001b[39m     b2_value\n \u001b[90m 124 |\u001b[39m }\u001b[0m",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\05-oops\\classes.ts",
+        "line": 121,
+        "column": 0
+      },
+      "snippet": "\u001b[90m   at \u001b[39m05-oops\\classes.ts:121\n\n\u001b[0m \u001b[90m 119 |\u001b[39m \u001b[36mclass\u001b[39m \u001b[33mB1\u001b[39m{\n \u001b[90m 120 |\u001b[39m     b1_value\u001b[33m:\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 121 |\u001b[39m }\n \u001b[90m 122 |\u001b[39m \u001b[36mclass\u001b[39m \u001b[33mB2\u001b[39m{\n \u001b[90m 123 |\u001b[39m     b2_value\n \u001b[90m 124 |\u001b[39m }\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"features\\step-definitions\\basic_auth_steps.ts\" should not import test file \"utilities\\herokuapp-utils.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\features\\step-definitions\\basic_auth_steps.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mfeatures\\step-definitions\\basic_auth_steps.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { getBasicAuthPage\u001b[33m,\u001b[39m getHerokuApp\u001b[33m,\u001b[39m getHerokuAppUrl } \u001b[36mfrom\u001b[39m \u001b[32m'@src/utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { createBdd } \u001b[36mfrom\u001b[39m \u001b[32m'playwright-bdd'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { expect } \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"features\\step-definitions\\basic_auth_steps.ts\" should not import test file \"web-implementation\\HomePage.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\features\\step-definitions\\basic_auth_steps.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mfeatures\\step-definitions\\basic_auth_steps.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { getBasicAuthPage\u001b[33m,\u001b[39m getHerokuApp\u001b[33m,\u001b[39m getHerokuAppUrl } \u001b[36mfrom\u001b[39m \u001b[32m'@src/utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { createBdd } \u001b[36mfrom\u001b[39m \u001b[32m'playwright-bdd'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { expect } \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"features\\step-definitions\\basic_auth_steps.ts\" should not import test file \"web-implementation\\BasePage.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\features\\step-definitions\\basic_auth_steps.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mfeatures\\step-definitions\\basic_auth_steps.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { getBasicAuthPage\u001b[33m,\u001b[39m getHerokuApp\u001b[33m,\u001b[39m getHerokuAppUrl } \u001b[36mfrom\u001b[39m \u001b[32m'@src/utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { createBdd } \u001b[36mfrom\u001b[39m \u001b[32m'playwright-bdd'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { expect } \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"features\\step-definitions\\basic_auth_steps.ts\" should not import test file \"web-implementation\\BasicAuth.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\features\\step-definitions\\basic_auth_steps.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mfeatures\\step-definitions\\basic_auth_steps.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { getBasicAuthPage\u001b[33m,\u001b[39m getHerokuApp\u001b[33m,\u001b[39m getHerokuAppUrl } \u001b[36mfrom\u001b[39m \u001b[32m'@src/utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { createBdd } \u001b[36mfrom\u001b[39m \u001b[32m'playwright-bdd'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { expect } \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"features\\step-definitions\\home_page_steps.ts\" should not import test file \"utilities\\herokuapp-utils.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\features\\step-definitions\\home_page_steps.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mfeatures\\step-definitions\\home_page_steps.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { getHerokuApp } \u001b[36mfrom\u001b[39m \u001b[32m'@src/utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { createBdd\u001b[33m,\u001b[39m \u001b[33mDataTable\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'playwright-bdd'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { expect } \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"features\\step-definitions\\home_page_steps.ts\" should not import test file \"web-implementation\\HomePage.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\features\\step-definitions\\home_page_steps.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mfeatures\\step-definitions\\home_page_steps.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { getHerokuApp } \u001b[36mfrom\u001b[39m \u001b[32m'@src/utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { createBdd\u001b[33m,\u001b[39m \u001b[33mDataTable\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'playwright-bdd'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { expect } \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"features\\step-definitions\\home_page_steps.ts\" should not import test file \"web-implementation\\BasePage.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\features\\step-definitions\\home_page_steps.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mfeatures\\step-definitions\\home_page_steps.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { getHerokuApp } \u001b[36mfrom\u001b[39m \u001b[32m'@src/utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { createBdd\u001b[33m,\u001b[39m \u001b[33mDataTable\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'playwright-bdd'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { expect } \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"features\\step-definitions\\home_page_steps.ts\" should not import test file \"web-implementation\\BasicAuth.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\features\\step-definitions\\home_page_steps.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mfeatures\\step-definitions\\home_page_steps.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { getHerokuApp } \u001b[36mfrom\u001b[39m \u001b[32m'@src/utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { createBdd\u001b[33m,\u001b[39m \u001b[33mDataTable\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'playwright-bdd'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { expect } \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\api-scenarios\\auth.spec.ts\" should not import test file \"test-scenarios\\api-scenarios\\api-fixture.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\api-scenarios\\auth.spec.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\api-scenarios\\auth.spec.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[90m// tests/api/auth.spec.ts\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[36mfrom\u001b[39m \u001b[32m'./api-fixture'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m\n \u001b[90m 4 |\u001b[39m test(\u001b[32m'POST /auth/login returns token'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ api }) \u001b[33m=>\u001b[39m {\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\api-scenarios\\contracts.spec.ts\" should not import test file \"test-scenarios\\api-scenarios\\api-fixture.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\api-scenarios\\contracts.spec.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\api-scenarios\\contracts.spec.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[36mfrom\u001b[39m \u001b[32m'./api-fixture'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m test(\u001b[32m'POST /users with invalid body returns 400'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ api }) \u001b[33m=>\u001b[39m {\n \u001b[90m 3 |\u001b[39m   \u001b[36mconst\u001b[39m login \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39mpost(\u001b[32m'/auth/login'\u001b[39m\u001b[33m,\u001b[39m {\n \u001b[90m 4 |\u001b[39m     data\u001b[33m:\u001b[39m { email\u001b[33m:\u001b[39m \u001b[32m'admin@test.com'\u001b[39m\u001b[33m,\u001b[39m password\u001b[33m:\u001b[39m \u001b[32m'test'\u001b[39m }\u001b[33m,\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\api-scenarios\\file.spec.ts\" should not import test file \"test-scenarios\\api-scenarios\\api-fixture.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\api-scenarios\\file.spec.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\api-scenarios\\file.spec.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[36mfrom\u001b[39m \u001b[32m'./api-fixture'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m test(\u001b[32m'POST /documents accepts multipart upload'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ api }) \u001b[33m=>\u001b[39m {\n \u001b[90m 3 |\u001b[39m   \u001b[36mconst\u001b[39m login \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39mpost(\u001b[32m'/auth/login'\u001b[39m\u001b[33m,\u001b[39m {\n \u001b[90m 4 |\u001b[39m     data\u001b[33m:\u001b[39m { email\u001b[33m:\u001b[39m \u001b[32m'user@test.com'\u001b[39m\u001b[33m,\u001b[39m password\u001b[33m:\u001b[39m \u001b[32m'test'\u001b[39m }\u001b[33m,\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\api-scenarios\\system.spec.ts\" should not import test file \"test-scenarios\\api-scenarios\\api-fixture.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\api-scenarios\\system.spec.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\api-scenarios\\system.spec.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[90m// tests/api/system.spec.ts\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[36mfrom\u001b[39m \u001b[32m'./api-fixture'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m\n \u001b[90m 4 |\u001b[39m test(\u001b[32m'GET /health returns 200'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ api }) \u001b[33m=>\u001b[39m {\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\api-scenarios\\user.spec.ts\" should not import test file \"test-scenarios\\api-scenarios\\api-fixture.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\api-scenarios\\user.spec.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\api-scenarios\\user.spec.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[36mfrom\u001b[39m \u001b[32m'./api-fixture'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m test(\u001b[32m'POST /users returns 201 for valid payload'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ api }) \u001b[33m=>\u001b[39m {\n \u001b[90m 3 |\u001b[39m   \u001b[36mconst\u001b[39m login \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39mpost(\u001b[32m'/auth/login'\u001b[39m\u001b[33m,\u001b[39m {\n \u001b[90m 4 |\u001b[39m     data\u001b[33m:\u001b[39m { email\u001b[33m:\u001b[39m \u001b[32m'admin@test.com'\u001b[39m\u001b[33m,\u001b[39m password\u001b[33m:\u001b[39m \u001b[32m'test'\u001b[39m }\u001b[33m,\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\basicauth-tests.ts\" should not import test file \"utilities\\herokuapp-utils.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\basicauth-tests.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\basicauth-tests.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { test\u001b[33m,\u001b[39mexpect } \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mBasicAuthPageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'../operations/BasicAuthPageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { getBasicAuthPage } \u001b[36mfrom\u001b[39m \u001b[32m'../utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\basicauth-tests.ts\" should not import test file \"web-implementation\\HomePage.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\basicauth-tests.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\basicauth-tests.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { test\u001b[33m,\u001b[39mexpect } \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mBasicAuthPageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'../operations/BasicAuthPageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { getBasicAuthPage } \u001b[36mfrom\u001b[39m \u001b[32m'../utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\basicauth-tests.ts\" should not import test file \"web-implementation\\BasePage.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\basicauth-tests.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\basicauth-tests.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { test\u001b[33m,\u001b[39mexpect } \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mBasicAuthPageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'../operations/BasicAuthPageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { getBasicAuthPage } \u001b[36mfrom\u001b[39m \u001b[32m'../utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\basicauth-tests.ts\" should not import test file \"web-implementation\\BasicAuth.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\basicauth-tests.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\basicauth-tests.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { test\u001b[33m,\u001b[39mexpect } \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mBasicAuthPageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'../operations/BasicAuthPageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { getBasicAuthPage } \u001b[36mfrom\u001b[39m \u001b[32m'../utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\fixture-tests.ts\" should not import test file \"utilities\\fixtures\\heroku_data.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\fixture-tests.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\fixture-tests.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m {test\u001b[33m,\u001b[39m expect } \u001b[36mfrom\u001b[39m \u001b[32m'@src/utilities/fixtures/heroku_data'\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mbeforeEach(\u001b[32m'Before Each Test'\u001b[39m\u001b[33m,\u001b[39m ({examples})\u001b[33m=>\u001b[39m{\n \u001b[90m 4 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m`This is the examples data Before Test Execution\" ${examples}`\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\homepage-tests.ts\" should not import test file \"utilities\\herokuapp-utils.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\homepage-tests.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\homepage-tests.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m {test\u001b[33m,\u001b[39mexpect} \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mABTestingOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/ABTestingOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m {\u001b[33mHomePageOperations\u001b[39m} \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m {getHerokuAppUrl\u001b[33m,\u001b[39mgetHerokuApp} \u001b[36mfrom\u001b[39m \u001b[32m'@src/utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\homepage-tests.ts\" should not import test file \"web-implementation\\HomePage.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\homepage-tests.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\homepage-tests.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m {test\u001b[33m,\u001b[39mexpect} \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mABTestingOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/ABTestingOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m {\u001b[33mHomePageOperations\u001b[39m} \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m {getHerokuAppUrl\u001b[33m,\u001b[39mgetHerokuApp} \u001b[36mfrom\u001b[39m \u001b[32m'@src/utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\homepage-tests.ts\" should not import test file \"web-implementation\\BasePage.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\homepage-tests.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\homepage-tests.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m {test\u001b[33m,\u001b[39mexpect} \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mABTestingOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/ABTestingOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m {\u001b[33mHomePageOperations\u001b[39m} \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m {getHerokuAppUrl\u001b[33m,\u001b[39mgetHerokuApp} \u001b[36mfrom\u001b[39m \u001b[32m'@src/utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\homepage-tests.ts\" should not import test file \"web-implementation\\BasicAuth.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\homepage-tests.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\homepage-tests.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m {test\u001b[33m,\u001b[39mexpect} \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mABTestingOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/ABTestingOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m {\u001b[33mHomePageOperations\u001b[39m} \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m {getHerokuAppUrl\u001b[33m,\u001b[39mgetHerokuApp} \u001b[36mfrom\u001b[39m \u001b[32m'@src/utilities/herokuapp-utils'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\html_table.ts\" should not import test file \"utilities\\herokuapp-utils.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\html_table.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\html_table.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m {test\u001b[33m,\u001b[39mexpect} \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/web-implementation/HomePage'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mSortableTables\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/SortableTableOperations'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\html_table.ts\" should not import test file \"web-implementation\\HomePage.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\html_table.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\html_table.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m {test\u001b[33m,\u001b[39mexpect} \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/web-implementation/HomePage'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mSortableTables\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/SortableTableOperations'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\html_table.ts\" should not import test file \"web-implementation\\BasePage.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\html_table.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\html_table.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m {test\u001b[33m,\u001b[39mexpect} \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/web-implementation/HomePage'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mSortableTables\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/SortableTableOperations'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"test-scenarios\\html_table.ts\" should not import test file \"web-implementation\\BasicAuth.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\test-scenarios\\html_table.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mtest-scenarios\\html_table.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m {test\u001b[33m,\u001b[39mexpect} \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/HomePageOperations'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/web-implementation/HomePage'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mSortableTables\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m'@src/operations/SortableTableOperations'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"utilities\\herokuapp-utils.ts\" should not import test file \"web-implementation\\HomePage.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\utilities\\herokuapp-utils.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mutilities\\herokuapp-utils.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/operations/HomePageOperations\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/web-implementation/HomePage\"\u001b[39m\u001b[33m;\u001b[39m   \n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mPage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@playwright/test\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mLogger\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"./Logger\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"utilities\\herokuapp-utils.ts\" should not import test file \"web-implementation\\BasePage.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\utilities\\herokuapp-utils.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mutilities\\herokuapp-utils.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/operations/HomePageOperations\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/web-implementation/HomePage\"\u001b[39m\u001b[33m;\u001b[39m   \n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mPage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@playwright/test\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mLogger\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"./Logger\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"utilities\\herokuapp-utils.ts\" should not import test file \"web-implementation\\BasicAuth.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\utilities\\herokuapp-utils.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mutilities\\herokuapp-utils.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/operations/HomePageOperations\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/web-implementation/HomePage\"\u001b[39m\u001b[33m;\u001b[39m   \n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mPage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@playwright/test\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mLogger\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"./Logger\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"web-implementation\\ABTestingPage.ts\" should not import test file \"web-implementation\\BasePage.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\web-implementation\\ABTestingPage.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mweb-implementation\\ABTestingPage.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mABTestingOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/operations/ABTestingOperations\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mBasePage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"./BasePage\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mLogger\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/utilities/Logger\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"web-implementation\\ABTestingPage.ts\" should not import test file \"utilities\\Logger.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\web-implementation\\ABTestingPage.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mweb-implementation\\ABTestingPage.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mABTestingOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/operations/ABTestingOperations\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mBasePage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"./BasePage\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mLogger\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/utilities/Logger\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"web-implementation\\HomePage.ts\" should not import test file \"web-implementation\\BasePage.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\web-implementation\\HomePage.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mweb-implementation\\HomePage.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/operations/HomePageOperations\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mBasePage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/web-implementation/BasePage\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m {\u001b[33mPage\u001b[39m\u001b[33m,\u001b[39m \u001b[33mLocator\u001b[39m} \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { getHerokuAppUrl } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/utilities/herokuapp-utils\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"web-implementation\\HomePage.ts\" should not import test file \"utilities\\herokuapp-utils.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\web-implementation\\HomePage.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mweb-implementation\\HomePage.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/operations/HomePageOperations\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mBasePage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/web-implementation/BasePage\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m {\u001b[33mPage\u001b[39m\u001b[33m,\u001b[39m \u001b[33mLocator\u001b[39m} \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { getHerokuAppUrl } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/utilities/herokuapp-utils\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: test file \"web-implementation\\HomePage.ts\" should not import test file \"web-implementation\\BasicAuth.ts\"",
+      "location": {
+        "file": "C:\\QA-Training\\automation-infogain\\src\\web-implementation\\HomePage.ts",
+        "line": 1,
+        "column": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mweb-implementation\\HomePage.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mHomePageOperations\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/operations/HomePageOperations\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mBasePage\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/web-implementation/BasePage\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m {\u001b[33mPage\u001b[39m\u001b[33m,\u001b[39m \u001b[33mLocator\u001b[39m} \u001b[36mfrom\u001b[39m \u001b[32m'@playwright/test'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { getHerokuAppUrl } \u001b[36mfrom\u001b[39m \u001b[32m\"@src/utilities/herokuapp-utils\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m"
     }
   ],
-  "errors": [],
   "stats": {
-    "startTime": "2026-01-08T06:11:37.970Z",
-    "duration": 10834.641,
-    "expected": 4,
+    "startTime": "2026-01-08T09:13:51.901Z",
+    "duration": 378.2610000000001,
+    "expected": 0,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

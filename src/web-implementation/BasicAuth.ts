@@ -3,17 +3,11 @@ import { Page ,Locator} from '@playwright/test';
 
 export class BasicAuth {
   private page: Page;
-  private  titleSelector:Locator;
-  private  contentSelector:Locator;
-  private footerSelector:Locator;
-  private failedLoginMessageSelector:Locator;
+  private  statusMessageSelector:Locator;
 
   constructor(page:Page) {
     this.page = page;
-    this.titleSelector = this.page.locator('h3');
-    this.contentSelector = this.page.locator('p');
-    this.footerSelector = this.page.locator('div#page-footer');
-    this.failedLoginMessageSelector = this.page.locator('body');
+    this.statusMessageSelector = this.page.locator('body');
   }
 
   static async create(page: Page): Promise<BasicAuth> {
@@ -22,19 +16,11 @@ export class BasicAuth {
     return instance;
     }
 
-  async getPageHeader(): Promise<string|null> {
-    return  this.titleSelector.textContent();
+  async doLogic(username:string,password:string){
+    await this.page.goto(`https://${username}:${password}@the-internet.herokuapp.com/basic_auth`);
   }
 
-  async getPageContent(): Promise<string|null> {
-    return this.contentSelector.textContent();
-  }
-
-  async getFooterText(): Promise<string|null> {
-    return this.footerSelector.textContent();
-  }
-
-  async getFailedLoginMessage(): Promise<string|null> {
-    return this.failedLoginMessageSelector.textContent();
+  async getStatusMessage(): Promise<string|null> {
+    return this.statusMessageSelector.textContent();
   }
 }

@@ -1,16 +1,30 @@
 Feature: Basic Auth Page Verification
 
-  Background: Navigation to Basic Auth page
-    Given User navigates to the Basic Auth Page
+#   Background:
+#     Given The App is launched
    
-  Scenario: Logged In Basic Auth Page Header Verification
-    When User observes the Basic Auth page header
-    Then Page header should be "Basic Auth"
+#   Scenario: Login with Valid Credentials
+#     Given User logs in with username "admin" and password "admin"
+#     When User observes the Basic Auth Status Message
+#     Then Status Message should contain "Congratulations! You must have the proper credentials."
 
-  Scenario: Logged In Basic Auth Page Content Verification
-    When User observes the Basic Auth page content
-    Then Page content should contain "Congratulations! You must have the proper credentials."
+# Scenario: Login with Invalid Credentials
+#     Given User logs in with username "invalidUser" and password "invalidPass"
+#     When User observes the Basic Auth Status Message
+#     Then Status Message should contain "Not authorized"
 
-  Scenario: Logged In Basic Auth Page Footer Verification
-    When User observes the Basic Auth page footer
-    Then Page footer should be "Powered by Elemental Selenium"
+# Scenario:Login without Credentials
+#     Given User attempts to access Basic Auth page without credentials
+#     When User observes the Basic Auth Status Message
+#     Then Status Message should contain "Not authorized"
+
+Scenario Outline: Basic Auth with various credentials
+    Given User logs in with username "<username>" and password "<password>"
+    When User observes the Basic Auth Status Message
+    Then Status Message should contain "<expectedMessage>"
+
+    Examples:
+      | username     | password     | expectedMessage                                      |
+      | admin        | admin        | Congratulations! You must have the proper credentials.|
+      | invalidUser  | invalidPass  | Not authorized                                       |
+      |              |              | Not authorized                                       |

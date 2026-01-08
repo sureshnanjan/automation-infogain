@@ -5,8 +5,6 @@
  * @interface BasicAuthPageOperations
  */
 export interface BasicAuthPageOperations {
-  getPageHeader(): Promise<string| null>;
-  getPageContent(): Promise<string| null>;
-  getFooterText(): Promise<string| null>;
-  getFailedLoginMessage(): Promise<string| null>; 
+  doLogic(username:string,password:string):void;
+  getStatusMessage():Promise<string| null>;
 }
