@@ -21,10 +21,10 @@ let lastname = ""
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  //testDir: './src/test-scenarios',
+  //testDir: './src',
 
-  //testDir: testDir,
-  testDir: 'src/test-scenarios/api-scenarios',
+ // testDir: testDir,
+  testDir: './src',
   //testMatch: '**/*.ts',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -43,10 +43,10 @@ export default defineConfig({
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    httpCredentials: {
-      username: 'admin',
-      password: 'admin',
-    },
+    // httpCredentials: {
+    //   username: 'admin',
+    //   password: 'admin',
+    // },
 
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',

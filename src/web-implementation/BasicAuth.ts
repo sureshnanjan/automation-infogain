@@ -6,12 +6,14 @@ export class BasicAuth {
   private  titleSelector:Locator;
   private  contentSelector:Locator;
   private footerSelector:Locator;
+  private failedLoginMessageSelector:Locator;
 
   constructor(page:Page) {
     this.page = page;
     this.titleSelector = this.page.locator('h3');
     this.contentSelector = this.page.locator('p');
     this.footerSelector = this.page.locator('div#page-footer');
+    this.failedLoginMessageSelector = this.page.locator('body');
   }
 
   static async create(page: Page): Promise<BasicAuth> {
@@ -30,5 +32,9 @@ export class BasicAuth {
 
   async getFooterText(): Promise<string|null> {
     return this.footerSelector.textContent();
+  }
+
+  async getFailedLoginMessage(): Promise<string|null> {
+    return this.failedLoginMessageSelector.textContent();
   }
 }

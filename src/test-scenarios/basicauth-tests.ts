@@ -1,15 +1,15 @@
 import { test,expect, chromium, Browser, BrowserContext, Page } from '@playwright/test';
-import {getHerokuAppUrl, getHerokuApp, getBasicAuthPage} from '@src/utilities/herokuapp-utils';
-import { HomePageOperations } from '@src/operations/HomePageOperations';
-import { BasicAuthPageOperations } from '@src/operations/BasicAuthPageOperations';
+import { BasicAuthPageOperations } from '../operations/BasicAuthPageOperations';
+import { getBasicAuthPage, getHerokuAppUrl } from '../utilities/herokuapp-utils';
 
-// Basic Authentication credentials (HttpCredential: username + password)
-// have already been added in the config file.
-// Direct page verification will automatically use these credentials
-// when sending requests, so no manual login method is required.
+test.describe('Basic Auth Page Tests with Valid Credentials', () => {
+  test.use({
+  httpCredentials: {
+    username: "admin",
+    password: "admin"
+  }
+});
 
-test.describe('Basic Auth Page Tests', () => {
-  
 let basicAuthPage: BasicAuthPageOperations;
 test.beforeEach(async ({ page }) => {
   // Navigate to the Basic Auth page before each test
@@ -35,6 +35,29 @@ test('Logged In Basic Auth Page Footer Verification', async ({ page }) => {
   const footerText = await basicAuthPage.getFooterText();
   console.log('Footer Text:', footerText?.trim());
   expect(footerText?.trim()).toBe('Powered by Elemental Selenium');
+   await page.close();
+});
+});
+
+test.describe('Basic Auth Page Tests with Invalid Credentials', () => {
+  test.use({
+  httpCredentials: {
+    username: "invalidUser",
+    password: "password"
+  }
+});
+
+let basicAuthPage: BasicAuthPageOperations; 
+test.beforeEach(async ({ page }) => {
+  // Navigate to the Basic Auth page before each test
+   await page.goto(getHerokuAppUrl());
+   basicAuthPage= await getBasicAuthPage(page);
+});
+
+test('Invalid Login Basic Auth Page Message Verification', async ({ page }) => {
+  const failedLoginMessage = await basicAuthPage.getFailedLoginMessage();
+  console.log('Failed Login Message:', failedLoginMessage?.trim());
+  expect(failedLoginMessage?.trim()).toBe('Not authorized');
    await page.close();
 });
 });
