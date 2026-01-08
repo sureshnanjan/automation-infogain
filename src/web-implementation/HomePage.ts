@@ -40,7 +40,7 @@ export class HomePage extends BasePage implements HomePageOperations {
     getFooterText(): Promise<string | null> {
         throw new Error("Method not implemented.");
     }
-    gotoExample(exampleName: string): Promise<HerokuAppOperations> {
+    gotoExample(exampleName: string): Promise<any> {
         this.exampleSelector.filter({ hasText: exampleName }).first().click();
         return CheckPageAndReturnPO(this.page, exampleName);
        
