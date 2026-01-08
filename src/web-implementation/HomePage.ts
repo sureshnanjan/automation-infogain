@@ -24,8 +24,8 @@ export class HomePage extends BasePage implements HomePageOperations {
     static async create(page:Page) {
           const instance = new HomePage(page);
           // Do async initialization here
-          await instance.navigate();
-          return instance;
+          await instance.navigate(); 
+                     return instance;
         }
       
     async navigate(): Promise<void> {
