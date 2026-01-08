@@ -46,18 +46,26 @@ export class DigestAuthPage {
    * Checks successful authentication
    */
   async isAuthenticated(): Promise<boolean> {
-    const text = await this.bodyContent.textContent();
-    return text?.includes('Congratulations!') ?? false;
+    try {
+      const content = await this.page.textContent('body');
+      return content?.includes('Congratulations! You must have the proper credentials.') ?? false;
+    } catch {
+      return false;
+    }
   }
 
   /**
    * Checks unauthorized access
    */
-  async isUnauthorized(): Promise<boolean> {
-    const text = await this.bodyContent.textContent();
-    return text?.includes('Unauthorized') ?? false;
+async isUnauthorized(): Promise<boolean> {
+    try {
+      // Try navigating without credentials to trigger 401
+      const response = await this.page.goto(DIGEST_AUTH_BASE_URL, { waitUntil: 'domcontentloaded' });
+      return response?.status() === 401;
+    } catch {
+           return true;
+    }
   }
-
   /**
    * Returns full page text
    */

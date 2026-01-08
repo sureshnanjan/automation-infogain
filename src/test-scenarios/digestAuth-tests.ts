@@ -5,7 +5,7 @@ import { getHerokuAppUrl } from '@src/utilities/herokuapp-utils';
 
 test.describe('Digest Authentication', () => {
 
-  test('Digest Authentication – valid credentials', async ({ page }) => {
+  test('Digest Authentication valid credentials', async ({ page }) => {
 
     await page.goto(getHerokuAppUrl());
 
@@ -19,7 +19,7 @@ test.describe('Digest Authentication', () => {
     expect(await digestPage.isAuthenticated()).toBe(true);
   });
 
-  test('Digest Authentication – invalid credentials', async ({ page }) => {
+  test('Digest Authentication invalid credentials', async ({ page }) => {
 
     await page.goto(getHerokuAppUrl());
 
