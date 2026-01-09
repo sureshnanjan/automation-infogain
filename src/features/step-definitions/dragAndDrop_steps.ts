@@ -28,8 +28,8 @@ When('user drags the source element A and drops it into the target element B', a
 });
  
 Then('the element should be dropped successfully from A to B', async function () {
-  const targetHeader1 = await page.textContent('#column-b header');
-  const targetHeader2 = await page.textContent('#column-a header');
+  const targetHeader1 = await dragDrop.locators.columnB.textContent();
+  const targetHeader2 = await dragDrop.locators.columnA.textContent();
   expect(targetHeader1.trim()).toEqual('A');
   expect(targetHeader2.trim()).toEqual('B');
  
@@ -42,8 +42,8 @@ When('user drags the source element B and drops it into the target element A', a
 });
  
 Then('the element should be dropped successfully from B to A', async function () {
-  const targetHeader1 = await page.textContent('#column-b header');
-  const targetHeader2 = await page.textContent('#column-a header');
+  const targetHeader1 = await dragDrop.locators.columnB.textContent();
+  const targetHeader2 = await dragDrop.locators.columnA.textContent();
   expect(targetHeader1.trim()).toEqual('A');
   expect(targetHeader2.trim()).toEqual('B');
  

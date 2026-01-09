@@ -1,5 +1,16 @@
 import { test, expect } from '@playwright/test';
 import { DragDropPage } from '@src/web-implementation/DragAndDropPage';
+
+/**
+ * Test cases for Drag And Drop page
+ */
+test.describe('Dynamic Content', () =>{
+test('Drag and Drop Page has a valid Title', async ({ page }) => {
+  const dragDropPage = new DragDropPage(page);
+  let actualResult = dragDropPage.getTitle();
+    expect(actualResult).toEqual('Drag and Drop');
+});
+
 test('Drag and Drop A to B', async ({ page }) => {
   const dragDropPage = new DragDropPage(page);
  
@@ -31,4 +42,5 @@ test('Drag and Drop A to B', async ({ page }) => {
   // Verification after drag & drop
   await expect(dragDropPage.locators.columnB.locator('header')).toHaveText('A');
   await expect(dragDropPage.locators.columnA.locator('header')).toHaveText('B');
+})
 });

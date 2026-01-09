@@ -7,8 +7,8 @@ export class DragDropPage implements DragDropOperations {
   constructor(private page: Page) {
     this.locators = {
       title: page.locator('h3'),
-      columnA: page.locator('#column-a'),
-      columnB: page.locator('#column-b')
+      columnA: page.locator('#column-a header'),
+      columnB: page.locator('#column-b header')
     };
   }
  
