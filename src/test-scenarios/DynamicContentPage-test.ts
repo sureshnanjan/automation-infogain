@@ -9,29 +9,26 @@ import { DynamicContentPage } from '@src/web-implementation/DynamicContentPage';
  * Dynamic content page tests
  */
 test.describe('Dynamic Content', () =>{
-    test('user can navigate from home page to Dynamic Content page', async({page}) => {
+    let homePage: HomePageOperations;
+    let dynamic: DynamicContentPageOperations;
 
-        const homePage: HomePageOperations = await getHerokuApp(page);
-        const dynamic: DynamicContentPageOperations = new DynamicContentPage(page);
-        await dynamic.goto();
+    test.beforeEach(async ({ page }) => {
+        const testPage = "Dynamic Content";
+        homePage = await getHerokuApp(page);
+        dynamic = (await homePage.gotoExample(testPage) as unknown) as DynamicContentPageOperations;
         await dynamic.isLoaded();
-        await expect(page).toHaveURL(/.*\/dynamic_content/);
+    });
 
+    test('user can navigate from home page to Dynamic Content page', async({page}) => {
+        await expect(page).toHaveURL(/.*\/dynamic_content/);
     })
 
     test("Verify Dynamic Content Page Title",async({page})=>{
-        const dynamic: DynamicContentPageOperations = new DynamicContentPage(page);
-        await dynamic.goto();
-        await dynamic.isLoaded();
-        const title = await dynamic.getTitle();
+        const title = (await dynamic.getTitle())?.trim();
         expect(title).toBe("Dynamic Content");
     });
 
     test('default dynamic page shows three rows with images and texts', async({page}) =>{
-        const dynamic: DynamicContentPageOperations = new DynamicContentPage(page);
-        await dynamic.goto();
-        await dynamic.isLoaded();
-
         const texts = await dynamic.getRowText();
         const images = await dynamic.getImageSources();
         expect(texts.length).toBe(3);
@@ -43,9 +40,6 @@ test.describe('Dynamic Content', () =>{
     })
 
     test('content changes when reloaded on dynamic content page', async({page}) =>{
-        const dynamic: DynamicContentPageOperations = new DynamicContentPage(page);
-        await dynamic.goto();
-        await dynamic.isLoaded();
         const firstRunText = await dynamic.getRowText();
         await page.reload();
         await dynamic.isLoaded();
@@ -56,10 +50,6 @@ test.describe('Dynamic Content', () =>{
     })
 
     test('static version keeps some of the content unchanged when page reloaded', async({page}) =>{
-        const dynamic: DynamicContentPageOperations = new DynamicContentPage(page);
-        await dynamic.goto();
-        await dynamic.isLoaded();
-        
         await dynamic.gotoStaticVersion();
         await dynamic.isLoaded();
         const firstRunTexts = await dynamic.getRowText();
@@ -77,11 +67,8 @@ test.describe('Dynamic Content', () =>{
 
     })
 
-
     test('static version can be enabled via "click here" link', async({page}) =>{
-        const dynamic: DynamicContentPageOperations = new DynamicContentPage(page);
-        await dynamic.goto();
-        await dynamic.isLoaded();
+        
         // 1. Transition to static version using the UI link
         await dynamic.enableStaticViaLink();
 

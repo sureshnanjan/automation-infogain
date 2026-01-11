@@ -16,7 +16,8 @@ export class HomePage extends BasePage implements HomePageOperations {
         //this.page.locator.
         this.titleSelector = page.locator('h1'); // data-testid = 'home-title'
         this.subTitleSelector = page.locator('h2'); // data-testid = 'home-subtitle'
-        this.exampleSelector = page.getByRole('listitem'); // data-testid = 'example-link'
+        //this.exampleSelector = page.getByRole('listitem'); // data-testid = 'example-link'
+        this.exampleSelector = page.locator('ul li a'); 
         //this.page.goto(getHerokuAppUrl());
         //this.navigate();
     }
@@ -40,11 +41,13 @@ export class HomePage extends BasePage implements HomePageOperations {
     getFooterText(): Promise<string | null> {
         throw new Error("Method not implemented.");
     }
-    gotoExample(exampleName: string): Promise<HerokuAppOperations> {
-        this.exampleSelector.filter({ hasText: exampleName }).first().click();
-        return CheckPageAndReturnPO(this.page, exampleName);
-       
-    }
+async gotoExample(exampleName: string): Promise<HerokuAppOperations> {
+    const anchor = this.exampleSelector.filter({ hasText: exampleName }).first();
+    await anchor.waitFor({ state: 'visible' });
+    await anchor.click();
+    await this.page.waitForLoadState('domcontentloaded');
+    return await CheckPageAndReturnPO(this.page, exampleName);
+}
     async getSubTitle(): Promise<string|null> {
         return this.subTitleSelector.textContent();
     }
@@ -58,7 +61,12 @@ export class HomePage extends BasePage implements HomePageOperations {
         return this.titleSelector.textContent();
     }}   
 
-function CheckPageAndReturnPO(page, expectedTitle) {
+async function CheckPageAndReturnPO(page: any, expectedTitle: string): Promise<any> {
+    if (expectedTitle === 'Dynamic Content') {
+        const dynamicContentModule = require('@src/web-implementation/DynamicContentPage');
+        return new dynamicContentModule.DynamicContentPage(page);
+    }
+
     const abTestingPageModule = require('@src/web-implementation/ABTestingPage');
     // Exception Handling
     return new abTestingPageModule.ABTestingPage(page);

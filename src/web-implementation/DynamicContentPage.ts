@@ -1,12 +1,13 @@
 import { Expect, expect, Locator, Page } from "@playwright/test";
 import { DynamicContentPageOperations } from "@src/operations/DynamicContentPageOperations";
 import { getHerokuAppUrl } from "@src/utilities/herokuapp-utils";
+import { BasePage } from "./BasePage";
 
 /**
- * DynamicContentPage is the concrete implementation of IDynamicContentPage.
+ * DynamicContentPage is the concrete implementation of DynamicContentPageOperations.
  */
 
-export class DynamicContentPage implements DynamicContentPageOperations {
+export class DynamicContentPage extends BasePage implements DynamicContentPageOperations {
     readonly page: Page;
 
     readonly headerTitle: Locator;
@@ -15,7 +16,8 @@ export class DynamicContentPage implements DynamicContentPageOperations {
     readonly imagesInRows: Locator;
     readonly textInRows: Locator;
 
-    constructor(page: Page) {
+    constructor(page: Page) { 
+        super();
         this.page = page;
         this.headerTitle = page.locator('h3', {hasText: 'Dynamic Content'});
         this.staticLink = page.getByRole('link', {name: 'click here'});
