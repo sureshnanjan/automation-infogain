@@ -21,7 +21,7 @@ export class DigestAuthPage {
    * Navigates to Digest Auth page using HTTP credentials
    * Supports both positive & negative scenarios
    */
-  async navigateWithCredentials(
+  async doLogin(
     username: string,
     password: string
   ): Promise<void> {

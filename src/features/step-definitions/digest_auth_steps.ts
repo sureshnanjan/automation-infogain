@@ -18,7 +18,7 @@ Given('User is on Heroku App Home Page', async ({ page }) => {
 When(
   'User navigates to Digest Auth page with {string} and {string}',
   async ({ page }, username: string, password: string) => {
-    await digestAuthPage.navigateWithCredentials(username, password);
+    await digestAuthPage.doLogin(username, password);
   }
 );
 
@@ -37,6 +37,6 @@ Then(
     expect(isUnauthorized).toBe(true);
     } else {
       throw new Error(`Unknown authentication result: ${result}`);
-    }
+         }
   }
 );
