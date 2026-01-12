@@ -1,9 +1,7 @@
 import { HomePageOperations } from "@src/operations/HomePageOperations";
-import { HomePage } from "@src/web-implementation/HomePage";   
+import { HomePage } from "@src/web-implementation/HomePage";
 import { Page } from "@playwright/test";
 import { Logger } from "./Logger";
-import { BasicAuthPageOperations } from "@src/operations/BasicAuthPageOperations";
-import { BasicAuth } from "@src/web-implementation/BasicAuth";
 import {parse} from 'csv-parse/sync';
 import { promises as fs } from "fs";
 import { readFileSync } from "fs";
@@ -28,11 +26,6 @@ export async function getHerokuApp(page:Page): Promise<HomePageOperations> {
     //app.navigate();
     //return app;
 
-}
-
-export async function getBasicAuthPage(page:Page): Promise<BasicAuthPageOperations> {
-
-    return  BasicAuth.create(page);
 }
 
 export async function ReadTheHugeDataFromExcel(){
