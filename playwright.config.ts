@@ -23,8 +23,8 @@ let lastname = ""
 export default defineConfig({
   //testDir: './src',
 
-  testDir: testDir,
-  //testDir: './src',
+  //testDir: testDir,
+  testDir: 'src/test-scenarios',
   //testMatch: '**/*.ts',
   /* Run tests in files in parallel */
   fullyParallel: true,

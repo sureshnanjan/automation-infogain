@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "C:\\QA-Training\\automation-infogain\\playwright.config.ts",
-    "rootDir": "C:/QA-Training/automation-infogain/.features-gen",
+    "configFile": "C:\\Trainings-2025\\infogain\\automation-infogain\\playwright.config.ts",
+    "rootDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 6
+      "actualWorkers": 1
     },
     "preserveOutput": "always",
     "reporter": [
@@ -37,11 +37,43 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 6
+          "actualWorkers": 1
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "C:/QA-Training/automation-infogain/.features-gen",
+        "testDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -59,492 +91,76 @@
   },
   "suites": [
     {
-      "title": "src\\features\\basic_auth.feature.spec.js",
-      "file": "src/features/basic_auth.feature.spec.js",
+      "title": "network_intercepts.spec.ts",
+      "file": "network_intercepts.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Basic Auth Page Verification",
-          "file": "src/features/basic_auth.feature.spec.js",
-          "line": 4,
-          "column": 6,
-          "specs": [],
-          "suites": [
+          "title": "page.route does not affect APIRequestContext",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "Basic Auth with various credentials",
-              "file": "src/features/basic_auth.feature.spec.js",
-              "line": 10,
-              "column": 8,
-              "specs": [
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
                 {
-                  "title": "Example #1",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1083,
+                  "errors": [],
+                  "stdout": [
                     {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "chromium",
-                      "projectName": "chromium",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 14491,
-                          "errors": [],
-                          "stdout": [
-                            {
-                              "text": "C:\\QA-Training\\automation-infogain\\src\\utilities\n"
-                            },
-                            {
-                              "text": "C:\\QA-Training\\automation-infogain\\src\\utilities\\herokuapp-utils.ts\n"
-                            },
-                            {
-                              "text": "[\n  {\n    fname: \u001b[32m'Smith'\u001b[39m,\n    lname: \u001b[32m'John'\u001b[39m,\n    email: \u001b[32m'jsmith@gmail.com'\u001b[39m,\n    due: \u001b[32m'$50.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Bach'\u001b[39m,\n    lname: \u001b[32m'Frank'\u001b[39m,\n    email: \u001b[32m'fbach@yahoo.com'\u001b[39m,\n    due: \u001b[32m'$51.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Doe'\u001b[39m,\n    lname: \u001b[32m'Jason'\u001b[39m,\n    email: \u001b[32m'jdoe@hotmail.com'\u001b[39m,\n    due: \u001b[32m'$100.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Conway'\u001b[39m,\n    lname: \u001b[32m'Tim'\u001b[39m,\n    email: \u001b[32m'tconway@earthlink.net'\u001b[39m,\n    due: \u001b[32m'$50.00'\u001b[39m\n  }\n]\n"
-                            }
-                          ],
-                          "stderr": [],
-                          "retry": 0,
-                          "steps": [
-                            {
-                              "title": "Given User logs in with username \"admin\" and password \"admin\"",
-                              "duration": 377
-                            },
-                            {
-                              "title": "When User observes the Basic Auth Status Message",
-                              "duration": 729
-                            },
-                            {
-                              "title": "Then Status Message should contain \"Congratulations! You must have the proper credentials.\"",
-                              "duration": 2
-                            }
-                          ],
-                          "startTime": "2026-01-12T03:43:26.238Z",
-                          "annotations": [],
-                          "attachments": [
-                            {
-                              "name": "screenshot",
-                              "contentType": "image/png",
-                              "path": "C:\\QA-Training\\automation-infogain\\test-results\\src-features-basic_auth.fe-25b32-rious-credentials-Example-1-chromium\\test-finished-1.png"
-                            }
-                          ]
-                        }
-                      ],
-                      "status": "expected"
+                      "text": "TAP version 13\n"
+                    },
+                    {
+                      "text": "# Subtest: Network Intercepts and Mocks\n"
+                    },
+                    {
+                      "text": "ok 1 - Network Intercepts and Mocks\n"
+                    },
+                    {
+                      "text": "  ---\n  duration_ms: 0.6613\n  type: 'suite'\n  ...\n"
+                    },
+                    {
+                      "text": "Leanne Graham\n"
                     }
                   ],
-                  "id": "57da057ca88078568c52-4dce4f0ebff7d372a0f3",
-                  "file": "src/features/basic_auth.feature.spec.js",
-                  "line": 12,
-                  "column": 9
-                },
-                {
-                  "title": "Example #2",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "chromium",
-                      "projectName": "chromium",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 14352,
-                          "errors": [],
-                          "stdout": [
-                            {
-                              "text": "C:\\QA-Training\\automation-infogain\\src\\utilities\n"
-                            },
-                            {
-                              "text": "C:\\QA-Training\\automation-infogain\\src\\utilities\\herokuapp-utils.ts\n"
-                            },
-                            {
-                              "text": "[\n  {\n    fname: \u001b[32m'Smith'\u001b[39m,\n    lname: \u001b[32m'John'\u001b[39m,\n    email: \u001b[32m'jsmith@gmail.com'\u001b[39m,\n    due: \u001b[32m'$50.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Bach'\u001b[39m,\n    lname: \u001b[32m'Frank'\u001b[39m,\n    email: \u001b[32m'fbach@yahoo.com'\u001b[39m,\n    due: \u001b[32m'$51.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Doe'\u001b[39m,\n    lname: \u001b[32m'Jason'\u001b[39m,\n    email: \u001b[32m'jdoe@hotmail.com'\u001b[39m,\n    due: \u001b[32m'$100.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Conway'\u001b[39m,\n    lname: \u001b[32m'Tim'\u001b[39m,\n    email: \u001b[32m'tconway@earthlink.net'\u001b[39m,\n    due: \u001b[32m'$50.00'\u001b[39m\n  }\n]\n"
-                            }
-                          ],
-                          "stderr": [],
-                          "retry": 0,
-                          "steps": [
-                            {
-                              "title": "Given User logs in with username \"invalidUser\" and password \"invalidPass\"",
-                              "duration": 392
-                            },
-                            {
-                              "title": "When User observes the Basic Auth Status Message",
-                              "duration": 639
-                            },
-                            {
-                              "title": "Then Status Message should contain \"Not authorized\"",
-                              "duration": 2
-                            }
-                          ],
-                          "startTime": "2026-01-12T03:43:26.295Z",
-                          "annotations": [],
-                          "attachments": [
-                            {
-                              "name": "screenshot",
-                              "contentType": "image/png",
-                              "path": "C:\\QA-Training\\automation-infogain\\test-results\\src-features-basic_auth.fe-22141-rious-credentials-Example-2-chromium\\test-finished-1.png"
-                            }
-                          ]
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "57da057ca88078568c52-dc458e3d6079dad8ce12",
-                  "file": "src/features/basic_auth.feature.spec.js",
-                  "line": 18,
-                  "column": 9
-                },
-                {
-                  "title": "Example #3",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "chromium",
-                      "projectName": "chromium",
-                      "results": [
-                        {
-                          "workerIndex": 2,
-                          "parallelIndex": 2,
-                          "status": "passed",
-                          "duration": 15630,
-                          "errors": [],
-                          "stdout": [
-                            {
-                              "text": "C:\\QA-Training\\automation-infogain\\src\\utilities\n"
-                            },
-                            {
-                              "text": "C:\\QA-Training\\automation-infogain\\src\\utilities\\herokuapp-utils.ts\n"
-                            },
-                            {
-                              "text": "[\n  {\n    fname: \u001b[32m'Smith'\u001b[39m,\n    lname: \u001b[32m'John'\u001b[39m,\n    email: \u001b[32m'jsmith@gmail.com'\u001b[39m,\n    due: \u001b[32m'$50.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Bach'\u001b[39m,\n    lname: \u001b[32m'Frank'\u001b[39m,\n    email: \u001b[32m'fbach@yahoo.com'\u001b[39m,\n    due: \u001b[32m'$51.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Doe'\u001b[39m,\n    lname: \u001b[32m'Jason'\u001b[39m,\n    email: \u001b[32m'jdoe@hotmail.com'\u001b[39m,\n    due: \u001b[32m'$100.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Conway'\u001b[39m,\n    lname: \u001b[32m'Tim'\u001b[39m,\n    email: \u001b[32m'tconway@earthlink.net'\u001b[39m,\n    due: \u001b[32m'$50.00'\u001b[39m\n  }\n]\n"
-                            }
-                          ],
-                          "stderr": [],
-                          "retry": 0,
-                          "steps": [
-                            {
-                              "title": "Given User logs in with username \"admin\" and password \"invalidPass\"",
-                              "duration": 298
-                            },
-                            {
-                              "title": "When User observes the Basic Auth Status Message",
-                              "duration": 601
-                            },
-                            {
-                              "title": "Then Status Message should contain \"Not authorized\"",
-                              "duration": 1
-                            }
-                          ],
-                          "startTime": "2026-01-12T03:43:26.258Z",
-                          "annotations": [],
-                          "attachments": [
-                            {
-                              "name": "screenshot",
-                              "contentType": "image/png",
-                              "path": "C:\\QA-Training\\automation-infogain\\test-results\\src-features-basic_auth.fe-3801d-rious-credentials-Example-3-chromium\\test-finished-1.png"
-                            }
-                          ]
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "57da057ca88078568c52-ea0908821bae5ed05d30",
-                  "file": "src/features/basic_auth.feature.spec.js",
-                  "line": 24,
-                  "column": 9
-                },
-                {
-                  "title": "Example #4",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "chromium",
-                      "projectName": "chromium",
-                      "results": [
-                        {
-                          "workerIndex": 3,
-                          "parallelIndex": 3,
-                          "status": "passed",
-                          "duration": 14365,
-                          "errors": [],
-                          "stdout": [
-                            {
-                              "text": "C:\\QA-Training\\automation-infogain\\src\\utilities\n"
-                            },
-                            {
-                              "text": "C:\\QA-Training\\automation-infogain\\src\\utilities\\herokuapp-utils.ts\n"
-                            },
-                            {
-                              "text": "[\n  {\n    fname: \u001b[32m'Smith'\u001b[39m,\n    lname: \u001b[32m'John'\u001b[39m,\n    email: \u001b[32m'jsmith@gmail.com'\u001b[39m,\n    due: \u001b[32m'$50.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Bach'\u001b[39m,\n    lname: \u001b[32m'Frank'\u001b[39m,\n    email: \u001b[32m'fbach@yahoo.com'\u001b[39m,\n    due: \u001b[32m'$51.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Doe'\u001b[39m,\n    lname: \u001b[32m'Jason'\u001b[39m,\n    email: \u001b[32m'jdoe@hotmail.com'\u001b[39m,\n    due: \u001b[32m'$100.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Conway'\u001b[39m,\n    lname: \u001b[32m'Tim'\u001b[39m,\n    email: \u001b[32m'tconway@earthlink.net'\u001b[39m,\n    due: \u001b[32m'$50.00'\u001b[39m\n  }\n]\n"
-                            }
-                          ],
-                          "stderr": [],
-                          "retry": 0,
-                          "steps": [
-                            {
-                              "title": "Given User logs in with username \"invalidUser\" and password \"admin\"",
-                              "duration": 327
-                            },
-                            {
-                              "title": "When User observes the Basic Auth Status Message",
-                              "duration": 638
-                            },
-                            {
-                              "title": "Then Status Message should contain \"Not authorized\"",
-                              "duration": 2
-                            }
-                          ],
-                          "startTime": "2026-01-12T03:43:26.249Z",
-                          "annotations": [],
-                          "attachments": [
-                            {
-                              "name": "screenshot",
-                              "contentType": "image/png",
-                              "path": "C:\\QA-Training\\automation-infogain\\test-results\\src-features-basic_auth.fe-e14ef-rious-credentials-Example-4-chromium\\test-finished-1.png"
-                            }
-                          ]
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "57da057ca88078568c52-6d1127370e9d740fac43",
-                  "file": "src/features/basic_auth.feature.spec.js",
-                  "line": 30,
-                  "column": 9
-                },
-                {
-                  "title": "Example #5",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 30000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "chromium",
-                      "projectName": "chromium",
-                      "results": [
-                        {
-                          "workerIndex": 4,
-                          "parallelIndex": 4,
-                          "status": "passed",
-                          "duration": 14063,
-                          "errors": [],
-                          "stdout": [
-                            {
-                              "text": "C:\\QA-Training\\automation-infogain\\src\\utilities\n"
-                            },
-                            {
-                              "text": "C:\\QA-Training\\automation-infogain\\src\\utilities\\herokuapp-utils.ts\n"
-                            },
-                            {
-                              "text": "[\n  {\n    fname: \u001b[32m'Smith'\u001b[39m,\n    lname: \u001b[32m'John'\u001b[39m,\n    email: \u001b[32m'jsmith@gmail.com'\u001b[39m,\n    due: \u001b[32m'$50.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Bach'\u001b[39m,\n    lname: \u001b[32m'Frank'\u001b[39m,\n    email: \u001b[32m'fbach@yahoo.com'\u001b[39m,\n    due: \u001b[32m'$51.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Doe'\u001b[39m,\n    lname: \u001b[32m'Jason'\u001b[39m,\n    email: \u001b[32m'jdoe@hotmail.com'\u001b[39m,\n    due: \u001b[32m'$100.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Conway'\u001b[39m,\n    lname: \u001b[32m'Tim'\u001b[39m,\n    email: \u001b[32m'tconway@earthlink.net'\u001b[39m,\n    due: \u001b[32m'$50.00'\u001b[39m\n  }\n]\n"
-                            }
-                          ],
-                          "stderr": [],
-                          "retry": 0,
-                          "steps": [
-                            {
-                              "title": "Given User logs in with username \"\" and password \"\"",
-                              "duration": 534
-                            },
-                            {
-                              "title": "When User observes the Basic Auth Status Message",
-                              "duration": 319
-                            },
-                            {
-                              "title": "Then Status Message should contain \"Not authorized\"",
-                              "duration": 2
-                            }
-                          ],
-                          "startTime": "2026-01-12T03:43:26.299Z",
-                          "annotations": [],
-                          "attachments": [
-                            {
-                              "name": "screenshot",
-                              "contentType": "image/png",
-                              "path": "C:\\QA-Training\\automation-infogain\\test-results\\src-features-basic_auth.fe-2b2f0-rious-credentials-Example-5-chromium\\test-finished-1.png"
-                            }
-                          ]
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "57da057ca88078568c52-eb07b6b41eb9f2ff08a6",
-                  "file": "src/features/basic_auth.feature.spec.js",
-                  "line": 36,
-                  "column": 9
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "src\\features\\home_page.feature.spec.js",
-      "file": "src/features/home_page.feature.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Heroku App Home Page functionality",
-          "file": "src/features/home_page.feature.spec.js",
-          "line": 4,
-          "column": 6,
-          "specs": [
-            {
-              "title": "Home Page has a valid Title",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-08T06:08:53.990Z",
                   "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
+                  "attachments": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 5,
-                      "status": "passed",
-                      "duration": 13807,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "C:\\QA-Training\\automation-infogain\\src\\utilities\n"
-                        },
-                        {
-                          "text": "C:\\QA-Training\\automation-infogain\\src\\utilities\\herokuapp-utils.ts\n"
-                        },
-                        {
-                          "text": "[\n  {\n    fname: \u001b[32m'Smith'\u001b[39m,\n    lname: \u001b[32m'John'\u001b[39m,\n    email: \u001b[32m'jsmith@gmail.com'\u001b[39m,\n    due: \u001b[32m'$50.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Bach'\u001b[39m,\n    lname: \u001b[32m'Frank'\u001b[39m,\n    email: \u001b[32m'fbach@yahoo.com'\u001b[39m,\n    due: \u001b[32m'$51.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Doe'\u001b[39m,\n    lname: \u001b[32m'Jason'\u001b[39m,\n    email: \u001b[32m'jdoe@hotmail.com'\u001b[39m,\n    due: \u001b[32m'$100.00'\u001b[39m\n  },\n  {\n    fname: \u001b[32m'Conway'\u001b[39m,\n    lname: \u001b[32m'Tim'\u001b[39m,\n    email: \u001b[32m'tconway@earthlink.net'\u001b[39m,\n    due: \u001b[32m'$50.00'\u001b[39m\n  }\n]\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "steps": [
-                        {
-                          "title": "Given User Visits HomePage",
-                          "duration": 365
-                        },
-                        {
-                          "title": "When User Observes Title",
-                          "duration": 17
-                        },
-                        {
-                          "title": "Then title should match \"Welcome to the-internet\"",
-                          "duration": 2
-                        }
-                      ],
-                      "startTime": "2026-01-12T03:43:26.246Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\QA-Training\\automation-infogain\\test-results\\src-features-home_page.fea-a0662-Home-Page-has-a-valid-Title-chromium\\test-finished-1.png"
-                        }
-                      ]
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Trainings-2025\\infogain\\automation-infogain\\test-results\\network_intercepts-page-ro-9ca63-ot-affect-APIRequestContext-chromium\\trace.zip"
                     }
-                  ],
-                  "status": "expected"
+                  ]
                 }
               ],
-              "id": "5c90d46ba501b38b18f6-96a09658d21608c403a5",
-              "file": "src/features/home_page.feature.spec.js",
-              "line": 10,
-              "column": 7
-            },
-            {
-              "title": "Home Page has a valid Sub-Title",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 5,
-                      "parallelIndex": 5,
-                      "status": "passed",
-                      "duration": 4305,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "steps": [
-                        {
-                          "title": "Given User Visits HomePage",
-                          "duration": 344
-                        },
-                        {
-                          "title": "When User Observes Sub-Title",
-                          "duration": 18
-                        },
-                        {
-                          "title": "Then subtitle should match \"Available Examples\"",
-                          "duration": 5
-                        }
-                      ],
-                      "startTime": "2026-01-12T03:43:42.241Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\QA-Training\\automation-infogain\\test-results\\src-features-home_page.fea-88bb2--Page-has-a-valid-Sub-Title-chromium\\test-finished-1.png"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "5c90d46ba501b38b18f6-aa20a3223dd360b74515",
-              "file": "src/features/home_page.feature.spec.js",
-              "line": 16,
-              "column": 7
+              "status": "expected"
             }
-          ]
+          ],
+          "id": "43026733a28354993faa-69b58c736fb63e555f6d",
+          "file": "network_intercepts.spec.ts",
+          "line": 92,
+          "column": 9
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-12T03:43:24.769Z",
-    "duration": 21888.743000000002,
-    "expected": 7,
+    "startTime": "2026-01-08T06:08:51.689Z",
+    "duration": 3881.181999999797,
+    "expected": 1,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

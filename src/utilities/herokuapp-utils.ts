@@ -16,7 +16,9 @@ import { join } from "path";
 export function getHerokuAppUrl(): string {
     // Env Files
     // URL Factory - testing , stshing, production, customer , 
-    return 'https://the-internet.herokuapp.com/';
+    //return 'https://the-internet.herokuapp.com/';
+    const url = ReadTheHugeDataFromJSON('heroku.config.json')['url'];
+    return url;
 }
 
 export async function getHerokuApp(page:Page): Promise<HomePageOperations> {
