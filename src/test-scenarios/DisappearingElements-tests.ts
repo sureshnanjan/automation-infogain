@@ -12,9 +12,8 @@ test("Verify Home Page Title", async ({ page }) => {
 });
 
 
-test('Validate header and description text', async ({ page }) => {
-    const homePage: HomePageOperations = await getHerokuApp(page);
-    const disappearingElementsApp = homePage.gotoExample("Disappearing Elements") as unknown as DisappearingElementsOperations;
+ test('Validate header and description text', async ({ page }) => {
+    const disappearingElementsApp: DisappearingElementsOperations = await getDisappearingElementsApp(page);
     const headerText = await disappearingElementsApp.getHeaderText();
     const descriptionText = await disappearingElementsApp.getDescriptionText();
 
