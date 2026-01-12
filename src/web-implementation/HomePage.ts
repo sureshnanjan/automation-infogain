@@ -16,9 +16,12 @@ export class HomePage extends BasePage implements HomePageOperations {
         //this.page.locator.
         this.titleSelector = page.locator('h1'); // data-testid = 'home-title'
         this.subTitleSelector = page.locator('h2'); // data-testid = 'home-subtitle'
-        this.exampleSelector = page.getByRole('listitem'); // data-testid = 'example-link'
+        this.exampleSelector = page.locator('a'); // data-testid = 'example-link'
         //this.page.goto(getHerokuAppUrl());
         //this.navigate();
+    }
+    setPageLocale(locale: string): Promise<void> {
+        throw new Error("Method not implemented.");
     }
     // Only Holds good in Async Libraries
     static async create(page:Page) {
@@ -40,8 +43,9 @@ export class HomePage extends BasePage implements HomePageOperations {
     getFooterText(): Promise<string | null> {
         throw new Error("Method not implemented.");
     }
-    gotoExample(exampleName: string): Promise<any> {
-        this.exampleSelector.filter({ hasText: exampleName }).first().click();
+    async gotoExample(exampleName: string): Promise<any> {
+      
+        await this.exampleSelector.filter({ hasText: exampleName }).first().click();
         return CheckPageAndReturnPO(this.page, exampleName);
        
     }
@@ -64,7 +68,7 @@ function CheckPageAndReturnPO(page, expectedTitle) {
             return new (require('@src/web-implementation/ABTestingPage').ABTestingPage)(page);
             break;
         case 'Basic Auth':
-            return new (require('@src/web-implementation/BasicAuthPage').BasicAuthPage)(page);
+            return new (require('@src/web-implementation/BasicAuth').BasicAuth)(page);
             break;
         case 'Sortable Data Tables':
             return new (require('@src/web-implementation/SortableTablePage').SortableTablePage)(page);

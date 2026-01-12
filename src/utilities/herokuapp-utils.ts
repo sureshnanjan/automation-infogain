@@ -2,6 +2,7 @@ import { HomePageOperations } from "@src/operations/HomePageOperations";
 import { HomePage } from "@src/web-implementation/HomePage";
 import { Page } from "@playwright/test";
 import { Logger } from "./Logger";
+import { BasicAuthPageOperations } from "@src/operations/BasicAuthPageOperations";
 import {parse} from 'csv-parse/sync';
 import { promises as fs } from "fs";
 import { readFileSync } from "fs";
@@ -15,8 +16,11 @@ export function getHerokuAppUrl(): string {
     // Env Files
     // URL Factory - testing , stshing, production, customer , 
     //return 'https://the-internet.herokuapp.com/';
-    const url = ReadTheHugeDataFromJSON('heroku.config.json')['url'];
-    return url;
+    const config = ReadJsonFile('heroku.config.json');
+    if (!config || typeof config.url !== 'string') {
+        throw new Error("Invalid heroku.config.json: missing 'url' string");
+    }
+    return config.url;
 }
 
 export async function getHerokuApp(page:Page): Promise<HomePageOperations> {
@@ -26,6 +30,12 @@ export async function getHerokuApp(page:Page): Promise<HomePageOperations> {
     //app.navigate();
     //return app;
 
+}
+
+export async function getBasicAuthPage(page: Page): Promise<BasicAuthPageOperations> {
+  const homePage = await getHerokuApp(page);
+  const basicAuthPage = homePage.gotoExample("Basic Auth") as unknown as BasicAuthPageOperations;
+  return basicAuthPage;
 }
 
 export async function ReadTheHugeDataFromExcel(){
@@ -77,13 +87,23 @@ function isUser(value: any): value is SortTableUser {
 /**
  * Parse users from a JSON file
  */
-export function ReadTheHugeDataFromJSON(filePath: string):SortTableUser[]{
+export function ReadJsonFile(filePath: string): any {
   const raw = readFileSync(filePath, "utf-8");
-  const data = JSON.parse(raw);
-  //JSON.stringify(mydata);
+  try {
+    return JSON.parse(raw);
+  } catch (err) {
+    throw new Error(`Failed to parse JSON file ${filePath}: ${err}`);
+  }
+}
+
+export function ReadTheHugeDataFromJSON(filePath: string): SortTableUser[] {
+  const data = ReadJsonFile(filePath);
+  console.log("Data:", data);
+
   if (!Array.isArray(data)) {
     throw new Error("Invalid JSON format: expected an array");
   }
+
   const users: SortTableUser[] = [];
 
   for (const item of data) {
@@ -97,9 +117,9 @@ export function ReadTheHugeDataFromJSON(filePath: string):SortTableUser[]{
 }
 
 // Example usage
-const usersFile = join('src/data','sortable-tables-users.json');
+//const usersFile = join('src/data','sortable-tables-users.json');
 // C:\Trainings-2025\infogain\automation-infogain\src\data\html-table-entries.csv
-console.log(__dirname);
-console.log(__filename);
-const users = ReadTheHugeDataFromJSON(usersFile);
-console.log(users);
+// console.log(__dirname);
+// console.log(__filename);
+// const users = ReadTheHugeDataFromJSON(usersFile);
+// console.log(users);

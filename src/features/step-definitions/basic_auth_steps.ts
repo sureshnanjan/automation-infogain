@@ -14,13 +14,13 @@ Given('The App is launched', async ({page}) => {
 });
 
 Given('User logs in with username {string} and password {string}', async ({page}, arg: string, arg1: string) => {
-  basicAuthPage=await getBasicAuthPage(page);
+  basicAuthPage= await homePage.gotoExample('Basic Auth') as unknown as BasicAuthPageOperations;
   basicAuthPage.doLogin(arg, arg1);
 
 });
 
 Given('User attempts to access Basic Auth page without credentials', async ({page}) => {
-  basicAuthPage=await getBasicAuthPage(page);
+ basicAuthPage= await homePage.gotoExample('Basic Auth') as unknown as BasicAuthPageOperations;
   basicAuthPage.doLogin('', '');
 });
 

@@ -47,6 +47,7 @@
     "@faker-js/faker": "^10.2.0",
     "csv-parse": "^6.1.0",
     "csv-parser": "^3.2.0",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "tsconfig-paths": "^4.2.0"
   }
 }

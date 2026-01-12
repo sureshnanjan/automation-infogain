@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "C:\\Trainings-2025\\infogain\\automation-infogain\\playwright.config.ts",
-    "rootDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios",
+    "configFile": "C:\\QA-Training\\automation-infogain\\playwright.config.ts",
+    "rootDir": "C:/QA-Training/automation-infogain/src",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 5
     },
     "preserveOutput": "always",
     "reporter": [
@@ -37,46 +37,14 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 5
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios",
+        "testDir": "C:/QA-Training/automation-infogain/src",
         "testIgnore": [],
         "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
-        ],
-        "timeout": 30000
-      },
-      {
-        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
-        "id": "firefox",
-        "name": "firefox",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios",
-        "testIgnore": [],
-        "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
-        ],
-        "timeout": 30000
-      },
-      {
-        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
-        "id": "webkit",
-        "name": "webkit",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios",
-        "testIgnore": [],
-        "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          "**/*.ts"
         ],
         "timeout": 30000
       }
@@ -91,14 +59,13 @@
   },
   "suites": [
     {
-      "title": "network_intercepts.spec.ts",
-      "file": "network_intercepts.spec.ts",
+      "title": "test-scenarios\\basicauth-tests.ts",
+      "file": "test-scenarios/basicauth-tests.ts",
       "column": 0,
       "line": 0,
-      "specs": [],
-      "suites": [
+      "specs": [
         {
-          "title": "page.route does not affect APIRequestContext",
+          "title": "Basic Auth Page Access with Valid Credentials",
           "ok": true,
           "tags": [],
           "tests": [
@@ -110,37 +77,21 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 7,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1083,
+                  "duration": 5221,
                   "errors": [],
-                  "stdout": [
-                    {
-                      "text": "TAP version 13\n"
-                    },
-                    {
-                      "text": "# Subtest: Network Intercepts and Mocks\n"
-                    },
-                    {
-                      "text": "ok 1 - Network Intercepts and Mocks\n"
-                    },
-                    {
-                      "text": "  ---\n  duration_ms: 0.6613\n  type: 'suite'\n  ...\n"
-                    },
-                    {
-                      "text": "Leanne Graham\n"
-                    }
-                  ],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-01-08T06:08:53.990Z",
+                  "startTime": "2026-01-12T16:17:56.794Z",
                   "annotations": [],
                   "attachments": [
                     {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "C:\\Trainings-2025\\infogain\\automation-infogain\\test-results\\network_intercepts-page-ro-9ca63-ot-affect-APIRequestContext-chromium\\trace.zip"
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\QA-Training\\automation-infogain\\test-results\\test-scenarios-basicauth-t-7e81b-cess-with-Valid-Credentials-chromium\\test-finished-1.png"
                     }
                   ]
                 }
@@ -148,19 +99,179 @@
               "status": "expected"
             }
           ],
-          "id": "43026733a28354993faa-69b58c736fb63e555f6d",
-          "file": "network_intercepts.spec.ts",
-          "line": 92,
-          "column": 9
+          "id": "357eecb7a43d62f8f084-a9dbe02a6d22835a9d59",
+          "file": "test-scenarios/basicauth-tests.ts",
+          "line": 5,
+          "column": 5
+        },
+        {
+          "title": "Basic Auth Page Access with Invalid Credentials",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5323,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-12T16:17:56.764Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\QA-Training\\automation-infogain\\test-results\\test-scenarios-basicauth-t-d7a8b-ss-with-Invalid-Credentials-chromium\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "357eecb7a43d62f8f084-fa1ed8e9564e5f5d530e",
+          "file": "test-scenarios/basicauth-tests.ts",
+          "line": 18,
+          "column": 5
+        },
+        {
+          "title": "Basic Auth Page Access with Invalid Username",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 5246,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-12T16:17:56.773Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\QA-Training\\automation-infogain\\test-results\\test-scenarios-basicauth-t-d6011-ccess-with-Invalid-Username-chromium\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "357eecb7a43d62f8f084-f2e03f566d5e0f481708",
+          "file": "test-scenarios/basicauth-tests.ts",
+          "line": 28,
+          "column": 5
+        },
+        {
+          "title": "Basic Auth Page Access with Invalid Password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 5048,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-12T16:17:56.781Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\QA-Training\\automation-infogain\\test-results\\test-scenarios-basicauth-t-0dc96-ccess-with-Invalid-Password-chromium\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "357eecb7a43d62f8f084-31f7f5ca29c32c1ca411",
+          "file": "test-scenarios/basicauth-tests.ts",
+          "line": 38,
+          "column": 5
+        },
+        {
+          "title": "Basic Auth Page Access with Empty Credentials",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 5154,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-12T16:17:56.799Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\QA-Training\\automation-infogain\\test-results\\test-scenarios-basicauth-t-b8787-cess-with-Empty-Credentials-chromium\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "357eecb7a43d62f8f084-2ab4661fff964bb806d8",
+          "file": "test-scenarios/basicauth-tests.ts",
+          "line": 48,
+          "column": 5
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-08T06:08:51.689Z",
-    "duration": 3881.181999999797,
-    "expected": 1,
+    "startTime": "2026-01-12T16:17:55.863Z",
+    "duration": 6436.5160000000005,
+    "expected": 5,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

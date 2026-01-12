@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import { defineBddConfig } from 'playwright-bdd';
+import 'tsconfig-paths/register';
 const testDir = defineBddConfig({
   features: 'src/features/**/*.feature',
   steps: 'src/features/step-definitions/**/*.ts',
@@ -21,11 +22,11 @@ let lastname = ""
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  //testDir: './src',
+  testDir: './src',
 
   //testDir: testDir,
-  testDir: 'src/test-scenarios',
-  //testMatch: '**/*.ts',
+  //testDir: 'src/test-scenarios',
+  testMatch: '**/*.ts',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
