@@ -19,3 +19,11 @@ Then('I should see the Delete button', async ({page}) => {
 Then('I should be able to delete them', async ({page}) => {
   addRemovePage.removeElement;
 });
+
+When('I click on Add Element {int} times', async ({}, arg: number) => {
+ addRemovePage.addMultipleElements(5);
+});
+
+Then('I should see {int} Delete buttons', async ({}, arg: number) => {
+  await addRemovePage.verifyDeleteButtonCount(5);
+});

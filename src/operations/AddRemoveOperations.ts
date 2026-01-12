@@ -6,4 +6,5 @@ export interface AddRemoveOperations
     addElement():Promise<void>;
     addMultipleElements(num:number):Promise<void>;
     removeElement():Promise<void>;
+    verifyDeleteButtonCount(expectedCount:number):Promise<void>;
 }

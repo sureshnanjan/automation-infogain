@@ -1,5 +1,5 @@
 import { AddRemoveOperations } from "@src/operations/AddRemoveOperations";
-import {Page, Locator} from '@playwright/test';
+import {Page, expect, Locator} from '@playwright/test';
 export class AddRemovePage implements AddRemoveOperations {
     private readonly page;
     private readonly getHeadingSelector:Locator;
@@ -42,4 +42,7 @@ export class AddRemovePage implements AddRemoveOperations {
     async removeButtonVisible(): Promise<void>{
         await this.removeElementSelector.isVisible();
     }
-    }   
+    async verifyDeleteButtonCount(expectedCount: number): Promise<void> {
+    await expect(this.removeElementSelector).toHaveCount(expectedCount);
+    }  
+} 
