@@ -5,9 +5,12 @@ import { getBasicAuthPage } from '../utilities/herokuapp-utils';
 test('Basic Auth Page Access with Valid Credentials', async ( {page}) => {
   const username = 'admin';
   const password = 'admin';
+  const expectedTitle="Basic Auth";
   const exceptedMessage="Congratulations! You must have the proper credentials.";
   const basicAuthPage: BasicAuthPageOperations=await getBasicAuthPage(page);;
   basicAuthPage.doLogin(username, password);
+  const actualTitle= await basicAuthPage.getTitle();
+  expect(actualTitle).toContain(expectedTitle);
   const actualContent= await basicAuthPage.getStatusMessage();
   expect(actualContent).toContain(exceptedMessage);
 });

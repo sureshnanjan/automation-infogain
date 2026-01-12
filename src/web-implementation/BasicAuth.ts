@@ -4,10 +4,12 @@ import { Page ,Locator} from '@playwright/test';
 export class BasicAuth {
   private page: Page;
   private  statusMessageSelector:Locator;
+  private titleSelector:Locator;
 
   constructor(page:Page) {
     this.page = page;
     this.statusMessageSelector = this.page.locator('body');
+    this.titleSelector = this.page.locator('h3');
   }
 
   /**
@@ -36,5 +38,13 @@ export class BasicAuth {
    */
   async getStatusMessage(): Promise<string|null> {
     return this.statusMessageSelector.textContent();
+  }
+
+  /**
+   * Gets the title of the Basic Auth page
+   * @returns string
+   */
+  async getTitle():Promise<string| null>{
+    return this.titleSelector.textContent() || '';
   }
 }

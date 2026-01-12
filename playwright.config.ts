@@ -24,7 +24,7 @@ export default defineConfig({
   //testDir: './src',
 
   testDir: testDir,
- // testDir: './src',
+  //testDir: './src',
   //testMatch: '**/*.ts',
   /* Run tests in files in parallel */
   fullyParallel: true,

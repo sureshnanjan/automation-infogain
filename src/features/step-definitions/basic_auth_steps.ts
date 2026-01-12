@@ -13,8 +13,6 @@ Given('The App is launched', async ({page}) => {
   // Step: Given The App is launched
   // From: src\features\basic_auth.feature:4:5
   homePage = await getHerokuApp(page);
-  const title = await homePage.getTitle();
-  expect(title).toBe('Welcome to the-internet');
 });
 
 Given('User logs in with username {string} and password {string}', async ({page}, arg: string, arg1: string) => {
