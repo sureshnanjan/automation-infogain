@@ -20,6 +20,9 @@ export class HomePage extends BasePage implements HomePageOperations {
         //this.page.goto(getHerokuAppUrl());
         //this.navigate();
     }
+    setPageLocale(locale: string): Promise<void> {
+        throw new Error("Method not implemented.");
+    }
     // Only Holds good in Async Libraries
     static async create(page:Page) {
           const instance = new HomePage(page);
@@ -68,6 +71,9 @@ function CheckPageAndReturnPO(page, expectedTitle) {
             break;
         case 'Sortable Data Tables':
             return new (require('@src/web-implementation/SortableTablePage').SortableTablePage)(page);
+            break;
+        case 'Disappearing Elements':
+            return new (require('@src/web-implementation/DisappearingElementsPage').DisappearingElements)(page);
             break;
     
         default:
