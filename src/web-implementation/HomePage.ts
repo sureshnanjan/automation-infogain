@@ -59,6 +59,21 @@ export class HomePage extends BasePage implements HomePageOperations {
     }}   
 
 function CheckPageAndReturnPO(page, expectedTitle) {
+    switch (expectedTitle) {
+        case 'A/B Testing':
+            return new (require('@src/web-implementation/ABTestingPage').ABTestingPage)(page);
+            break;
+        case 'Basic Auth':
+            return new (require('@src/web-implementation/BasicAuthPage').BasicAuthPage)(page);
+            break;
+        case 'Sortable Data Tables':
+            return new (require('@src/web-implementation/SortableTablePage').SortableTablePage)(page);
+            break;
+    
+        default:
+            break;
+    }
+
     const abTestingPageModule = require('@src/web-implementation/ABTestingPage');
     // Exception Handling
     return new abTestingPageModule.ABTestingPage(page);

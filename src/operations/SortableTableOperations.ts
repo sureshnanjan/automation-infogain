@@ -1,4 +1,4 @@
-export interface SortableTables{
+export interface SortableTableOperation extends{    
     getTitle():string;
     getDescription():string;
     getExampleData(tablename:number):SortTableUser[]; // 
