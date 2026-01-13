@@ -33,4 +33,16 @@ export class ABTestingPage implements ABTestingOperations {
         const footer = await this.footerSelector.textContent();
         return footer;
     }
+    async enableABTesting(variantId: string): Promise<void> {
+        await this.page.context().clearCookies();
+        await this.page.context().addCookies([{
+            name: 'ab_testing_variant',
+            value: variantId,
+            domain: 'the-internet.herokuapp.com',   
+    
+    }]);
+    }
+    async disableABTesting(variantId: string): Promise<void> {
+        await this.page.context().clearCookies();
+    }   
 }

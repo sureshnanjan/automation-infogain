@@ -35,4 +35,12 @@ Then('header should match {string}', async ({}, arg: string) => {
     expect(actualResult).toEqual(arg);
 });
 
+Then('enable ABTesting variant with id {string}', async ({}, arg: string) => {   
+    await abTestingPage.enableABTesting(arg);
+});
+
+Then('disable ABTesting variant with id {string}', async ({}, arg: string) => {   
+    await abTestingPage.disableABTesting(arg);
+});
+
 

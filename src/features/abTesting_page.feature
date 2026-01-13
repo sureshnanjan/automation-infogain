@@ -17,3 +17,15 @@ Given User Visits HomePage
 Given User accesses ABTestingPage
 When User Observes footer
 Then footer should match "Powered by Elemental Selenium"
+
+Scenario: Disable AB Testing
+Given User Visits HomePage  
+Given User accesses ABTestingPage
+When User Disables AB Testing
+Then AB Testing should be disabled
+
+Scenario: Enable AB Testing
+Given User Visits HomePage  
+Given User accesses ABTestingPage
+When User Enables AB Testing
+Then AB Testing should be enabled
