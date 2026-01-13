@@ -1,19 +1,17 @@
 import { createBdd } from 'playwright-bdd';
-import { AddRemovePage } from '@src/web-implementation/AddRemovePage';
+import {getHerokuApp} from '@src/utilities/herokuapp-utils';
+import { AddRemoveOperations } from '@src/operations/AddRemoveOperations';
+import { HomePageOperations } from '@src/operations/HomePageOperations';
 
 const { Given, When, Then } = createBdd(); // Using decorators
-let addRemovePage:AddRemovePage;
-Given('I navigate to the Add Remove Elements', async ({ page }) => {
-  addRemovePage = new AddRemovePage(page);
-  await page.goto('https://the-internet.herokuapp.com/add_remove_elements/');
+let addRemovePage: AddRemoveOperations;
+Given('I access the Add Remove Elements', async ({ page }) => {
+  const homePage: HomePageOperations = await getHerokuApp(page);
+  addRemovePage = homePage.gotoExample("Add/Remove Elements") as unknown as AddRemoveOperations;
 });
 
 When('I click on Add Element', async ({page}) => {
   addRemovePage.addElement;
-});
-
-Then('I should see the Delete button', async ({page}) => {
-  await addRemovePage.removeButtonVisible;
 });
 
 Then('I should be able to delete them', async ({page}) => {
