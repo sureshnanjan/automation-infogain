@@ -41,9 +41,10 @@ test("Verify Home Page Footer Text",async({page})=>{});
 
 
 
-test("Navigate to Example Page from Home Page",async({page})=>{
+test("Navigate to Example Page from Home Page",async({page, context})=>{
     // Arrange
     const testPage = "A/B Testing"
+    //context.addCookies
     // Expected A/B Test Variation 1
     const homePage:HomePageOperations = await getHerokuApp(page); 
     // Factory Method Patter
@@ -58,4 +59,17 @@ test("Navigate to Example Page from Home Page",async({page})=>{
     const actual = returnPage.getTitle();
     // Assert
 
+});
+
+test("Autenication on Basic Page pagw works with correct credentials",async({page})=>{
+    const username = "admin";
+    const password = "admin";
+    const expected = "Congratulations! You must have the proper credentials.";
+    const hp:HomePageOperations = await getHerokuApp(page);
+    const basicAuthPage = await hp.gotoExample("Basic Auth") as unknown as ABTestingOperations;
+    basicAuthPage.doLogin(username,password);
+    const statusMessage= await basicAuthPage.getStatusMessage();
+});
+test("Autenication on Basic Page pagw does not works with incorrect credentials",async({page})=>{
+    
 });

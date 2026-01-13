@@ -1,0 +1,21 @@
+{
+  "staging": {
+    "url": "https://the-internet.herokuapp.com/",
+    "username": "testuser",
+    "password": "testpassword",
+    "browser": "chrome",
+    "platform": "windows"
+  },
+  "production": {
+    "url": "https://the-internet.herokuapp.com/",
+    "username": "testuser",
+    "password": "testpassword",
+    "browser": "chrome",
+    "platform": "windows"
+  },
+  "url": "https://the-internet.herokuapp.com/",
+  "username": "testuser",
+  "password": "testpassword",
+  "browser": "chrome",
+  "platform": "windows"
+}
