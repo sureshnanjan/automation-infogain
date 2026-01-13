@@ -11,6 +11,7 @@ interface FramesPageOperations extends HerokuAppOperations {
     getTopMiddle(): Promise<string | null>;
     getTopRight(): Promise<string | null>;
     getBottom(): Promise<string | null>;
+    closePopupIfPresent(): Promise<void>;
 }
     
 

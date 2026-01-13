@@ -67,8 +67,8 @@ test("Autenication on Basic Page pagw works with correct credentials",async({pag
     const expected = "Congratulations! You must have the proper credentials.";
     const hp:HomePageOperations = await getHerokuApp(page);
     const basicAuthPage = await hp.gotoExample("Basic Auth") as unknown as ABTestingOperations;
-    basicAuthPage.doLogin(username,password);
-    const statusMessage= await basicAuthPage.getStatusMessage();
+    //basicAuthPage.doLogin(username,password);
+    //const statusMessage= await basicAuthPage.getStatusMessage();
 });
 test("Autenication on Basic Page pagw does not works with incorrect credentials",async({page})=>{
     

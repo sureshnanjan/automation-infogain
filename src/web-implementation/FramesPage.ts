@@ -8,18 +8,18 @@ export class FramesPage implements FramesPageOperations {
   readonly pageTitle: Locator;
   readonly nestedFramesLink: Locator;
   readonly iFrameLink: Locator;
-
+  readonly closeButton: Locator;
   constructor(page: Page) {
     this.page = page;
     this.pageTitle = page.locator('h3');
     this.nestedFramesLink = page.locator('a[href="/nested_frames"]');
     this.iFrameLink = page.locator('a[href="/iframe"]');
-    
+    this.closeButton = page.locator('button:has-text("Close"), [aria-label="Close"]');
   }
   async closePopupIfPresent(): Promise<void> {
-    const closeButton = this.page.locator('button:has-text("Close"), [aria-label="Close"]');
-    if (await closeButton.isVisible({ timeout: 1000 }).catch(() => false)) {
-      await closeButton.click();
+
+    if (await this.closeButton.isVisible({ timeout: 1000 }).catch(() => false)) {
+      await this.closeButton.click();
     }
   }
   async getRepoURL(): Promise<string> {

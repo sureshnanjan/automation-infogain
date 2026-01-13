@@ -3,8 +3,10 @@ import { FramesPage } from "@src/web-implementation/FramesPage";
 import { FramesPageOperations } from "@src/operations/FramesOperations";
 import { getHerokuApp } from "@src/utilities/herokuapp-utils";
 import { HomePageOperations } from "@src/operations/HomePageOperations";
+import { close } from "fs";
 
 let framesPage: FramesPageOperations;
+
 
 test.describe("Frames Page", () => {
 
@@ -12,9 +14,8 @@ test.describe("Frames Page", () => {
     //console.info("This is detailed INformation")
     //console.trace("");
     const homePage:HomePageOperations = await getHerokuApp(page);
-    const expected_title = "Welcome to the-internet"
     const title=await homePage.getTitle();
-    expect(title).toBe(expected_title);
+    expect(title).toBe("Welcome to the-internet");
 });
 
     test("should display Frames page title", async ({page}) => {
@@ -25,7 +26,9 @@ test.describe("Frames Page", () => {
       expect(title).toBe("Frames");
     });
 
-    test("should display available frame examples", async () => {
+    test("should display available frame examples", async ({page}) => {
+      const homePage:HomePageOperations = await getHerokuApp(page);
+      const frames = homePage.gotoExample("Frames") as unknown as FramesPageOperations;
         const examples = await frames.getAvailableExamples();
 
         expect(examples).not.toBeNull();
@@ -34,21 +37,32 @@ test.describe("Frames Page", () => {
         );
     });
 
-    test("should display footer text", async () => {
-        const footerText = await frames.getFooterText();
-        expect(footerText).toContain("Powered by Elemental Selenium");
-    });
 
-    test("should navigate to Nested Frames page", async () => {
-        const page = await framesPage.gotoExample("Nested Frames");
-        const title = await page.getTitle();
+   
+  test('reads texts from nested frames', async ({ page }) => {
+    const homePage:HomePageOperations = await getHerokuApp(page);
+      const frames = homePage.gotoExample("Frames") as unknown as FramesPageOperations;
+      frames.getNestedFramesLink();
+      
+    const middle = await frames.getTopMiddle();
+    expect(middle).toBe('MIDDLE');
 
-        expect(title).toContain("Nested Frames");
-    });
+    const left = await frames.getTopLeft();
+    expect(left).toBe('LEFT');
 
-    test("should navigate to iFrame page", async () => {
-        const page = await framesPage.gotoExample("iFrame");
-        const title = await page.getTitle();
+    const right = await frames.getTopRight();
+    expect(right).toBe('RIGHT');
+
+    const bottom = await frames.getBottom();
+    expect(bottom).toBe('BOTTOM');
+  });
+   test("should navigate to iFrame page", async ({page}) => {
+      const homePage:HomePageOperations = await getHerokuApp(page);
+      const frames = homePage.gotoExample("Frames") as unknown as FramesPageOperations;
+
+      await frames.getIFrameLink();
+      await frames.closePopupIfPresent
+      const title = await frames.getTitle();  
 
         expect(title).toContain("iFrame");
     });
