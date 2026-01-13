@@ -4,8 +4,14 @@ import { HerokuAppOperations } from "@src/operations/HerokuAppOperations";
 interface FramesPageOperations extends HerokuAppOperations {
     getTitle(): Promise<string | null>;
     getAvailableExamples(): Promise<string[] | null>;
-    getFooterText(): Promise<string | null>;
-    gotoExample(exampleName: string): Promise<HerokuAppOperations>;
+    getNestedFramesLink(): Promise<void>;
+    getIFrameLink(): Promise<void>;
+    getFrameBodyTextByName(frameName: string): Promise<string | null>;
+    getTopLeft(): Promise<string | null>;
+    getTopMiddle(): Promise<string | null>;
+    getTopRight(): Promise<string | null>;
+    getBottom(): Promise<string | null>;
 }
+    
 
 export type { FramesPageOperations };

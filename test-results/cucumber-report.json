@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "C:\\Trainings-2025\\infogain\\automation-infogain\\playwright.config.ts",
-    "rootDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios",
+    "configFile": "C:\\Users\\ALedaskar\\automation-infogain\\playwright.config.ts",
+    "rootDir": "C:/Users/ALedaskar/automation-infogain/src/test-scenarios",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -10,9 +10,7 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {
-      "actualWorkers": 1
-    },
+    "metadata": {},
     "preserveOutput": "always",
     "reporter": [
       [
@@ -33,15 +31,13 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
+        "outputDir": "C:/Users/ALedaskar/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
+        "metadata": {},
         "id": "chromium",
         "name": "chromium",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios",
+        "testDir": "C:/Users/ALedaskar/automation-infogain/src/test-scenarios",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -49,15 +45,13 @@
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
+        "outputDir": "C:/Users/ALedaskar/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
+        "metadata": {},
         "id": "firefox",
         "name": "firefox",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios",
+        "testDir": "C:/Users/ALedaskar/automation-infogain/src/test-scenarios",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -65,15 +59,13 @@
         "timeout": 30000
       },
       {
-        "outputDir": "C:/Trainings-2025/infogain/automation-infogain/test-results",
+        "outputDir": "C:/Users/ALedaskar/automation-infogain/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
+        "metadata": {},
         "id": "webkit",
         "name": "webkit",
-        "testDir": "C:/Trainings-2025/infogain/automation-infogain/src/test-scenarios",
+        "testDir": "C:/Users/ALedaskar/automation-infogain/src/test-scenarios",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -89,77 +81,17 @@
     "workers": 4,
     "webServer": null
   },
-  "suites": [
+  "suites": [],
+  "errors": [
     {
-      "title": "network_intercepts.spec.ts",
-      "file": "network_intercepts.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [
-        {
-          "title": "page.route does not affect APIRequestContext",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 7,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 1083,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "TAP version 13\n"
-                    },
-                    {
-                      "text": "# Subtest: Network Intercepts and Mocks\n"
-                    },
-                    {
-                      "text": "ok 1 - Network Intercepts and Mocks\n"
-                    },
-                    {
-                      "text": "  ---\n  duration_ms: 0.6613\n  type: 'suite'\n  ...\n"
-                    },
-                    {
-                      "text": "Leanne Graham\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-01-08T06:08:53.990Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "C:\\Trainings-2025\\infogain\\automation-infogain\\test-results\\network_intercepts-page-ro-9ca63-ot-affect-APIRequestContext-chromium\\trace.zip"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "43026733a28354993faa-69b58c736fb63e555f6d",
-          "file": "network_intercepts.spec.ts",
-          "line": 92,
-          "column": 9
-        }
-      ]
+      "message": "Error: No tests found.\nMake sure that arguments are regular expressions matching test files.\nYou may need to escape symbols like \"$\" or \"*\" and quote the arguments.",
+      "stack": "Error: No tests found.\nMake sure that arguments are regular expressions matching test files.\nYou may need to escape symbols like \"$\" or \"*\" and quote the arguments."
     }
   ],
-  "errors": [],
   "stats": {
-    "startTime": "2026-01-08T06:08:51.689Z",
-    "duration": 3881.181999999797,
-    "expected": 1,
+    "startTime": "2026-01-13T04:21:08.386Z",
+    "duration": 33.96399999999994,
+    "expected": 0,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

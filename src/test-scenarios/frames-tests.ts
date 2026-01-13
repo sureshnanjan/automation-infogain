@@ -1,23 +1,32 @@
 import { test, expect } from "@playwright/test";
-import { FramesPage } from "@src/pages/FramesPage";
-import { FramesPageOperations } from "@src/operations/FramesPageOperations";
+import { FramesPage } from "@src/web-implementation/FramesPage";
+import { FramesPageOperations } from "@src/operations/FramesOperations";
+import { getHerokuApp } from "@src/utilities/herokuapp-utils";
+import { HomePageOperations } from "@src/operations/HomePageOperations";
 
 let framesPage: FramesPageOperations;
 
 test.describe("Frames Page", () => {
 
-    test.beforeEach(async ({ page }) => {
-        framesPage = new FramesPage(page);
-        await framesPage.open(); // from HerokuAppOperations
-    });
+  test("Verify Home Page Title",async({page})=>{
+    //console.info("This is detailed INformation")
+    //console.trace("");
+    const homePage:HomePageOperations = await getHerokuApp(page);
+    const expected_title = "Welcome to the-internet"
+    const title=await homePage.getTitle();
+    expect(title).toBe(expected_title);
+});
 
-    test("should display Frames page title", async () => {
-        const title = await framesPage.getTitle();
-        expect(title).toBe("Frames");
+    test("should display Frames page title", async ({page}) => {
+      const homePage:HomePageOperations = await getHerokuApp(page);
+      const frames = homePage.gotoExample("Frames") as unknown as FramesPageOperations;
+      const title = await frames.getTitle();
+
+      expect(title).toBe("Frames");
     });
 
     test("should display available frame examples", async () => {
-        const examples = await framesPage.getAvailableExamples();
+        const examples = await frames.getAvailableExamples();
 
         expect(examples).not.toBeNull();
         expect(examples).toEqual(
@@ -26,7 +35,7 @@ test.describe("Frames Page", () => {
     });
 
     test("should display footer text", async () => {
-        const footerText = await framesPage.getFooterText();
+        const footerText = await frames.getFooterText();
         expect(footerText).toContain("Powered by Elemental Selenium");
     });
 
